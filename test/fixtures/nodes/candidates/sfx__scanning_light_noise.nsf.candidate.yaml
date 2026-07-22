@@ -1,0 +1,356 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: sfx/scanning_light_noise.nsf
+# 节点总数: 63
+input: sfx/scanning_light_noise.nsf
+
+expected_nodes:
+  - kind: Uniform
+    name: u_world_high
+    line: 7
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_range_up
+    line: 17
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_range_up_power
+    line: 27
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_range_down
+    line: 37
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_range_down_power
+    line: 47
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_normal_offset
+    line: 57
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_noise_tiling_x
+    line: 68
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_noise_tiling_y
+    line: 75
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_noise_speed_x
+    line: 82
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_noise_speed_y
+    line: 89
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_noise_dissolve
+    line: 96
+    type: float
+    has_annotation: true
+    default: 0.2
+  - kind: Uniform
+    name: u_noise_color_up
+    line: 106
+    type: float4
+    has_annotation: true
+    default: {1.0f,0.0f,0.0f,1.0f}
+  - kind: Uniform
+    name: u_noise_color_down
+    line: 113
+    type: float4
+    has_annotation: true
+    default: {0.0f,1.0f,0.0f,1.0f}
+  - kind: Uniform
+    name: u_noise_color_up_intensity
+    line: 120
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_noise_color_down_intensity
+    line: 129
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_noise_alpha_up_intensity
+    line: 138
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_noise_alpha_down_intensity
+    line: 147
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_gradient_offset
+    line: 156
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_gradient_scale
+    line: 165
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_edge_tiling_x
+    line: 175
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_edge_tiling_y
+    line: 182
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_edge_speed_x
+    line: 189
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_edge_speed_y
+    line: 196
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_edge_dissolve
+    line: 203
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_edge_width
+    line: 213
+    type: float
+    has_annotation: true
+    default: 0.2
+  - kind: Uniform
+    name: u_black_edge_width
+    line: 222
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_edge_color
+    line: 231
+    type: float4
+    has_annotation: true
+    default: {1.0f,0.0f,0.0f,1.0f}
+  - kind: Uniform
+    name: u_edge_color_intensity
+    line: 238
+    type: float
+    has_annotation: true
+    default: 10.0
+  - kind: Uniform
+    name: u_dissolve_tiling_x
+    line: 248
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_dissolve_tiling_y
+    line: 255
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_dissolve_speed_x
+    line: 262
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_speed_y
+    line: 269
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_amount
+    line: 276
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_dissolve_smoothness
+    line: 286
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_distort_tiling_x
+    line: 297
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort_tiling_y
+    line: 304
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort_speed_x
+    line: 311
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort_speed_y
+    line: 318
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort_intensity_x
+    line: 325
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort_intensity_y
+    line: 332
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Texture
+    name: Tex0
+    line: 340
+    texture_type: texture
+    semantic: DiffuseMap
+  - kind: SamplerState
+    name: s_diffuse
+    line: 341
+    state_count: 0
+  - kind: Texture
+    name: t_noise_map
+    line: 345
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_noise_map
+    line: 351
+    state_count: 2
+  - kind: Texture
+    name: t_edge_map
+    line: 357
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_edge_map
+    line: 363
+    state_count: 2
+  - kind: Texture
+    name: t_dissolve_map
+    line: 369
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_dissolve_map
+    line: 375
+    state_count: 2
+  - kind: Texture
+    name: t_distort_map
+    line: 381
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_distort_map
+    line: 387
+    state_count: 2
+  - kind: Struct
+    name: PS_INPUT
+    line: 395
+    field_count: 3
+  - kind: Function
+    name: Inverse
+    line: 404
+    return_type: float4x4
+    param_count: 1
+  - kind: Function
+    name: GetCameraDirection
+    line: 443
+    return_type: float3
+  - kind: Function
+    name: GetProjectUV
+    line: 449
+    return_type: half2
+    param_count: 2
+  - kind: Function
+    name: GetNoiseUV
+    line: 476
+    return_type: half2
+    param_count: 1
+  - kind: Function
+    name: GetEdgeUV
+    line: 484
+    return_type: half2
+    param_count: 1
+  - kind: Function
+    name: GetDissolveUV
+    line: 492
+    return_type: half2
+    param_count: 1
+  - kind: Function
+    name: GetDistortOffset
+    line: 500
+    return_type: half2
+    param_count: 1
+  - kind: Function
+    name: GetNoiseValue
+    line: 510
+    return_type: void
+    param_count: 4
+  - kind: Function
+    name: GetDissolveValue
+    line: 529
+    return_type: half
+    param_count: 2
+  - kind: Function
+    name: vs_main
+    line: 539
+    return_type: PS_INPUT
+    stage: vertex
+    param_count: 1
+  - kind: Function
+    name: ps_main
+    line: 561
+    return_type: half4
+    stage: pixel
+    param_count: 1
+  - kind: Technique
+    name: TShader
+    line: 624
+    pass_count: 1
+    has_annotation: true

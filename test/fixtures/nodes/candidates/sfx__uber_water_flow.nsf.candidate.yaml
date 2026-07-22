@@ -1,0 +1,591 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: sfx/uber_water_flow.nsf
+# 节点总数: 102
+input: sfx/uber_water_flow.nsf
+
+expected_nodes:
+  - kind: Struct
+    name: VS_INPUT
+    line: 1
+    field_count: 1
+  - kind: Struct
+    name: PS_INPUT
+    line: 7
+    field_count: 8
+  - kind: Uniform
+    name: u_emissivecolor
+    line: 46
+    type: float4
+    has_annotation: true
+    default: {1.0f,1.0f,1.0f,1.0f}
+  - kind: Uniform
+    name: u_emissive_power
+    line: 53
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissive_highlight_intensity
+    line: 61
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_emissive_grey_intensity
+    line: 69
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_emissive_mix
+    line: 77
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_mask_intensity
+    line: 87
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_mask_power
+    line: 95
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_min_opacity
+    line: 103
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_max_opacity
+    line: 113
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_all_opacity
+    line: 122
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_opacity_distort
+    line: 131
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissive_desaturate
+    line: 141
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_color_distort
+    line: 151
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_diffuse_tilling_x
+    line: 159
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_diffuse_tilling_y
+    line: 166
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_diffuse_offset_x
+    line: 173
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_diffuse_offset_y
+    line: 180
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_diffuse_speed_x
+    line: 187
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_diffuse_speed_y
+    line: 194
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_basecolor
+    line: 200
+    type: float4
+    has_annotation: true
+    default: {1.0f,1.0f,1.0f,1.0f}
+  - kind: Uniform
+    name: u_dark_color
+    line: 208
+    type: float4
+    has_annotation: true
+    default: {0.0f,0.0f,0.0f,1.0f}
+  - kind: Uniform
+    name: u_dark_range
+    line: 215
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_normal_tilling_x
+    line: 226
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_normal_tilling_y
+    line: 233
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_normal_offset_x
+    line: 240
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_normal_offset_y
+    line: 247
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_normal_speed_x
+    line: 254
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_normal_speed_y
+    line: 261
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_normal_intensity
+    line: 268
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_normal_distort
+    line: 275
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_roughness
+    line: 282
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_dissolve_intensity_tilling
+    line: 292
+    type: float2
+    has_annotation: true
+    default: {1.0f,1.0f}
+  - kind: Uniform
+    name: u_dissolve_intensity_offset_x
+    line: 299
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_intensity_offset_y
+    line: 306
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_intensity_rotation
+    line: 313
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_tilling_x
+    line: 324
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_dissolve_tilling_y
+    line: 331
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_dissolve_offset_x
+    line: 339
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_offset_y
+    line: 346
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_speed_x
+    line: 355
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_speed_y
+    line: 362
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_amount
+    line: 369
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_edge
+    line: 380
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_height_uv_offset
+    line: 389
+    type: float
+    has_annotation: true
+    default: 0.005
+  - kind: Uniform
+    name: u_height_normal_intensity
+    line: 396
+    type: float
+    has_annotation: true
+    default: 8.0
+  - kind: Uniform
+    name: u_dissolve_intensity_min
+    line: 404
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_intensity_max
+    line: 411
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_dissolve_tilling_x_2
+    line: 418
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_dissolve_tilling_y_2
+    line: 425
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_dissolve_offset_x_2
+    line: 431
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_offset_y_2
+    line: 438
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_speed_x_2
+    line: 444
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_speed_y_2
+    line: 451
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_amount_2
+    line: 458
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_edge_2
+    line: 468
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_height_uv_offset_2
+    line: 478
+    type: float
+    has_annotation: true
+    default: 0.005
+  - kind: Uniform
+    name: u_height_normal_intensity_2
+    line: 485
+    type: float
+    has_annotation: true
+    default: 8.0
+  - kind: Uniform
+    name: u_dissolve2_intensity_min
+    line: 492
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve2_intensity_max
+    line: 499
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_fresnelcolor
+    line: 506
+    type: float4
+    has_annotation: true
+    default: {1.0f,1.0f,1.0f,1.0f}
+  - kind: Uniform
+    name: u_fresnelcolor_intensity
+    line: 513
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_fresnel_width
+    line: 521
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort_tilling_x
+    line: 534
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort_tilling_y
+    line: 541
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort_offset_x
+    line: 548
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort_offset_y
+    line: 555
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distortion_speed_x
+    line: 562
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distortion_speed_y
+    line: 569
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort_uv_intensity
+    line: 576
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort_uv_intensity_x
+    line: 584
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort_uv_intensity_y
+    line: 591
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_caustic_distort_intensity
+    line: 599
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_caustic_scale
+    line: 607
+    type: float2
+    has_annotation: true
+    default: {1.0f,1.0f}
+  - kind: Uniform
+    name: u_caustic_speed
+    line: 616
+    type: float2
+    has_annotation: true
+    default: {0.1,0.01}
+  - kind: Uniform
+    name: u_caustic_min
+    line: 623
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_caustic_max
+    line: 630
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_caustic_color
+    line: 638
+    type: float4
+    has_annotation: true
+    default: {1.0f,1.0f,1.0f,1.0f}
+  - kind: Uniform
+    name: u_direct_color
+    line: 649
+    type: float4
+    has_annotation: true
+    default: {1.0f,1.0f,1.0f,1.0f}
+  - kind: Uniform
+    name: u_specular_intensity
+    line: 656
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_custom_lightdir
+    line: 664
+    type: float4
+    has_annotation: true
+    default: {0.0,0.0,0.0,0.0}
+  - kind: Texture
+    name: Tex0
+    line: 721
+    texture_type: texture
+    semantic: DiffuseMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_diffuse
+    line: 726
+    state_count: 4
+  - kind: Texture
+    name: t_dissolve_intensity
+    line: 736
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_dissolve_intensity
+    line: 743
+    state_count: 3
+  - kind: Texture
+    name: NormalMap
+    line: 753
+    texture_type: texture
+    semantic: NormalMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_normalmap
+    line: 758
+    state_count: 3
+  - kind: Texture
+    name: t_caustic
+    line: 765
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_caustic
+    line: 772
+    state_count: 3
+  - kind: Texture
+    name: t_dissolve_texture
+    line: 780
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_dissolve_texture
+    line: 788
+    state_count: 3
+  - kind: Texture
+    name: t_dissolve_texture2
+    line: 797
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_dissolve_texture2
+    line: 805
+    state_count: 3
+  - kind: Texture
+    name: t_distort_texture
+    line: 812
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_distort_texture
+    line: 820
+    state_count: 3
+  - kind: Function
+    name: vs_main
+    line: 1062
+    return_type: PS_INPUT
+    stage: vertex
+    param_count: 1
+  - kind: Function
+    name: BlendNormal
+    line: 1099
+    return_type: half3
+    param_count: 2
+  - kind: Function
+    name: remap
+    line: 1111
+    return_type: float
+    param_count: 5
+  - kind: Function
+    name: DissolveHeight2Normal
+    line: 1117
+    return_type: void
+    param_count: 18
+  - kind: Function
+    name: ps_main
+    line: 1158
+    return_type: half4
+    stage: pixel
+    param_count: 2
+  - kind: Technique
+    name: TShader
+    line: 1659
+    pass_count: 1
+    has_annotation: true

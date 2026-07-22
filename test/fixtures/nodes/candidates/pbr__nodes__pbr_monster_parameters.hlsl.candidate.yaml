@@ -1,0 +1,533 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: pbr/nodes/pbr_monster_parameters.hlsl
+# 节点总数: 92
+input: pbr/nodes/pbr_monster_parameters.hlsl
+
+expected_nodes:
+  - kind: Texture
+    name: Tex0
+    line: 85
+    texture_type: texture
+    semantic: DiffuseMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_diffuse
+    line: 90
+    state_count: 4
+  - kind: Texture
+    name: NormalMap
+    line: 98
+    texture_type: texture
+    semantic: NormalMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_normalmap
+    line: 103
+    state_count: 3
+  - kind: Texture
+    name: ParamMap
+    line: 110
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_parammap
+    line: 115
+    state_count: 1
+  - kind: Texture
+    name: t_monster_curvature
+    line: 120
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_monster_curvature
+    line: 126
+    state_count: 2
+  - kind: Texture
+    name: limb_mask
+    line: 131
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_limb_mask
+    line: 137
+    state_count: 1
+  - kind: Uniform
+    name: u_subsurface_color
+    line: 142
+    type: float4
+    has_annotation: true
+    default: { 0.1569f, 0.102f, 0.102f, 1.0f }
+  - kind: Uniform
+    name: u_emissive_color_saturation
+    line: 156
+    type: float4
+    has_annotation: true
+    default: { 1.0f, 1.0f, 1.0f, 0.0f }
+  - kind: Uniform
+    name: u_emissive_strength
+    line: 163
+    type: float
+    has_annotation: true
+    default: 5.0
+  - kind: Uniform
+    name: u_blood_on
+    line: 173
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: base_color_blood
+    line: 183
+    type: float4
+    has_annotation: true
+    default: {1.0f, 1.0f, 1.0f, 0.0f }
+  - kind: Uniform
+    name: u_bleed_all
+    line: 190
+    type: float
+    has_annotation: true
+    default: 100.0
+  - kind: Uniform
+    name: u_limbs_on
+    line: 201
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_limb_id
+    line: 211
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_bleed_intensity
+    line: 221
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Texture
+    name: emissive_tex
+    line: 235
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_emissive_tex
+    line: 241
+    state_count: 1
+  - kind: Texture
+    name: emissive_tex_edge
+    line: 248
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_emissive_tex_edge
+    line: 254
+    state_count: 1
+  - kind: Texture
+    name: distort_tex1
+    line: 261
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_distort_tex1
+    line: 267
+    state_count: 1
+  - kind: Uniform
+    name: u_emssive_noise_color
+    line: 274
+    type: float4
+    has_annotation: true
+    default: {1.0f, 1.0f, 1.0f, 0.0f }
+  - kind: Uniform
+    name: u_emissietex_des
+    line: 284
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissietex_intensity
+    line: 295
+    type: float
+    has_annotation: true
+    default: 10.0
+  - kind: Uniform
+    name: u_emissietex_power
+    line: 303
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissietex_tilling_x
+    line: 315
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissietex_tilling_y
+    line: 325
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissietex_offest_x
+    line: 335
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissietex_offest_y
+    line: 345
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissietex_speed_x
+    line: 355
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_emissietex_speed_y
+    line: 365
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_emissietex_bumpoffest
+    line: 376
+    type: float
+    has_annotation: true
+    default: 0.001
+  - kind: Uniform
+    name: u_emissietex_rotate
+    line: 383
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort1_intensity
+    line: 401
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort1u_intensity
+    line: 410
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort1v_intensity
+    line: 419
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort1_tilling_x
+    line: 429
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort1_tilling_y
+    line: 439
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort1_offest_x
+    line: 449
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort1_offest_y
+    line: 459
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort1_speed_x
+    line: 469
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort1_speed_y
+    line: 479
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_bood_vessel_tilling
+    line: 490
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_breath_speed1
+    line: 510
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_light_max
+    line: 520
+    type: float
+    has_annotation: true
+    default: 1.5
+  - kind: Uniform
+    name: u_light_min
+    line: 531
+    type: float
+    has_annotation: true
+    default: 0.8
+  - kind: Uniform
+    name: u_breath_on
+    line: 540
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_test_on
+    line: 553
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Texture
+    name: grow_alpha_mask
+    line: 566
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_grow_alpha_mask
+    line: 572
+    state_count: 1
+  - kind: Uniform
+    name: u_grow_noise_intensity
+    line: 596
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_grow_noise_tilling_x
+    line: 607
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_grow_noise_tilling_y
+    line: 617
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_grow_noise_offest_x
+    line: 627
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_grow_noise_offest_y
+    line: 637
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_grow_noise_speed_x
+    line: 647
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_grow_noise_speed_y
+    line: 657
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_grow_control
+    line: 667
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_grow_mask_offest_x
+    line: 677
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_grow_mask_offest_y
+    line: 687
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_grow_threshold
+    line: 696
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_edge_glow_width
+    line: 708
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_grow_id
+    line: 720
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort2_intensity
+    line: 747
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort2u_intensity
+    line: 756
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort2v_intensity
+    line: 765
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort2_tilling_x
+    line: 775
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort2_tilling_y
+    line: 785
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort2_offest_x
+    line: 795
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort2_offest_y
+    line: 805
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort2_speed_x
+    line: 815
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort2_speed_y
+    line: 825
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emssive2_noise_color
+    line: 838
+    type: float4
+    has_annotation: true
+    default: {1.0f, 1.0f, 1.0f, 0.0f }
+  - kind: Uniform
+    name: u_emissietex2_des
+    line: 848
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissietex2_intensity
+    line: 859
+    type: float
+    has_annotation: true
+    default: 10.0
+  - kind: Uniform
+    name: u_emissietex2_power
+    line: 867
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissietex2_tilling_x
+    line: 879
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissietex2_tilling_y
+    line: 889
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissietex2_offest_x
+    line: 899
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissietex2_offest_y
+    line: 909
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissietex2_speed_x
+    line: 919
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_emissietex2_speed_y
+    line: 929
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_emissietex2_bumpoffest
+    line: 940
+    type: float
+    has_annotation: true
+    default: 0.001
+  - kind: Uniform
+    name: u_emissietex2_rotate
+    line: 947
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_breath_speed2
+    line: 959
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_light_max2
+    line: 969
+    type: float
+    has_annotation: true
+    default: 1.5
+  - kind: Uniform
+    name: u_light_min2
+    line: 980
+    type: float
+    has_annotation: true
+    default: 0.8
+  - kind: Uniform
+    name: u_breath_on2
+    line: 989
+    type: float
+    has_annotation: true
+    default: 1.0

@@ -1,0 +1,42 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: common_pipeline/allocate_voxel_surfel_cluster.nsf
+# 节点总数: 8
+input: common_pipeline/allocate_voxel_surfel_cluster.nsf
+
+expected_nodes:
+  - kind: Struct
+    name: DebugInfo
+    line: 20
+    field_count: 3
+  - kind: Struct
+    name: Info0
+    line: 28
+    field_count: 1
+  - kind: Struct
+    name: Info1
+    line: 33
+    field_count: 1
+  - kind: Struct
+    name: Info2
+    line: 38
+    field_count: 1
+  - kind: Struct
+    name: Info3
+    line: 43
+    field_count: 1
+  - kind: Struct
+    name: Info4
+    line: 47
+    field_count: 1
+  - kind: Function
+    name: cs_main
+    line: 69
+    return_type: void
+    stage: compute
+    param_count: 4
+    attributes: ['[numthreads(BLOCK_SIZE, BLOCK_SIZE, 1)]']
+  - kind: Technique
+    name: TShader
+    line: 129
+    pass_count: 1
+    has_annotation: true

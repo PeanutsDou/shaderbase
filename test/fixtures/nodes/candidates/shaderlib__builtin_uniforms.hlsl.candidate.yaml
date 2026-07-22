@@ -1,0 +1,431 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: shaderlib/builtin_uniforms.hlsl
+# 节点总数: 104
+input: shaderlib/builtin_uniforms.hlsl
+
+expected_nodes:
+  - kind: CBuffer
+    name: GlobalConstants1
+    line: 4
+    field_count: 114
+    semantic: register( b1 )
+  - kind: CBuffer
+    name: GlobalConstants2
+    line: 164
+    field_count: 23
+    semantic: register( b2 )
+  - kind: CBuffer
+    name: GlobalConstants3
+    line: 191
+    field_count: 7
+    semantic: register( b3)
+  - kind: CBuffer
+    name: GlobalConstants4
+    line: 213
+    field_count: 28
+    semantic: register(b4)
+  - kind: Texture
+    name: t_skin_bone_animation
+    line: 331
+    texture_type: Texture2D
+  - kind: SamplerState
+    name: s_skin_bone_animation
+    line: 332
+    state_count: 3
+  - kind: Texture
+    name: t_skin_bone_animation_lastframe
+    line: 339
+    texture_type: Texture2D
+  - kind: SamplerState
+    name: s_skin_bone_animation_lastframe
+    line: 340
+    state_count: 3
+  - kind: Texture
+    name: PointLightMap
+    line: 347
+    texture_type: texture
+    semantic: PointLitMap
+  - kind: SamplerState
+    name: SamPointLight
+    line: 348
+    state_count: 3
+  - kind: Texture
+    name: LightMap
+    line: 355
+    texture_type: texture
+    semantic: LightMap
+  - kind: SamplerState
+    name: SamLightMap
+    line: 356
+    state_count: 0
+  - kind: Texture
+    name: AHDMap
+    line: 357
+    texture_type: texture
+    semantic: AHDMap
+  - kind: SamplerState
+    name: SamAHDMap
+    line: 358
+    state_count: 3
+  - kind: Texture
+    name: LightMapShadow
+    line: 365
+    texture_type: texture
+    semantic: LightMapShadow
+  - kind: SamplerState
+    name: SamLightMapShadow
+    line: 366
+    state_count: 0
+  - kind: Texture
+    name: ShadowMap
+    line: 368
+    texture_type: Texture2DArray
+  - kind: Function
+    name: SamShadowMap
+    line: 369
+    return_type: SamplerComparisonState
+  - kind: Texture
+    name: t_shadow_mask
+    line: 376
+    texture_type: Texture2D
+  - kind: SamplerState
+    name: s_shadow_mask
+    line: 377
+    state_count: 3
+  - kind: Texture
+    name: t_vlm_indirect
+    line: 388
+    texture_type: Texture3D
+  - kind: SamplerState
+    name: s_vlm_indirect
+    line: 389
+    state_count: 1
+  - kind: Texture
+    name: t_clustered_map
+    line: 397
+    texture_type: Texture3D
+  - kind: SamplerState
+    name: s_clustered_map
+    line: 398
+    state_count: 4
+  - kind: Texture
+    name: t_real_clustered_map
+    line: 410
+    texture_type: Texture3D
+  - kind: SamplerState
+    name: s_real_clustered_map
+    line: 411
+    state_count: 4
+  - kind: Texture
+    name: t_fow_buffer
+    line: 421
+    texture_type: Texture2D
+  - kind: SamplerState
+    name: s_fow_buffer
+    line: 423
+    state_count: 3
+  - kind: Texture
+    name: t_vlm_ambient_vec
+    line: 430
+    texture_type: Texture3D
+  - kind: SamplerState
+    name: s_vlm_ambient_vec
+    line: 431
+    state_count: 0
+  - kind: Texture
+    name: t_vlm_ambient_vec_pt
+    line: 433
+    texture_type: Texture3D
+  - kind: SamplerState
+    name: s_vlm_ambient_vec_pt
+    line: 434
+    state_count: 4
+  - kind: Texture
+    name: t_vlm_sh_rgb
+    line: 442
+    texture_type: Texture3D
+  - kind: SamplerState
+    name: s_vlm_sh_rgb
+    line: 443
+    state_count: 0
+  - kind: Texture
+    name: t_vlm_depth_vec
+    line: 445
+    texture_type: Texture3D
+  - kind: SamplerState
+    name: s_vlm_depth
+    line: 446
+    state_count: 4
+  - kind: Texture
+    name: t_vlm_buffer
+    line: 454
+    texture_type: Texture2D
+  - kind: SamplerState
+    name: s_vlm_buffer
+    line: 455
+    state_count: 3
+  - kind: Texture
+    name: t_locallight_atlas_shadowmap
+    line: 462
+    texture_type: Texture2D
+  - kind: Function
+    name: s_locallight_atlas_shadowmap
+    line: 463
+    return_type: SamplerComparisonState
+  - kind: Texture
+    name: t_shadow_height_map
+    line: 470
+    texture_type: Texture2D
+  - kind: SamplerState
+    name: s_shadow_height_map
+    line: 471
+    state_count: 3
+  - kind: Texture
+    name: t_prev_heightmap_shadow
+    line: 478
+    texture_type: Texture2D
+  - kind: SamplerState
+    name: s_prev_heightmap_shadow
+    line: 479
+    state_count: 3
+  - kind: Texture
+    name: t_prev_indirect_lighting
+    line: 486
+    texture_type: Texture2D
+  - kind: SamplerState
+    name: s_prev_indirect_lighting
+    line: 487
+    state_count: 3
+  - kind: Texture
+    name: t_probe_irradiance_cache_global
+    line: 494
+    texture_type: texture
+    semantic: ProbeIrradianceCacheGlobal
+  - kind: SamplerState
+    name: s_probe_irradiance_cache_global
+    line: 495
+    state_count: 3
+  - kind: Texture
+    name: t_volumtric_fog_volume
+    line: 502
+    texture_type: Texture3D
+  - kind: SamplerState
+    name: s_volumtric_fog_volume
+    line: 503
+    state_count: 4
+  - kind: Texture
+    name: t_transmittance_lut
+    line: 511
+    texture_type: Texture2D
+  - kind: SamplerState
+    name: s_transmittance_lut
+    line: 512
+    state_count: 3
+  - kind: Texture
+    name: t_sky_view_lut
+    line: 519
+    texture_type: Texture2D
+  - kind: SamplerState
+    name: s_sky_view_lut
+    line: 520
+    state_count: 3
+  - kind: Texture
+    name: t_aerial_perspective_lut
+    line: 527
+    texture_type: Texture3D
+  - kind: SamplerState
+    name: s_aerial_perspective_lut
+    line: 528
+    state_count: 4
+  - kind: Texture
+    name: t_volumetric_cloud_tex
+    line: 536
+    texture_type: Texture2D
+  - kind: SamplerState
+    name: s_volumetric_cloud_tex
+    line: 537
+    state_count: 3
+  - kind: Texture
+    name: t_occlusion_height_map
+    line: 544
+    texture_type: Texture2D
+  - kind: SamplerState
+    name: s_occlusion_height_map
+    line: 545
+    state_count: 3
+  - kind: Texture
+    name: t_final_voxel_indirect_light
+    line: 552
+    texture_type: Texture2D
+  - kind: SamplerState
+    name: s_final_voxel_indirect_light
+    line: 553
+    state_count: 4
+  - kind: Texture
+    name: t_voxel_indirect_light
+    line: 561
+    texture_type: Texture3D
+  - kind: SamplerState
+    name: s_voxel_indirect_light
+    line: 562
+    state_count: 4
+  - kind: Texture
+    name: t_probe_volume_visibility_sh2
+    line: 570
+    texture_type: Texture3D
+  - kind: SamplerState
+    name: s_probe_volume_visibility_sh2
+    line: 571
+    state_count: 4
+  - kind: Texture
+    name: t_atmos_transmittance_lut
+    line: 579
+    texture_type: Texture2D
+  - kind: SamplerState
+    name: s_atmos_transmittance_lut
+    line: 580
+    state_count: 3
+  - kind: Texture
+    name: t_ao_tex
+    line: 587
+    texture_type: Texture2D
+  - kind: SamplerState
+    name: s_ao_tex
+    line: 588
+    state_count: 3
+  - kind: Texture
+    name: t_penumbra_mask
+    line: 595
+    texture_type: Texture2D
+  - kind: SamplerState
+    name: s_penumbra_mask
+    line: 596
+    state_count: 3
+  - kind: Texture
+    name: t_sssr_tex
+    line: 603
+    texture_type: Texture2D
+  - kind: SamplerState
+    name: s_sssr_tex
+    line: 604
+    state_count: 3
+  - kind: Texture
+    name: t_env_spec_array
+    line: 611
+    texture_type: TextureCubeArray
+  - kind: SamplerState
+    name: s_env_spec_array
+    line: 612
+    state_count: 4
+  - kind: Texture
+    name: t_terrain_diffuse_layer_array
+    line: 620
+    texture_type: Texture2DArray
+  - kind: SamplerState
+    name: s_terrain_diffuse_layer_array
+    line: 621
+    state_count: 2
+  - kind: Texture
+    name: t_terrain_normal_layer_array
+    line: 627
+    texture_type: Texture2DArray
+  - kind: SamplerState
+    name: s_terrain_normal_layer_array
+    line: 628
+    state_count: 2
+  - kind: Texture
+    name: t_terrain_heightmap_shadow
+    line: 634
+    texture_type: Texture2DArray
+  - kind: SamplerState
+    name: s_terrain_heightmap_shadow
+    line: 635
+    state_count: 1
+  - kind: Texture
+    name: t_realtime_env_spec
+    line: 640
+    texture_type: TextureCube
+  - kind: SamplerState
+    name: s_realtime_env_spec
+    line: 641
+    state_count: 4
+  - kind: Texture
+    name: t_mip_fog
+    line: 649
+    texture_type: TextureCube
+  - kind: SamplerState
+    name: s_mip_fog
+    line: 650
+    state_count: 4
+  - kind: Texture
+    name: frame_buffer_placeholder
+    line: 662
+    texture_type: texture
+  - kind: SamplerState
+    name: SamFrameBufferPlaceholder
+    line: 663
+    state_count: 0
+  - kind: Texture
+    name: frame_buffer_placeholder1
+    line: 665
+    texture_type: texture
+  - kind: SamplerState
+    name: SamFrameBufferPlaceholder1
+    line: 666
+    state_count: 0
+  - kind: Texture
+    name: frame_buffer_placeholder2
+    line: 668
+    texture_type: texture
+  - kind: SamplerState
+    name: SamFrameBufferPlaceholder2
+    line: 669
+    state_count: 0
+  - kind: Texture
+    name: frame_buffer_placeholder3
+    line: 671
+    texture_type: texture
+  - kind: SamplerState
+    name: SamFrameBufferPlaceholder3
+    line: 672
+    state_count: 0
+  - kind: Texture
+    name: frame_buffer_placeholder4
+    line: 674
+    texture_type: texture
+  - kind: SamplerState
+    name: SamFrameBufferPlaceholder4
+    line: 675
+    state_count: 0
+  - kind: Texture
+    name: frame_buffer_placeholder5
+    line: 677
+    texture_type: texture
+  - kind: SamplerState
+    name: SamFrameBufferPlaceholder5
+    line: 678
+    state_count: 0
+  - kind: Texture
+    name: frame_buffer_placeholder6
+    line: 680
+    texture_type: texture
+  - kind: SamplerState
+    name: SamFrameBufferPlaceholder6
+    line: 681
+    state_count: 0
+  - kind: Texture
+    name: frame_buffer_placeholder7
+    line: 683
+    texture_type: texture
+  - kind: SamplerState
+    name: SamFrameBufferPlaceholder7
+    line: 684
+    state_count: 0
+  - kind: Texture
+    name: frame_depth_placeholder
+    line: 688
+    texture_type: texture
+  - kind: SamplerState
+    name: SamFrameDepthPlaceholder
+    line: 689
+    state_count: 0

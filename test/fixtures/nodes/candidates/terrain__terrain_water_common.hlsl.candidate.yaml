@@ -1,0 +1,342 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: terrain/terrain_water_common.hlsl
+# 节点总数: 60
+input: terrain/terrain_water_common.hlsl
+
+expected_nodes:
+  - kind: Uniform
+    name: DepthPower
+    line: 86
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_rim_color
+    line: 96
+    type: float4
+    has_annotation: true
+    default: {0.1,0.2,0.3,1.0}
+  - kind: Uniform
+    name: FresnelWeaken
+    line: 103
+    type: float
+    has_annotation: true
+    default: 0.2
+  - kind: Uniform
+    name: NormalUvScale
+    line: 113
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: animation_length
+    line: 121
+    type: float
+    has_annotation: true
+    default: 3.0
+  - kind: Uniform
+    name: animation_strength
+    line: 130
+    type: float
+    has_annotation: true
+    default: 0.2
+  - kind: Uniform
+    name: sub_wave_scale
+    line: 139
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: base_speed_x
+    line: 147
+    type: float
+    has_annotation: true
+    default: 0.05
+  - kind: Uniform
+    name: base_speed_y
+    line: 157
+    type: float
+    has_annotation: true
+    default: 0.05
+  - kind: Uniform
+    name: FoamColor
+    line: 187
+    type: float4
+    has_annotation: true
+    default: {1.0,1.0,1.0,1.0}
+  - kind: Texture
+    name: NormalMap
+    line: 196
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_normap
+    line: 204
+    state_count: 4
+  - kind: Texture
+    name: t_wetness_dirty
+    line: 212
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_wetness_dirty
+    line: 217
+    state_count: 4
+  - kind: Uniform
+    name: debug
+    line: 225
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_depth_param
+    line: 236
+    type: float4
+    has_annotation: true
+    default: {10.0,1.0,0.5,0.0}
+  - kind: Uniform
+    name: u_thin_param
+    line: 243
+    type: float4
+    has_annotation: true
+    default: {1.0,0.0,0.3,0.0}
+  - kind: Uniform
+    name: _diffuselight_adjust
+    line: 250
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: MaxVisibleDepth_r
+    line: 260
+    type: float
+    has_annotation: true
+    default: 30.0
+  - kind: Uniform
+    name: DepthPower_r
+    line: 270
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: Normal_param_r
+    line: 294
+    type: float4
+    has_annotation: true
+    default: {1.0,1.0,1.0,0.0}
+  - kind: Uniform
+    name: base_speed_animation_r
+    line: 302
+    type: float4
+    has_annotation: true
+    default: {0.05,0.05,3.0,0.2}
+  - kind: Uniform
+    name: u_water_roughness
+    line: 316
+    type: float
+    has_annotation: true
+    default: 0.05
+  - kind: Uniform
+    name: u_water_direct_specular_normal_intensity
+    line: 325
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_water_ibl_normal_intensity
+    line: 334
+    type: float
+    has_annotation: true
+    default: 0.8
+  - kind: Uniform
+    name: u_water_color_deep
+    line: 366
+    type: float4
+    has_annotation: true
+    default: {0.001,0.003,0.003,1.0}
+  - kind: Uniform
+    name: u_water_color_shallow
+    line: 373
+    type: float4
+    has_annotation: true
+    default: {0.027,0.04,0.036,1.0}
+  - kind: Uniform
+    name: _riversssColor
+    line: 380
+    type: float4
+    has_annotation: true
+    default: {0.0, 0.17, 0.27,1.0}
+  - kind: Uniform
+    name: u_trans_range
+    line: 387
+    type: float
+    has_annotation: true
+    default: 0.4
+  - kind: Uniform
+    name: u_thin_color
+    line: 397
+    type: float4
+    has_annotation: true
+    default: {0.0f,0.07039,0.14255,1.0f}
+  - kind: Uniform
+    name: u_deep_color
+    line: 404
+    type: float4
+    has_annotation: true
+    default: {0.0f,0.05098f,0.11765f,1.0f}
+  - kind: Uniform
+    name: river_deepdepth_color_g1
+    line: 411
+    type: float
+    has_annotation: true
+    default: 8.8
+  - kind: Uniform
+    name: river_deep2shallowdepth_color_g1
+    line: 416
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_river_edgeseacolor_g1
+    line: 423
+    type: float4
+    has_annotation: true
+    default: {0.055,0.099,0.075,0.0}
+  - kind: Uniform
+    name: u_river_shallowseacolor_g1
+    line: 427
+    type: float4
+    has_annotation: true
+    default: {0.0003,0.015,0.012,0.0}
+  - kind: Uniform
+    name: u_river_refractionseacolor_g1
+    line: 431
+    type: float4
+    has_annotation: true
+    default: {0.037,0.079,0.071,0.0}
+  - kind: Uniform
+    name: u_river_deepseacolor_g1
+    line: 436
+    type: float4
+    has_annotation: true
+    default: {0.000,0.005,0.005,0.0}
+  - kind: Uniform
+    name: u_sea_normal_river
+    line: 441
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: roughness_river
+    line: 449
+    type: float
+    has_annotation: true
+    default: 0.008
+  - kind: Uniform
+    name: specular_river
+    line: 457
+    type: float
+    has_annotation: true
+    default: 0.2
+  - kind: Uniform
+    name: metallic_river
+    line: 465
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: wspos_river
+    line: 473
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: normaly_river
+    line: 481
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_river_shadow_intensity
+    line: 489
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Texture
+    name: mosstex_n
+    line: 499
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_mosstex_n
+    line: 506
+    state_count: 4
+  - kind: Texture
+    name: mosstex_ORH
+    line: 514
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_mosstex_ORH
+    line: 521
+    state_count: 4
+  - kind: Texture
+    name: masktex
+    line: 529
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_masktex
+    line: 536
+    state_count: 4
+  - kind: Uniform
+    name: u_normal_dis_range
+    line: 545
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Function
+    name: blendNormals
+    line: 595
+    return_type: half3
+    param_count: 3
+  - kind: Function
+    name: GetPbrSpec
+    line: 599
+    return_type: void
+    param_count: 6
+  - kind: Function
+    name: RiverVSData
+    line: 623
+    return_type: void
+    param_count: 9
+  - kind: Function
+    name: WaterVSBase
+    line: 652
+    return_type: PS_INPUT
+    param_count: 3
+  - kind: Function
+    name: WaterVSColor
+    line: 697
+    return_type: float4
+    param_count: 3
+  - kind: Function
+    name: WaterVSMain
+    line: 724
+    return_type: PS_INPUT
+    param_count: 6
+  - kind: Function
+    name: FlattenNormal
+    line: 733
+    return_type: half3
+    param_count: 2
+  - kind: Function
+    name: RiverPixelData
+    line: 739
+    return_type: PixelData
+    param_count: 7
+  - kind: Function
+    name: WaterPSMain
+    line: 1025
+    return_type: half4
+    param_count: 1

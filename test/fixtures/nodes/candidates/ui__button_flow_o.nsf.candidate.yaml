@@ -1,0 +1,77 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: ui/button_flow_o.nsf
+# 节点总数: 15
+input: ui/button_flow_o.nsf
+
+expected_nodes:
+  - kind: Texture
+    name: Tex0
+    line: 12
+    texture_type: Texture2D
+  - kind: SamplerState
+    name: s_diffuse0
+    line: 13
+    state_count: 0
+    semantic: register(s0)
+  - kind: Texture
+    name: Tex1
+    line: 15
+    texture_type: Texture2D
+  - kind: SamplerState
+    name: s_diffuse1
+    line: 16
+    state_count: 0
+    semantic: register(s1)
+  - kind: Texture
+    name: Tex2
+    line: 18
+    texture_type: Texture2D
+  - kind: SamplerState
+    name: s_diffuse2
+    line: 19
+    state_count: 0
+    semantic: register(s2)
+  - kind: Texture
+    name: Tex3
+    line: 21
+    texture_type: Texture2D
+  - kind: SamplerState
+    name: s_diffuse3
+    line: 22
+    state_count: 0
+    semantic: register(s3)
+  - kind: Struct
+    name: VS_INPUT
+    line: 24
+    field_count: 3
+  - kind: Struct
+    name: PS_INPUT
+    line: 31
+    field_count: 3
+  - kind: Function
+    name: vs_main
+    line: 38
+    return_type: PS_INPUT
+    stage: vertex
+    param_count: 1
+  - kind: Function
+    name: rot
+    line: 49
+    return_type: float2
+    param_count: 2
+  - kind: Function
+    name: Polar
+    line: 60
+    return_type: float2
+    param_count: 3
+  - kind: Function
+    name: ps_main
+    line: 68
+    return_type: float4
+    stage: pixel
+    param_count: 1
+  - kind: Technique
+    name: TShader
+    line: 135
+    pass_count: 1
+    has_annotation: true

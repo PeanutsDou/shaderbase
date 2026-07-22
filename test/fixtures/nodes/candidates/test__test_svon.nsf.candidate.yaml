@@ -1,0 +1,31 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: test/test_svon.nsf
+# 节点总数: 5
+input: test/test_svon.nsf
+
+expected_nodes:
+  - kind: Struct
+    name: VS_INPUT
+    line: 1
+    field_count: 1
+  - kind: Struct
+    name: PS_INPUT
+    line: 6
+    field_count: 1
+  - kind: Function
+    name: vs_main
+    line: 13
+    return_type: PS_INPUT
+    stage: vertex
+    param_count: 1
+  - kind: Function
+    name: ps_main
+    line: 21
+    return_type: half4
+    stage: pixel
+    param_count: 1
+  - kind: Technique
+    name: TShader
+    line: 26
+    pass_count: 1
+    has_annotation: true

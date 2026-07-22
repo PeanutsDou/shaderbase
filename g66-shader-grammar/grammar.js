@@ -175,18 +175,17 @@ module.exports = grammar(CPP, {
             'triangle',
         ),
 
-        cbuffer_specifier: $ => prec.right(seq(
+        // G66 cbuffer 声明：
+        //   cbuffer NAME { fields };              ← 简单形态
+        //   cbuffer NAME : register(b1) { fields };  ← 带 register 绑定
+        //   cbuffer NAME : register(b1);         ← 仅前向声明（无 body）
+        // 用 prec(1) 优先于普通 declaration，避免 'cbuffer' 被当类型
+        cbuffer_specifier: $ => prec(1, seq(
             'cbuffer',
-            optional($.attribute_declaration),
-            choice(
-                field('name', $._class_name),
-                seq(
-                    optional(field('name', $._class_name)),
-                    optional($.virtual_specifier),
-                    optional($.base_class_clause),
-                    field('body', $.field_declaration_list)
-                )
-            )
+            field('name', $._class_name),
+            repeat($.semantics),           // : register(b1)
+            field('body', optional($.field_declaration_list)),
+            ';',
         )),
 
         hlsl_attribute: $ => seq('[',
@@ -265,6 +264,7 @@ module.exports = grammar(CPP, {
             $.technique_block,
             $.texture_declaration,
             $.sampler_state_declaration,
+            $.cbuffer_specifier,
             $.preproc_art_directive,
             $.preproc_exclude_from_temp_tech,
         ),

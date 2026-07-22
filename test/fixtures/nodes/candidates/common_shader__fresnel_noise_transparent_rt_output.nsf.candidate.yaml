@@ -1,0 +1,119 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: common_shader/fresnel_noise_transparent_rt_output.nsf
+# 节点总数: 21
+input: common_shader/fresnel_noise_transparent_rt_output.nsf
+
+expected_nodes:
+  - kind: Texture
+    name: Tex0
+    line: 5
+    texture_type: texture
+    semantic: DiffuseMap
+  - kind: SamplerState
+    name: s_diffuse
+    line: 6
+    state_count: 0
+  - kind: Texture
+    name: NormalMap
+    line: 7
+    texture_type: texture
+    semantic: NormalMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_normalmap
+    line: 13
+    state_count: 0
+  - kind: Uniform
+    name: u_color
+    line: 15
+    type: float4
+    has_annotation: true
+    default: {1.0f,0.6588f,0.302f,1.0f}
+  - kind: Uniform
+    name: u_fresnel_color_intensity
+    line: 20
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_fresnel_exp
+    line: 26
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_fresnelinverse_max
+    line: 32
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_fresnelinverse_min
+    line: 38
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Texture
+    name: NoisMask
+    line: 44
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_Noismask
+    line: 50
+    state_count: 1
+  - kind: Uniform
+    name: noisetex_tilling
+    line: 54
+    type: float
+    has_annotation: true
+    default: 5.0
+  - kind: Uniform
+    name: distort_intensity
+    line: 60
+    type: float
+    has_annotation: true
+    default: 0.01
+  - kind: Uniform
+    name: noise_speed_xy
+    line: 67
+    type: float2
+    has_annotation: true
+    default: {0.0, 10.0f}
+  - kind: Uniform
+    name: u_alpha_dither
+    line: 73
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Struct
+    name: PS_INPUT
+    line: 101
+    field_count: 6
+  - kind: Function
+    name: vs_main
+    line: 112
+    return_type: PS_INPUT
+    stage: vertex
+    param_count: 1
+  - kind: Function
+    name: ps_main
+    line: 133
+    return_type: float4
+    stage: pixel
+    param_count: 1
+  - kind: Technique
+    name: TXrayRT
+    line: 181
+    pass_count: 1
+    has_annotation: true
+  - kind: Technique
+    name: TPrepostprocessRT
+    line: 193
+    pass_count: 1
+    has_annotation: true
+  - kind: Technique
+    name: Ttest
+    line: 205
+    pass_count: 1
+    has_annotation: true

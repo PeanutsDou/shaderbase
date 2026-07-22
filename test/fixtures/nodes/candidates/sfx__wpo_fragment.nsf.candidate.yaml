@@ -1,0 +1,396 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: sfx/wpo_fragment.nsf
+# 节点总数: 70
+input: sfx/wpo_fragment.nsf
+
+expected_nodes:
+  - kind: Struct
+    name: VS_INPUT
+    line: 1
+    field_count: 2
+  - kind: Struct
+    name: PS_INPUT
+    line: 8
+    field_count: 7
+  - kind: Texture
+    name: Tex0
+    line: 23
+    texture_type: texture
+    semantic: DiffuseMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_diffuse
+    line: 31
+    state_count: 3
+  - kind: Texture
+    name: wire_tex
+    line: 38
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_wire_tex
+    line: 46
+    state_count: 3
+  - kind: Texture
+    name: wire_mask_tex
+    line: 54
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_wire_mask_tex
+    line: 62
+    state_count: 3
+  - kind: Texture
+    name: sparkle_tex
+    line: 69
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_sparkle_tex
+    line: 77
+    state_count: 3
+  - kind: Texture
+    name: b_mask
+    line: 85
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_b_mask
+    line: 93
+    state_count: 3
+  - kind: Texture
+    name: f_control
+    line: 100
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_f_control
+    line: 109
+    state_count: 3
+  - kind: Texture
+    name: c_move
+    line: 116
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_c_move
+    line: 124
+    state_count: 3
+  - kind: Texture
+    name: e_spread
+    line: 131
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_e_spread
+    line: 139
+    state_count: 3
+  - kind: Uniform
+    name: u_diffuse_uv_depth
+    line: 151
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_diffuse_dispersion
+    line: 161
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_diffuse_color
+    line: 168
+    type: float4
+    has_annotation: true
+    default: {1.0f,1.0f,1.0f,1.0f}
+  - kind: Uniform
+    name: u_diffuse_intensity
+    line: 175
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_diffuse_power
+    line: 183
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wire_intensity
+    line: 192
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wire_power
+    line: 200
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_wire_color
+    line: 208
+    type: float4
+    has_annotation: true
+    default: {1.0f,1.0f,1.0f,1.0f}
+  - kind: Uniform
+    name: u_wire_maskpower
+    line: 215
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_wire_mask_uvscale_x
+    line: 224
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wire_mask_uvscale_y
+    line: 231
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wire_mask_uvoffset_x
+    line: 238
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_wire_mask_uvoffset_y
+    line: 245
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_wire_mask_uvspeed_x
+    line: 252
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_wire_mask_uvspeed_y
+    line: 259
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_wire_mask_rotation
+    line: 266
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_sparkle_color
+    line: 275
+    type: float4
+    has_annotation: true
+    default: {1.0f,1.0f,1.0f,1.0f}
+  - kind: Uniform
+    name: u_sparkle_power
+    line: 282
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_sparkle_intensity
+    line: 290
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_sparkle_uvscale_x
+    line: 299
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_sparkle_uvscale_y
+    line: 306
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_sparkle_uvoffset_x
+    line: 313
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_sparkle_uvoffset_y
+    line: 320
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_sparkle_uvspeed_x
+    line: 327
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_sparkle_uvspeed_y
+    line: 334
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_use_mask
+    line: 341
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_mask_scale
+    line: 348
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_mask_power
+    line: 355
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_mask_uvscale_x
+    line: 363
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_mask_uvscale_y
+    line: 370
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_mask_uvoffset_x
+    line: 377
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_mask_uvoffset_y
+    line: 384
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_mask_uvspeed_x
+    line: 391
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_mask_uvspeed_y
+    line: 398
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_mask_rotation
+    line: 405
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_control_offset
+    line: 413
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_opacity
+    line: 421
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_testmul
+    line: 432
+    type: float
+    has_annotation: true
+    default: 2.5
+  - kind: Uniform
+    name: u_test_add
+    line: 440
+    type: float
+    has_annotation: true
+    default: 0.4
+  - kind: Uniform
+    name: u_move_power
+    line: 449
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_move_speed
+    line: 457
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_move_uoffset
+    line: 464
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_move_voffset
+    line: 471
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_breath_max_scale
+    line: 478
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_breath_min_scale
+    line: 485
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_breath_speed
+    line: 492
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_spread_speed
+    line: 499
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Function
+    name: TexTwich
+    line: 538
+    return_type: half3
+    param_count: 4
+  - kind: Function
+    name: RemapValueRange
+    line: 544
+    return_type: float
+    param_count: 5
+  - kind: Function
+    name: vs_main
+    line: 548
+    return_type: PS_INPUT
+    stage: vertex
+    param_count: 1
+  - kind: Function
+    name: ps_main
+    line: 683
+    return_type: half4
+    stage: pixel
+    param_count: 1
+  - kind: Technique
+    name: TShader
+    line: 712
+    pass_count: 1
+    has_annotation: true

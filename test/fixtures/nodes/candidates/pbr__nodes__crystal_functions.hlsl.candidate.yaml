@@ -1,0 +1,571 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: pbr/nodes/crystal_functions.hlsl
+# 节点总数: 101
+input: pbr/nodes/crystal_functions.hlsl
+
+expected_nodes:
+  - kind: Uniform
+    name: u_opacity_fresnel_power
+    line: 12
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_opacity_fresnel_intensity
+    line: 23
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_fresnel_range
+    line: 33
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_fresnel_basecolor_intensity
+    line: 43
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_fresnel_emissive_intensity
+    line: 53
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_fresnel_so
+    line: 63
+    type: float
+    has_annotation: true
+    default: 0.3
+  - kind: Uniform
+    name: u_fresnel_emissive_range
+    line: 74
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_fresnel_emissive_color
+    line: 84
+    type: float4
+    has_annotation: true
+    default: { 1.0f, 1.0f, 1.0f, 1.0f }
+  - kind: Uniform
+    name: u_base_color
+    line: 101
+    type: float4
+    has_annotation: true
+    default: { 0.0625f, 0.0625f, 0.0625f, 1.0f }
+  - kind: Uniform
+    name: u_crystal_color
+    line: 108
+    type: float4
+    has_annotation: true
+    default: { 0.02f, 0.12f, 0.15f, 1.0f }
+  - kind: Uniform
+    name: u_base_roughness
+    line: 115
+    type: float
+    has_annotation: true
+    default: 0.2
+  - kind: Uniform
+    name: u_crystal_roughness
+    line: 125
+    type: float
+    has_annotation: true
+    default: 0.04
+  - kind: Uniform
+    name: u_base_metallic
+    line: 135
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_crystal_metallic
+    line: 145
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_base_specular
+    line: 155
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_crystal_specular
+    line: 165
+    type: float
+    has_annotation: true
+    default: 0.6
+  - kind: Uniform
+    name: u_speed
+    line: 180
+    type: float
+    has_annotation: true
+    default: 0.01
+  - kind: Uniform
+    name: u_direction_x
+    line: 187
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_direction_y
+    line: 194
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Texture
+    name: t_reflection_tex
+    line: 206
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_reflection_tex
+    line: 212
+    state_count: 3
+  - kind: Uniform
+    name: u_basecolor_parallax_brightness
+    line: 220
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_caustic_tilling
+    line: 230
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_caustic_nov
+    line: 237
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_caustic_depth
+    line: 247
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_caustic_distortion_tilling
+    line: 257
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_caustic_distortion_strength
+    line: 264
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_caustic_range_power
+    line: 274
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_caustic_saturation
+    line: 286
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_caustic_brightness
+    line: 296
+    type: float
+    has_annotation: true
+    default: 0.35
+  - kind: Texture
+    name: t_parallax_tex
+    line: 306
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_parallax_tex
+    line: 312
+    state_count: 3
+  - kind: Uniform
+    name: u_parallax_detail_mask_remap_low
+    line: 319
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_parallax_detail_mask_remap_high
+    line: 329
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_parallax_detail_mask_power
+    line: 339
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_parallax_color
+    line: 349
+    type: float4
+    has_annotation: true
+    default: { 0.03f, 0.05f, 0.06f, 1.0f }
+  - kind: Uniform
+    name: u_second_parallax_color
+    line: 356
+    type: float4
+    has_annotation: true
+    default: { 0.3f, 0.44f, 0.5f, 1.0f }
+  - kind: Uniform
+    name: u_parallax_tilling
+    line: 363
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_sec_parallax_tilling
+    line: 370
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_parallax_depth
+    line: 377
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_parallax_brightness
+    line: 387
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_camSpec_brightness
+    line: 397
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_reflection_brightness
+    line: 407
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_edge_reflection_brightness
+    line: 417
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_edge_refraction_brightness
+    line: 427
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Function
+    name: CalcCausticBaseColor
+    line: 437
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: CalcEmissivereReflection
+    line: 451
+    return_type: void
+    param_count: 2
+  - kind: Function
+    name: ImageSoftLight
+    line: 467
+    return_type: half3
+    param_count: 2
+  - kind: Function
+    name: SpecularGGX
+    line: 490
+    return_type: half3
+    param_count: 5
+  - kind: Function
+    name: CalcIceEmissiveCausticBaseColor
+    line: 506
+    return_type: void
+    param_count: 4
+  - kind: Function
+    name: CalcEmissiveCaustic
+    line: 606
+    return_type: void
+    param_count: 4
+  - kind: Function
+    name: CalcClearcoatEmissiveCaustic
+    line: 640
+    return_type: void
+    param_count: 4
+  - kind: Function
+    name: CaleReflectionOverMatcap
+    line: 683
+    return_type: void
+    param_count: 4
+  - kind: Function
+    name: MatCapUV
+    line: 697
+    return_type: float2
+    param_count: 2
+  - kind: Texture
+    name: t_refraction_tex
+    line: 716
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_refraction_tex
+    line: 722
+    state_count: 2
+  - kind: Texture
+    name: t_refraction_outdoortex
+    line: 729
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_refraction_outdoortex
+    line: 735
+    state_count: 2
+  - kind: Texture
+    name: t_ref_tex
+    line: 742
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_ref_tex
+    line: 748
+    state_count: 2
+  - kind: Uniform
+    name: u_refraction_rotation
+    line: 755
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_environment_rotation
+    line: 765
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_refraction_saturation
+    line: 775
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_refraction_contrast
+    line: 785
+    type: float
+    has_annotation: true
+    default: -0.55
+  - kind: Uniform
+    name: u_refraction_mipmap
+    line: 795
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_refraction_brightness
+    line: 802
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_refraction_opacity
+    line: 812
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_refraction_color
+    line: 822
+    type: float4
+    has_annotation: true
+    default: { 0.6f, 0.8f, 0.9f, 1.0f }
+  - kind: Uniform
+    name: u_refraction_strength
+    line: 829
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_refraction_tex_tiling
+    line: 839
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_reflection_rotation
+    line: 853
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_reflection_contrast
+    line: 866
+    type: float
+    has_annotation: true
+    default: -0.55
+  - kind: Uniform
+    name: u_reflection_mipmap
+    line: 876
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_outdoor_lerp
+    line: 884
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_reflection_color
+    line: 896
+    type: float4
+    has_annotation: true
+    default: { 0.6f, 0.8f, 0.9f, 1.0f }
+  - kind: Uniform
+    name: u_outdoor_refraction_brightness
+    line: 906
+    type: float
+    has_annotation: true
+    default: 10.0
+  - kind: Uniform
+    name: u_outdoor_refraction_rotation
+    line: 914
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Function
+    name: refract
+    line: 924
+    return_type: float3
+    param_count: 3
+  - kind: Function
+    name: TransformToZVector
+    line: 933
+    return_type: half3
+    param_count: 3
+  - kind: Function
+    name: CalcBasecolEmissiveFakeInterior
+    line: 947
+    return_type: void
+    param_count: 2
+  - kind: Function
+    name: EnvSampleLOD
+    line: 1023
+    return_type: half3
+    param_count: 2
+  - kind: Function
+    name: EnvSampleTextureLOD
+    line: 1036
+    return_type: half3
+    param_count: 4
+  - kind: Function
+    name: CalcEmissiveRefractionBaseColor
+    line: 1050
+    return_type: void
+    param_count: 2
+  - kind: Function
+    name: CalcEmissiveRefraction
+    line: 1073
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: CalcClearcoatEmissiveRefraction
+    line: 1099
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: CalcRefractionlGlass
+    line: 1125
+    return_type: void
+    param_count: 8
+  - kind: Function
+    name: CalcEmissiveCrystal
+    line: 1145
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: CalcEmissiveCrystalBaseMask
+    line: 1173
+    return_type: void
+    param_count: 5
+  - kind: Function
+    name: ComputeGlassF0
+    line: 1209
+    return_type: half3
+    param_count: 3
+  - kind: Function
+    name: CalcBasecolEmissiveGlass
+    line: 1216
+    return_type: void
+    param_count: 4
+  - kind: Function
+    name: CalcSpecularCrystal
+    line: 1254
+    return_type: void
+    param_count: 3
+  - kind: Uniform
+    name: u_subsurface_color
+    line: 1265
+    type: float4
+    has_annotation: true
+    default: { 0.0f, 0.02f, 0.1f, 1.0f }
+  - kind: Function
+    name: CalcSubsurfaceColor
+    line: 1272
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: CalcIceSubsurfaceColor
+    line: 1278
+    return_type: void
+    param_count: 3
+  - kind: Uniform
+    name: u_bump_depth
+    line: 1285
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_bump_emissive_fresnel_intensity
+    line: 1296
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_bump_emissive_intensity
+    line: 1306
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_bump_fresnel
+    line: 1318
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_bump_fresnel_exp
+    line: 1328
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_bump_emissive_fresnel
+    line: 1338
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Function
+    name: CalcGlassBumpoffestEmissiveColor
+    line: 1349
+    return_type: void
+    param_count: 5

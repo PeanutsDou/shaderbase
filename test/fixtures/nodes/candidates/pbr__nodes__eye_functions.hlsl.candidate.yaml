@@ -1,0 +1,376 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: pbr/nodes/eye_functions.hlsl
+# 节点总数: 65
+input: pbr/nodes/eye_functions.hlsl
+
+expected_nodes:
+  - kind: Uniform
+    name: u_iris_color
+    line: 36
+    type: float4
+    has_annotation: true
+    default: { 1.0, 1.0f, 1.0f, 1.0f }
+  - kind: Uniform
+    name: u_sclera_color
+    line: 44
+    type: float4
+    has_annotation: true
+    default: { 1.0f, 1.0f, 1.0f, 1.0f }
+  - kind: Uniform
+    name: u_sclera_color_pet
+    line: 52
+    type: float4
+    has_annotation: true
+    default: { 0.549f, 0.156f, 0.121f, 1.0f }
+  - kind: Uniform
+    name: u_iris_color1
+    line: 59
+    type: float4
+    has_annotation: true
+    default: { 1.0, 1.0f, 1.0f, 1.0f }
+  - kind: Uniform
+    name: u_iris_color2
+    line: 66
+    type: float4
+    has_annotation: true
+    default: { 1.0, 1.0f, 1.0f, 1.0f }
+  - kind: Uniform
+    name: u_iris_color3
+    line: 73
+    type: float4
+    has_annotation: true
+    default: { 1.0, 1.0f, 1.0f, 1.0f }
+  - kind: Uniform
+    name: u_sclera_color2
+    line: 80
+    type: float4
+    has_annotation: true
+    default: { 0.2f, 0.2f, 0.25f, 1.0f }
+  - kind: Uniform
+    name: u_pupil_in_color
+    line: 90
+    type: float4
+    has_annotation: true
+    default: { 1.0, 1.0f, 1.0f, 1.0f }
+  - kind: Uniform
+    name: u_pupil_out_color
+    line: 97
+    type: float4
+    has_annotation: true
+    default: { 1.0, 1.0f, 1.0f, 1.0f }
+  - kind: Uniform
+    name: u_pupil_in_color2
+    line: 104
+    type: float4
+    has_annotation: true
+    default: { 1.0, 1.0f, 1.0f, 1.0f }
+  - kind: Uniform
+    name: u_pupil_out_color2
+    line: 111
+    type: float4
+    has_annotation: true
+    default: { 1.0, 1.0f, 1.0f, 1.0f }
+  - kind: Uniform
+    name: u_color_tint_range
+    line: 118
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_color_tint_range2
+    line: 128
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_iris_color_range
+    line: 138
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_iris_color_range_pet
+    line: 148
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_iris_color_range_smoothness
+    line: 159
+    type: float
+    has_annotation: true
+    default: 0.2
+  - kind: Uniform
+    name: u_iris_color_range_smoothness2
+    line: 169
+    type: float
+    has_annotation: true
+    default: 0.27
+  - kind: Uniform
+    name: u_iris_color_range2
+    line: 179
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_eye_emissive_intensity_1
+    line: 190
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_eye_emissive_intensity_all
+    line: 201
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_eye_emissive_intensity_2
+    line: 212
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_eye_emissive_color1
+    line: 222
+    type: float4
+    has_annotation: true
+    default: { 0.0, 0.38f, 1.0f, 1.0f }
+  - kind: Uniform
+    name: u_eye_emissive_color2
+    line: 229
+    type: float4
+    has_annotation: true
+    default: { 0.0, 0.38f, 1.0f, 1.0f }
+  - kind: Function
+    name: ChangeIrisColor
+    line: 237
+    return_type: half3
+    param_count: 4
+  - kind: Uniform
+    name: u_iris_tint
+    line: 315
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_iris_tint_2
+    line: 325
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_iris_gradient
+    line: 345
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_iris_grandient_range
+    line: 355
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_iris_gradient2
+    line: 365
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_iris_grandient_range2
+    line: 375
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Function
+    name: ChangeIrisColorV2
+    line: 387
+    return_type: half3
+    param_count: 4
+  - kind: Function
+    name: CalcEyeEmissive
+    line: 445
+    return_type: void
+    param_count: 4
+  - kind: Function
+    name: CalcEyeEmissiveV2
+    line: 456
+    return_type: void
+    param_count: 4
+  - kind: Function
+    name: SampleAndCalcEyeColor
+    line: 469
+    return_type: void
+    param_count: 5
+  - kind: Uniform
+    name: u_fake_shadow_color
+    line: 508
+    type: float4
+    has_annotation: true
+    default: { 0.365f, 0.251f, 0.235f, 0.5f }
+  - kind: Uniform
+    name: u_shadow_top_boundary_rotation
+    line: 515
+    type: float
+    has_annotation: true
+    default: 0.04
+  - kind: Uniform
+    name: u_shadow_top_boundary_offset
+    line: 525
+    type: float
+    has_annotation: true
+    default: 0.98
+  - kind: Uniform
+    name: u_shadow_boundary_curvature
+    line: 535
+    type: float
+    has_annotation: true
+    default: 0.55
+  - kind: Uniform
+    name: u_shadow_softness_max
+    line: 545
+    type: float
+    has_annotation: true
+    default: 0.66
+  - kind: Uniform
+    name: u_shadow_softness_min
+    line: 555
+    type: float
+    has_annotation: true
+    default: 0.23
+  - kind: Function
+    name: CalcEyeFakeShadow
+    line: 565
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: CalcEyeFakeShadowUV
+    line: 594
+    return_type: void
+    param_count: 2
+  - kind: Uniform
+    name: u_sclera_roughness
+    line: 621
+    type: float
+    has_annotation: true
+    default: 0.2
+  - kind: Uniform
+    name: u_sclera_specular
+    line: 641
+    type: float
+    has_annotation: true
+    default: 0.2
+  - kind: Uniform
+    name: u_iris_roughness
+    line: 651
+    type: float
+    has_annotation: true
+    default: 0.12
+  - kind: Uniform
+    name: u_iris_specular
+    line: 671
+    type: float
+    has_annotation: true
+    default: 0.3
+  - kind: Function
+    name: CalcEyeParam
+    line: 681
+    return_type: void
+    param_count: 2
+  - kind: Function
+    name: AdjustEyeParam
+    line: 691
+    return_type: void
+    param_count: 2
+  - kind: Texture
+    name: t_mapcap_specular
+    line: 700
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_matcap_specular
+    line: 705
+    state_count: 3
+  - kind: Uniform
+    name: u_matcap_uv_scale
+    line: 732
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_matcap_uv_offset_x
+    line: 742
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_matcap_uv_offset_y
+    line: 752
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_matcap_brightness
+    line: 762
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_matcap_usage
+    line: 772
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Function
+    name: CalcEyeThinMatcap
+    line: 788
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: CalcMatcapSpecularEye
+    line: 806
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: CalcEyeFakeSpecular
+    line: 826
+    return_type: void
+    param_count: 3
+  - kind: Texture
+    name: t_reflection_tex
+    line: 840
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_reflection_tex
+    line: 846
+    state_count: 2
+  - kind: Uniform
+    name: u_reflection_rotation
+    line: 852
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_reflection_brightness
+    line: 863
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_reflection_color
+    line: 873
+    type: float4
+    has_annotation: true
+    default: { 0.6f, 0.8f, 0.9f, 1.0f }
+  - kind: Function
+    name: EyeEnvSampleTextureLOD
+    line: 881
+    return_type: half3
+    param_count: 3
+  - kind: Function
+    name: CalcReflectionEye
+    line: 892
+    return_type: void
+    param_count: 3

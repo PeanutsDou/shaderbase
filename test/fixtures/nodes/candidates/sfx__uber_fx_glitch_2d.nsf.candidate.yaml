@@ -1,0 +1,314 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: sfx/uber_fx_glitch_2d.nsf
+# 节点总数: 54
+input: sfx/uber_fx_glitch_2d.nsf
+
+expected_nodes:
+  - kind: Struct
+    name: VS_INPUT
+    line: 1
+    field_count: 0
+  - kind: Struct
+    name: PS_INPUT
+    line: 6
+    field_count: 5
+  - kind: Texture
+    name: Tex0
+    line: 19
+    texture_type: texture
+    semantic: DiffuseMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_diffuse
+    line: 27
+    state_count: 3
+  - kind: Texture
+    name: DepthMap
+    line: 34
+    texture_type: texture
+    semantic: DepthBuffer
+  - kind: SamplerState
+    name: s_depth_tex
+    line: 35
+    state_count: 3
+  - kind: Uniform
+    name: u_emissivecolor
+    line: 43
+    type: float4
+    has_annotation: true
+    default: {1.0f,1.0f,1.0f,1.0f}
+  - kind: Uniform
+    name: u_emissive_power
+    line: 50
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissive_highlight_intensity
+    line: 57
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissive_grey_intensity
+    line: 64
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissive_mix
+    line: 71
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_mask_intensity
+    line: 81
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_mask_power
+    line: 89
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_overall_opacity
+    line: 98
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissive_desaturate
+    line: 108
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_softparticle
+    line: 118
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_depth_bias
+    line: 126
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_maintex_pixel
+    line: 136
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_maintex_pixel_size
+    line: 146
+    type: float
+    has_annotation: true
+    default: 10.0
+  - kind: Uniform
+    name: u_maintex_clamp
+    line: 154
+    type: float2
+    has_annotation: true
+    default: {0.0f,0.0f}
+  - kind: Uniform
+    name: u_maintex_tilling_x
+    line: 161
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_maintex_tilling_y
+    line: 167
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_maintex_offset_x
+    line: 174
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_maintex_offset_y
+    line: 180
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_maintex_speed_x
+    line: 186
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_maintex_speed_y
+    line: 193
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_maintex_rotation
+    line: 201
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_direction
+    line: 213
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_fade
+    line: 220
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_block_speed
+    line: 227
+    type: float
+    has_annotation: true
+    default: 5.0
+  - kind: Uniform
+    name: u_rgb_intensity
+    line: 234
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_block_amount
+    line: 241
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_rgb_period
+    line: 248
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_block_period
+    line: 258
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_period_f
+    line: 268
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_period_step
+    line: 274
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_block1_U
+    line: 287
+    type: float
+    has_annotation: true
+    default: 8.0
+  - kind: Uniform
+    name: u_block1_V
+    line: 293
+    type: float
+    has_annotation: true
+    default: 4.0
+  - kind: Uniform
+    name: u_block2_U
+    line: 300
+    type: float
+    has_annotation: true
+    default: 4.0
+  - kind: Uniform
+    name: u_block2_V
+    line: 306
+    type: float
+    has_annotation: true
+    default: 8.0
+  - kind: Uniform
+    name: u_block1_power
+    line: 313
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_block2_power
+    line: 320
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Texture
+    name: t_glitch_tex
+    line: 332
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_glitch_tex
+    line: 340
+    state_count: 3
+  - kind: Uniform
+    name: u_glitch_tilling_x
+    line: 347
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_glitch_tilling_y
+    line: 353
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_glitch_speed_x
+    line: 360
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_glitch_speed_y
+    line: 366
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Function
+    name: hash
+    line: 391
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: RandomNoise
+    line: 397
+    return_type: float
+    param_count: 2
+  - kind: Function
+    name: UV_TC_OS
+    line: 402
+    return_type: float2
+    param_count: 3
+  - kind: Function
+    name: vs_main
+    line: 414
+    return_type: PS_INPUT
+    stage: vertex
+    param_count: 1
+  - kind: Function
+    name: ps_main
+    line: 440
+    return_type: half4
+    stage: pixel
+    param_count: 1
+  - kind: Technique
+    name: TShader
+    line: 560
+    pass_count: 1
+    has_annotation: true

@@ -1,0 +1,737 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: pbr/nodes/pbr_monster_va_parameters.hlsl
+# 节点总数: 126
+input: pbr/nodes/pbr_monster_va_parameters.hlsl
+
+expected_nodes:
+  - kind: Texture
+    name: Tex0
+    line: 116
+    texture_type: texture
+    semantic: DiffuseMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_diffuse
+    line: 121
+    state_count: 4
+  - kind: Texture
+    name: NormalMap
+    line: 129
+    texture_type: texture
+    semantic: NormalMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_normalmap
+    line: 134
+    state_count: 3
+  - kind: Texture
+    name: ParamMap
+    line: 141
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_parammap
+    line: 146
+    state_count: 1
+  - kind: Texture
+    name: noise_mask
+    line: 236
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_noise_mask
+    line: 242
+    state_count: 1
+  - kind: Texture
+    name: cellular_noise
+    line: 248
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_cellular_noise
+    line: 254
+    state_count: 1
+  - kind: Texture
+    name: wpo_emissive_tex
+    line: 275
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_wpo_emissive_tex
+    line: 281
+    state_count: 1
+  - kind: Texture
+    name: distort_tex1
+    line: 330
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_distort_tex1
+    line: 336
+    state_count: 1
+  - kind: Texture
+    name: wpo_control_mask
+    line: 354
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_wpo_control_mask
+    line: 360
+    state_count: 1
+  - kind: Texture
+    name: emissive_tex
+    line: 367
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_emissive_tex
+    line: 373
+    state_count: 1
+  - kind: Uniform
+    name: u_flow_speed
+    line: 539
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo_intensity
+    line: 548
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_wpo_power
+    line: 558
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo1_frequency
+    line: 568
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo1_interval
+    line: 578
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo1_intensity
+    line: 587
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo1_power
+    line: 596
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo1_tilling_x
+    line: 606
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo1_tilling_y
+    line: 613
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo1_offest_x
+    line: 620
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo1_offest_y
+    line: 630
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo1_speed_x
+    line: 641
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_wpo1_speed_y
+    line: 649
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_wpo1_rotation_speed
+    line: 660
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_wpo2_frequency
+    line: 667
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo2_interval
+    line: 677
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo2_intensity
+    line: 687
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo2_power
+    line: 697
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo2_tilling_x
+    line: 707
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo2_tilling_y
+    line: 714
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo2_offest_x
+    line: 721
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo2_offest_y
+    line: 731
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo2_speed_x
+    line: 743
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_wpo2_speed_y
+    line: 751
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_wpo2_rotation_Speed
+    line: 760
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_thickness
+    line: 783
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissive_intensity
+    line: 792
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_opacity_all
+    line: 802
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emssive_wpo_noise_color
+    line: 815
+    type: float4
+    has_annotation: true
+    default: {1.0f, 1.0f, 1.0f, 0.0f }
+  - kind: Uniform
+    name: u_emssive_wpo_noise_power
+    line: 824
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emssive_twinkle_intensity
+    line: 835
+    type: float
+    has_annotation: true
+    default: 10.0
+  - kind: Uniform
+    name: u_emssive_noise_color
+    line: 843
+    type: float4
+    has_annotation: true
+    default: {1.0f, 1.0f, 1.0f, 0.0f }
+  - kind: Uniform
+    name: u_emissietex_des
+    line: 853
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissietex_intensity
+    line: 864
+    type: float
+    has_annotation: true
+    default: 10.0
+  - kind: Uniform
+    name: u_emissietex_power
+    line: 872
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissietex_tilling_x
+    line: 884
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissietex_tilling_y
+    line: 894
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissietex_offest_x
+    line: 904
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissietex_offest_y
+    line: 914
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissietex_speed_x
+    line: 924
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_emissietex_speed_y
+    line: 934
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_emissietex_bumpoffest
+    line: 945
+    type: float
+    has_annotation: true
+    default: 0.001
+  - kind: Uniform
+    name: u_emissietex_rotate
+    line: 952
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort1_intensity
+    line: 969
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort1u_intensity
+    line: 978
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort1v_intensity
+    line: 987
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort1_tilling_x
+    line: 997
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort1_tilling_y
+    line: 1007
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort1_offest_x
+    line: 1017
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort1_offest_y
+    line: 1027
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort1_speed_x
+    line: 1037
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort1_speed_y
+    line: 1047
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort2_intensity
+    line: 1060
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort2_tilling_x
+    line: 1072
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort2_tilling_y
+    line: 1082
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort2_offest_x
+    line: 1092
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort2_offest_y
+    line: 1102
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort2_speed_x
+    line: 1112
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort2_speed_y
+    line: 1122
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_ring_mask_width
+    line: 1138
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_ring_distance
+    line: 1146
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_ring_speed
+    line: 1156
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_ring_noise_intensity
+    line: 1165
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_polar_speed_x
+    line: 1177
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_polar_speed_y
+    line: 1186
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_polar_tilling_x
+    line: 1196
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_polar_tilling_y
+    line: 1205
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_polar_noise_intensity
+    line: 1215
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_polar_brightness_intensity
+    line: 1224
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_polar_color
+    line: 1233
+    type: float4
+    has_annotation: true
+    default: {1.0f, 1.0f, 1.0f, 0.0f }
+  - kind: Uniform
+    name: u_wpo_emissive_intensity
+    line: 1245
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo_emissive_tilling_x
+    line: 1254
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo_emissive_tilling_y
+    line: 1264
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo_emissive_offest_x
+    line: 1274
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo_emissive_offest_y
+    line: 1284
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo_emissive_speed_x
+    line: 1294
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_wpo_emissive_speed_y
+    line: 1304
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_wpo_emissive_power
+    line: 1313
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_highlight_color
+    line: 1325
+    type: float4
+    has_annotation: true
+    default: {1.0f, 1.0f, 1.0f, 0.0f }
+  - kind: Uniform
+    name: u_highlight_high_intensity
+    line: 1333
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_highlight_low_intensity
+    line: 1342
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_highlight_pow
+    line: 1350
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_high_light_time_speed
+    line: 1358
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_high_light_time_offest
+    line: 1366
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_high_light_time_sacle
+    line: 1376
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort3_intensity
+    line: 1393
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort3_tilling_x
+    line: 1421
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort3_tilling_y
+    line: 1431
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort3_offest_x
+    line: 1441
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort3_offest_y
+    line: 1451
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort3_speed_x
+    line: 1461
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort3_speed_y
+    line: 1471
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_roughness_intensity
+    line: 1484
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_normal_intensity
+    line: 1493
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_specular_bluetide
+    line: 1513
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_wpo_mask_intensity
+    line: 1525
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo_mask1_tilling_x
+    line: 1534
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo_mask1_tilling_y
+    line: 1544
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo_mask1_offest_x
+    line: 1554
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo_mask1_offest_y
+    line: 1564
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo_mask1_speed_x
+    line: 1574
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_wpo_mask1_speed_y
+    line: 1584
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_wpo_mask2_tilling_x
+    line: 1598
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo_mask2_tilling_y
+    line: 1608
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo_mask2_offest_x
+    line: 1618
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo_mask2_offest_y
+    line: 1628
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo_mask2_speed_x
+    line: 1638
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_wpo_mask2_speed_y
+    line: 1648
+    type: float
+    has_annotation: true
+    default: 0.0

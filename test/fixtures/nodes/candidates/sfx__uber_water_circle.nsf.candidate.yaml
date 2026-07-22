@@ -1,0 +1,318 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: sfx/uber_water_circle.nsf
+# 节点总数: 56
+input: sfx/uber_water_circle.nsf
+
+expected_nodes:
+  - kind: Struct
+    name: VS_INPUT
+    line: 1
+    field_count: 1
+  - kind: Struct
+    name: PS_INPUT
+    line: 7
+    field_count: 7
+  - kind: Uniform
+    name: u_basecolor_water
+    line: 43
+    type: float4
+    has_annotation: true
+    default: {1.0f,1.0f,1.0f,1.0f}
+  - kind: Uniform
+    name: u_opacity_fresnel_min
+    line: 52
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_opacity_fresnel_power
+    line: 59
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_water_normal_intensity
+    line: 67
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_normal_uvscale
+    line: 74
+    type: float2
+    has_annotation: true
+    default: {1.0f,1.0}
+  - kind: Uniform
+    name: u_normal_speed
+    line: 83
+    type: float2
+    has_annotation: true
+    default: {0.0f,0.0}
+  - kind: Uniform
+    name: u_opacity
+    line: 93
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_opacity_min
+    line: 107
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_opacity_max
+    line: 114
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_caustic_distort_intensity
+    line: 126
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_caustic_scale
+    line: 134
+    type: float2
+    has_annotation: true
+    default: {1.0f,1.0f}
+  - kind: Uniform
+    name: u_caustic_speed
+    line: 143
+    type: float2
+    has_annotation: true
+    default: {0.1,0.01}
+  - kind: Uniform
+    name: u_caustic_min
+    line: 150
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_caustic_max
+    line: 157
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_caustic_color
+    line: 165
+    type: float4
+    has_annotation: true
+    default: {1.0f,1.0f,1.0f,1.0f}
+  - kind: Uniform
+    name: u_fake_specular_distort_intensity
+    line: 183
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_fake_specular_uvscale
+    line: 194
+    type: float2
+    has_annotation: true
+    default: {1.0f,1.0f}
+  - kind: Uniform
+    name: u_fake_specular_uvspeed
+    line: 202
+    type: float2
+    has_annotation: true
+    default: {1.0f,1.0f}
+  - kind: Uniform
+    name: u_fake_specular_min
+    line: 210
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_fake_specular_max
+    line: 218
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_fake_specular_color
+    line: 227
+    type: float4
+    has_annotation: true
+    default: {1.0f,1.0f,1.0f,1.0f}
+  - kind: Uniform
+    name: u_opacity_distort_intensity
+    line: 239
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_opacity_uvscale
+    line: 248
+    type: float2
+    has_annotation: true
+    default: {1.0f,1.0f}
+  - kind: Uniform
+    name: u_opacity_uvspeed
+    line: 256
+    type: float2
+    has_annotation: true
+    default: {1.0f,1.0f}
+  - kind: Uniform
+    name: u_rimlight_power
+    line: 266
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_rimlight_intensity
+    line: 274
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_rimlight_color
+    line: 281
+    type: float4
+    has_annotation: true
+    default: {1.0f,1.0f,1.0f,0.0f}
+  - kind: Texture
+    name: t_fake_speculartex
+    line: 290
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_fake_speculartex
+    line: 297
+    state_count: 3
+  - kind: Texture
+    name: t_caustic
+    line: 308
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_caustic
+    line: 315
+    state_count: 3
+  - kind: Texture
+    name: t_opacity_mask
+    line: 326
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_opacity_mask
+    line: 333
+    state_count: 3
+  - kind: Texture
+    name: t_opacity2_mask
+    line: 341
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_opacity2_mask
+    line: 348
+    state_count: 3
+  - kind: Uniform
+    name: u_wind_dir
+    line: 366
+    type: float4
+    has_annotation: true
+    default: {1.0,0.0,0.0,0.0}
+  - kind: Uniform
+    name: u_sin_size
+    line: 377
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_sin_freq
+    line: 384
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_sin_speed
+    line: 391
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_sin2_size
+    line: 399
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_sin2_freq
+    line: 406
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_sin2_speed
+    line: 413
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_sin2_offset
+    line: 420
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Texture
+    name: t_fake_ibl
+    line: 434
+    texture_type: TextureCube
+    has_annotation: true
+  - kind: SamplerState
+    name: s_fake_ibl
+    line: 439
+    state_count: 4
+  - kind: Uniform
+    name: u_ibl_intensity
+    line: 447
+    type: float
+    has_annotation: true
+    default: 0.8
+  - kind: Uniform
+    name: u_ibl_power
+    line: 454
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Texture
+    name: Tex0
+    line: 465
+    texture_type: texture
+    semantic: DiffuseMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_diffuse
+    line: 470
+    state_count: 4
+  - kind: Texture
+    name: NormalMap
+    line: 478
+    texture_type: texture
+    semantic: NormalMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_normalmap
+    line: 483
+    state_count: 3
+  - kind: Function
+    name: vs_main
+    line: 612
+    return_type: PS_INPUT
+    stage: vertex
+    param_count: 1
+  - kind: Function
+    name: ps_main
+    line: 730
+    return_type: half4
+    stage: pixel
+    param_count: 2
+  - kind: Technique
+    name: TShader
+    line: 991
+    pass_count: 1
+    has_annotation: true

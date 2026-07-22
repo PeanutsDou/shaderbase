@@ -1,0 +1,293 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: pbr/nodes/pbr_bluetide_parameters.hlsl
+# 节点总数: 54
+input: pbr/nodes/pbr_bluetide_parameters.hlsl
+
+expected_nodes:
+  - kind: Texture
+    name: Tex0
+    line: 115
+    texture_type: texture
+    semantic: DiffuseMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_diffuse
+    line: 120
+    state_count: 4
+  - kind: Texture
+    name: NormalMap
+    line: 128
+    texture_type: texture
+    semantic: NormalMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_normalmap
+    line: 133
+    state_count: 3
+  - kind: Texture
+    name: ParamMap
+    line: 140
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_parammap
+    line: 145
+    state_count: 1
+  - kind: Texture
+    name: va_tex_position_high
+    line: 149
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_va_tex_position_high
+    line: 155
+    state_count: 1
+  - kind: Texture
+    name: va_tex_position_low
+    line: 159
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_va_tex_position_low
+    line: 165
+    state_count: 1
+  - kind: Texture
+    name: va_tex_position_1
+    line: 170
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_va_tex_position_1
+    line: 176
+    state_count: 1
+  - kind: Texture
+    name: va_tex_position_2
+    line: 180
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_va_tex_position_2
+    line: 186
+    state_count: 1
+  - kind: Texture
+    name: va_tex_position_3
+    line: 190
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_va_tex_position_3
+    line: 196
+    state_count: 1
+  - kind: Texture
+    name: va_tex_position_4
+    line: 200
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_va_tex_position_4
+    line: 206
+    state_count: 1
+  - kind: Texture
+    name: normal_offset
+    line: 210
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_normal_offset
+    line: 216
+    state_count: 1
+  - kind: Texture
+    name: dissolve_tex
+    line: 220
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_dissolve_tex
+    line: 226
+    state_count: 1
+  - kind: Texture
+    name: noise_mask
+    line: 231
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_noise_mask
+    line: 237
+    state_count: 1
+  - kind: Texture
+    name: noise_nromal
+    line: 241
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_noise_nromal
+    line: 246
+    state_count: 1
+  - kind: Uniform
+    name: t_dissolve_factor
+    line: 251
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_playvat_percentage
+    line: 259
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_pixels
+    line: 268
+    type: float
+    has_annotation: true
+    default: 1024.0
+  - kind: Uniform
+    name: u_framesizeY
+    line: 274
+    type: float
+    has_annotation: true
+    default: 600.0
+  - kind: Uniform
+    name: u_framesum
+    line: 280
+    type: float
+    has_annotation: true
+    default: 200.0
+  - kind: Uniform
+    name: u_playspeed
+    line: 286
+    type: float
+    has_annotation: true
+    default: 10.0
+  - kind: Uniform
+    name: u_value_range
+    line: 292
+    type: float4
+    has_annotation: true
+    default: { 1534.65934f, 753.69599f, 957.320148f, 0.0f }
+  - kind: Uniform
+    name: u_value_min
+    line: 298
+    type: float4
+    has_annotation: true
+    default: { -748.43134f, -376.45984f,  -898.3101f, 0.0f }
+  - kind: Uniform
+    name: u_emssive_color
+    line: 305
+    type: float4
+    has_annotation: true
+    default: {1.0f, 1.0f, 1.0f, 0.0f }
+  - kind: Uniform
+    name: u_down_emissive_color
+    line: 311
+    type: float4
+    has_annotation: true
+    default: {1.0f, 1.0f, 1.0f, 0.0f }
+  - kind: Uniform
+    name: u_fluide_color
+    line: 318
+    type: float4
+    has_annotation: true
+    default: {1.0f, 1.0f, 1.0f, 0.0f }
+  - kind: Uniform
+    name: u_fluide_pbr_uniform
+    line: 324
+    type: float4
+    has_annotation: true
+    default: {1.0f, 1.0f, 1.0f, 0.0f }
+  - kind: Uniform
+    name: boundingbox_min
+    line: 334
+    type: float4
+    has_annotation: true
+    default: {1.0f, 1.0f, 1.0f, 0.0f }
+  - kind: Uniform
+    name: boundingbox_size
+    line: 340
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_speed
+    line: 347
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_liuguang_speed
+    line: 354
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: t_idle_offset_intensity
+    line: 361
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: t_roughness_idle
+    line: 369
+    type: float
+    has_annotation: true
+    default: 0.15
+  - kind: Uniform
+    name: t_down_offset_intensity
+    line: 377
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_down_speed
+    line: 385
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: t_noise_normal_tilling
+    line: 391
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: t_roughness_down
+    line: 399
+    type: float
+    has_annotation: true
+    default: 0.4
+  - kind: Uniform
+    name: t_factor
+    line: 407
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: base_color_intensity
+    line: 415
+    type: float4
+    has_annotation: true
+    default: {1.0f, 1.0f, 1.0f, 0.0f }
+  - kind: Uniform
+    name: u_specular_bluetide
+    line: 421
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_roughness_bluetide
+    line: 429
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_frozen_emssive_color
+    line: 437
+    type: float4
+    has_annotation: true
+    default: {1.0f, 1.0f, 1.0f, 0.0f }
+  - kind: Uniform
+    name: u_anliu_offset
+    line: 443
+    type: float
+    has_annotation: true
+    default: 0.0

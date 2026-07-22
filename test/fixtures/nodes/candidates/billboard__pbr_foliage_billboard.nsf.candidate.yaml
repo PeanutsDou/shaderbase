@@ -1,0 +1,97 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: billboard/pbr_foliage_billboard.nsf
+# 节点总数: 18
+input: billboard/pbr_foliage_billboard.nsf
+
+expected_nodes:
+  - kind: Struct
+    name: VS_INPUT
+    line: 1
+    field_count: 0
+  - kind: Struct
+    name: PS_INPUT
+    line: 6
+    field_count: 1
+  - kind: Texture
+    name: t_billboard_basecolor
+    line: 38
+    texture_type: Texture2D
+    has_annotation: true
+  - kind: SamplerState
+    name: s_billboard_basecolor
+    line: 43
+    state_count: 4
+  - kind: Texture
+    name: t_billboard_maskmap
+    line: 51
+    texture_type: Texture2D
+    has_annotation: true
+  - kind: SamplerState
+    name: s_billboard_maskmap
+    line: 56
+    state_count: 3
+  - kind: Texture
+    name: t_billboard_alphamap
+    line: 63
+    texture_type: Texture2D
+    has_annotation: true
+  - kind: SamplerState
+    name: s_billboard_alphamap
+    line: 68
+    state_count: 3
+  - kind: Uniform
+    name: u_subsurface_back
+    line: 75
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_subsurface_color
+    line: 85
+    type: float4
+    has_annotation: true
+    default: { 1.0f, 1.0f, 1.0f, 1.0f }
+  - kind: Uniform
+    name: u_subsurface_int
+    line: 92
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_spring_color
+    line: 101
+    type: float4
+    has_annotation: true
+    default: {1.0f,1.0f,1.0f,0.0f}
+  - kind: Uniform
+    name: u_autumn_color
+    line: 108
+    type: float4
+    has_annotation: true
+    default: {1.0f,0.8f,0.15f,0.0f}
+  - kind: Uniform
+    name: u_winter_color
+    line: 114
+    type: float4
+    has_annotation: true
+    default: {0.8f,0.6f,0.3f,1.0f}
+  - kind: Function
+    name: VertexDataNodesBasedGraph
+    line: 128
+    return_type: void
+    param_count: 2
+  - kind: Function
+    name: CustomizedVertexDataOutput
+    line: 134
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: PixelNodesBasedGraph
+    line: 140
+    return_type: void
+    param_count: 3
+  - kind: Technique
+    name: TShader
+    line: 230
+    pass_count: 1
+    has_annotation: true

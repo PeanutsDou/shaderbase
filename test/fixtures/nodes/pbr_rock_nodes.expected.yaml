@@ -1,0 +1,28 @@
+# pbr_rock/pbr_rock_nodes.hlsl 的节点抽取期望
+input: pbr_rock/pbr_rock_nodes.hlsl
+note: 本地 pbr_rock/ 是教学版副本（同结构），fixture 路径用本地相对路径
+
+expected_nodes:
+  - kind: Function
+    name: VertexDataNodesBasedGraph
+    line: 56
+    return_type: void
+    param_count: 2
+
+  - kind: Function
+    name: CustomizedVertexDataOutput
+    line: 80
+    return_type: void
+    param_count: 3
+
+  - kind: Function
+    name: AssignParamRock
+    line: 98
+    return_type: void
+    param_count: 1
+
+  - kind: Function
+    name: PixelNodesBasedGraph
+    line: 135
+    return_type: void
+    param_count: 3

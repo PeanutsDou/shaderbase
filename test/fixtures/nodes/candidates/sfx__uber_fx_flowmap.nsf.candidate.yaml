@@ -1,0 +1,713 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: sfx/uber_fx_flowmap.nsf
+# 节点总数: 125
+input: sfx/uber_fx_flowmap.nsf
+
+expected_nodes:
+  - kind: Struct
+    name: VS_INPUT
+    line: 1
+    field_count: 1
+  - kind: Struct
+    name: PS_INPUT
+    line: 7
+    field_count: 9
+  - kind: Texture
+    name: t_flowmap_tex
+    line: 27
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_flowmap_tex
+    line: 34
+    state_count: 3
+  - kind: Texture
+    name: t_diffuse_clamp
+    line: 41
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_diffuse_clamp
+    line: 50
+    state_count: 3
+  - kind: Texture
+    name: Tex0
+    line: 60
+    texture_type: texture
+    semantic: DiffuseMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_diffuse
+    line: 68
+    state_count: 3
+  - kind: Texture
+    name: t_distort_tex1
+    line: 75
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_distort01
+    line: 82
+    state_count: 3
+  - kind: Texture
+    name: t_distort_mask
+    line: 90
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_distortmask
+    line: 97
+    state_count: 3
+  - kind: Texture
+    name: t_distort_tex2
+    line: 104
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_distort02
+    line: 112
+    state_count: 3
+  - kind: Texture
+    name: t_dissolve_tex
+    line: 119
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_dissolve
+    line: 126
+    state_count: 3
+  - kind: Texture
+    name: t_dissolve_dirmask_tex
+    line: 133
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_dissolve_mask
+    line: 140
+    state_count: 3
+  - kind: Texture
+    name: t_addColor_tex
+    line: 147
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_addColor_tex
+    line: 154
+    state_count: 3
+  - kind: Texture
+    name: t_mask01
+    line: 161
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_mask01
+    line: 168
+    state_count: 3
+  - kind: Texture
+    name: t_mask02
+    line: 174
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_mask02
+    line: 181
+    state_count: 3
+  - kind: Texture
+    name: DepthMap
+    line: 188
+    texture_type: texture
+    semantic: DepthBuffer
+  - kind: SamplerState
+    name: s_depth_tex
+    line: 189
+    state_count: 3
+  - kind: Uniform
+    name: u_edit_maintex_uv
+    line: 198
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_maintex_polar_pixel
+    line: 207
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_maintex_pixel_size
+    line: 217
+    type: float
+    has_annotation: true
+    default: 10.0
+  - kind: Uniform
+    name: u_maintex_clamp
+    line: 225
+    type: float2
+    has_annotation: true
+    default: {0.0f,0.0f}
+  - kind: Uniform
+    name: u_maintex_tilling_x
+    line: 232
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_maintex_tilling_y
+    line: 238
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_maintex_offset_x
+    line: 245
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_maintex_offset_y
+    line: 251
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_maintex_speed_x
+    line: 257
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_maintex_speed_y
+    line: 264
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_maintex_rotation
+    line: 272
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_maintex_height
+    line: 282
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort1_intensity
+    line: 293
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort1u_intensity
+    line: 300
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort1v_intensity
+    line: 307
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort01_clamp
+    line: 315
+    type: float2
+    has_annotation: true
+    default: {0.0f,0.0f}
+  - kind: Uniform
+    name: u_distort01_tilling_x
+    line: 322
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort01_tilling_y
+    line: 328
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort01_offset_x
+    line: 335
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort01_offset_y
+    line: 341
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort01_speed_x
+    line: 347
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort01_speed_y
+    line: 353
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort01_rotation
+    line: 360
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_usedistort_mask
+    line: 370
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distortmask_power
+    line: 380
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distortmask_rotation
+    line: 388
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_fresnelcolor
+    line: 399
+    type: float4
+    has_annotation: true
+    default: {1.0f,1.0f,1.0f,1.0f}
+  - kind: Uniform
+    name: u_fresnelcolor_intensity
+    line: 406
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_fresnel_width
+    line: 414
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_fresnel_intensity
+    line: 424
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_use_fresnelmask
+    line: 432
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_fresnelmask_add_mul
+    line: 442
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_fresnelmask_anti
+    line: 452
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_edit_dissolve_uv
+    line: 463
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_polar_pixel
+    line: 473
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_pixel_size
+    line: 480
+    type: float
+    has_annotation: true
+    default: 10.0
+  - kind: Uniform
+    name: u_dissolve_distort
+    line: 488
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_amount
+    line: 498
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_dissolve_edgewidth
+    line: 508
+    type: float
+    has_annotation: true
+    default: 0.2
+  - kind: Uniform
+    name: u_dissolve_smooth
+    line: 518
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_dissolve_opacitymix
+    line: 528
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_use_edgecolor
+    line: 537
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_edgecolor
+    line: 547
+    type: float4
+    has_annotation: true
+    default: {1.0f,1.0f,1.0f,1.0f}
+  - kind: Uniform
+    name: u_dissolve_edgecolor_intensity
+    line: 554
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_dissolvetex_channel
+    line: 562
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolvetex_clamp
+    line: 569
+    type: float2
+    has_annotation: true
+    default: {0.0f,0.0f}
+  - kind: Uniform
+    name: u_dissolvetex_tilling_x
+    line: 575
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_dissolvetex_tilling_y
+    line: 581
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_dissolvetex_offset_x
+    line: 587
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolvetex_offset_y
+    line: 593
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolvetex_speed_x
+    line: 599
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolvetex_speed_y
+    line: 605
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_rotation
+    line: 613
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_tex_anti
+    line: 623
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_use_dissolvedir
+    line: 633
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_dirmask_channel
+    line: 645
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_edit_dissolve_dirmask_uv
+    line: 652
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_dirmask_polar_pixel
+    line: 662
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_dirmask_pixel_size
+    line: 669
+    type: float
+    has_annotation: true
+    default: 10.0
+  - kind: Uniform
+    name: u_dissolve_dir_length
+    line: 677
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_dissolve_dirmask_clamp
+    line: 687
+    type: float2
+    has_annotation: true
+    default: {0.0f,0.0f}
+  - kind: Uniform
+    name: u_dissolve_dirmask_tilling_x
+    line: 693
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_dissolve_dirmask_tilling_y
+    line: 699
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_dissolve_dirmask_offset_x
+    line: 705
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_dirmask_offset_y
+    line: 711
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_dirmask_speed_x
+    line: 717
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_dirmask_speed_y
+    line: 723
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dissolve_dirmask_rotation
+    line: 731
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_emissivecolor
+    line: 808
+    type: float4
+    has_annotation: true
+    default: {1.0f,1.0f,1.0f,1.0f}
+  - kind: Uniform
+    name: u_emissive_power
+    line: 815
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissive_highlight_intensity
+    line: 822
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissive_grey_intensity
+    line: 829
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissive_mix
+    line: 836
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_mask_intensity
+    line: 846
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_mask_power
+    line: 854
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_overall_opacity
+    line: 863
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissive_desaturate
+    line: 873
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_softparticle
+    line: 883
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_depth_bias
+    line: 891
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_mask01_channel
+    line: 901
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_edit_mask01_uv
+    line: 908
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_mask01_polar_pixel
+    line: 917
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_mask01_pixel_size
+    line: 927
+    type: float
+    has_annotation: true
+    default: 10.0
+  - kind: Uniform
+    name: u_mask01_clamp
+    line: 935
+    type: float2
+    has_annotation: true
+    default: {0.0f,0.0f}
+  - kind: Uniform
+    name: u_mask01_tilling_x
+    line: 942
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_mask01_tilling_y
+    line: 948
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_mask01_offset_x
+    line: 954
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_mask01_offset_y
+    line: 960
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_mask01_speed_x
+    line: 966
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_mask01_speed_y
+    line: 972
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_mask01_rotation
+    line: 979
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_mask01_maintexdistort
+    line: 989
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_flowmap_bias
+    line: 1168
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Function
+    name: remap
+    line: 1521
+    return_type: float
+    param_count: 5
+  - kind: Function
+    name: UV_TC_OS
+    line: 1526
+    return_type: float2
+    param_count: 3
+  - kind: Function
+    name: UV_TC_OS_NOCLAMP
+    line: 1538
+    return_type: float2
+    param_count: 3
+  - kind: Function
+    name: vs_main
+    line: 1548
+    return_type: PS_INPUT
+    stage: vertex
+    param_count: 1
+  - kind: Function
+    name: ps_main
+    line: 1687
+    return_type: half4
+    stage: pixel
+    param_count: 1
+  - kind: Technique
+    name: TShader
+    line: 2390
+    pass_count: 1
+    has_annotation: true

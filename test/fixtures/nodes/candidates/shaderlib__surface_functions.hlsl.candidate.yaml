@@ -1,0 +1,475 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: shaderlib/surface_functions.hlsl
+# 节点总数: 84
+input: shaderlib/surface_functions.hlsl
+
+expected_nodes:
+  - kind: Texture
+    name: t_noise_high_freq
+    line: 15
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_noise_high_freq
+    line: 19
+    state_count: 2
+  - kind: Function
+    name: AnimatedDither
+    line: 26
+    return_type: float
+    param_count: 2
+  - kind: Uniform
+    name: u_dither_spacing
+    line: 47
+    type: float
+    has_annotation: true
+    default: 1.25
+  - kind: Function
+    name: CalcDITHER
+    line: 59
+    return_type: void
+    param_count: 2
+  - kind: Function
+    name: Fresnel
+    line: 99
+    return_type: half
+    param_count: 3
+  - kind: Texture
+    name: DyeMap
+    line: 125
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_dyemap
+    line: 131
+    state_count: 4
+  - kind: Uniform
+    name: u_original_color_hue
+    line: 139
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_original_color_saturation
+    line: 149
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_original_color_value
+    line: 159
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_color_a_hue
+    line: 170
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_color_a_saturation
+    line: 180
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_color_a_value
+    line: 190
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_color_a
+    line: 202
+    type: float4
+    has_annotation: true
+    default: { 1.0f, 1.0f, 1.0f, 1.0f }
+  - kind: Uniform
+    name: u_color_e
+    line: 209
+    type: float4
+    has_annotation: true
+    default: { 1.0f, 1.0f, 1.0f, 0.0f }
+  - kind: Uniform
+    name: u_color_b
+    line: 216
+    type: float4
+    has_annotation: true
+    default: { 1.0f, 1.0f, 1.0f, 1.0f }
+  - kind: Uniform
+    name: u_color_f
+    line: 223
+    type: float4
+    has_annotation: true
+    default: { 1.0f, 1.0f, 1.0f, 0.0f }
+  - kind: Uniform
+    name: u_color_c
+    line: 230
+    type: float4
+    has_annotation: true
+    default: { 1.0f, 1.0f, 1.0f, 1.0f }
+  - kind: Uniform
+    name: u_color_g
+    line: 237
+    type: float4
+    has_annotation: true
+    default: { 1.0f, 1.0f, 1.0f, 0.0f }
+  - kind: Uniform
+    name: u_color_d
+    line: 244
+    type: float4
+    has_annotation: true
+    default: { 1.0f, 1.0f, 1.0f, 1.0f }
+  - kind: Uniform
+    name: u_color_h
+    line: 251
+    type: float4
+    has_annotation: true
+    default: { 1.0f, 1.0f, 1.0f, 0.0f }
+  - kind: Uniform
+    name: u_color_e_hue
+    line: 259
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_color_e_saturation
+    line: 269
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_color_e_value
+    line: 279
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_color_b_hue
+    line: 289
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_color_b_saturation
+    line: 299
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_color_b_value
+    line: 309
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_color_f_hue
+    line: 319
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_color_f_saturation
+    line: 329
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_color_f_value
+    line: 339
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_color_c_hue
+    line: 349
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_color_c_saturation
+    line: 359
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_color_c_value
+    line: 369
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_color_g_hue
+    line: 379
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_color_g_saturation
+    line: 389
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_color_g_value
+    line: 399
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_color_d_hue
+    line: 409
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_color_d_saturation
+    line: 419
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_color_d_value
+    line: 429
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_color_h_hue
+    line: 439
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_color_h_saturation
+    line: 449
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_color_h_value
+    line: 459
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_color_layer_01
+    line: 472
+    type: float4
+    has_annotation: true
+    default: { 1.0f, 1.0f, 1.0f, 0.0f }
+  - kind: Uniform
+    name: u_color_layer_02
+    line: 479
+    type: float4
+    has_annotation: true
+    default: { 1.0f, 1.0f, 1.0f, 0.0f }
+  - kind: Uniform
+    name: u_color_layer_03
+    line: 486
+    type: float4
+    has_annotation: true
+    default: { 1.0f, 1.0f, 1.0f, 0.0f }
+  - kind: Uniform
+    name: u_color_2u
+    line: 494
+    type: float4
+    has_annotation: true
+    default: { 1.0f, 1.0f, 1.0f, 0.0f }
+  - kind: Function
+    name: ApplyHSVOffset
+    line: 507
+    return_type: half3
+    param_count: 4
+  - kind: Function
+    name: ChangeBaseColorVertex
+    line: 517
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: ChangeBaseColorPickerOld
+    line: 539
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: ChangeBaseColorPicker
+    line: 551
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: ChangeBaseColorMultiple
+    line: 563
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: ChangeBaseColorGradient
+    line: 593
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: ChangeBaseColorChannel
+    line: 630
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: ChangeBaseColorChannelGradient
+    line: 657
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: ChangeBaseColorChannelID
+    line: 700
+    return_type: void
+    param_count: 4
+  - kind: Function
+    name: ChangeBaseColorSystem
+    line: 742
+    return_type: void
+    param_count: 4
+  - kind: Function
+    name: CalcFurnitureBaseColorAndEmissive
+    line: 769
+    return_type: void
+    param_count: 2
+  - kind: Uniform
+    name: u_detail_color_saturation
+    line: 835
+    type: float4
+    has_annotation: true
+    default: { 1.0f, 1.0f, 1.0f, 1.0f }
+  - kind: Uniform
+    name: u_detail_roughness
+    line: 842
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_detail_metallic
+    line: 852
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_detail_ao
+    line: 862
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Function
+    name: CalcDetailParam
+    line: 872
+    return_type: void
+    param_count: 4
+  - kind: Function
+    name: CalcCarDetailParam
+    line: 886
+    return_type: void
+    param_count: 4
+  - kind: Function
+    name: CalcClearCoatDetailParam
+    line: 902
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: CalcSpecularAmbientOcclusion
+    line: 915
+    return_type: void
+    param_count: 2
+  - kind: Function
+    name: CalcSubsurfaceColorLightmap
+    line: 921
+    return_type: void
+    param_count: 1
+  - kind: Uniform
+    name: u_fresnel_scale
+    line: 932
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_fresnel_darkness
+    line: 942
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_fresnel_opacity
+    line: 952
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Function
+    name: CalcFresnelOpacity
+    line: 962
+    return_type: void
+    param_count: 2
+  - kind: Uniform
+    name: u_dissolve_smooth
+    line: 974
+    type: float
+    has_annotation: true
+    default: 0.01
+  - kind: Uniform
+    name: u_dissolve_changecolor_factor
+    line: 982
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Texture
+    name: Dissolve_tex
+    line: 990
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_dissolve
+    line: 995
+    state_count: 4
+  - kind: Function
+    name: DissolveChangeColorEffect
+    line: 1002
+    return_type: void
+    param_count: 2
+  - kind: Function
+    name: CalcEmissiveFakeSubsurface
+    line: 1012
+    return_type: void
+    param_count: 4
+  - kind: Function
+    name: CalcUnclustedPointLight
+    line: 1028
+    return_type: void
+    param_count: 2
+  - kind: Uniform
+    name: u_fresnel_color
+    line: 1036
+    type: float4
+    has_annotation: true
+    default: { 1.0f, 1.0f, 1.0f, 1.0f }
+  - kind: Uniform
+    name: u_fresnel_exp
+    line: 1043
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_fresnel_intensity
+    line: 1053
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Function
+    name: CalcEmissiveFresnelFX
+    line: 1063
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: CalcSimpleLightingForUnlit
+    line: 1074
+    return_type: void
+    param_count: 2
+  - kind: Function
+    name: FootPrint
+    line: 1111
+    return_type: void
+    param_count: 2

@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shaderbase"
+version = "0.1.0"
+description = "G66 shader 知识库生成/维护/查询（grammar + 节点抽取 + 预处理 + 图存储 + MCP）"
+requires-python = ">=3.9"
+readme = "README.md"
+license = { text = "MIT" }
+
+dependencies = [
+    "tree-sitter>=0.22",
+    "tree-sitter-g66-shader",   # 同仓库 g66-shader-grammar/ 子项目，本地装
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[tool.setuptools]
+packages = ["shaderbase"]

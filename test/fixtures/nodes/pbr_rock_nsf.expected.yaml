@@ -1,0 +1,21 @@
+# pbr_rock/pbr_rock.nsf 的节点抽取期望
+# VS_INPUT 只声明 texcoord2 一个字段，其余字段从 #include 进来（AST 里看不到）
+# PS_INPUT 字段全部从 #include 进来，AST 里 field_count=0
+input: pbr_rock/pbr_rock.nsf
+
+expected_nodes:
+  - kind: Struct
+    name: VS_INPUT
+    line: 20
+    field_count: 1
+
+  - kind: Struct
+    name: PS_INPUT
+    line: 32
+    field_count: 0
+
+  - kind: Technique
+    name: TShader
+    line: 79
+    pass_count: 1
+    has_annotation: true

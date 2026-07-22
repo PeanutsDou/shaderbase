@@ -1,0 +1,297 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: shaderlib/vat_bonebase.hlsl
+# 节点总数: 55
+input: shaderlib/vat_bonebase.hlsl
+
+expected_nodes:
+  - kind: Texture
+    name: t_bone_position
+    line: 53
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_bone_position
+    line: 59
+    state_count: 3
+  - kind: Texture
+    name: t_bone_rotation
+    line: 67
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_bone_rotation
+    line: 73
+    state_count: 3
+  - kind: Texture
+    name: t_bone_absrotation
+    line: 82
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_bone_absrotation
+    line: 88
+    state_count: 3
+  - kind: Texture
+    name: t_bone_scale
+    line: 101
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_bone_scale
+    line: 107
+    state_count: 3
+  - kind: Texture
+    name: t_index_weight
+    line: 115
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_index_weight
+    line: 121
+    state_count: 3
+  - kind: Uniform
+    name: u_texture_size
+    line: 132
+    type: float2
+    has_annotation: true
+    default: {64.0f,256.0f}
+  - kind: Uniform
+    name: u_sizeBBox
+    line: 143
+    type: float3
+    has_annotation: true
+    default: {1.0,1.0,1.0}
+  - kind: Uniform
+    name: u_minBBox
+    line: 151
+    type: float3
+    has_annotation: true
+    default: {0.0,0.0,0.0}
+  - kind: Uniform
+    name: u_ScaleSizeBBox
+    line: 159
+    type: float3
+    has_annotation: true
+    default: {1.0,1.0,1.0}
+  - kind: Uniform
+    name: u_ScaleMinBBox
+    line: 167
+    type: float3
+    has_annotation: true
+    default: {0.0,0.0,0.0}
+  - kind: Uniform
+    name: u_play_speed
+    line: 176
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_sample_rate
+    line: 185
+    type: float
+    has_annotation: true
+    default: 30.0
+  - kind: Uniform
+    name: u_current_frame
+    line: 195
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_blend_frame
+    line: 203
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_blend_frame_weight
+    line: 211
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_NumBones
+    line: 219
+    type: float
+    has_annotation: true
+    default: 31.0
+  - kind: Uniform
+    name: u_total_frames_num
+    line: 228
+    type: float
+    has_annotation: true
+    default: 181.0
+  - kind: Uniform
+    name: u_time_offset
+    line: 238
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_time_offset_randomness
+    line: 246
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_mesh_size
+    line: 256
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_autoplay_seq_ids
+    line: 268
+    type: float4
+    has_annotation: true
+    default: {0,-1,-1,-1}
+  - kind: Uniform
+    name: u_autoplay_seq_seed
+    line: 276
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_sequence_endframes_0_3
+    line: 288
+    type: float4
+    has_annotation: true
+    default: {0.0,0.0,0.0,0.0}
+  - kind: Uniform
+    name: u_sequence_endframes_4_7
+    line: 295
+    type: float4
+    has_annotation: true
+    default: {0.0,0.0,0.0,0.0}
+  - kind: Uniform
+    name: u_sequence_endframes_8_11
+    line: 302
+    type: float4
+    has_annotation: true
+    default: {0.0,0.0,0.0,0.0}
+  - kind: Uniform
+    name: u_sequence_endframes_12_15
+    line: 309
+    type: float4
+    has_annotation: true
+    default: {0.0,0.0,0.0,0.0}
+  - kind: Uniform
+    name: u_sequence_endframes_16_19
+    line: 316
+    type: float4
+    has_annotation: true
+    default: {0.0,0.0,0.0,0.0}
+  - kind: Function
+    name: MergeEndFrames
+    line: 325
+    return_type: void
+    param_count: 1
+  - kind: Function
+    name: RandomHashFromID
+    line: 346
+    return_type: float
+    param_count: 2
+  - kind: Function
+    name: combine16
+    line: 351
+    return_type: uint4
+    param_count: 2
+  - kind: Function
+    name: Sample8bitTGA
+    line: 362
+    return_type: float4
+    param_count: 3
+  - kind: Function
+    name: Sample16bitPNG
+    line: 392
+    return_type: float4
+    param_count: 3
+  - kind: Function
+    name: UE2NX
+    line: 408
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: UnpackBoneWeights
+    line: 416
+    return_type: half4
+    param_count: 4
+  - kind: Function
+    name: VertexColorBoneWeights
+    line: 437
+    return_type: half4
+    param_count: 3
+  - kind: Function
+    name: BoneIndexUV
+    line: 468
+    return_type: float2
+    param_count: 3
+  - kind: Function
+    name: UnpackBonePosition
+    line: 477
+    return_type: float3
+    param_count: 3
+  - kind: Function
+    name: UnpackBoneRotation
+    line: 491
+    return_type: float4
+    param_count: 3
+  - kind: Function
+    name: UnpackBoneScale
+    line: 507
+    return_type: float3
+    param_count: 3
+  - kind: Function
+    name: ScaleAboutPivot
+    line: 523
+    return_type: float3
+    param_count: 4
+  - kind: Struct
+    name: Packed_Pos_Rot
+    line: 548
+    field_count: 2
+  - kind: Function
+    name: SamplePackedPosAndRot
+    line: 555
+    return_type: Packed_Pos_Rot
+    param_count: 3
+  - kind: Function
+    name: UnpackBonePositionAndRotation
+    line: 573
+    return_type: Packed_Pos_Rot
+    param_count: 3
+  - kind: Function
+    name: CalculatePositionAndNormal
+    line: 584
+    return_type: void
+    param_count: 6
+  - kind: Function
+    name: Blend2Influences
+    line: 633
+    return_type: void
+    param_count: 7
+  - kind: Function
+    name: GetStartEndFromEndFrameList
+    line: 665
+    return_type: float2
+    param_count: 1
+  - kind: Function
+    name: GetRandomSequenceID
+    line: 672
+    return_type: int
+    param_count: 1
+  - kind: Function
+    name: GetAutoPlayParams
+    line: 684
+    return_type: void
+    param_count: 5
+  - kind: Function
+    name: Anim2Tex_BoneBase_Process
+    line: 707
+    return_type: void
+    param_count: 6
+  - kind: Function
+    name: Anim2Tex_BoneBase
+    line: 757
+    return_type: void
+    param_count: 2

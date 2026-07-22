@@ -1494,7 +1494,7 @@
       },
       "name": {
         "multiple": false,
-        "required": false,
+        "required": true,
         "types": [
           {
             "type": "qualified_identifier",
@@ -1520,15 +1520,7 @@
       "required": false,
       "types": [
         {
-          "type": "attribute_declaration",
-          "named": true
-        },
-        {
-          "type": "base_class_clause",
-          "named": true
-        },
-        {
-          "type": "virtual_specifier",
+          "type": "semantics",
           "named": true
         }
       ]
@@ -7958,6 +7950,10 @@
         },
         {
           "type": "case_statement",
+          "named": true
+        },
+        {
+          "type": "cbuffer_specifier",
           "named": true
         },
         {

@@ -1,0 +1,294 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: shaderlib/season_uniforms.hlsl
+# 节点总数: 55
+input: shaderlib/season_uniforms.hlsl
+
+expected_nodes:
+  - kind: Texture
+    name: t_coverage_tex_array
+    line: 16
+    texture_type: Texture2DArray
+    has_annotation: true
+  - kind: SamplerState
+    name: s_coverage_tex_array
+    line: 22
+    state_count: 3
+  - kind: Texture
+    name: t_autumn_blend
+    line: 30
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_autumn_blend
+    line: 36
+    state_count: 5
+  - kind: Texture
+    name: t_snow_blend3
+    line: 46
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_snow_blend3
+    line: 52
+    state_count: 4
+  - kind: Uniform
+    name: u_seasontex_range
+    line: 104
+    type: float
+    has_annotation: true
+    default: 4.5
+  - kind: Uniform
+    name: u_season_intentisy
+    line: 114
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: maxangle
+    line: 123
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_snowmask_scale_max
+    line: 132
+    type: float
+    has_annotation: true
+    default: 0.4
+  - kind: Uniform
+    name: u_snowmask_scale
+    line: 141
+    type: float
+    has_annotation: true
+    default: 0.65
+  - kind: Uniform
+    name: u_snowmask_scale2
+    line: 150
+    type: float
+    has_annotation: true
+    default: 0.65
+  - kind: Uniform
+    name: u_snowmask_dir
+    line: 159
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_meadow_uv_scale
+    line: 168
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_snowmask_color
+    line: 177
+    type: float4
+    has_annotation: true
+    default: {0.25f, 0.28f, 0.32f, 0.5f}
+  - kind: Texture
+    name: t_weather_tex_array
+    line: 186
+    texture_type: Texture2DArray
+    has_annotation: true
+  - kind: SamplerState
+    name: s_weather_tex_array
+    line: 192
+    state_count: 3
+  - kind: Uniform
+    name: u_summer_color_flower
+    line: 202
+    type: float4
+    has_annotation: true
+    default: {1.0f,1.0f,1.0f,1.0f}
+  - kind: Uniform
+    name: u_snowblend_uv_scale
+    line: 214
+    type: float
+    has_annotation: true
+    default: 0.3
+  - kind: Uniform
+    name: u_leaf_alphascale
+    line: 223
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_coverage_mask_scale
+    line: 235
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_sharpness
+    line: 245
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_coverage_uv_scale_2uv
+    line: 254
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_coverage_uv_scale_world
+    line: 263
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_array_id
+    line: 273
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Function
+    name: SampleTexArryPkgNormalBias
+    line: 338
+    return_type: half4
+    param_count: 5
+  - kind: Function
+    name: SampleSeasonColorTex
+    line: 358
+    return_type: half4
+    param_count: 2
+  - kind: Function
+    name: CalcLightmapOpacityWithSeason
+    line: 396
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: CalcAlphaTestClipOpacityLightmapVA
+    line: 412
+    return_type: void
+    param_count: 2
+  - kind: Function
+    name: PrepareSeasonTexMask
+    line: 425
+    return_type: half
+    param_count: 2
+  - kind: Function
+    name: GetSeasonMaskWithDirtyTex
+    line: 432
+    return_type: half
+    param_count: 3
+  - kind: Function
+    name: GetSeasonMask
+    line: 437
+    return_type: half
+    param_count: 6
+  - kind: Function
+    name: GetSeasonMask_Simple
+    line: 448
+    return_type: half
+    param_count: 4
+  - kind: Function
+    name: GetSeasonColor
+    line: 459
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: GetFoliageColor
+    line: 540
+    return_type: half3
+    param_count: 4
+  - kind: Function
+    name: GetFoliageColorSimple
+    line: 564
+    return_type: half3
+    param_count: 3
+  - kind: Function
+    name: GetSeasonColorFoliage
+    line: 587
+    return_type: void
+    param_count: 5
+  - kind: Function
+    name: GetSeasonColorFoliageV2
+    line: 650
+    return_type: void
+    param_count: 5
+  - kind: Function
+    name: GetSeasonColorHLod
+    line: 713
+    return_type: void
+    param_count: 4
+  - kind: Function
+    name: GetSeasonColorHLodV2
+    line: 729
+    return_type: void
+    param_count: 8
+  - kind: Function
+    name: GetSeasonColorBillboard
+    line: 763
+    return_type: void
+    param_count: 4
+  - kind: Function
+    name: GetSeasonColorMeadow
+    line: 791
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: GetSeasonColor_DetailNormal
+    line: 838
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: GetSeasonColor_DetailNormalByWorldNormal
+    line: 917
+    return_type: void
+    param_count: 5
+  - kind: Function
+    name: GetSeasonColor_HeightTile
+    line: 994
+    return_type: void
+    param_count: 4
+  - kind: Function
+    name: MultiHeightBlend
+    line: 1033
+    return_type: float2
+    param_count: 2
+  - kind: Function
+    name: GetSeasonColorV2
+    line: 1042
+    return_type: void
+    param_count: 2
+  - kind: Function
+    name: CoverageBlend
+    line: 1096
+    return_type: void
+    param_count: 6
+  - kind: Function
+    name: GetFluidMask
+    line: 1147
+    return_type: half
+    param_count: 2
+  - kind: Function
+    name: GetRippleUV
+    line: 1155
+    return_type: float2
+    param_count: 1
+  - kind: Function
+    name: GetDrippingUV
+    line: 1163
+    return_type: float2
+    param_count: 3
+  - kind: Function
+    name: SampleFluidNormal
+    line: 1172
+    return_type: half4
+    param_count: 3
+  - kind: Function
+    name: CalcSurfaceWeatherInfluence
+    line: 1180
+    return_type: void
+    param_count: 5
+  - kind: Function
+    name: WeatherHeightMapOcclusion
+    line: 1337
+    return_type: float
+    param_count: 3
+  - kind: Function
+    name: SurfaceWeatherInfluence
+    line: 1347
+    return_type: void
+    param_count: 3

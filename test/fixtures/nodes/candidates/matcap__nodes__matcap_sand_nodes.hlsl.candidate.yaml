@@ -1,0 +1,269 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: matcap/nodes/matcap_sand_nodes.hlsl
+# 节点总数: 46
+input: matcap/nodes/matcap_sand_nodes.hlsl
+
+expected_nodes:
+  - kind: Function
+    name: CalcThreeSideMapping
+    line: 8
+    return_type: void
+    param_count: 2
+  - kind: Texture
+    name: t_flowmap
+    line: 20
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_flowmap
+    line: 24
+    state_count: 3
+  - kind: Uniform
+    name: u_flowmap_intensity
+    line: 31
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_flowmap_u_speed
+    line: 38
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_flowmap_v_speed
+    line: 45
+    type: float
+    has_annotation: true
+    default: 0.01
+  - kind: Uniform
+    name: u_flowmap_u_tilling
+    line: 52
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_flowmap_v_tilling
+    line: 59
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Function
+    name: CalcFlowmap
+    line: 66
+    return_type: void
+    param_count: 3
+  - kind: Uniform
+    name: u_flownoise_intensity
+    line: 122
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_flownoise_parallax
+    line: 128
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_flownoise_tilling
+    line: 134
+    type: float
+    has_annotation: true
+    default: 0.05
+  - kind: Uniform
+    name: u_flownoise_u_speed
+    line: 140
+    type: float
+    has_annotation: true
+    default: 0.01
+  - kind: Uniform
+    name: u_flownoise_v_speed
+    line: 146
+    type: float
+    has_annotation: true
+    default: 0.01
+  - kind: Function
+    name: CalcFlowNoise
+    line: 152
+    return_type: void
+    param_count: 6
+  - kind: Uniform
+    name: u_sparkle_intensity
+    line: 199
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_sparkle_min
+    line: 205
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_sparkle_max
+    line: 211
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_sparkle_u_tilling
+    line: 217
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_sparkle_v_tilling
+    line: 223
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_sparkle_u_speed
+    line: 229
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_sparkle_v_speed
+    line: 235
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Function
+    name: CalcSparkleNoise
+    line: 241
+    return_type: void
+    param_count: 3
+  - kind: Texture
+    name: t_flowcolormap
+    line: 260
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_flowcolormap
+    line: 264
+    state_count: 3
+  - kind: Uniform
+    name: u_flowcolor_cycle_time
+    line: 271
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_flow_color
+    line: 278
+    type: float4
+    has_annotation: true
+    default: {1.0, 1.0, 1.0, 1.0}
+  - kind: Uniform
+    name: u_flow_color_intensity
+    line: 285
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_flowcolor_parallax
+    line: 292
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_flowcolor_u_tilling
+    line: 299
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_flowcolor_v_tilling
+    line: 306
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_flowcolor_u_bias
+    line: 314
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_flowcolor_v_bias
+    line: 322
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_flowcolor_dissolve_factor
+    line: 334
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_flowcolor_dissolve_intensity
+    line: 341
+    type: float
+    has_annotation: true
+    default: 0.9
+  - kind: Uniform
+    name: u_flowcolor_dissolve_range
+    line: 348
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Function
+    name: CalcFlowColor
+    line: 355
+    return_type: void
+    param_count: 7
+  - kind: Uniform
+    name: u_fresnel_power
+    line: 400
+    type: float
+    has_annotation: true
+    default: 4.0
+  - kind: Uniform
+    name: u_fresnel_intensity
+    line: 408
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_fresnel_color
+    line: 417
+    type: float4
+    has_annotation: true
+    default: {1.0, 1.0, 1.0, 1.0}
+  - kind: Uniform
+    name: u_fresnel_min_intensity
+    line: 424
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_fresnel_only_emission
+    line: 433
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_fresnel_breath_freq
+    line: 441
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_fresnel_breath_min
+    line: 450
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Function
+    name: CalcFresnel
+    line: 459
+    return_type: void
+    param_count: 4
+  - kind: Function
+    name: CalcLightingMatcapSand
+    line: 481
+    return_type: void
+    param_count: 4

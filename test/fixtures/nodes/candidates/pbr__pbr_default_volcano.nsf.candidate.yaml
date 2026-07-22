@@ -1,0 +1,459 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: pbr/pbr_default_volcano.nsf
+# 节点总数: 81
+input: pbr/pbr_default_volcano.nsf
+
+expected_nodes:
+  - kind: Struct
+    name: VS_INPUT
+    line: 1
+    field_count: 0
+  - kind: Struct
+    name: PS_INPUT
+    line: 6
+    field_count: 2
+  - kind: Texture
+    name: t_smoke1_tex
+    line: 94
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_smoke1_tex
+    line: 101
+    state_count: 3
+  - kind: Texture
+    name: t_smoke2_tex
+    line: 108
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_smoke2_tex
+    line: 115
+    state_count: 3
+  - kind: Texture
+    name: t_wpo_tex
+    line: 122
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_wpo_tex
+    line: 129
+    state_count: 3
+  - kind: Texture
+    name: t_emissive1_tex
+    line: 136
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_emissive1_tex
+    line: 143
+    state_count: 3
+  - kind: Texture
+    name: t_distort_tex
+    line: 150
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_distort_tex
+    line: 157
+    state_count: 3
+  - kind: Texture
+    name: t_emissive2_tex
+    line: 164
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_emissive2_tex
+    line: 171
+    state_count: 3
+  - kind: Texture
+    name: t_emissivemask_tex
+    line: 178
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_emissivemask_tex
+    line: 185
+    state_count: 3
+  - kind: Texture
+    name: t_fmask_tex
+    line: 192
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_fmask_tex
+    line: 199
+    state_count: 3
+  - kind: Uniform
+    name: u_metallic
+    line: 208
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_roughness
+    line: 215
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_smoke1_tilling_x
+    line: 224
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_smoke1_tilling_y
+    line: 230
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_smoke1_clamp
+    line: 237
+    type: float2
+    has_annotation: true
+    default: {0.0f,0.0f}
+  - kind: Uniform
+    name: u_smoke1_offset_x
+    line: 244
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_smoke1_offset_y
+    line: 250
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_smoke1_speed_x
+    line: 256
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_smoke1_speed_y
+    line: 262
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_smoke2_tilling_x
+    line: 271
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_smoke2_tilling_y
+    line: 277
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_smoke2_clamp
+    line: 284
+    type: float2
+    has_annotation: true
+    default: {0.0f,0.0f}
+  - kind: Uniform
+    name: u_smoke2_offset_x
+    line: 291
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_smoke2_offset_y
+    line: 297
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_smoke2_speed_x
+    line: 303
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_smoke2_speed_y
+    line: 309
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_smokecolor
+    line: 316
+    type: float4
+    has_annotation: true
+    default: {1.0f,1.0f,1.0f,1.0f}
+  - kind: Uniform
+    name: u_smoke_intensity
+    line: 323
+    type: float
+    has_annotation: true
+    default: 5.0
+  - kind: Uniform
+    name: u_wpo_tilling_x
+    line: 332
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo_tilling_y
+    line: 338
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wpo_clamp
+    line: 345
+    type: float2
+    has_annotation: true
+    default: {0.0f,0.0f}
+  - kind: Uniform
+    name: u_wpo_offset_x
+    line: 352
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_wpo_offset_y
+    line: 358
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_wpo_speed_x
+    line: 364
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_wpo_speed_y
+    line: 370
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_wpo_intensity
+    line: 377
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_emissive1_tilling_x
+    line: 386
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissive1_tilling_y
+    line: 392
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissive1_clamp
+    line: 399
+    type: float2
+    has_annotation: true
+    default: {0.0f,0.0f}
+  - kind: Uniform
+    name: u_emissive1_offset_x
+    line: 406
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_emissive1_offset_y
+    line: 412
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_emissive1_speed_x
+    line: 418
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_emissive1_speed_y
+    line: 424
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort1_tilling_x
+    line: 431
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort1_tilling_y
+    line: 437
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort1_clamp
+    line: 444
+    type: float2
+    has_annotation: true
+    default: {0.0f,0.0f}
+  - kind: Uniform
+    name: u_distort1_offset_x
+    line: 451
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort1_offset_y
+    line: 457
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort1_speed_x
+    line: 463
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort1_speed_y
+    line: 469
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort1_u_intensity
+    line: 476
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort1_v_intensity
+    line: 482
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_emissive2_tilling_x
+    line: 490
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissive2_tilling_y
+    line: 496
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissive2_clamp
+    line: 503
+    type: float2
+    has_annotation: true
+    default: {0.0f,0.0f}
+  - kind: Uniform
+    name: u_emissive2_offset_x
+    line: 510
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_emissive2_offset_y
+    line: 516
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_emissive2_speed_x
+    line: 522
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_emissive2_speed_y
+    line: 528
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_emissive_mask_multi
+    line: 535
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_emissive_power
+    line: 542
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_emissive_highlight_intensity
+    line: 549
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissive_grey_intensity
+    line: 556
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissive_mix
+    line: 563
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_emissive_color
+    line: 570
+    type: float4
+    has_annotation: true
+    default: {1.0f,1.0f,1.0f,1.0f}
+  - kind: Uniform
+    name: u_use_fresnelmask
+    line: 578
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_fresnel_width
+    line: 588
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_fresnel_power
+    line: 598
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Function
+    name: UV_TC_OS
+    line: 616
+    return_type: float2
+    param_count: 3
+  - kind: Function
+    name: VertexDataNodesBasedGraph
+    line: 629
+    return_type: void
+    param_count: 2
+  - kind: Function
+    name: CustomizedVertexDataOutput
+    line: 649
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: PixelNodesBasedGraph
+    line: 658
+    return_type: void
+    param_count: 3
+  - kind: Technique
+    name: TShader
+    line: 752
+    pass_count: 1
+    has_annotation: true

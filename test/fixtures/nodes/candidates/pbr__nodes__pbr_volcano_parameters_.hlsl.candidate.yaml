@@ -1,0 +1,323 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: pbr/nodes/pbr_volcano_parameters .hlsl
+# 节点总数: 57
+input: pbr/nodes/pbr_volcano_parameters .hlsl
+
+expected_nodes:
+  - kind: Texture
+    name: Tex0
+    line: 86
+    texture_type: texture
+    semantic: DiffuseMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_diffuse
+    line: 91
+    state_count: 2
+  - kind: Texture
+    name: NormalMap
+    line: 97
+    texture_type: texture
+    semantic: NormalMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_normalmap
+    line: 102
+    state_count: 2
+  - kind: Texture
+    name: ParamMap
+    line: 108
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_parammap
+    line: 113
+    state_count: 3
+  - kind: Uniform
+    name: top_normal_intensity
+    line: 156
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: topblend_changecolor
+    line: 166
+    type: float4
+    has_annotation: true
+    default: {0.5f,0.5f,0.5f,1.0f}
+  - kind: Uniform
+    name: u_changecolor
+    line: 172
+    type: float4
+    has_annotation: true
+    default: {0.5f,0.5f,0.5f,1.0f}
+  - kind: Uniform
+    name: u_autum_color
+    line: 178
+    type: float4
+    has_annotation: true
+    default: {0.95f,0.58f,0.13f,1.0f}
+  - kind: Uniform
+    name: blend_normal_tilling
+    line: 185
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: blend_detial_tilling
+    line: 195
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: detail_normal_intensity
+    line: 205
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: sharpness
+    line: 215
+    type: float
+    has_annotation: true
+    default: 5.0
+  - kind: Uniform
+    name: maxangle
+    line: 225
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_snowmask_scale_max
+    line: 235
+    type: float
+    has_annotation: true
+    default: 0.4
+  - kind: Uniform
+    name: u_snowmask_scale
+    line: 244
+    type: float
+    has_annotation: true
+    default: 0.65
+  - kind: Uniform
+    name: u_season_intentisy
+    line: 253
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissivecolor
+    line: 267
+    type: float4
+    has_annotation: true
+    default: {1.0f,1.0f,1.0f,1.0f}
+  - kind: Uniform
+    name: u_emissive_intensity
+    line: 274
+    type: float
+    has_annotation: true
+    default: 5.0
+  - kind: Uniform
+    name: u_emissive_highlight_intensity
+    line: 286
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissive_power
+    line: 298
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissive_tiling_x
+    line: 313
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissive_tiling_y
+    line: 324
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_emissive_offest_x
+    line: 337
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_emissive_offest_y
+    line: 348
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_emissive_speed_x
+    line: 359
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_emissive_speed_y
+    line: 370
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort01_tiling_x
+    line: 383
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort01_tiling_y
+    line: 394
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort01_offest_x
+    line: 407
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort01_offest_y
+    line: 418
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort01_speed_x
+    line: 429
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort01_speed_y
+    line: 440
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_distort1_intensity
+    line: 455
+    type: float
+    has_annotation: true
+    default: 0.05
+  - kind: Uniform
+    name: u_distort1u_intensity
+    line: 462
+    type: float
+    has_annotation: true
+    default: 1.5
+  - kind: Uniform
+    name: u_distort1v_intensity
+    line: 469
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort02_tiling_x
+    line: 479
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_distort02_tiling_y
+    line: 490
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_mask01_tiling_x
+    line: 587
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_mask01_tiling_y
+    line: 598
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_mask01_offest_x
+    line: 611
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_mask01_offest_y
+    line: 623
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_mask01_speed_x
+    line: 635
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_mask01_speed_y
+    line: 646
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Texture
+    name: t_emmisve_tex1
+    line: 666
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_emmisive
+    line: 672
+    state_count: 3
+  - kind: Texture
+    name: t_distort_tex1
+    line: 682
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_distort01
+    line: 688
+    state_count: 3
+  - kind: Texture
+    name: t_distort_tex2
+    line: 713
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_distort02
+    line: 721
+    state_count: 3
+  - kind: Texture
+    name: t_mask01
+    line: 729
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_mask01
+    line: 736
+    state_count: 3
+  - kind: Texture
+    name: t_autumn_blend
+    line: 751
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_autumn_blend
+    line: 757
+    state_count: 4
+  - kind: Texture
+    name: t_snow_blend2
+    line: 765
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_snow_blend2
+    line: 771
+    state_count: 4

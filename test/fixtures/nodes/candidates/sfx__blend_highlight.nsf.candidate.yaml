@@ -1,0 +1,86 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: sfx/blend_highlight.nsf
+# 节点总数: 15
+input: sfx/blend_highlight.nsf
+
+expected_nodes:
+  - kind: Texture
+    name: Tex0
+    line: 4
+    texture_type: texture
+    semantic: DiffuseMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_diffuse
+    line: 9
+    state_count: 0
+  - kind: Uniform
+    name: scale_x
+    line: 13
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: scale_y
+    line: 20
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: offset_x
+    line: 27
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: offset_y
+    line: 34
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: intensity
+    line: 41
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Struct
+    name: VS_INPUT
+    line: 49
+    field_count: 7
+  - kind: Struct
+    name: PS_INPUT
+    line: 60
+    field_count: 3
+  - kind: Function
+    name: vs_main
+    line: 73
+    return_type: PS_INPUT
+    stage: vertex
+    param_count: 1
+  - kind: Function
+    name: ps_main
+    line: 100
+    return_type: half4
+    stage: pixel
+    param_count: 1
+  - kind: Technique
+    name: THighlightBlend
+    line: 112
+    pass_count: 1
+    has_annotation: true
+  - kind: Technique
+    name: TNoHdrBlend
+    line: 133
+    pass_count: 1
+    has_annotation: true
+  - kind: Technique
+    name: THighlightAdd
+    line: 154
+    pass_count: 1
+    has_annotation: true
+  - kind: Technique
+    name: TNoHdrAdd
+    line: 175
+    pass_count: 1
+    has_annotation: true

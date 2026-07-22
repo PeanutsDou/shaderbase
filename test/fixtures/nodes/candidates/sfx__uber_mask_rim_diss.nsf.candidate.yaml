@@ -1,0 +1,76 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: sfx/uber_mask_rim_diss.nsf
+# 节点总数: 15
+input: sfx/uber_mask_rim_diss.nsf
+
+expected_nodes:
+  - kind: Texture
+    name: distort_tex
+    line: 1
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_distort_tex
+    line: 8
+    state_count: 3
+  - kind: Texture
+    name: Tex0
+    line: 14
+    texture_type: texture
+    semantic: DiffuseMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_diffuse
+    line: 21
+    state_count: 3
+  - kind: Texture
+    name: dissolve_tex
+    line: 27
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_dissolve_tex
+    line: 34
+    state_count: 3
+  - kind: Texture
+    name: mask_tex
+    line: 40
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_mask_tex
+    line: 47
+    state_count: 3
+  - kind: Texture
+    name: mask_clamp_tex
+    line: 53
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_mask_clamp_tex
+    line: 60
+    state_count: 3
+  - kind: Texture
+    name: base_color_tex
+    line: 66
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_base_tex
+    line: 73
+    state_count: 3
+  - kind: Technique
+    name: TShader
+    line: 86
+    pass_count: 1
+    has_annotation: true
+  - kind: Technique
+    name: TShaderGBuffer
+    line: 101
+    pass_count: 1
+    has_annotation: true
+  - kind: Technique
+    name: TShaderBlendAdd
+    line: 113
+    pass_count: 1
+    has_annotation: true

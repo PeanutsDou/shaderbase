@@ -1,0 +1,373 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: sfx/uber_noise_mask.nsf
+# 节点总数: 65
+input: sfx/uber_noise_mask.nsf
+
+expected_nodes:
+  - kind: Struct
+    name: VS_INPUT
+    line: 1
+    field_count: 1
+  - kind: Struct
+    name: PS_INPUT
+    line: 7
+    field_count: 8
+  - kind: Texture
+    name: t_texture_diffuse01
+    line: 23
+    texture_type: texture
+    semantic: DiffuseMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_texture_diffuse01
+    line: 31
+    state_count: 3
+  - kind: Uniform
+    name: u_diffuse1_Emissive_color
+    line: 37
+    type: float4
+    has_annotation: true
+    default: {1.0f,0.404613f,0.114583f,0.0f}
+  - kind: Uniform
+    name: u_diffuse1_uvscale_x
+    line: 44
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_diffuse1_uvscale_y
+    line: 51
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_diffuse1_uvspeed_x
+    line: 58
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_diffuse1_uvspeed_y
+    line: 65
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Texture
+    name: t_texture_diffuse02
+    line: 72
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_texture_diffuse02
+    line: 80
+    state_count: 3
+  - kind: Uniform
+    name: u_diffuse2_color
+    line: 87
+    type: float4
+    has_annotation: true
+    default: {1.0f,0.278321f,0.0f,0.0f}
+  - kind: Uniform
+    name: u_diffuse2_alpha_intensity
+    line: 94
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_diffuse2_intensity
+    line: 101
+    type: float
+    has_annotation: true
+    default: 100.0
+  - kind: Uniform
+    name: u_diffuse2_uvscale_x
+    line: 108
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_diffuse2_uvscale_y
+    line: 115
+    type: float
+    has_annotation: true
+    default: 5.0
+  - kind: Uniform
+    name: u_diffuse2_uvspeed_x
+    line: 122
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_diffuse2_uvspeed_y
+    line: 129
+    type: float
+    has_annotation: true
+    default: -0.25
+  - kind: Texture
+    name: t_texture_diffuse03
+    line: 137
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_texture_diffuse03
+    line: 145
+    state_count: 3
+  - kind: Uniform
+    name: u_diffuse3_RG_intensity
+    line: 152
+    type: float
+    has_annotation: true
+    default: 100.0
+  - kind: Uniform
+    name: u_diffuse3_color
+    line: 159
+    type: float4
+    has_annotation: true
+    default: {1.0f,0.407650f,0.036458f,1.0f}
+  - kind: Uniform
+    name: u_diffuse3_rg_power
+    line: 166
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_diffse3_g_intensity
+    line: 173
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_diffuse3g_uvscale_x
+    line: 181
+    type: float
+    has_annotation: true
+    default: 5.0
+  - kind: Uniform
+    name: u_diffuse3g_uvscale_y
+    line: 188
+    type: float
+    has_annotation: true
+    default: 10.0
+  - kind: Uniform
+    name: u_diffuse3g_uvspeed_x
+    line: 195
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_diffuse3g_uvspeed_y
+    line: 202
+    type: float
+    has_annotation: true
+    default: -1.0
+  - kind: Uniform
+    name: u_diffse3_r_intensity
+    line: 209
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_diffuse3r_uvscale_x
+    line: 216
+    type: float
+    has_annotation: true
+    default: 5.0
+  - kind: Uniform
+    name: u_diffuse3r_uvscale_y
+    line: 223
+    type: float
+    has_annotation: true
+    default: 10.0
+  - kind: Uniform
+    name: u_diffuse3r_uvspeed_x
+    line: 230
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_diffuse3r_uvspeed_y
+    line: 237
+    type: float
+    has_annotation: true
+    default: -0.2
+  - kind: Texture
+    name: t_texture_diffuse05
+    line: 244
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_texture_diffuse05
+    line: 252
+    state_count: 3
+  - kind: Uniform
+    name: u_diffuse5_intensity
+    line: 259
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_diffuse5_color
+    line: 266
+    type: float4
+    has_annotation: true
+    default: {1.0f,0.407650f,0.036458f,1.0f}
+  - kind: Uniform
+    name: u_diffuse5_uvscale_x
+    line: 273
+    type: float
+    has_annotation: true
+    default: 5.0
+  - kind: Uniform
+    name: u_diffuse5_uvscale_y
+    line: 280
+    type: float
+    has_annotation: true
+    default: 5.0
+  - kind: Uniform
+    name: u_diffuse5_uvspeed_x
+    line: 287
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_diffuse5_uvspeed_y
+    line: 294
+    type: float
+    has_annotation: true
+    default: 0.2
+  - kind: Texture
+    name: t_texture_noise
+    line: 301
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_texture_noise
+    line: 309
+    state_count: 3
+  - kind: Uniform
+    name: u_noiseR_intensity
+    line: 316
+    type: float
+    has_annotation: true
+    default: 0.05
+  - kind: Uniform
+    name: u_noiseR_uvscale_x
+    line: 323
+    type: float
+    has_annotation: true
+    default: 3.0
+  - kind: Uniform
+    name: u_noiseR_uvscale_y
+    line: 330
+    type: float
+    has_annotation: true
+    default: 3.0
+  - kind: Uniform
+    name: u_noiseR_uvspeed_x
+    line: 337
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_noiseR_uvspeed_y
+    line: 344
+    type: float
+    has_annotation: true
+    default: -0.1
+  - kind: Uniform
+    name: u_noiseG_intensity
+    line: 351
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_noiseG_uvscale_x
+    line: 358
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_noiseG_uvscale_y
+    line: 365
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_noiseG_uvspeed_x
+    line: 372
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_noiseG_uvspeed_y
+    line: 379
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_noiseB_intensity
+    line: 387
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_noiseBtoG_intensity
+    line: 394
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_noiseB_uvscale_x
+    line: 401
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_noiseB_uvscale_y
+    line: 408
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_noiseB_uvspeed_x
+    line: 415
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_noiseB_uvspeed_y
+    line: 422
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Texture
+    name: t_texture_mask
+    line: 429
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_texture_mask
+    line: 437
+    state_count: 3
+  - kind: Function
+    name: vs_main
+    line: 445
+    return_type: PS_INPUT
+    stage: vertex
+    param_count: 1
+  - kind: Function
+    name: ps_main
+    line: 499
+    return_type: half4
+    stage: pixel
+    param_count: 1
+  - kind: Technique
+    name: TShader
+    line: 545
+    pass_count: 1
+    has_annotation: true
+  - kind: Technique
+    name: TShaderBlendAdd
+    line: 558
+    pass_count: 1
+    has_annotation: true

@@ -1,0 +1,263 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: common_pipeline/gicommon.hlsl
+# 节点总数: 53
+input: common_pipeline/gicommon.hlsl
+
+expected_nodes:
+  - kind: Function
+    name: ConstructPosition
+    line: 19
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: GetViewZ
+    line: 27
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: HitDistanceAttenuation
+    line: 57
+    return_type: float
+    param_count: 2
+  - kind: Function
+    name: BasisFromAngle
+    line: 64
+    return_type: float4
+    param_count: 1
+  - kind: Function
+    name: GetGaussianWeight
+    line: 75
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: UVInScreen
+    line: 80
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: GetWorldPos
+    line: 85
+    return_type: float3
+    param_count: 2
+  - kind: Function
+    name: CalcDirectionalLightShadow
+    line: 99
+    return_type: half
+    param_count: 3
+  - kind: Struct
+    name: SurfelData
+    line: 127
+    field_count: 10
+  - kind: Function
+    name: UpdateTimerStatus
+    line: 166
+    return_type: int4
+    param_count: 2
+  - kind: Function
+    name: EncodeSurfelTimerStatus
+    line: 176
+    return_type: uint
+  - kind: Function
+    name: DecodeSurfelTimerStatus
+    line: 181
+    return_type: uint2
+    param_count: 1
+  - kind: Struct
+    name: SurfelRay
+    line: 186
+    field_count: 2
+  - kind: Struct
+    name: InitSurfel
+    line: 192
+    field_count: 2
+  - kind: Struct
+    name: SurfelVolume
+    line: 219
+    field_count: 2
+  - kind: Struct
+    name: SurfelDataInVoxel
+    line: 225
+    field_count: 3
+  - kind: Function
+    name: IsSurfelInVoxel
+    line: 261
+    return_type: bool
+    param_count: 1
+  - kind: Function
+    name: WorldPosToVoxelCoord
+    line: 267
+    return_type: uint3
+    param_count: 1
+  - kind: Function
+    name: WorldPosToVoxelCenter
+    line: 274
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: VoxelGetNeighborCoord
+    line: 280
+    return_type: int3
+    param_count: 2
+  - kind: Function
+    name: VoxelCoordToVoxelIndex
+    line: 292
+    return_type: uint
+    param_count: 1
+  - kind: Function
+    name: PlaneIntersectAABB
+    line: 300
+    return_type: bool
+    param_count: 3
+  - kind: Function
+    name: GetCoord3x3ByIndex
+    line: 308
+    return_type: uint3
+    param_count: 1
+  - kind: Function
+    name: GetIndexInCoord3x3
+    line: 319
+    return_type: uint
+    param_count: 1
+  - kind: Function
+    name: SphereIntersectAABB_Nearly
+    line: 326
+    return_type: bool
+    param_count: 3
+  - kind: Function
+    name: SphereIntersectAABB
+    line: 334
+    return_type: bool
+    param_count: 3
+  - kind: Function
+    name: GetSurfelPlane
+    line: 344
+    return_type: float4
+    param_count: 1
+  - kind: Function
+    name: GetSurfelSphere
+    line: 353
+    return_type: float4
+    param_count: 1
+  - kind: Function
+    name: ScreenCoordToTileIndex
+    line: 358
+    return_type: uint2
+    param_count: 1
+  - kind: Function
+    name: RandomSpawnSurfel
+    line: 364
+    return_type: bool
+    param_count: 2
+  - kind: Function
+    name: GetTimeStampDiff
+    line: 393
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: GetRayCastFactor
+    line: 404
+    return_type: float
+    param_count: 2
+  - kind: Function
+    name: RayToHemiOctahedronUV
+    line: 414
+    return_type: float2
+    param_count: 2
+  - kind: Function
+    name: SurfelIndexToRadiaceCachePixel
+    line: 425
+    return_type: int2
+    param_count: 1
+  - kind: Function
+    name: GetSurfelOctahedralPixel
+    line: 433
+    return_type: float2
+    param_count: 3
+  - kind: Function
+    name: GetSurfelOctahedralPixel
+    line: 443
+    return_type: float2
+    param_count: 2
+  - kind: Function
+    name: GetSurfelIrradiance
+    line: 450
+    return_type: half3
+    param_count: 5
+  - kind: Function
+    name: GetSurfelRadiance
+    line: 462
+    return_type: half3
+    param_count: 4
+  - kind: Function
+    name: GetWeightedSurfelIndirectLight
+    line: 470
+    return_type: half3
+    param_count: 7
+  - kind: Struct
+    name: FThreeBandSHVector
+    line: 500
+    field_count: 3
+  - kind: Struct
+    name: FThreeBandSHVectorRGB
+    line: 507
+    field_count: 3
+  - kind: Function
+    name: SHBasisFunction3
+    line: 514
+    return_type: FThreeBandSHVector
+    param_count: 1
+  - kind: Function
+    name: CalcDiffuseTransferSH3
+    line: 532
+    return_type: FThreeBandSHVector
+    param_count: 2
+  - kind: Function
+    name: DotSH3
+    line: 552
+    return_type: half
+    param_count: 2
+  - kind: Function
+    name: DotSH3
+    line: 560
+    return_type: half3
+    param_count: 2
+  - kind: Function
+    name: OctahedralMapWrapBorder
+    line: 570
+    return_type: uint2
+    param_count: 3
+  - kind: Function
+    name: Compress2Floats
+    line: 596
+    return_type: uint
+    param_count: 1
+  - kind: Function
+    name: Uncompress2Floats
+    line: 602
+    return_type: float2
+    param_count: 1
+  - kind: Function
+    name: Compress4Floats
+    line: 608
+    return_type: uint2
+    param_count: 1
+  - kind: Function
+    name: Uncompress4Floats
+    line: 613
+    return_type: float4
+    param_count: 1
+  - kind: Function
+    name: GetSurfelCellCoord
+    line: 618
+    return_type: int3
+    param_count: 1
+  - kind: Function
+    name: IsSurfelCellValid
+    line: 624
+    return_type: bool
+    param_count: 1
+  - kind: Function
+    name: GetSurfelCellIndex
+    line: 629
+    return_type: bool
+    param_count: 3

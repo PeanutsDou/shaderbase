@@ -1,7 +1,11 @@
-# Ignore all directories except g66-shader-grammar
+# Ignore all directories except shaderbase and g66-shader-grammar
 /*
 !/.gitignore
 !/*.md
+!/pyproject.toml
+!/shaderbase/
+!/scripts/
+!/test/
 !/g66-shader-grammar/
 # Ignore shader source location file
 /shader源代码位置说明.txt
@@ -10,9 +14,18 @@ g66-shader-grammar/node_modules/
 g66-shader-grammar/build/
 g66-shader-grammar/prebuilds/
 g66-shader-grammar/.git/
+# Ignore compiled binding（按需本地重 build）
+g66-shader-grammar/bindings/python/tree_sitter_g66_shader/_binding.pyd
+g66-shader-grammar/bindings/python/tree_sitter_g66_shader.egg-info/
+g66-shader-grammar/*.obj
+g66-shader-grammar/*.lib
+g66-shader-grammar/*.exp
 # Ignore other reference projects
 /codebase-memory-mcp/
 /nsp-intellision/
 /tree-sitter-hlsl/
 /pbr_rock/
 /shader源代码检索相关/
+# Python
+__pycache__/
+*.pyc

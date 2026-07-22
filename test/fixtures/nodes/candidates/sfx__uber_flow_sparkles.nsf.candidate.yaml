@@ -1,0 +1,498 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: sfx/uber_flow_sparkles.nsf
+# 节点总数: 87
+input: sfx/uber_flow_sparkles.nsf
+
+expected_nodes:
+  - kind: Struct
+    name: VS_INPUT
+    line: 1
+    field_count: 0
+  - kind: Struct
+    name: PS_INPUT
+    line: 7
+    field_count: 11
+  - kind: Uniform
+    name: u_column_row
+    line: 74
+    type: float
+    has_annotation: true
+    default: 4.0
+  - kind: Uniform
+    name: u_sprite_angle_1
+    line: 91
+    type: float
+    has_annotation: true
+    default: 0.9
+  - kind: Uniform
+    name: u_sprite_tiling_x_1
+    line: 101
+    type: float
+    has_annotation: true
+    default: 15.0
+  - kind: Uniform
+    name: u_sprite_tiling_y_1
+    line: 108
+    type: float
+    has_annotation: true
+    default: 15.0
+  - kind: Uniform
+    name: u_sprite_direction_offset_1
+    line: 115
+    type: float4
+    has_annotation: true
+    default: {0.22, 0.16, -1.0, -1.0}
+  - kind: Uniform
+    name: u_sprite_speed_1
+    line: 162
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_sprite_move_speed_1
+    line: 172
+    type: float
+    has_annotation: true
+    default: 0.09
+  - kind: Uniform
+    name: u_sprite_fade_1
+    line: 182
+    type: float
+    has_annotation: true
+    default: 0.05
+  - kind: Uniform
+    name: u_sprite_brightness_1
+    line: 192
+    type: float
+    has_annotation: true
+    default: 2.35
+  - kind: Uniform
+    name: u_sprite_angle_2
+    line: 212
+    type: float
+    has_annotation: true
+    default: 0.87
+  - kind: Uniform
+    name: u_sprite_tiling_x_2
+    line: 222
+    type: float
+    has_annotation: true
+    default: 15.0
+  - kind: Uniform
+    name: u_sprite_tiling_y_2
+    line: 230
+    type: float
+    has_annotation: true
+    default: 15.0
+  - kind: Uniform
+    name: u_sprite_direction_offset_2
+    line: 238
+    type: float4
+    has_annotation: true
+    default: {0.22, 0.16, -1.0, -0.71}
+  - kind: Uniform
+    name: u_sprite_speed_2
+    line: 285
+    type: float
+    has_annotation: true
+    default: 2.2
+  - kind: Uniform
+    name: u_sprite_move_speed_2
+    line: 295
+    type: float
+    has_annotation: true
+    default: 0.09
+  - kind: Uniform
+    name: u_sprite_fade_2
+    line: 305
+    type: float
+    has_annotation: true
+    default: 0.16
+  - kind: Uniform
+    name: u_sprite_brightness_2
+    line: 315
+    type: float
+    has_annotation: true
+    default: 1.18
+  - kind: Uniform
+    name: u_object_height_1
+    line: 336
+    type: float
+    has_annotation: true
+    default: 0.35
+  - kind: Uniform
+    name: u_object_offset_x_1
+    line: 346
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_object_offset_y_1
+    line: 356
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_object_speed_x_1
+    line: 366
+    type: float
+    has_annotation: true
+    default: 0.06
+  - kind: Uniform
+    name: u_object_speed_y_1
+    line: 376
+    type: float
+    has_annotation: true
+    default: -0.1
+  - kind: Uniform
+    name: u_object_tiling_x_1
+    line: 386
+    type: float
+    has_annotation: true
+    default: 4.0
+  - kind: Uniform
+    name: u_object_tiling_y_1
+    line: 393
+    type: float
+    has_annotation: true
+    default: 4.0
+  - kind: Uniform
+    name: u_object_color_1
+    line: 400
+    type: float4
+    has_annotation: true
+    default: {1.0, 1.0, 1.0, 0.2}
+  - kind: Uniform
+    name: u_object_height_2
+    line: 417
+    type: float
+    has_annotation: true
+    default: 0.18
+  - kind: Uniform
+    name: u_object_offset_x_2
+    line: 427
+    type: float
+    has_annotation: true
+    default: -1.76
+  - kind: Uniform
+    name: u_object_offset_y_2
+    line: 437
+    type: float
+    has_annotation: true
+    default: -0.25
+  - kind: Uniform
+    name: u_object_speed_x_2
+    line: 447
+    type: float
+    has_annotation: true
+    default: 0.07
+  - kind: Uniform
+    name: u_object_speed_y_2
+    line: 457
+    type: float
+    has_annotation: true
+    default: 0.07
+  - kind: Uniform
+    name: u_object_tiling_x_2
+    line: 467
+    type: float
+    has_annotation: true
+    default: 5.0
+  - kind: Uniform
+    name: u_object_tiling_y_2
+    line: 474
+    type: float
+    has_annotation: true
+    default: 5.0
+  - kind: Uniform
+    name: u_object_color_2
+    line: 481
+    type: float4
+    has_annotation: true
+    default: {1.0, 1.0, 1.0, 0.16}
+  - kind: Uniform
+    name: u_object_height_3
+    line: 498
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_object_offset_x_3
+    line: 508
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_object_offset_y_3
+    line: 518
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_object_speed_x_3
+    line: 528
+    type: float
+    has_annotation: true
+    default: 0.06
+  - kind: Uniform
+    name: u_object_speed_y_3
+    line: 538
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_object_tiling_x_3
+    line: 548
+    type: float
+    has_annotation: true
+    default: 8.0
+  - kind: Uniform
+    name: u_object_tiling_y_3
+    line: 555
+    type: float
+    has_annotation: true
+    default: 8.0
+  - kind: Uniform
+    name: u_object_color_3
+    line: 562
+    type: float4
+    has_annotation: true
+    default: {1.0, 1.0, 1.0, 0.12}
+  - kind: Uniform
+    name: u_object_height_4
+    line: 579
+    type: float
+    has_annotation: true
+    default: 0.12
+  - kind: Uniform
+    name: u_object_offset_x_4
+    line: 589
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_object_offset_y_4
+    line: 599
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_object_speed_x_4
+    line: 609
+    type: float
+    has_annotation: true
+    default: 0.12
+  - kind: Uniform
+    name: u_object_speed_y_4
+    line: 619
+    type: float
+    has_annotation: true
+    default: 0.33
+  - kind: Uniform
+    name: u_object_tiling_x_4
+    line: 629
+    type: float
+    has_annotation: true
+    default: 10.0
+  - kind: Uniform
+    name: u_object_tiling_y_4
+    line: 636
+    type: float
+    has_annotation: true
+    default: 10.0
+  - kind: Uniform
+    name: u_object_color_4
+    line: 643
+    type: float4
+    has_annotation: true
+    default: {1.0, 1.0, 1.0, 0.06}
+  - kind: Uniform
+    name: u_breath_noise_fade
+    line: 651
+    type: float
+    has_annotation: true
+    default: 0.53
+  - kind: Uniform
+    name: u_sparkle_breath_speed
+    line: 661
+    type: float
+    has_annotation: true
+    default: 1.73
+  - kind: Uniform
+    name: u_sparkle_tiling
+    line: 671
+    type: float
+    has_annotation: true
+    default: 10.0
+  - kind: Uniform
+    name: u_sparkle_speed
+    line: 678
+    type: float
+    has_annotation: true
+    default: 0.05
+  - kind: Uniform
+    name: u_specular_intensity
+    line: 698
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_sparkle_color
+    line: 708
+    type: float4
+    has_annotation: true
+    default: {0.4902, 0.9059, 1.0, 0.29}
+  - kind: Uniform
+    name: u_breath_noise_tiling
+    line: 716
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_breath_noise_speed
+    line: 723
+    type: float
+    has_annotation: true
+    default: 0.2
+  - kind: Uniform
+    name: u_halo_offset_x
+    line: 761
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_halo_offset_y
+    line: 771
+    type: float
+    has_annotation: true
+    default: -0.22
+  - kind: Uniform
+    name: u_halo_tiling
+    line: 781
+    type: float
+    has_annotation: true
+    default: 1.1
+  - kind: Uniform
+    name: u_halo_rotation
+    line: 788
+    type: float
+    has_annotation: true
+    default: 0.912
+  - kind: Uniform
+    name: u_halo_brightness
+    line: 798
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_halo_noise_tiling
+    line: 808
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_global_color
+    line: 850
+    type: float4
+    has_annotation: true
+    default: {0.08, 0.33, 1.00, 1.00}
+  - kind: Texture
+    name: t_sprite_sheet
+    line: 859
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_sprite_sheet
+    line: 865
+    state_count: 4
+  - kind: Texture
+    name: t_object_tex
+    line: 873
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_object_tex
+    line: 879
+    state_count: 4
+  - kind: Texture
+    name: t_halo_tex
+    line: 887
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_halo_tex
+    line: 893
+    state_count: 3
+  - kind: Texture
+    name: t_noise_tex
+    line: 900
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_noise_tex
+    line: 906
+    state_count: 4
+  - kind: Texture
+    name: t_stream_tex
+    line: 914
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_stream_tex
+    line: 920
+    state_count: 3
+  - kind: Texture
+    name: t_sparkle_tex
+    line: 927
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_sparkle_tex
+    line: 933
+    state_count: 4
+  - kind: Texture
+    name: t_breath_noise
+    line: 941
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_breath_noise
+    line: 947
+    state_count: 4
+  - kind: Function
+    name: SampleEdgeTex
+    line: 969
+    return_type: half
+    param_count: 1
+  - kind: Function
+    name: GetEdgeMask
+    line: 975
+    return_type: half
+    param_count: 1
+  - kind: Function
+    name: FlipBook
+    line: 983
+    return_type: half4
+    param_count: 5
+  - kind: Function
+    name: CalcSpriteSheetAnimaiton
+    line: 993
+    return_type: half3
+    param_count: 6
+  - kind: Function
+    name: vs_main
+    line: 1004
+    return_type: PS_INPUT
+    stage: vertex
+    param_count: 1
+  - kind: Function
+    name: ps_main
+    line: 1066
+    return_type: half4
+    stage: pixel
+    param_count: 1
+  - kind: Technique
+    name: TShader
+    line: 1195
+    pass_count: 1
+    has_annotation: true

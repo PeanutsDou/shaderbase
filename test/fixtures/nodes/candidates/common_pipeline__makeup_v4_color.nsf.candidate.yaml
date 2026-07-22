@@ -1,0 +1,174 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: common_pipeline/makeup_v4_color.nsf
+# 节点总数: 35
+input: common_pipeline/makeup_v4_color.nsf
+
+expected_nodes:
+  - kind: Texture
+    name: t_color_default
+    line: 14
+    texture_type: texture
+    semantic: Texture0
+    has_annotation: true
+  - kind: SamplerState
+    name: s_color_default
+    line: 18
+    state_count: 4
+  - kind: Texture
+    name: t_contour_color
+    line: 29
+    texture_type: texture
+    semantic: Texture1
+    has_annotation: true
+  - kind: SamplerState
+    name: s_contour_color
+    line: 33
+    state_count: 4
+  - kind: Texture
+    name: t_realistic_color
+    line: 43
+    texture_type: texture
+    semantic: Texture3
+    has_annotation: true
+  - kind: SamplerState
+    name: s_realistic_color
+    line: 47
+    state_count: 4
+  - kind: Texture
+    name: t_rebirth_normal
+    line: 57
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_rebirth_normal
+    line: 61
+    state_count: 3
+  - kind: Texture
+    name: t_blusher_color
+    line: 71
+    texture_type: texture
+    semantic: Texture4
+    has_annotation: true
+  - kind: SamplerState
+    name: s_blusher_color
+    line: 75
+    state_count: 4
+  - kind: Texture
+    name: t_eyebrow_color
+    line: 85
+    texture_type: texture
+    semantic: Texture5
+    has_annotation: true
+  - kind: SamplerState
+    name: s_eyebrow_color
+    line: 89
+    state_count: 4
+  - kind: Texture
+    name: t_beard_color
+    line: 99
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_beard_color
+    line: 103
+    state_count: 4
+  - kind: Texture
+    name: t_eyeshape_color
+    line: 114
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_eyeshape_color
+    line: 118
+    state_count: 4
+  - kind: Texture
+    name: t_eyeshadow_color_1
+    line: 128
+    texture_type: texture
+    semantic: Texture6
+    has_annotation: true
+  - kind: SamplerState
+    name: s_eyeshadow_color_1
+    line: 132
+    state_count: 4
+  - kind: Texture
+    name: t_eyeliner_color
+    line: 156
+    texture_type: texture
+    semantic: Texture8
+    has_annotation: true
+  - kind: SamplerState
+    name: s_eyeliner_color
+    line: 160
+    state_count: 4
+  - kind: Texture
+    name: t_lipstick_color
+    line: 170
+    texture_type: texture
+    semantic: Texture9
+    has_annotation: true
+  - kind: SamplerState
+    name: s_lipstick_color
+    line: 174
+    state_count: 4
+  - kind: Texture
+    name: t_tattoo_color_1
+    line: 184
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_tattoo_color_1
+    line: 188
+    state_count: 4
+  - kind: Texture
+    name: t_tattoo_color_2
+    line: 198
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_tattoo_color_2
+    line: 202
+    state_count: 4
+  - kind: Texture
+    name: t_grid
+    line: 212
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_grid
+    line: 216
+    state_count: 3
+  - kind: Texture
+    name: t_gird_ring
+    line: 223
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_gird_ring
+    line: 227
+    state_count: 3
+  - kind: Struct
+    name: VS_INPUT
+    line: 309
+    field_count: 2
+  - kind: Struct
+    name: PS_INPUT
+    line: 315
+    field_count: 9
+  - kind: Function
+    name: vs_main
+    line: 330
+    return_type: PS_INPUT
+    stage: vertex
+    param_count: 1
+  - kind: Function
+    name: ps_main
+    line: 353
+    return_type: half4
+    stage: pixel
+    param_count: 1
+  - kind: Technique
+    name: TShader
+    line: 467
+    pass_count: 1
+    has_annotation: true

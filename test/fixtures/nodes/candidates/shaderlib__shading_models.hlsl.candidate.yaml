@@ -1,0 +1,301 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: shaderlib/shading_models.hlsl
+# 节点总数: 60
+input: shaderlib/shading_models.hlsl
+
+expected_nodes:
+  - kind: Struct
+    name: FDirectLighting
+    line: 1
+    field_count: 3
+  - kind: Struct
+    name: BxDFContext
+    line: 8
+    field_count: 12
+  - kind: Function
+    name: Init
+    line: 31
+    return_type: void
+    param_count: 6
+  - kind: Function
+    name: Init
+    line: 53
+    return_type: void
+    param_count: 6
+  - kind: Function
+    name: InitAniso
+    line: 79
+    return_type: void
+    param_count: 6
+  - kind: Function
+    name: SpecularGGXSimple
+    line: 98
+    return_type: half3
+    param_count: 6
+  - kind: Function
+    name: SpecularGGXSimple
+    line: 104
+    return_type: half3
+    param_count: 3
+  - kind: Function
+    name: SpecularGGX
+    line: 109
+    return_type: half3
+    param_count: 6
+  - kind: Function
+    name: ClothSpecularGGX
+    line: 124
+    return_type: half3
+    param_count: 8
+  - kind: Function
+    name: DualSpecularGGX
+    line: 147
+    return_type: half3
+    param_count: 7
+  - kind: Function
+    name: DualSpecularGGX
+    line: 179
+    return_type: float3
+    param_count: 8
+  - kind: Function
+    name: DualSpecularGGXOrSimClearCoat
+    line: 196
+    return_type: float3
+    param_count: 9
+  - kind: Function
+    name: DualSpecularGGXSimple
+    line: 215
+    return_type: float3
+    param_count: 6
+  - kind: Function
+    name: DualSpecularGGXOrSimClearCoatSimple
+    line: 223
+    return_type: float3
+    param_count: 8
+  - kind: Function
+    name: AnisotropySpecularGGX
+    line: 231
+    return_type: half3
+    param_count: 8
+  - kind: Function
+    name: DualAnisotropySpecularGGX
+    line: 265
+    return_type: half3
+    param_count: 9
+  - kind: Function
+    name: AnisotropySpecularGGXSimple
+    line: 303
+    return_type: half3
+    param_count: 8
+  - kind: Function
+    name: EyeSpecularGGX
+    line: 318
+    return_type: half3
+    param_count: 7
+  - kind: Function
+    name: KajiyaSpecularGGX
+    line: 336
+    return_type: half3
+    param_count: 8
+  - kind: Function
+    name: DefaultLitBxDF
+    line: 360
+    return_type: void
+    param_count: 7
+  - kind: Function
+    name: DefaultLitBxDFSimple
+    line: 385
+    return_type: void
+    param_count: 6
+  - kind: Function
+    name: DefaultDiffuseSimple
+    line: 402
+    return_type: void
+    param_count: 5
+  - kind: Function
+    name: AnisotrophyBxDF
+    line: 432
+    return_type: void
+    param_count: 6
+  - kind: Function
+    name: DualAnisotrophyBxDF
+    line: 458
+    return_type: void
+    param_count: 6
+  - kind: Function
+    name: AnisotrophyBxDFSimple
+    line: 483
+    return_type: void
+    param_count: 6
+  - kind: Function
+    name: SubsurfaceBxDF
+    line: 497
+    return_type: void
+    param_count: 6
+  - kind: Texture
+    name: t_preintegrated_skin_lut
+    line: 521
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_preintegrated_skin_lut
+    line: 527
+    state_count: 2
+  - kind: Texture
+    name: t_curvature_lut
+    line: 533
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_t_curvature_lut
+    line: 537
+    state_count: 2
+  - kind: Function
+    name: PreintegratedSkinBxDF
+    line: 545
+    return_type: void
+    param_count: 7
+  - kind: Function
+    name: PreintegratedSkinBxDFSimple
+    line: 698
+    return_type: void
+    param_count: 6
+  - kind: Function
+    name: SkinBxDFSimple
+    line: 745
+    return_type: void
+    param_count: 6
+  - kind: Function
+    name: TwoSidedBxDF
+    line: 791
+    return_type: void
+    param_count: 6
+  - kind: Function
+    name: ClothBxDF
+    line: 811
+    return_type: void
+    param_count: 6
+  - kind: Function
+    name: HairBxDF
+    line: 841
+    return_type: void
+    param_count: 8
+  - kind: Function
+    name: HairBxDFSimple
+    line: 849
+    return_type: void
+    param_count: 7
+  - kind: Function
+    name: CalcThinTransmission
+    line: 858
+    return_type: half3
+    param_count: 3
+  - kind: Function
+    name: RefractBlendClearCoatApprox
+    line: 879
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: RefractClearCoatContext
+    line: 885
+    return_type: BxDFContext
+    param_count: 1
+  - kind: Function
+    name: ClearCoatTopSpecularGGX
+    line: 907
+    return_type: half3
+    param_count: 8
+  - kind: Function
+    name: ClearCoatBottomSpecularGGX
+    line: 927
+    return_type: half3
+    param_count: 7
+  - kind: Function
+    name: ClearCoatBottomSpecularGGXSimple
+    line: 942
+    return_type: half3
+    param_count: 7
+  - kind: Function
+    name: ClearCoatBottomAnisotropySpecularGGX
+    line: 956
+    return_type: half3
+    param_count: 8
+  - kind: Function
+    name: ClearCoatBxDF
+    line: 992
+    return_type: void
+    param_count: 7
+  - kind: Function
+    name: CarTopSpecularGGX
+    line: 1110
+    return_type: half3
+    param_count: 7
+  - kind: Function
+    name: CarBottomSpecularGGX
+    line: 1128
+    return_type: half3
+    param_count: 6
+  - kind: Function
+    name: CarBottomSpecularGGXSimple
+    line: 1145
+    return_type: half3
+    param_count: 7
+  - kind: Function
+    name: CarBxDF
+    line: 1162
+    return_type: void
+    param_count: 7
+  - kind: Function
+    name: SubsurfaceProfileBxDF
+    line: 1237
+    return_type: void
+    param_count: 6
+  - kind: Function
+    name: EyeBxDF
+    line: 1265
+    return_type: void
+    param_count: 7
+  - kind: Function
+    name: GetDiffuseBurley_temp
+    line: 1321
+    return_type: half3
+    param_count: 3
+  - kind: Function
+    name: SkinSpecularSSS
+    line: 1332
+    return_type: half3
+    param_count: 4
+  - kind: Texture
+    name: t_preintegrated_brdf
+    line: 1356
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_preintegrated_brdf
+    line: 1360
+    state_count: 3
+  - kind: Function
+    name: H2UBxDF
+    line: 1449
+    return_type: void
+    param_count: 6
+  - kind: Function
+    name: CalcIntegrateBxDF
+    line: 1477
+    return_type: void
+    param_count: 8
+  - kind: Function
+    name: CalcDynamicIntegrateBxDF
+    line: 1548
+    return_type: void
+    param_count: 8
+  - kind: Function
+    name: CalcIntegrateBxDFSimple
+    line: 1631
+    return_type: void
+    param_count: 7
+  - kind: Function
+    name: CalcDynamicIntegrateBxDFSimple
+    line: 1656
+    return_type: void
+    param_count: 7

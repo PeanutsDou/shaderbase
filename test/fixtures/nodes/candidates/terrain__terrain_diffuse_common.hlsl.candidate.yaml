@@ -1,0 +1,452 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: terrain/terrain_diffuse_common.hlsl
+# 节点总数: 96
+input: terrain/terrain_diffuse_common.hlsl
+
+expected_nodes:
+  - kind: Texture
+    name: t_autumn_blend
+    line: 20
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_autumn_blend
+    line: 26
+    state_count: 4
+  - kind: Texture
+    name: t_snow_blend2
+    line: 34
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_snow_blend2
+    line: 40
+    state_count: 4
+  - kind: Texture
+    name: t_season_tex_array
+    line: 50
+    texture_type: Texture2DArray
+    has_annotation: true
+  - kind: SamplerState
+    name: s_season_tex_array
+    line: 56
+    state_count: 3
+  - kind: Texture
+    name: Texinfluence
+    line: 73
+    texture_type: texture
+    semantic: SSInfluence
+  - kind: SamplerState
+    name: s_influence
+    line: 74
+    state_count: 3
+  - kind: Texture
+    name: t_base_normal
+    line: 95
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_base_normal
+    line: 100
+    state_count: 3
+  - kind: Uniform
+    name: uoffset
+    line: 108
+    type: float
+    has_annotation: true
+    default: -0.001
+  - kind: Uniform
+    name: uscale
+    line: 117
+    type: float
+    has_annotation: true
+    default: 0.01
+  - kind: Texture
+    name: Tex_terrain_color0
+    line: 239
+    texture_type: texture
+  - kind: SamplerState
+    name: SamTerrain0
+    line: 240
+    state_count: 2
+  - kind: Texture
+    name: Tex_terrain_color1
+    line: 246
+    texture_type: texture
+  - kind: SamplerState
+    name: SamTerrain1
+    line: 247
+    state_count: 2
+  - kind: Texture
+    name: Tex_terrain_color2
+    line: 254
+    texture_type: texture
+  - kind: SamplerState
+    name: SamTerrain2
+    line: 255
+    state_count: 2
+  - kind: Texture
+    name: Tex_terrain_color3
+    line: 262
+    texture_type: texture
+  - kind: SamplerState
+    name: SamTerrain3
+    line: 263
+    state_count: 2
+  - kind: Texture
+    name: Tex_terrain_blend
+    line: 270
+    texture_type: texture
+  - kind: SamplerState
+    name: SamTerrainBlend
+    line: 271
+    state_count: 2
+  - kind: Texture
+    name: Tex_terrain_normal0
+    line: 278
+    texture_type: texture
+  - kind: SamplerState
+    name: s_terrain_normal0
+    line: 279
+    state_count: 2
+  - kind: Texture
+    name: Tex_terrain_normal1
+    line: 285
+    texture_type: texture
+  - kind: SamplerState
+    name: s_terrain_normal1
+    line: 286
+    state_count: 2
+  - kind: Texture
+    name: Tex_terrain_normal2
+    line: 292
+    texture_type: texture
+  - kind: SamplerState
+    name: s_terrain_normal2
+    line: 293
+    state_count: 2
+  - kind: Texture
+    name: Tex_terrain_normal3
+    line: 300
+    texture_type: texture
+  - kind: SamplerState
+    name: s_terrain_normal3
+    line: 301
+    state_count: 2
+  - kind: Texture
+    name: Texarray_terrain_color0
+    line: 309
+    texture_type: Texture2DArray
+  - kind: SamplerState
+    name: s_terrain_arraycolor
+    line: 310
+    state_count: 2
+  - kind: Texture
+    name: Texarray_terrain_normal0
+    line: 317
+    texture_type: Texture2DArray
+  - kind: SamplerState
+    name: s_terrain_arraynormal
+    line: 318
+    state_count: 2
+  - kind: Texture
+    name: Texarray_terrain_blend
+    line: 323
+    texture_type: Texture2DArray
+  - kind: SamplerState
+    name: s_terrain_arrayblend
+    line: 324
+    state_count: 3
+  - kind: Texture
+    name: t_material_id
+    line: 332
+    texture_type: texture
+  - kind: SamplerState
+    name: s_material_id
+    line: 333
+    state_count: 3
+  - kind: SamplerState
+    name: s_indirect_tex
+    line: 342
+    state_count: 0
+  - kind: Texture
+    name: t_diffuse
+    line: 343
+    texture_type: texture
+    semantic: DiffuseMap
+  - kind: SamplerState
+    name: s_diffuse
+    line: 344
+    state_count: 4
+  - kind: Texture
+    name: t_normal
+    line: 351
+    texture_type: texture
+    semantic: NormalMap
+  - kind: SamplerState
+    name: s_normal
+    line: 352
+    state_count: 3
+  - kind: Texture
+    name: t_mask
+    line: 358
+    texture_type: texture
+    semantic: TerrainSVTSeasonMask
+  - kind: SamplerState
+    name: s_mask
+    line: 359
+    state_count: 3
+  - kind: Function
+    name: BlendColor
+    line: 373
+    return_type: half4
+    param_count: 4
+  - kind: Function
+    name: BlendPCColor
+    line: 384
+    return_type: half4
+    param_count: 4
+  - kind: Function
+    name: NewBlendFactor
+    line: 400
+    return_type: half
+    param_count: 2
+  - kind: Function
+    name: SampleTerrainColorTextureLevel
+    line: 408
+    return_type: half4
+    param_count: 4
+  - kind: Function
+    name: SampleTerrainColorTextureBias
+    line: 414
+    return_type: half4
+    param_count: 4
+  - kind: Function
+    name: SampleTerrainColorTexture
+    line: 421
+    return_type: half4
+    param_count: 4
+  - kind: Function
+    name: SampleTerrainColorTextureArray
+    line: 432
+    return_type: half4
+    param_count: 4
+  - kind: Function
+    name: GetLandscapeCoord
+    line: 443
+    return_type: float2
+    param_count: 1
+  - kind: Function
+    name: SampleTerrainOtherTexture
+    line: 457
+    return_type: half4
+    param_count: 4
+  - kind: Function
+    name: SampleTerrainOtherTextureArray
+    line: 468
+    return_type: half4
+    param_count: 4
+  - kind: Function
+    name: SampleTerrainBaseNormal
+    line: 479
+    return_type: half4
+    param_count: 4
+  - kind: Function
+    name: BlendAngleCorrectNormals
+    line: 490
+    return_type: half3
+    param_count: 2
+  - kind: Function
+    name: SampleTexArryPkgNormalBias
+    line: 503
+    return_type: half4
+    param_count: 5
+  - kind: Function
+    name: SampleSeasonTextures
+    line: 513
+    return_type: void
+    param_count: 6
+  - kind: Function
+    name: BlendSeasonColor
+    line: 542
+    return_type: half4
+    param_count: 6
+  - kind: Function
+    name: BlendSeasonColorNormal
+    line: 559
+    return_type: void
+    param_count: 7
+  - kind: Function
+    name: GetUVTilingValue
+    line: 579
+    return_type: float
+    param_count: 2
+  - kind: Function
+    name: GetDiffuseIndexValue
+    line: 590
+    return_type: int
+    param_count: 2
+  - kind: Function
+    name: GetNormalIndexValue
+    line: 595
+    return_type: int
+    param_count: 2
+  - kind: Function
+    name: GetDiffuseAndSeason
+    line: 600
+    return_type: void
+    param_count: 7
+  - kind: Function
+    name: GetDiffuse
+    line: 661
+    return_type: void
+    param_count: 4
+  - kind: Function
+    name: UnpackMaterialIDMapValue
+    line: 668
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: SampleIDMapAndUnpack
+    line: 685
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: GatherIDMapAndUnpack
+    line: 691
+    return_type: void
+    param_count: 9
+  - kind: Function
+    name: CentroidInterpolation
+    line: 708
+    return_type: half
+    param_count: 7
+  - kind: Function
+    name: GetAllBlendFactor
+    line: 733
+    return_type: half4
+    param_count: 9
+  - kind: Function
+    name: GetIndexWeight
+    line: 754
+    return_type: float3
+    param_count: 2
+  - kind: Function
+    name: RotateUV
+    line: 769
+    return_type: float2
+    param_count: 2
+  - kind: Function
+    name: PhaseUV
+    line: 775
+    return_type: float2
+    param_count: 5
+  - kind: Function
+    name: SinHills
+    line: 792
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: StraightHeightWeight
+    line: 799
+    return_type: float
+    param_count: 3
+  - kind: Function
+    name: GetPhaseTextureInfo
+    line: 805
+    return_type: void
+    param_count: 5
+  - kind: Function
+    name: PhaseColorTexture
+    line: 818
+    return_type: half4
+    param_count: 6
+  - kind: Function
+    name: PhaseOtherTexture
+    line: 829
+    return_type: half4
+    param_count: 6
+  - kind: Function
+    name: ReduceTilingByMacro
+    line: 842
+    return_type: half4
+    param_count: 4
+  - kind: Function
+    name: ReduceOtherTilingByMacro
+    line: 850
+    return_type: half4
+    param_count: 4
+  - kind: Function
+    name: random
+    line: 858
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: DistortUV
+    line: 863
+    return_type: float2
+    param_count: 2
+  - kind: Function
+    name: SampleDiffuseArray
+    line: 878
+    return_type: void
+    param_count: 9
+  - kind: Function
+    name: SampleNormalArray
+    line: 916
+    return_type: void
+    param_count: 9
+  - kind: Function
+    name: GetDiffuseAndNormalAndSeason
+    line: 954
+    return_type: void
+    param_count: 8
+  - kind: Function
+    name: GetDiffuseAndNormal
+    line: 1230
+    return_type: void
+    param_count: 5
+  - kind: Function
+    name: GetTerrainBaseNormal
+    line: 1238
+    return_type: half4
+    param_count: 2
+  - kind: Function
+    name: MipLevel2D
+    line: 1247
+    return_type: float
+    param_count: 2
+  - kind: Function
+    name: MipLevelAniso2D
+    line: 1255
+    return_type: float
+    param_count: 3
+  - kind: Struct
+    name: VTPageTableResult
+    line: 1270
+    field_count: 4
+  - kind: Function
+    name: TextureComputeVirtualMipLevel
+    line: 1279
+    return_type: int
+    param_count: 3
+  - kind: Function
+    name: GetDiffuseAndNormalVT
+    line: 1317
+    return_type: void
+    param_count: 5
+  - kind: Function
+    name: FootPrint
+    line: 1388
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: DebugFootPrint
+    line: 1406
+    return_type: float4
+    param_count: 3
+  - kind: Function
+    name: GetDiffuseAndNormalSVT
+    line: 1425
+    return_type: void
+    param_count: 4

@@ -1,0 +1,308 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: terrain/new_water_sea_fishing.nsf
+# 节点总数: 56
+input: terrain/new_water_sea_fishing.nsf
+
+expected_nodes:
+  - kind: Struct
+    name: PS_OUTPUT
+    line: 3
+    field_count: 6
+  - kind: Texture
+    name: DepthMap
+    line: 108
+    texture_type: texture
+    semantic: DepthBuffer
+  - kind: SamplerState
+    name: s_depth
+    line: 109
+    state_count: 3
+  - kind: Texture
+    name: finsheara_textures
+    line: 115
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_finsheara_textures
+    line: 120
+    state_count: 3
+  - kind: Texture
+    name: finsharea_noise
+    line: 126
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_finsharea_noise
+    line: 131
+    state_count: 3
+  - kind: Texture
+    name: foam_normal_tex
+    line: 137
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_foam_normal_tex
+    line: 142
+    state_count: 3
+  - kind: Uniform
+    name: u_fishingmask_tilling
+    line: 159
+    type: float
+    has_annotation: true
+    default: 0.0007
+  - kind: Uniform
+    name: u_emmisiveflow_strength
+    line: 163
+    type: float
+    has_annotation: true
+    default: 0.15
+  - kind: Uniform
+    name: u_foamflow_strength
+    line: 167
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_blood_strength
+    line: 171
+    type: float
+    has_annotation: true
+    default: 0.8
+  - kind: Uniform
+    name: u_emmisiveflow_speed
+    line: 177
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_foamflow_speed
+    line: 181
+    type: float
+    has_annotation: true
+    default: -0.25
+  - kind: Uniform
+    name: u_bloodflow_speed
+    line: 185
+    type: float
+    has_annotation: true
+    default: -0.25
+  - kind: Uniform
+    name: u_foam_tilling
+    line: 190
+    type: float
+    has_annotation: true
+    default: 0.005
+  - kind: Uniform
+    name: u_blood_tilling
+    line: 194
+    type: float
+    has_annotation: true
+    default: 0.003
+  - kind: Uniform
+    name: u_emissiv_tilling
+    line: 198
+    type: float
+    has_annotation: true
+    default: 0.008
+  - kind: Uniform
+    name: u_fishing_color
+    line: 202
+    type: float4
+    has_annotation: true
+    default: {0.00,0.483,1.0,0.0}
+  - kind: Uniform
+    name: u_fishing_emissivecolor
+    line: 206
+    type: float4
+    has_annotation: true
+    default: {0.46,2.365,4.655,0.0}
+  - kind: Uniform
+    name: u_fishing_pos
+    line: 210
+    type: float4
+    has_annotation: true
+    default: {4332.18, -6.17,-3349.89,0.0}
+  - kind: Uniform
+    name: u_bloodarea_factor
+    line: 214
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_foam_intensity
+    line: 218
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_point_lightintensity
+    line: 222
+    type: float
+    has_annotation: true
+    default: 10.0
+  - kind: Uniform
+    name: u_point_control
+    line: 226
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_height_offset
+    line: 231
+    type: float
+    has_annotation: true
+    default: -0.0
+  - kind: Uniform
+    name: u_custom_point_pos
+    line: 237
+    type: float4
+    has_annotation: true
+    default: {-81.73, 16.29, 138.47,1000.0}
+  - kind: Uniform
+    name: u_custom_point_color
+    line: 243
+    type: float4
+    has_annotation: true
+    default: { 00.5,0.5,0.5,0.1}
+  - kind: Uniform
+    name: u_custom_point_intensity
+    line: 249
+    type: float
+    has_annotation: true
+    default: 50.0
+  - kind: Uniform
+    name: u_custom_point_enable
+    line: 254
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_custom_spot_pos
+    line: 261
+    type: float4
+    has_annotation: true
+    default: {131.28, 86.87, -197.60,1000000.0}
+  - kind: Uniform
+    name: u_custom_spot_dir
+    line: 267
+    type: float4
+    has_annotation: true
+    default: {1.0,-1.0,-1.6,0.1}
+  - kind: Uniform
+    name: u_custom_spot_color
+    line: 273
+    type: float4
+    has_annotation: true
+    default: {1.0,1.0,0.7,1.5}
+  - kind: Uniform
+    name: u_custom_spot_intensity
+    line: 279
+    type: float
+    has_annotation: true
+    default: 10000.0
+  - kind: Uniform
+    name: u_custom_spot_enable
+    line: 284
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_custom_normal_smooth
+    line: 290
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Struct
+    name: PS_INPUT
+    line: 309
+    field_count: 11
+  - kind: Texture
+    name: t_color_buffer
+    line: 337
+    texture_type: texture
+    semantic: ScreenOpaqueMap
+  - kind: SamplerState
+    name: s_color_buffer
+    line: 338
+    state_count: 3
+  - kind: Texture
+    name: interactionRT
+    line: 345
+    texture_type: texture
+    semantic: Interaction_PreRT
+  - kind: SamplerState
+    name: s_interactionRT
+    line: 346
+    state_count: 3
+  - kind: Function
+    name: GetFresnelCoef
+    line: 358
+    return_type: half
+    param_count: 2
+  - kind: Function
+    name: CalDepthFade
+    line: 375
+    return_type: float2
+    param_count: 2
+  - kind: Function
+    name: InvProjectToPos
+    line: 402
+    return_type: float3
+    param_count: 2
+  - kind: Function
+    name: CalcSphereLightToLight
+    line: 417
+    return_type: half3
+    param_count: 4
+  - kind: Function
+    name: CalcCustomPointLight
+    line: 434
+    return_type: void
+    param_count: 7
+  - kind: Function
+    name: CalcCustomSpotLight
+    line: 475
+    return_type: void
+    param_count: 8
+  - kind: Function
+    name: FlowMaps_Simple
+    line: 512
+    return_type: float4
+    param_count: 6
+  - kind: Function
+    name: FlowMaps_UVFlow
+    line: 529
+    return_type: float4
+    param_count: 6
+  - kind: Function
+    name: CalcFishingEffect
+    line: 539
+    return_type: void
+    param_count: 4
+  - kind: Function
+    name: vs_main
+    line: 634
+    return_type: PS_INPUT
+    stage: vertex
+    param_count: 1
+  - kind: Function
+    name: LinearSine
+    line: 667
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: ps_main
+    line: 677
+    return_type: PS_OUTPUT
+    stage: pixel
+    param_count: 1
+  - kind: Technique
+    name: DeepSeaShader
+    line: 722
+    pass_count: 1
+    has_annotation: true
+  - kind: Technique
+    name: ShallowSeaShader
+    line: 745
+    pass_count: 1
+    has_annotation: true

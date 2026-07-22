@@ -1,0 +1,425 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: shaderlib/foliage_anim_functions.hlsl
+# 节点总数: 73
+input: shaderlib/foliage_anim_functions.hlsl
+
+expected_nodes:
+  - kind: Uniform
+    name: u_debug_wind
+    line: 53
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_debug_wind_tex_factors_y
+    line: 63
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_debug_wind_tex_factors_extra_x
+    line: 73
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_debug_wind_tex_factors_x
+    line: 83
+    type: float
+    has_annotation: true
+    default: 0.2
+  - kind: Uniform
+    name: u_debug_wind_tex_factors_z
+    line: 93
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_foliage_height
+    line: 103
+    type: float
+    has_annotation: true
+    default: 100.0
+  - kind: Uniform
+    name: u_foliage_length
+    line: 110
+    type: float
+    has_annotation: true
+    default: 24.0
+  - kind: Texture
+    name: t_wind_noise
+    line: 121
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_wind_noise
+    line: 127
+    state_count: 2
+  - kind: Uniform
+    name: u_wind_noise_tile
+    line: 132
+    type: float
+    has_annotation: true
+    default: 0.25
+  - kind: Uniform
+    name: u_actor_wind_scale
+    line: 142
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Function
+    name: remap
+    line: 153
+    return_type: float
+    param_count: 5
+  - kind: Function
+    name: FakeRandom_N
+    line: 159
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: DetailWave_1D
+    line: 165
+    return_type: float
+    param_count: 3
+  - kind: Function
+    name: DetailWave_2D
+    line: 171
+    return_type: float2
+    param_count: 4
+  - kind: Function
+    name: StretchFix
+    line: 188
+    return_type: float3
+    param_count: 3
+  - kind: Function
+    name: WindNoiseSampler
+    line: 197
+    return_type: half
+    param_count: 6
+  - kind: Uniform
+    name: u_grass_branch_max_offset
+    line: 210
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_grass_branch_low_amp
+    line: 217
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_grass_branch_low_freq
+    line: 224
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_grass_branch_high_amp
+    line: 231
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_grass_branch_high_freq
+    line: 238
+    type: float
+    has_annotation: true
+    default: 5.0
+  - kind: Function
+    name: FoliageAnim_Grass_Branch
+    line: 245
+    return_type: float3
+    param_count: 8
+  - kind: Uniform
+    name: u_grass_leaf_max_offset
+    line: 289
+    type: float
+    has_annotation: true
+    default: 0.2
+  - kind: Uniform
+    name: u_grass_leaf_low_amp
+    line: 296
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_grass_leaf_low_freq
+    line: 303
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_grass_leaf_high_amp
+    line: 310
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_grass_leaf_high_freq
+    line: 317
+    type: float
+    has_annotation: true
+    default: 8.0
+  - kind: Function
+    name: FoliageAnim_Grass_Leaf
+    line: 324
+    return_type: float3
+    param_count: 6
+  - kind: Uniform
+    name: u_base_bottom_freeze
+    line: 364
+    type: float
+    has_annotation: true
+    default: 0.3
+  - kind: Uniform
+    name: u_base_max_offset
+    line: 371
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_base_low_amp
+    line: 378
+    type: float
+    has_annotation: true
+    default: 0.2
+  - kind: Uniform
+    name: u_base_low_freq
+    line: 385
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Function
+    name: FoliageAnim_Base
+    line: 393
+    return_type: float3
+    param_count: 6
+  - kind: Uniform
+    name: u_branch_length_p
+    line: 440
+    type: float
+    has_annotation: true
+    default: 0.25
+  - kind: Uniform
+    name: u_branch_max_offset
+    line: 447
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_branch_low_amp
+    line: 454
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_branch_low_freq
+    line: 461
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_branch_high_amp
+    line: 468
+    type: float
+    has_annotation: true
+    default: 0.25
+  - kind: Uniform
+    name: u_branch_high_freq
+    line: 475
+    type: float
+    has_annotation: true
+    default: 1.5
+  - kind: Uniform
+    name: u_branch_stretch_fix_percent
+    line: 482
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_branch_backwind_anim
+    line: 489
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Function
+    name: FoliageAnim_Branch
+    line: 496
+    return_type: float3
+    param_count: 8
+  - kind: Uniform
+    name: u_leaf_length_p
+    line: 559
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_leaf_max_offset
+    line: 566
+    type: float
+    has_annotation: true
+    default: 0.75
+  - kind: Uniform
+    name: u_leaf_low_amp
+    line: 573
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_leaf_low_freq
+    line: 580
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_leaf_high_amp
+    line: 587
+    type: float
+    has_annotation: true
+    default: 0.25
+  - kind: Uniform
+    name: u_leaf_high_freq
+    line: 594
+    type: float
+    has_annotation: true
+    default: 5.0
+  - kind: Uniform
+    name: u_leaf_stretch_fix_percent
+    line: 601
+    type: float
+    has_annotation: true
+    default: 0.25
+  - kind: Uniform
+    name: u_leaf_length_p_new
+    line: 610
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_leaf_max_offset_new
+    line: 617
+    type: float
+    has_annotation: true
+    default: 0.75
+  - kind: Uniform
+    name: u_leaf_stretch_fix_percent_new
+    line: 624
+    type: float
+    has_annotation: true
+    default: 0.8
+  - kind: Uniform
+    name: u_leaf_low_amp_new
+    line: 632
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_leaf_low_freq_new
+    line: 639
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_leaf_high_amp_new
+    line: 646
+    type: float
+    has_annotation: true
+    default: 0.13
+  - kind: Uniform
+    name: u_leaf_high_freq_new
+    line: 653
+    type: float
+    has_annotation: true
+    default: 5.0
+  - kind: Uniform
+    name: u_leaf_low_amp_2d_new
+    line: 661
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_leaf_low_freq_2d_new
+    line: 668
+    type: float
+    has_annotation: true
+    default: 0.3
+  - kind: Uniform
+    name: u_leaf_high_amp_2d_new
+    line: 675
+    type: float
+    has_annotation: true
+    default: 0.6
+  - kind: Uniform
+    name: u_leaf_high_freq_2d_new
+    line: 682
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_leaf_vertical_height_atten
+    line: 689
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_leaf_wind_intensity
+    line: 699
+    type: float
+    has_annotation: true
+    default: 2.45
+  - kind: Function
+    name: FoliageAnim_Leaf
+    line: 709
+    return_type: float3
+    param_count: 11
+  - kind: Function
+    name: FoliageAnim_IntersectGrass
+    line: 836
+    return_type: float3
+    param_count: 2
+  - kind: Function
+    name: FoliageAnim_Intersect
+    line: 848
+    return_type: float3
+    param_count: 3
+  - kind: Uniform
+    name: u_blend_ao_intensity
+    line: 868
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_wind_noise_color_intensity
+    line: 878
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_snow_enable_offset
+    line: 888
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_snow_ao_offset
+    line: 897
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Function
+    name: CalcFoliageAnimWPO
+    line: 906
+    return_type: void
+    param_count: 5
+  - kind: Function
+    name: CalcMeadowAnimWPO
+    line: 1064
+    return_type: void
+    param_count: 6
+  - kind: Function
+    name: CalcMeadowAnimWPO
+    line: 1140
+    return_type: void
+    param_count: 8

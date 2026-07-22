@@ -1,0 +1,2476 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: shaderlib/ffx_a.fxh
+# 节点总数: 494
+input: shaderlib/ffx_a.fxh
+
+expected_nodes:
+  - kind: Function
+    name: AU1_AH1_AF1_x
+    line: 164
+    return_type: AU1
+    param_count: 1
+  - kind: Function
+    name: AU1_AH2_AF2_x
+    line: 167
+    return_type: AU1
+    param_count: 1
+  - kind: Function
+    name: AF2_AH2_AU1_x
+    line: 171
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: AF1_x
+    line: 174
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: AF2_x
+    line: 175
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: AF3_x
+    line: 176
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: AF4_x
+    line: 177
+    return_type: AF4
+    param_count: 1
+  - kind: Function
+    name: AU1_x
+    line: 183
+    return_type: AU1
+    param_count: 1
+  - kind: Function
+    name: AU2_x
+    line: 184
+    return_type: AU2
+    param_count: 1
+  - kind: Function
+    name: AU3_x
+    line: 185
+    return_type: AU3
+    param_count: 1
+  - kind: Function
+    name: AU4_x
+    line: 186
+    return_type: AU4
+    param_count: 1
+  - kind: Function
+    name: AAbsSU1
+    line: 192
+    return_type: AU1
+    param_count: 1
+  - kind: Function
+    name: AAbsSU2
+    line: 193
+    return_type: AU2
+    param_count: 1
+  - kind: Function
+    name: AAbsSU3
+    line: 194
+    return_type: AU3
+    param_count: 1
+  - kind: Function
+    name: AAbsSU4
+    line: 195
+    return_type: AU4
+    param_count: 1
+  - kind: Function
+    name: ABfe
+    line: 197
+    return_type: AU1
+    param_count: 3
+  - kind: Function
+    name: ABfi
+    line: 198
+    return_type: AU1
+    param_count: 3
+  - kind: Function
+    name: ABfiM
+    line: 199
+    return_type: AU1
+    param_count: 3
+  - kind: Function
+    name: AClampF1
+    line: 201
+    return_type: AF1
+    param_count: 3
+  - kind: Function
+    name: AClampF2
+    line: 202
+    return_type: AF2
+    param_count: 3
+  - kind: Function
+    name: AClampF3
+    line: 203
+    return_type: AF3
+    param_count: 3
+  - kind: Function
+    name: AClampF4
+    line: 204
+    return_type: AF4
+    param_count: 3
+  - kind: Function
+    name: AFractF1
+    line: 206
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: AFractF2
+    line: 207
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: AFractF3
+    line: 208
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: AFractF4
+    line: 209
+    return_type: AF4
+    param_count: 1
+  - kind: Function
+    name: ALerpF1
+    line: 211
+    return_type: AF1
+    param_count: 3
+  - kind: Function
+    name: ALerpF2
+    line: 212
+    return_type: AF2
+    param_count: 3
+  - kind: Function
+    name: ALerpF3
+    line: 213
+    return_type: AF3
+    param_count: 3
+  - kind: Function
+    name: ALerpF4
+    line: 214
+    return_type: AF4
+    param_count: 3
+  - kind: Function
+    name: AMax3F1
+    line: 216
+    return_type: AF1
+    param_count: 3
+  - kind: Function
+    name: AMax3F2
+    line: 217
+    return_type: AF2
+    param_count: 3
+  - kind: Function
+    name: AMax3F3
+    line: 218
+    return_type: AF3
+    param_count: 3
+  - kind: Function
+    name: AMax3F4
+    line: 219
+    return_type: AF4
+    param_count: 3
+  - kind: Function
+    name: AMax3SU1
+    line: 221
+    return_type: AU1
+    param_count: 3
+  - kind: Function
+    name: AMax3SU2
+    line: 222
+    return_type: AU2
+    param_count: 3
+  - kind: Function
+    name: AMax3SU3
+    line: 223
+    return_type: AU3
+    param_count: 3
+  - kind: Function
+    name: AMax3SU4
+    line: 224
+    return_type: AU4
+    param_count: 3
+  - kind: Function
+    name: AMax3U1
+    line: 226
+    return_type: AU1
+    param_count: 3
+  - kind: Function
+    name: AMax3U2
+    line: 227
+    return_type: AU2
+    param_count: 3
+  - kind: Function
+    name: AMax3U3
+    line: 228
+    return_type: AU3
+    param_count: 3
+  - kind: Function
+    name: AMax3U4
+    line: 229
+    return_type: AU4
+    param_count: 3
+  - kind: Function
+    name: AMaxSU1
+    line: 231
+    return_type: AU1
+    param_count: 2
+  - kind: Function
+    name: AMaxSU2
+    line: 232
+    return_type: AU2
+    param_count: 2
+  - kind: Function
+    name: AMaxSU3
+    line: 233
+    return_type: AU3
+    param_count: 2
+  - kind: Function
+    name: AMaxSU4
+    line: 234
+    return_type: AU4
+    param_count: 2
+  - kind: Function
+    name: AMed3F1
+    line: 236
+    return_type: AF1
+    param_count: 3
+  - kind: Function
+    name: AMed3F2
+    line: 237
+    return_type: AF2
+    param_count: 3
+  - kind: Function
+    name: AMed3F3
+    line: 238
+    return_type: AF3
+    param_count: 3
+  - kind: Function
+    name: AMed3F4
+    line: 239
+    return_type: AF4
+    param_count: 3
+  - kind: Function
+    name: AMin3F1
+    line: 241
+    return_type: AF1
+    param_count: 3
+  - kind: Function
+    name: AMin3F2
+    line: 242
+    return_type: AF2
+    param_count: 3
+  - kind: Function
+    name: AMin3F3
+    line: 243
+    return_type: AF3
+    param_count: 3
+  - kind: Function
+    name: AMin3F4
+    line: 244
+    return_type: AF4
+    param_count: 3
+  - kind: Function
+    name: AMin3SU1
+    line: 246
+    return_type: AU1
+    param_count: 3
+  - kind: Function
+    name: AMin3SU2
+    line: 247
+    return_type: AU2
+    param_count: 3
+  - kind: Function
+    name: AMin3SU3
+    line: 248
+    return_type: AU3
+    param_count: 3
+  - kind: Function
+    name: AMin3SU4
+    line: 249
+    return_type: AU4
+    param_count: 3
+  - kind: Function
+    name: AMin3U1
+    line: 251
+    return_type: AU1
+    param_count: 3
+  - kind: Function
+    name: AMin3U2
+    line: 252
+    return_type: AU2
+    param_count: 3
+  - kind: Function
+    name: AMin3U3
+    line: 253
+    return_type: AU3
+    param_count: 3
+  - kind: Function
+    name: AMin3U4
+    line: 254
+    return_type: AU4
+    param_count: 3
+  - kind: Function
+    name: AMinSU1
+    line: 256
+    return_type: AU1
+    param_count: 2
+  - kind: Function
+    name: AMinSU2
+    line: 257
+    return_type: AU2
+    param_count: 2
+  - kind: Function
+    name: AMinSU3
+    line: 258
+    return_type: AU3
+    param_count: 2
+  - kind: Function
+    name: AMinSU4
+    line: 259
+    return_type: AU4
+    param_count: 2
+  - kind: Function
+    name: ANCosF1
+    line: 261
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: ANCosF2
+    line: 262
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: ANCosF3
+    line: 263
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: ANCosF4
+    line: 264
+    return_type: AF4
+    param_count: 1
+  - kind: Function
+    name: ANSinF1
+    line: 266
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: ANSinF2
+    line: 267
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: ANSinF3
+    line: 268
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: ANSinF4
+    line: 269
+    return_type: AF4
+    param_count: 1
+  - kind: Function
+    name: ARcpF1
+    line: 271
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: ARcpF2
+    line: 272
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: ARcpF3
+    line: 273
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: ARcpF4
+    line: 274
+    return_type: AF4
+    param_count: 1
+  - kind: Function
+    name: ARsqF1
+    line: 276
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: ARsqF2
+    line: 277
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: ARsqF3
+    line: 278
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: ARsqF4
+    line: 279
+    return_type: AF4
+    param_count: 1
+  - kind: Function
+    name: ASatF1
+    line: 281
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: ASatF2
+    line: 282
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: ASatF3
+    line: 283
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: ASatF4
+    line: 284
+    return_type: AF4
+    param_count: 1
+  - kind: Function
+    name: AShrSU1
+    line: 286
+    return_type: AU1
+    param_count: 2
+  - kind: Function
+    name: AShrSU2
+    line: 287
+    return_type: AU2
+    param_count: 2
+  - kind: Function
+    name: AShrSU3
+    line: 288
+    return_type: AU3
+    param_count: 2
+  - kind: Function
+    name: AShrSU4
+    line: 289
+    return_type: AU4
+    param_count: 2
+  - kind: Function
+    name: AH1_x
+    line: 303
+    return_type: AH1
+    param_count: 1
+  - kind: Function
+    name: AH2_x
+    line: 304
+    return_type: AH2
+    param_count: 1
+  - kind: Function
+    name: AH3_x
+    line: 305
+    return_type: AH3
+    param_count: 1
+  - kind: Function
+    name: AH4_x
+    line: 306
+    return_type: AH4
+    param_count: 1
+  - kind: Function
+    name: AClampH1
+    line: 312
+    return_type: AH1
+    param_count: 3
+  - kind: Function
+    name: AClampH2
+    line: 313
+    return_type: AH2
+    param_count: 3
+  - kind: Function
+    name: AClampH3
+    line: 314
+    return_type: AH3
+    param_count: 3
+  - kind: Function
+    name: AClampH4
+    line: 315
+    return_type: AH4
+    param_count: 3
+  - kind: Function
+    name: AFractH1
+    line: 318
+    return_type: AH1
+    param_count: 1
+  - kind: Function
+    name: AFractH2
+    line: 319
+    return_type: AH2
+    param_count: 1
+  - kind: Function
+    name: AFractH3
+    line: 320
+    return_type: AH3
+    param_count: 1
+  - kind: Function
+    name: AFractH4
+    line: 321
+    return_type: AH4
+    param_count: 1
+  - kind: Function
+    name: ALerpH1
+    line: 323
+    return_type: AH1
+    param_count: 3
+  - kind: Function
+    name: ALerpH2
+    line: 324
+    return_type: AH2
+    param_count: 3
+  - kind: Function
+    name: ALerpH3
+    line: 325
+    return_type: AH3
+    param_count: 3
+  - kind: Function
+    name: ALerpH4
+    line: 326
+    return_type: AH4
+    param_count: 3
+  - kind: Function
+    name: AMax3H1
+    line: 328
+    return_type: AH1
+    param_count: 3
+  - kind: Function
+    name: AMax3H2
+    line: 329
+    return_type: AH2
+    param_count: 3
+  - kind: Function
+    name: AMax3H3
+    line: 330
+    return_type: AH3
+    param_count: 3
+  - kind: Function
+    name: AMax3H4
+    line: 331
+    return_type: AH4
+    param_count: 3
+  - kind: Function
+    name: AMin3H1
+    line: 333
+    return_type: AH1
+    param_count: 3
+  - kind: Function
+    name: AMin3H2
+    line: 334
+    return_type: AH2
+    param_count: 3
+  - kind: Function
+    name: AMin3H3
+    line: 335
+    return_type: AH3
+    param_count: 3
+  - kind: Function
+    name: AMin3H4
+    line: 336
+    return_type: AH4
+    param_count: 3
+  - kind: Function
+    name: ARcpH1
+    line: 338
+    return_type: AH1
+    param_count: 1
+  - kind: Function
+    name: ARcpH2
+    line: 339
+    return_type: AH2
+    param_count: 1
+  - kind: Function
+    name: ARcpH3
+    line: 340
+    return_type: AH3
+    param_count: 1
+  - kind: Function
+    name: ARcpH4
+    line: 341
+    return_type: AH4
+    param_count: 1
+  - kind: Function
+    name: ARsqH1
+    line: 343
+    return_type: AH1
+    param_count: 1
+  - kind: Function
+    name: ARsqH2
+    line: 344
+    return_type: AH2
+    param_count: 1
+  - kind: Function
+    name: ARsqH3
+    line: 345
+    return_type: AH3
+    param_count: 1
+  - kind: Function
+    name: ARsqH4
+    line: 346
+    return_type: AH4
+    param_count: 1
+  - kind: Function
+    name: ASatH1
+    line: 348
+    return_type: AH1
+    param_count: 1
+  - kind: Function
+    name: ASatH2
+    line: 349
+    return_type: AH2
+    param_count: 1
+  - kind: Function
+    name: ASatH3
+    line: 350
+    return_type: AH3
+    param_count: 1
+  - kind: Function
+    name: ASatH4
+    line: 351
+    return_type: AH4
+    param_count: 1
+  - kind: Function
+    name: AD1_x
+    line: 372
+    return_type: AD1
+    param_count: 1
+  - kind: Function
+    name: AD2_x
+    line: 373
+    return_type: AD2
+    param_count: 1
+  - kind: Function
+    name: AD3_x
+    line: 374
+    return_type: AD3
+    param_count: 1
+  - kind: Function
+    name: AD4_x
+    line: 375
+    return_type: AD4
+    param_count: 1
+  - kind: Function
+    name: AFractD1
+    line: 381
+    return_type: AD1
+    param_count: 1
+  - kind: Function
+    name: AFractD2
+    line: 382
+    return_type: AD2
+    param_count: 1
+  - kind: Function
+    name: AFractD3
+    line: 383
+    return_type: AD3
+    param_count: 1
+  - kind: Function
+    name: AFractD4
+    line: 384
+    return_type: AD4
+    param_count: 1
+  - kind: Function
+    name: ALerpD1
+    line: 386
+    return_type: AD1
+    param_count: 3
+  - kind: Function
+    name: ALerpD2
+    line: 387
+    return_type: AD2
+    param_count: 3
+  - kind: Function
+    name: ALerpD3
+    line: 388
+    return_type: AD3
+    param_count: 3
+  - kind: Function
+    name: ALerpD4
+    line: 389
+    return_type: AD4
+    param_count: 3
+  - kind: Function
+    name: ARcpD1
+    line: 391
+    return_type: AD1
+    param_count: 1
+  - kind: Function
+    name: ARcpD2
+    line: 392
+    return_type: AD2
+    param_count: 1
+  - kind: Function
+    name: ARcpD3
+    line: 393
+    return_type: AD3
+    param_count: 1
+  - kind: Function
+    name: ARcpD4
+    line: 394
+    return_type: AD4
+    param_count: 1
+  - kind: Function
+    name: ARsqD1
+    line: 396
+    return_type: AD1
+    param_count: 1
+  - kind: Function
+    name: ARsqD2
+    line: 397
+    return_type: AD2
+    param_count: 1
+  - kind: Function
+    name: ARsqD3
+    line: 398
+    return_type: AD3
+    param_count: 1
+  - kind: Function
+    name: ARsqD4
+    line: 399
+    return_type: AD4
+    param_count: 1
+  - kind: Function
+    name: ASatD1
+    line: 401
+    return_type: AD1
+    param_count: 1
+  - kind: Function
+    name: ASatD2
+    line: 402
+    return_type: AD2
+    param_count: 1
+  - kind: Function
+    name: ASatD3
+    line: 403
+    return_type: AD3
+    param_count: 1
+  - kind: Function
+    name: ASatD4
+    line: 404
+    return_type: AD4
+    param_count: 1
+  - kind: Function
+    name: AWaveXorF1
+    line: 411
+    return_type: AF1
+    param_count: 2
+  - kind: Function
+    name: AWaveXorF2
+    line: 412
+    return_type: AF2
+    param_count: 2
+  - kind: Function
+    name: AWaveXorF3
+    line: 413
+    return_type: AF3
+    param_count: 2
+  - kind: Function
+    name: AWaveXorF4
+    line: 414
+    return_type: AF4
+    param_count: 2
+  - kind: Function
+    name: AWaveXorU1
+    line: 415
+    return_type: AU1
+    param_count: 2
+  - kind: Function
+    name: AWaveXorU1
+    line: 416
+    return_type: AU2
+    param_count: 2
+  - kind: Function
+    name: AWaveXorU1
+    line: 417
+    return_type: AU3
+    param_count: 2
+  - kind: Function
+    name: AWaveXorU1
+    line: 418
+    return_type: AU4
+    param_count: 2
+  - kind: Function
+    name: AWaveXorH2
+    line: 421
+    return_type: AH2
+    param_count: 2
+  - kind: Function
+    name: AWaveXorH4
+    line: 422
+    return_type: AH4
+    param_count: 2
+  - kind: Function
+    name: AWaveXorW2
+    line: 423
+    return_type: AW2
+    param_count: 2
+  - kind: Function
+    name: AWaveXorW4
+    line: 424
+    return_type: AW4
+    param_count: 2
+  - kind: Function
+    name: ACpySgnF1
+    line: 449
+    return_type: AF1
+    param_count: 2
+  - kind: Function
+    name: ACpySgnF2
+    line: 450
+    return_type: AF2
+    param_count: 2
+  - kind: Function
+    name: ACpySgnF3
+    line: 451
+    return_type: AF3
+    param_count: 2
+  - kind: Function
+    name: ACpySgnF4
+    line: 452
+    return_type: AF4
+    param_count: 2
+  - kind: Function
+    name: ASignedF1
+    line: 462
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: ASignedF2
+    line: 463
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: ASignedF3
+    line: 464
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: ASignedF4
+    line: 465
+    return_type: AF4
+    param_count: 1
+  - kind: Function
+    name: AGtZeroF1
+    line: 467
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: AGtZeroF2
+    line: 468
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: AGtZeroF3
+    line: 469
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: AGtZeroF4
+    line: 470
+    return_type: AF4
+    param_count: 1
+  - kind: Function
+    name: ACpySgnH1
+    line: 482
+    return_type: AH1
+    param_count: 2
+  - kind: Function
+    name: ACpySgnH2
+    line: 483
+    return_type: AH2
+    param_count: 2
+  - kind: Function
+    name: ACpySgnH3
+    line: 484
+    return_type: AH3
+    param_count: 2
+  - kind: Function
+    name: ACpySgnH4
+    line: 485
+    return_type: AH4
+    param_count: 2
+  - kind: Function
+    name: ASignedH1
+    line: 487
+    return_type: AH1
+    param_count: 1
+  - kind: Function
+    name: ASignedH2
+    line: 488
+    return_type: AH2
+    param_count: 1
+  - kind: Function
+    name: ASignedH3
+    line: 489
+    return_type: AH3
+    param_count: 1
+  - kind: Function
+    name: ASignedH4
+    line: 490
+    return_type: AH4
+    param_count: 1
+  - kind: Function
+    name: AGtZeroH1
+    line: 492
+    return_type: AH1
+    param_count: 1
+  - kind: Function
+    name: AGtZeroH2
+    line: 493
+    return_type: AH2
+    param_count: 1
+  - kind: Function
+    name: AGtZeroH3
+    line: 494
+    return_type: AH3
+    param_count: 1
+  - kind: Function
+    name: AGtZeroH4
+    line: 495
+    return_type: AH4
+    param_count: 1
+  - kind: Function
+    name: AFisToU1
+    line: 514
+    return_type: AU1
+    param_count: 1
+  - kind: Function
+    name: AFisFromU1
+    line: 515
+    return_type: AU1
+    param_count: 1
+  - kind: Function
+    name: AFisToHiU1
+    line: 518
+    return_type: AU1
+    param_count: 1
+  - kind: Function
+    name: AFisFromHiU1
+    line: 519
+    return_type: AU1
+    param_count: 1
+  - kind: Function
+    name: APerm0E0A
+    line: 539
+    return_type: AU1
+    param_count: 1
+  - kind: Function
+    name: APerm0F0B
+    line: 540
+    return_type: AU1
+    param_count: 1
+  - kind: Function
+    name: APerm0G0C
+    line: 541
+    return_type: AU1
+    param_count: 1
+  - kind: Function
+    name: APerm0H0D
+    line: 542
+    return_type: AU1
+    param_count: 1
+  - kind: Function
+    name: APermHGFA
+    line: 544
+    return_type: AU1
+    param_count: 1
+  - kind: Function
+    name: APermHGFC
+    line: 545
+    return_type: AU1
+    param_count: 1
+  - kind: Function
+    name: APermHGAE
+    line: 546
+    return_type: AU1
+    param_count: 1
+  - kind: Function
+    name: APermHGCE
+    line: 547
+    return_type: AU1
+    param_count: 1
+  - kind: Function
+    name: APermHAFE
+    line: 548
+    return_type: AU1
+    param_count: 1
+  - kind: Function
+    name: APermHCFE
+    line: 549
+    return_type: AU1
+    param_count: 1
+  - kind: Function
+    name: APermAGFE
+    line: 550
+    return_type: AU1
+    param_count: 1
+  - kind: Function
+    name: APermCGFE
+    line: 551
+    return_type: AU1
+    param_count: 1
+  - kind: Function
+    name: APermGCEA
+    line: 553
+    return_type: AU1
+    param_count: 1
+  - kind: Function
+    name: APermGECA
+    line: 554
+    return_type: AU1
+    param_count: 1
+  - kind: Function
+    name: ABuc0ToU1
+    line: 621
+    return_type: AU1
+    param_count: 2
+  - kind: Function
+    name: ABuc1ToU1
+    line: 622
+    return_type: AU1
+    param_count: 2
+  - kind: Function
+    name: ABuc2ToU1
+    line: 623
+    return_type: AU1
+    param_count: 2
+  - kind: Function
+    name: ABuc3ToU1
+    line: 624
+    return_type: AU1
+    param_count: 2
+  - kind: Function
+    name: ABuc0FromU1
+    line: 627
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: ABuc1FromU1
+    line: 628
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: ABuc2FromU1
+    line: 629
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: ABuc3FromU1
+    line: 630
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: ABsc0ToU1
+    line: 668
+    return_type: AU1
+    param_count: 2
+  - kind: Function
+    name: ABsc1ToU1
+    line: 669
+    return_type: AU1
+    param_count: 2
+  - kind: Function
+    name: ABsc2ToU1
+    line: 670
+    return_type: AU1
+    param_count: 2
+  - kind: Function
+    name: ABsc3ToU1
+    line: 671
+    return_type: AU1
+    param_count: 2
+  - kind: Function
+    name: ABsc0ToZbU1
+    line: 673
+    return_type: AU1
+    param_count: 2
+  - kind: Function
+    name: ABsc1ToZbU1
+    line: 674
+    return_type: AU1
+    param_count: 2
+  - kind: Function
+    name: ABsc2ToZbU1
+    line: 675
+    return_type: AU1
+    param_count: 2
+  - kind: Function
+    name: ABsc3ToZbU1
+    line: 676
+    return_type: AU1
+    param_count: 2
+  - kind: Function
+    name: ABsc0FromU1
+    line: 678
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: ABsc1FromU1
+    line: 679
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: ABsc2FromU1
+    line: 680
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: ABsc3FromU1
+    line: 681
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: ABsc0FromZbU1
+    line: 683
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: ABsc1FromZbU1
+    line: 684
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: ABsc2FromZbU1
+    line: 685
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: ABsc3FromZbU1
+    line: 686
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: APrxLoSqrtF1
+    line: 705
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: APrxLoRcpF1
+    line: 706
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: APrxMedRcpF1
+    line: 707
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: APrxLoRsqF1
+    line: 708
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: APrxLoSqrtF2
+    line: 710
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: APrxLoRcpF2
+    line: 711
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: APrxMedRcpF2
+    line: 712
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: APrxLoRsqF2
+    line: 713
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: APrxLoSqrtF3
+    line: 715
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: APrxLoRcpF3
+    line: 716
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: APrxMedRcpF3
+    line: 717
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: APrxLoRsqF3
+    line: 718
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: APrxLoSqrtF4
+    line: 720
+    return_type: AF4
+    param_count: 1
+  - kind: Function
+    name: APrxLoRcpF4
+    line: 721
+    return_type: AF4
+    param_count: 1
+  - kind: Function
+    name: APrxMedRcpF4
+    line: 722
+    return_type: AF4
+    param_count: 1
+  - kind: Function
+    name: APrxLoRsqF4
+    line: 723
+    return_type: AF4
+    param_count: 1
+  - kind: Function
+    name: Quart
+    line: 734
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: Oct
+    line: 735
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: Quart
+    line: 736
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: Oct
+    line: 737
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: Quart
+    line: 738
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: Oct
+    line: 739
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: Quart
+    line: 740
+    return_type: AF4
+    param_count: 1
+  - kind: Function
+    name: Oct
+    line: 741
+    return_type: AF4
+    param_count: 1
+  - kind: Function
+    name: APrxPQToGamma2
+    line: 743
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: APrxPQToLinear
+    line: 744
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: APrxLoGamma2ToPQ
+    line: 745
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: APrxMedGamma2ToPQ
+    line: 746
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: APrxHighGamma2ToPQ
+    line: 747
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: APrxLoLinearToPQ
+    line: 748
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: APrxMedLinearToPQ
+    line: 749
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: APrxHighLinearToPQ
+    line: 750
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: APrxPQToGamma2
+    line: 752
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: APrxPQToLinear
+    line: 753
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: APrxLoGamma2ToPQ
+    line: 754
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: APrxMedGamma2ToPQ
+    line: 755
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: APrxHighGamma2ToPQ
+    line: 756
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: APrxLoLinearToPQ
+    line: 757
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: APrxMedLinearToPQ
+    line: 758
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: APrxHighLinearToPQ
+    line: 759
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: APrxPQToGamma2
+    line: 761
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: APrxPQToLinear
+    line: 762
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: APrxLoGamma2ToPQ
+    line: 763
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: APrxMedGamma2ToPQ
+    line: 764
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: APrxHighGamma2ToPQ
+    line: 765
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: APrxLoLinearToPQ
+    line: 766
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: APrxMedLinearToPQ
+    line: 767
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: APrxHighLinearToPQ
+    line: 768
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: APrxPQToGamma2
+    line: 770
+    return_type: AF4
+    param_count: 1
+  - kind: Function
+    name: APrxPQToLinear
+    line: 771
+    return_type: AF4
+    param_count: 1
+  - kind: Function
+    name: APrxLoGamma2ToPQ
+    line: 772
+    return_type: AF4
+    param_count: 1
+  - kind: Function
+    name: APrxMedGamma2ToPQ
+    line: 773
+    return_type: AF4
+    param_count: 1
+  - kind: Function
+    name: APrxHighGamma2ToPQ
+    line: 774
+    return_type: AF4
+    param_count: 1
+  - kind: Function
+    name: APrxLoLinearToPQ
+    line: 775
+    return_type: AF4
+    param_count: 1
+  - kind: Function
+    name: APrxMedLinearToPQ
+    line: 776
+    return_type: AF4
+    param_count: 1
+  - kind: Function
+    name: APrxHighLinearToPQ
+    line: 777
+    return_type: AF4
+    param_count: 1
+  - kind: Function
+    name: APSinF1
+    line: 790
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: APSinF2
+    line: 791
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: APCosF1
+    line: 792
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: APCosF2
+    line: 793
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: APSinCosF1
+    line: 794
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: APSinH1
+    line: 801
+    return_type: AH1
+    param_count: 1
+  - kind: Function
+    name: APSinH2
+    line: 802
+    return_type: AH2
+    param_count: 1
+  - kind: Function
+    name: APCosH1
+    line: 803
+    return_type: AH1
+    param_count: 1
+  - kind: Function
+    name: APCosH2
+    line: 804
+    return_type: AH2
+    param_count: 1
+  - kind: Function
+    name: APSinCosH1
+    line: 805
+    return_type: AH2
+    param_count: 1
+  - kind: Function
+    name: AZolAndU1
+    line: 831
+    return_type: AU1
+    param_count: 2
+  - kind: Function
+    name: AZolAndU2
+    line: 832
+    return_type: AU2
+    param_count: 2
+  - kind: Function
+    name: AZolAndU3
+    line: 833
+    return_type: AU3
+    param_count: 2
+  - kind: Function
+    name: AZolAndU4
+    line: 834
+    return_type: AU4
+    param_count: 2
+  - kind: Function
+    name: AZolNotU1
+    line: 836
+    return_type: AU1
+    param_count: 1
+  - kind: Function
+    name: AZolNotU2
+    line: 837
+    return_type: AU2
+    param_count: 1
+  - kind: Function
+    name: AZolNotU3
+    line: 838
+    return_type: AU3
+    param_count: 1
+  - kind: Function
+    name: AZolNotU4
+    line: 839
+    return_type: AU4
+    param_count: 1
+  - kind: Function
+    name: AZolOrU1
+    line: 841
+    return_type: AU1
+    param_count: 2
+  - kind: Function
+    name: AZolOrU2
+    line: 842
+    return_type: AU2
+    param_count: 2
+  - kind: Function
+    name: AZolOrU3
+    line: 843
+    return_type: AU3
+    param_count: 2
+  - kind: Function
+    name: AZolOrU4
+    line: 844
+    return_type: AU4
+    param_count: 2
+  - kind: Function
+    name: AZolF1ToU1
+    line: 846
+    return_type: AU1
+    param_count: 1
+  - kind: Function
+    name: AZolF2ToU2
+    line: 847
+    return_type: AU2
+    param_count: 1
+  - kind: Function
+    name: AZolF3ToU3
+    line: 848
+    return_type: AU3
+    param_count: 1
+  - kind: Function
+    name: AZolF4ToU4
+    line: 849
+    return_type: AU4
+    param_count: 1
+  - kind: Function
+    name: AZolNotF1ToU1
+    line: 852
+    return_type: AU1
+    param_count: 1
+  - kind: Function
+    name: AZolNotF2ToU2
+    line: 853
+    return_type: AU2
+    param_count: 1
+  - kind: Function
+    name: AZolNotF3ToU3
+    line: 854
+    return_type: AU3
+    param_count: 1
+  - kind: Function
+    name: AZolNotF4ToU4
+    line: 855
+    return_type: AU4
+    param_count: 1
+  - kind: Function
+    name: AZolU1ToF1
+    line: 857
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: AZolU2ToF2
+    line: 858
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: AZolU3ToF3
+    line: 859
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: AZolU4ToF4
+    line: 860
+    return_type: AF4
+    param_count: 1
+  - kind: Function
+    name: AZolAndF1
+    line: 862
+    return_type: AF1
+    param_count: 2
+  - kind: Function
+    name: AZolAndF2
+    line: 863
+    return_type: AF2
+    param_count: 2
+  - kind: Function
+    name: AZolAndF3
+    line: 864
+    return_type: AF3
+    param_count: 2
+  - kind: Function
+    name: AZolAndF4
+    line: 865
+    return_type: AF4
+    param_count: 2
+  - kind: Function
+    name: ASolAndNotF1
+    line: 867
+    return_type: AF1
+    param_count: 2
+  - kind: Function
+    name: ASolAndNotF2
+    line: 868
+    return_type: AF2
+    param_count: 2
+  - kind: Function
+    name: ASolAndNotF3
+    line: 869
+    return_type: AF3
+    param_count: 2
+  - kind: Function
+    name: ASolAndNotF4
+    line: 870
+    return_type: AF4
+    param_count: 2
+  - kind: Function
+    name: AZolAndOrF1
+    line: 872
+    return_type: AF1
+    param_count: 3
+  - kind: Function
+    name: AZolAndOrF2
+    line: 873
+    return_type: AF2
+    param_count: 3
+  - kind: Function
+    name: AZolAndOrF3
+    line: 874
+    return_type: AF3
+    param_count: 3
+  - kind: Function
+    name: AZolAndOrF4
+    line: 875
+    return_type: AF4
+    param_count: 3
+  - kind: Function
+    name: AZolGtZeroF1
+    line: 877
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: AZolGtZeroF2
+    line: 878
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: AZolGtZeroF3
+    line: 879
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: AZolGtZeroF4
+    line: 880
+    return_type: AF4
+    param_count: 1
+  - kind: Function
+    name: AZolNotF1
+    line: 882
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: AZolNotF2
+    line: 883
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: AZolNotF3
+    line: 884
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: AZolNotF4
+    line: 885
+    return_type: AF4
+    param_count: 1
+  - kind: Function
+    name: AZolOrF1
+    line: 887
+    return_type: AF1
+    param_count: 2
+  - kind: Function
+    name: AZolOrF2
+    line: 888
+    return_type: AF2
+    param_count: 2
+  - kind: Function
+    name: AZolOrF3
+    line: 889
+    return_type: AF3
+    param_count: 2
+  - kind: Function
+    name: AZolOrF4
+    line: 890
+    return_type: AF4
+    param_count: 2
+  - kind: Function
+    name: AZolSelF1
+    line: 892
+    return_type: AF1
+    param_count: 3
+  - kind: Function
+    name: AZolSelF2
+    line: 893
+    return_type: AF2
+    param_count: 3
+  - kind: Function
+    name: AZolSelF3
+    line: 894
+    return_type: AF3
+    param_count: 3
+  - kind: Function
+    name: AZolSelF4
+    line: 895
+    return_type: AF4
+    param_count: 3
+  - kind: Function
+    name: AZolSignedF1
+    line: 897
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: AZolSignedF2
+    line: 898
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: AZolSignedF3
+    line: 899
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: AZolSignedF4
+    line: 900
+    return_type: AF4
+    param_count: 1
+  - kind: Function
+    name: AZolZeroPassF1
+    line: 902
+    return_type: AF1
+    param_count: 2
+  - kind: Function
+    name: AZolZeroPassF2
+    line: 903
+    return_type: AF2
+    param_count: 2
+  - kind: Function
+    name: AZolZeroPassF3
+    line: 904
+    return_type: AF3
+    param_count: 2
+  - kind: Function
+    name: AZolZeroPassF4
+    line: 905
+    return_type: AF4
+    param_count: 2
+  - kind: Function
+    name: ATo709F1
+    line: 961
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: ATo709F2
+    line: 963
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: ATo709F3
+    line: 965
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: AToGammaF1
+    line: 969
+    return_type: AF1
+    param_count: 2
+  - kind: Function
+    name: AToGammaF2
+    line: 970
+    return_type: AF2
+    param_count: 2
+  - kind: Function
+    name: AToGammaF3
+    line: 971
+    return_type: AF3
+    param_count: 2
+  - kind: Function
+    name: AToPqF1
+    line: 973
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: AToPqF1
+    line: 975
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: AToPqF1
+    line: 977
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: AToSrgbF1
+    line: 980
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: AToSrgbF2
+    line: 982
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: AToSrgbF3
+    line: 984
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: AToTwoF1
+    line: 987
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: AToTwoF2
+    line: 988
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: AToTwoF3
+    line: 989
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: AToThreeF1
+    line: 991
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: AToThreeF2
+    line: 992
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: AToThreeF3
+    line: 993
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: AFrom709F1
+    line: 998
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: AFrom709F2
+    line: 1000
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: AFrom709F3
+    line: 1002
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: AFromGammaF1
+    line: 1005
+    return_type: AF1
+    param_count: 2
+  - kind: Function
+    name: AFromGammaF2
+    line: 1006
+    return_type: AF2
+    param_count: 2
+  - kind: Function
+    name: AFromGammaF3
+    line: 1007
+    return_type: AF3
+    param_count: 2
+  - kind: Function
+    name: AFromPqF1
+    line: 1009
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: AFromPqF1
+    line: 1011
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: AFromPqF1
+    line: 1013
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: AFromSrgbF1
+    line: 1017
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: AFromSrgbF2
+    line: 1019
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: AFromSrgbF3
+    line: 1021
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: AFromTwoF1
+    line: 1024
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: AFromTwoF2
+    line: 1025
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: AFromTwoF3
+    line: 1026
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: AFromThreeF1
+    line: 1028
+    return_type: AF1
+    param_count: 1
+  - kind: Function
+    name: AFromThreeF2
+    line: 1029
+    return_type: AF2
+    param_count: 1
+  - kind: Function
+    name: AFromThreeF3
+    line: 1030
+    return_type: AF3
+    param_count: 1
+  - kind: Function
+    name: ATo709H1
+    line: 1034
+    return_type: AH1
+    param_count: 1
+  - kind: Function
+    name: ATo709H2
+    line: 1036
+    return_type: AH2
+    param_count: 1
+  - kind: Function
+    name: ATo709H3
+    line: 1038
+    return_type: AH3
+    param_count: 1
+  - kind: Function
+    name: AToGammaH1
+    line: 1041
+    return_type: AH1
+    param_count: 2
+  - kind: Function
+    name: AToGammaH2
+    line: 1042
+    return_type: AH2
+    param_count: 2
+  - kind: Function
+    name: AToGammaH3
+    line: 1043
+    return_type: AH3
+    param_count: 2
+  - kind: Function
+    name: AToSrgbH1
+    line: 1045
+    return_type: AH1
+    param_count: 1
+  - kind: Function
+    name: AToSrgbH2
+    line: 1047
+    return_type: AH2
+    param_count: 1
+  - kind: Function
+    name: AToSrgbH3
+    line: 1049
+    return_type: AH3
+    param_count: 1
+  - kind: Function
+    name: AToTwoH1
+    line: 1052
+    return_type: AH1
+    param_count: 1
+  - kind: Function
+    name: AToTwoH2
+    line: 1053
+    return_type: AH2
+    param_count: 1
+  - kind: Function
+    name: AToTwoH3
+    line: 1054
+    return_type: AH3
+    param_count: 1
+  - kind: Function
+    name: AToThreeF1
+    line: 1056
+    return_type: AH1
+    param_count: 1
+  - kind: Function
+    name: AToThreeF2
+    line: 1057
+    return_type: AH2
+    param_count: 1
+  - kind: Function
+    name: AToThreeF3
+    line: 1058
+    return_type: AH3
+    param_count: 1
+  - kind: Function
+    name: AFrom709H1
+    line: 1062
+    return_type: AH1
+    param_count: 1
+  - kind: Function
+    name: AFrom709H2
+    line: 1064
+    return_type: AH2
+    param_count: 1
+  - kind: Function
+    name: AFrom709H3
+    line: 1066
+    return_type: AH3
+    param_count: 1
+  - kind: Function
+    name: AFromGammaH1
+    line: 1069
+    return_type: AH1
+    param_count: 2
+  - kind: Function
+    name: AFromGammaH2
+    line: 1070
+    return_type: AH2
+    param_count: 2
+  - kind: Function
+    name: AFromGammaH3
+    line: 1071
+    return_type: AH3
+    param_count: 2
+  - kind: Function
+    name: AHromSrgbF1
+    line: 1073
+    return_type: AH1
+    param_count: 1
+  - kind: Function
+    name: AHromSrgbF2
+    line: 1075
+    return_type: AH2
+    param_count: 1
+  - kind: Function
+    name: AHromSrgbF3
+    line: 1077
+    return_type: AH3
+    param_count: 1
+  - kind: Function
+    name: AFromTwoH1
+    line: 1080
+    return_type: AH1
+    param_count: 1
+  - kind: Function
+    name: AFromTwoH2
+    line: 1081
+    return_type: AH2
+    param_count: 1
+  - kind: Function
+    name: AFromTwoH3
+    line: 1082
+    return_type: AH3
+    param_count: 1
+  - kind: Function
+    name: AFromThreeH1
+    line: 1084
+    return_type: AH1
+    param_count: 1
+  - kind: Function
+    name: AFromThreeH2
+    line: 1085
+    return_type: AH2
+    param_count: 1
+  - kind: Function
+    name: AFromThreeH3
+    line: 1086
+    return_type: AH3
+    param_count: 1
+  - kind: Function
+    name: ARmp8x8
+    line: 1099
+    return_type: AU2
+    param_count: 1
+  - kind: Function
+    name: ARmpRed8x8
+    line: 1117
+    return_type: AU2
+    param_count: 1
+  - kind: Function
+    name: opAAbsD2
+    line: 1351
+    return_type: AD2
+    param_count: 2
+  - kind: Function
+    name: opAAbsD3
+    line: 1352
+    return_type: AD3
+    param_count: 2
+  - kind: Function
+    name: opAAbsD4
+    line: 1353
+    return_type: AD4
+    param_count: 2
+  - kind: Function
+    name: opAAddD2
+    line: 1355
+    return_type: AD2
+    param_count: 3
+  - kind: Function
+    name: opAAddD3
+    line: 1356
+    return_type: AD3
+    param_count: 3
+  - kind: Function
+    name: opAAddD4
+    line: 1357
+    return_type: AD4
+    param_count: 3
+  - kind: Function
+    name: opAAddOneD2
+    line: 1359
+    return_type: AD2
+    param_count: 3
+  - kind: Function
+    name: opAAddOneD3
+    line: 1360
+    return_type: AD3
+    param_count: 3
+  - kind: Function
+    name: opAAddOneD4
+    line: 1361
+    return_type: AD4
+    param_count: 3
+  - kind: Function
+    name: opACpyD2
+    line: 1363
+    return_type: AD2
+    param_count: 2
+  - kind: Function
+    name: opACpyD3
+    line: 1364
+    return_type: AD3
+    param_count: 2
+  - kind: Function
+    name: opACpyD4
+    line: 1365
+    return_type: AD4
+    param_count: 2
+  - kind: Function
+    name: opALerpD2
+    line: 1367
+    return_type: AD2
+    param_count: 4
+  - kind: Function
+    name: opALerpD3
+    line: 1368
+    return_type: AD3
+    param_count: 4
+  - kind: Function
+    name: opALerpD4
+    line: 1369
+    return_type: AD4
+    param_count: 4
+  - kind: Function
+    name: opALerpOneD2
+    line: 1371
+    return_type: AD2
+    param_count: 4
+  - kind: Function
+    name: opALerpOneD3
+    line: 1372
+    return_type: AD3
+    param_count: 4
+  - kind: Function
+    name: opALerpOneD4
+    line: 1373
+    return_type: AD4
+    param_count: 4
+  - kind: Function
+    name: opAMaxD2
+    line: 1375
+    return_type: AD2
+    param_count: 3
+  - kind: Function
+    name: opAMaxD3
+    line: 1376
+    return_type: AD3
+    param_count: 3
+  - kind: Function
+    name: opAMaxD4
+    line: 1377
+    return_type: AD4
+    param_count: 3
+  - kind: Function
+    name: opAMinD2
+    line: 1379
+    return_type: AD2
+    param_count: 3
+  - kind: Function
+    name: opAMinD3
+    line: 1380
+    return_type: AD3
+    param_count: 3
+  - kind: Function
+    name: opAMinD4
+    line: 1381
+    return_type: AD4
+    param_count: 3
+  - kind: Function
+    name: opAMulD2
+    line: 1383
+    return_type: AD2
+    param_count: 3
+  - kind: Function
+    name: opAMulD3
+    line: 1384
+    return_type: AD3
+    param_count: 3
+  - kind: Function
+    name: opAMulD4
+    line: 1385
+    return_type: AD4
+    param_count: 3
+  - kind: Function
+    name: opAMulOneD2
+    line: 1387
+    return_type: AD2
+    param_count: 3
+  - kind: Function
+    name: opAMulOneD3
+    line: 1388
+    return_type: AD3
+    param_count: 3
+  - kind: Function
+    name: opAMulOneD4
+    line: 1389
+    return_type: AD4
+    param_count: 3
+  - kind: Function
+    name: opANegD2
+    line: 1391
+    return_type: AD2
+    param_count: 2
+  - kind: Function
+    name: opANegD3
+    line: 1392
+    return_type: AD3
+    param_count: 2
+  - kind: Function
+    name: opANegD4
+    line: 1393
+    return_type: AD4
+    param_count: 2
+  - kind: Function
+    name: opARcpD2
+    line: 1395
+    return_type: AD2
+    param_count: 2
+  - kind: Function
+    name: opARcpD3
+    line: 1396
+    return_type: AD3
+    param_count: 2
+  - kind: Function
+    name: opARcpD4
+    line: 1397
+    return_type: AD4
+    param_count: 2
+  - kind: Function
+    name: opAAbsF2
+    line: 1400
+    return_type: AF2
+    param_count: 2
+  - kind: Function
+    name: opAAbsF3
+    line: 1401
+    return_type: AF3
+    param_count: 2
+  - kind: Function
+    name: opAAbsF4
+    line: 1402
+    return_type: AF4
+    param_count: 2
+  - kind: Function
+    name: opAAddF2
+    line: 1404
+    return_type: AF2
+    param_count: 3
+  - kind: Function
+    name: opAAddF3
+    line: 1405
+    return_type: AF3
+    param_count: 3
+  - kind: Function
+    name: opAAddF4
+    line: 1406
+    return_type: AF4
+    param_count: 3
+  - kind: Function
+    name: opAAddOneF2
+    line: 1408
+    return_type: AF2
+    param_count: 3
+  - kind: Function
+    name: opAAddOneF3
+    line: 1409
+    return_type: AF3
+    param_count: 3
+  - kind: Function
+    name: opAAddOneF4
+    line: 1410
+    return_type: AF4
+    param_count: 3
+  - kind: Function
+    name: opACpyF2
+    line: 1412
+    return_type: AF2
+    param_count: 2
+  - kind: Function
+    name: opACpyF3
+    line: 1413
+    return_type: AF3
+    param_count: 2
+  - kind: Function
+    name: opACpyF4
+    line: 1414
+    return_type: AF4
+    param_count: 2
+  - kind: Function
+    name: opALerpF2
+    line: 1416
+    return_type: AF2
+    param_count: 4
+  - kind: Function
+    name: opALerpF3
+    line: 1417
+    return_type: AF3
+    param_count: 4
+  - kind: Function
+    name: opALerpF4
+    line: 1418
+    return_type: AF4
+    param_count: 4
+  - kind: Function
+    name: opALerpOneF2
+    line: 1420
+    return_type: AF2
+    param_count: 4
+  - kind: Function
+    name: opALerpOneF3
+    line: 1421
+    return_type: AF3
+    param_count: 4
+  - kind: Function
+    name: opALerpOneF4
+    line: 1422
+    return_type: AF4
+    param_count: 4
+  - kind: Function
+    name: opAMaxF2
+    line: 1424
+    return_type: AF2
+    param_count: 3
+  - kind: Function
+    name: opAMaxF3
+    line: 1425
+    return_type: AF3
+    param_count: 3
+  - kind: Function
+    name: opAMaxF4
+    line: 1426
+    return_type: AF4
+    param_count: 3
+  - kind: Function
+    name: opAMinF2
+    line: 1428
+    return_type: AF2
+    param_count: 3
+  - kind: Function
+    name: opAMinF3
+    line: 1429
+    return_type: AF3
+    param_count: 3
+  - kind: Function
+    name: opAMinF4
+    line: 1430
+    return_type: AF4
+    param_count: 3
+  - kind: Function
+    name: opAMulF2
+    line: 1432
+    return_type: AF2
+    param_count: 3
+  - kind: Function
+    name: opAMulF3
+    line: 1433
+    return_type: AF3
+    param_count: 3
+  - kind: Function
+    name: opAMulF4
+    line: 1434
+    return_type: AF4
+    param_count: 3
+  - kind: Function
+    name: opAMulOneF2
+    line: 1436
+    return_type: AF2
+    param_count: 3
+  - kind: Function
+    name: opAMulOneF3
+    line: 1437
+    return_type: AF3
+    param_count: 3
+  - kind: Function
+    name: opAMulOneF4
+    line: 1438
+    return_type: AF4
+    param_count: 3
+  - kind: Function
+    name: opANegF2
+    line: 1440
+    return_type: AF2
+    param_count: 2
+  - kind: Function
+    name: opANegF3
+    line: 1441
+    return_type: AF3
+    param_count: 2
+  - kind: Function
+    name: opANegF4
+    line: 1442
+    return_type: AF4
+    param_count: 2
+  - kind: Function
+    name: opARcpF2
+    line: 1444
+    return_type: AF2
+    param_count: 2
+  - kind: Function
+    name: opARcpF3
+    line: 1445
+    return_type: AF3
+    param_count: 2
+  - kind: Function
+    name: opARcpF4
+    line: 1446
+    return_type: AF4
+    param_count: 2

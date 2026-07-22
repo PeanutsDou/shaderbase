@@ -1,0 +1,100 @@
+# pbr_rock/pbr_rock_parameters.hlsl 的节点抽取期望
+# 输入路径相对 shader-source 根
+input: pbr_rock/pbr_rock_parameters.hlsl
+note: 本地 pbr_rock/ 是教学版副本（同结构），fixture 路径用本地相对路径
+
+expected_nodes:
+  - kind: Texture
+    name: Tex0
+    line: 82
+    texture_type: texture
+    semantic: DiffuseMap
+    has_annotation: true
+
+  - kind: SamplerState
+    name: s_diffuse
+    line: 87
+    state_count: 2
+
+  - kind: Texture
+    name: NormalMap
+    line: 95
+    texture_type: texture
+    semantic: NormalMap
+    has_annotation: true
+
+  - kind: SamplerState
+    name: s_normalmap
+    line: 100
+    state_count: 1
+
+  - kind: Texture
+    name: ParamMap
+    line: 108
+    texture_type: texture
+    has_annotation: true
+
+  - kind: SamplerState
+    name: s_parammap
+    line: 113
+    state_count: 2
+
+  - kind: Texture
+    name: DetailMap
+    line: 121
+    texture_type: texture
+    has_annotation: true
+
+  - kind: SamplerState
+    name: s_detailmap
+    line: 126
+    state_count: 3
+
+  - kind: Uniform
+    name: u_normal_intensity
+    line: 145
+    type: float
+    has_annotation: true
+    default: 1.0
+
+  - kind: Uniform
+    name: u_specular
+    line: 155
+    type: float
+    has_annotation: true
+    default: 0.5
+
+  - kind: Uniform
+    name: u_roughness
+    line: 166
+    type: float
+    has_annotation: true
+    default: 0.7
+
+  - kind: Uniform
+    name: u_metallic
+    line: 177
+    type: float
+    has_annotation: true
+    default: 0.0
+
+  - kind: Uniform
+    name: u_roughness_scale
+    line: 189
+    type: float
+    has_annotation: true
+    default: 1.0
+
+  - kind: Uniform
+    name: u_detail_tilling
+    line: 200
+    type: float
+    has_annotation: true
+    default: 20.0
+
+  - kind: Uniform
+    name: u_detail_intensity
+    line: 208
+    type: float
+    has_annotation: true
+    default: 0.5

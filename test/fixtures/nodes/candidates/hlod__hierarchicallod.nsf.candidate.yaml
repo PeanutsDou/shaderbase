@@ -1,0 +1,118 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: hlod/hierarchicallod.nsf
+# 节点总数: 24
+input: hlod/hierarchicallod.nsf
+
+expected_nodes:
+  - kind: Struct
+    name: VS_INPUT
+    line: 1
+    field_count: 2
+  - kind: Struct
+    name: PS_INPUT
+    line: 10
+    field_count: 4
+  - kind: Texture
+    name: Tex0
+    line: 21
+    texture_type: texture
+    semantic: DiffuseMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_diffuse
+    line: 26
+    state_count: 1
+  - kind: Texture
+    name: NormalMap
+    line: 30
+    texture_type: texture
+    semantic: NormalMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_normalmap
+    line: 36
+    state_count: 3
+  - kind: Texture
+    name: Tex1
+    line: 42
+    texture_type: texture
+  - kind: SamplerState
+    name: s_lm_night
+    line: 43
+    state_count: 0
+  - kind: Texture
+    name: Tex2
+    line: 44
+    texture_type: texture
+  - kind: SamplerState
+    name: s_lm_day
+    line: 45
+    state_count: 0
+  - kind: Texture
+    name: TexParam
+    line: 46
+    texture_type: texture
+  - kind: SamplerState
+    name: s_param
+    line: 47
+    state_count: 0
+  - kind: SamplerState
+    name: s_fracture_id
+    line: 49
+    state_count: 0
+  - kind: SamplerState
+    name: s_fracture_state
+    line: 51
+    state_count: 0
+  - kind: Uniform
+    name: u_th
+    line: 56
+    type: float4
+    has_annotation: true
+    default: {0.25,0.9,0.0,0.0}
+  - kind: Uniform
+    name: u_tlc
+    line: 63
+    type: float4
+    has_annotation: true
+    default: {0.25,2.0,1.0,0.0}
+  - kind: Function
+    name: CalcLightMapHLOD
+    line: 192
+    return_type: void
+    param_count: 2
+  - kind: Function
+    name: VertexDataNodesBasedGraph
+    line: 228
+    return_type: void
+    param_count: 2
+  - kind: Function
+    name: CustomizedVertexDataOutput
+    line: 242
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: CalculateMipMapLevel
+    line: 286
+    return_type: float
+    param_count: 2
+  - kind: Function
+    name: NDL
+    line: 295
+    return_type: float
+    param_count: 3
+  - kind: Function
+    name: IsPixelFactured
+    line: 305
+    return_type: int
+    param_count: 3
+  - kind: Function
+    name: PixelNodesBasedGraph
+    line: 327
+    return_type: void
+    param_count: 3
+  - kind: Technique
+    name: TShader
+    line: 422
+    pass_count: 1
+    has_annotation: true

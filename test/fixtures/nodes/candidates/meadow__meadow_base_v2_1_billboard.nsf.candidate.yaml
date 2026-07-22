@@ -1,0 +1,154 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: meadow/meadow_base_v2_1_billboard.nsf
+# 节点总数: 26
+input: meadow/meadow_base_v2_1_billboard.nsf
+
+expected_nodes:
+  - kind: Struct
+    name: VS_INPUT
+    line: 1
+    field_count: 0
+  - kind: Struct
+    name: PS_INPUT
+    line: 8
+    field_count: 0
+  - kind: Uniform
+    name: u_spring_color
+    line: 22
+    type: float4
+    has_annotation: true
+    default: {0.76f,0.65f,0.56f,0.0f}
+  - kind: Uniform
+    name: u_autumn_color
+    line: 29
+    type: float4
+    has_annotation: true
+    default: {0.8f,0.6f,0.4f,0.6f}
+  - kind: Uniform
+    name: u_winter_color
+    line: 35
+    type: float4
+    has_annotation: true
+    default: {0.66f,0.6f,0.4f,0.3f}
+  - kind: Uniform
+    name: u_emissive_color
+    line: 41
+    type: float4
+    has_annotation: true
+    default: {0.0f,0.0f,0.0f,0.0f}
+  - kind: Uniform
+    name: u_emissive_intentisy
+    line: 47
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: color_const
+    line: 56
+    type: float4
+    has_annotation: true
+    default: {1.0f,1.0f,1.0f,1.0f}
+  - kind: Uniform
+    name: u_terrain_blendscale
+    line: 62
+    type: float
+    has_annotation: true
+    default: 0.6
+  - kind: Uniform
+    name: u_specular
+    line: 70
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_width_broaden
+    line: 80
+    type: float
+    has_annotation: true
+    default: 1.2
+  - kind: Uniform
+    name: u_b_min_scale_val
+    line: 88
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_b_dist_scale_strength
+    line: 96
+    type: float
+    has_annotation: true
+    default: 1.5
+  - kind: Uniform
+    name: u_b_start_distance
+    line: 104
+    type: float
+    has_annotation: true
+    default: 400.0
+  - kind: Uniform
+    name: u_b_distance_length
+    line: 112
+    type: float
+    has_annotation: true
+    default: 800.0
+  - kind: Uniform
+    name: u_b_max_width_ratios
+    line: 120
+    type: float
+    has_annotation: true
+    default: 1.2
+  - kind: Uniform
+    name: u_b_max_random_distance
+    line: 128
+    type: float
+    has_annotation: true
+    default: 400.0
+  - kind: Uniform
+    name: u_b_random_offset_start_dist
+    line: 136
+    type: float
+    has_annotation: true
+    default: 500.0
+  - kind: Uniform
+    name: u_subsurface_color
+    line: 144
+    type: float4
+    has_annotation: true
+    default: { 1.0f, 1.0f, 1.0f, 1.0f }
+  - kind: Uniform
+    name: u_subsurface_int
+    line: 151
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_roughness_bluetide
+    line: 245
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_roughness
+    line: 255
+    type: float
+    has_annotation: true
+    default: 0.95
+  - kind: Function
+    name: VertexDataNodesBasedGraph
+    line: 266
+    return_type: void
+    param_count: 2
+  - kind: Function
+    name: CustomizedVertexDataOutput
+    line: 385
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: PixelNodesBasedGraph
+    line: 392
+    return_type: void
+    param_count: 3
+  - kind: Technique
+    name: TShader
+    line: 441
+    pass_count: 1
+    has_annotation: true

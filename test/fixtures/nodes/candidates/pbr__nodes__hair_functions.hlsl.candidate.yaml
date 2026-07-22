@@ -1,0 +1,360 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: pbr/nodes/hair_functions.hlsl
+# 节点总数: 63
+input: pbr/nodes/hair_functions.hlsl
+
+expected_nodes:
+  - kind: Uniform
+    name: u_hair_wind_speed
+    line: 2
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_hair_wind_strength
+    line: 13
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_hair_wind_strength_scale
+    line: 23
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_hair_wind_speed_scale
+    line: 33
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_hair_wind_direction
+    line: 43
+    type: float4
+    has_annotation: true
+    default: {1.0,1.0,0.0,0.0}
+  - kind: Uniform
+    name: u_hair_posy_factor
+    line: 50
+    type: float
+    has_annotation: true
+    default: 0.7
+  - kind: Uniform
+    name: u_hair_amplitude
+    line: 60
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Function
+    name: CalcVertexAnimationHairWind
+    line: 72
+    return_type: void
+    param_count: 4
+  - kind: Uniform
+    name: u_hair_va_speed
+    line: 106
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_hair_va_amplitude
+    line: 116
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_hair_va_wave_freq
+    line: 126
+    type: float
+    has_annotation: true
+    default: 0.7
+  - kind: Uniform
+    name: u_hair_va_dir_x
+    line: 136
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_hair_va_dir_y
+    line: 146
+    type: float
+    has_annotation: true
+    default: -1.0
+  - kind: Uniform
+    name: u_hair_va_dir_z
+    line: 156
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Function
+    name: CalcVertexAnimationHair
+    line: 167
+    return_type: void
+    param_count: 4
+  - kind: Function
+    name: AssignParamH2U
+    line: 195
+    return_type: void
+    param_count: 2
+  - kind: Uniform
+    name: u_change_h
+    line: 333
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_change_s
+    line: 343
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_change_v
+    line: 352
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_hair_gray_intensity
+    line: 382
+    type: float
+    has_annotation: true
+    default: 0.75
+  - kind: Uniform
+    name: u_hair_gray_color
+    line: 392
+    type: float4
+    has_annotation: true
+    default: { 0.2f,0.2f,0.2f,1.0f }
+  - kind: Uniform
+    name: u_hair_gray_color2
+    line: 399
+    type: float4
+    has_annotation: true
+    default: { 0.2f,0.2f,0.2f,1.0f }
+  - kind: Uniform
+    name: u_hair_bright
+    line: 406
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_gra_range
+    line: 416
+    type: float
+    has_annotation: true
+    default: 5.0
+  - kind: Uniform
+    name: u_gra_offset
+    line: 426
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Function
+    name: DyeBaseColorHSV
+    line: 436
+    return_type: half3
+    param_count: 1
+  - kind: Function
+    name: DyeBaseColorVertexHeight
+    line: 441
+    return_type: half3
+    param_count: 2
+  - kind: Function
+    name: DyeBaseColorPicker
+    line: 451
+    return_type: half3
+    param_count: 1
+  - kind: Function
+    name: CalcHairColorAndParam
+    line: 459
+    return_type: void
+    param_count: 2
+  - kind: Uniform
+    name: u_base_color
+    line: 479
+    type: float4
+    has_annotation: true
+    default: { 1.0f, 1.0f, 1.0f, 1.0f }
+  - kind: Uniform
+    name: u_hair_color
+    line: 486
+    type: float4
+    has_annotation: true
+    default: { 1.0f, 1.0f, 1.0f, 1.0f }
+  - kind: Uniform
+    name: u_hair_dye_color_1
+    line: 493
+    type: float4
+    has_annotation: true
+    default: { 1.0f, 1.0f, 1.0f, 1.0f }
+  - kind: Uniform
+    name: u_hair_dye_color_2
+    line: 500
+    type: float4
+    has_annotation: true
+    default: { 1.0f, 1.0f, 1.0f, 1.0f }
+  - kind: Uniform
+    name: u_hair_gradient_1
+    line: 507
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_hair_gradient_2
+    line: 517
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_eyelesh_color
+    line: 527
+    type: float4
+    has_annotation: true
+    default: { 0.0f, 0.0f, 0.0f, 1.0f }
+  - kind: Uniform
+    name: u_random_variation
+    line: 534
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_random_saturation
+    line: 544
+    type: float
+    has_annotation: true
+    default: 0.2
+  - kind: Function
+    name: CalcBaseColorDyeHair
+    line: 554
+    return_type: void
+    param_count: 5
+  - kind: Function
+    name: CalcHairBaseColorVertex
+    line: 586
+    return_type: void
+    param_count: 2
+  - kind: Function
+    name: CalcHairBaseColorSystem
+    line: 601
+    return_type: void
+    param_count: 2
+  - kind: Uniform
+    name: u_roughness
+    line: 611
+    type: float
+    has_annotation: true
+    default: 0.3
+  - kind: Uniform
+    name: u_scatter
+    line: 621
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_specular
+    line: 631
+    type: float
+    has_annotation: true
+    default: 0.3
+  - kind: Function
+    name: CalcScatterHair
+    line: 641
+    return_type: void
+    param_count: 1
+  - kind: Function
+    name: CalcScatterDyedHair
+    line: 666
+    return_type: void
+    param_count: 1
+  - kind: Uniform
+    name: u_ani_spe_intensity
+    line: 686
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_ani_spe_offset
+    line: 696
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: anisoOffset
+    line: 706
+    type: float
+    has_annotation: true
+    default: 0.2
+  - kind: Function
+    name: CalcWorldTangentH2U
+    line: 716
+    return_type: void
+    param_count: 3
+  - kind: Uniform
+    name: u_tangent_value
+    line: 732
+    type: float
+    has_annotation: true
+    default: 0.3
+  - kind: Uniform
+    name: u_tangent_intensity
+    line: 742
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Function
+    name: CalcTangentHair
+    line: 752
+    return_type: void
+    param_count: 2
+  - kind: Function
+    name: CalcTangentHairPC
+    line: 766
+    return_type: void
+    param_count: 2
+  - kind: Function
+    name: CalcWorldTangentHair
+    line: 776
+    return_type: void
+    param_count: 2
+  - kind: Function
+    name: CalcWorldNormalHair
+    line: 781
+    return_type: void
+    param_count: 1
+  - kind: Function
+    name: CalcSpecularAmbientOcclusionHair
+    line: 788
+    return_type: void
+    param_count: 2
+  - kind: Function
+    name: CalcAmbientOcclusionHair
+    line: 796
+    return_type: void
+    param_count: 1
+  - kind: Texture
+    name: tex_snow_mask
+    line: 803
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_snow_mask
+    line: 808
+    state_count: 3
+  - kind: Uniform
+    name: u_snow_top_mask_offset
+    line: 815
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Function
+    name: CalcCharacterHairSnowMask
+    line: 830
+    return_type: void
+    param_count: 2
+  - kind: Function
+    name: CalcEmissiveFlowHair
+    line: 884
+    return_type: void
+    param_count: 4

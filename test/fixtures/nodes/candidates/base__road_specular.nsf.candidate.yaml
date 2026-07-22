@@ -1,0 +1,226 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: base/road_specular.nsf
+# 节点总数: 42
+input: base/road_specular.nsf
+
+expected_nodes:
+  - kind: Struct
+    name: VS_INPUT
+    line: 1
+    field_count: 12
+  - kind: Struct
+    name: PS_INPUT
+    line: 26
+    field_count: 12
+  - kind: Texture
+    name: Tex0
+    line: 49
+    texture_type: texture
+    semantic: DiffuseMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_diffuse
+    line: 55
+    state_count: 3
+  - kind: Texture
+    name: NormalMap
+    line: 62
+    texture_type: texture
+    semantic: NormalMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_normalmap
+    line: 68
+    state_count: 0
+  - kind: Texture
+    name: t_track_1_tex
+    line: 70
+    texture_type: texture
+    semantic: DiffuseMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_track_1_tex
+    line: 76
+    state_count: 3
+  - kind: Texture
+    name: t_track_1_normal_tex
+    line: 83
+    texture_type: texture
+    semantic: NormalMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_track_1_normal_tex
+    line: 89
+    state_count: 2
+  - kind: Texture
+    name: t_track_2_tex
+    line: 95
+    texture_type: texture
+    semantic: DiffuseMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_track_2_tex
+    line: 101
+    state_count: 3
+  - kind: Texture
+    name: t_track_2_normal_tex
+    line: 108
+    texture_type: texture
+    semantic: NormalMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_track_2_normal_tex
+    line: 114
+    state_count: 2
+  - kind: Texture
+    name: t_mask_tex
+    line: 121
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_mask_tex
+    line: 127
+    state_count: 3
+  - kind: Texture
+    name: snow_normal
+    line: 134
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_snow_normal
+    line: 141
+    state_count: 0
+  - kind: Texture
+    name: Texinfluence
+    line: 143
+    texture_type: texture
+    semantic: SSInfluence
+    has_annotation: true
+  - kind: SamplerState
+    name: s_influence
+    line: 147
+    state_count: 3
+  - kind: Texture
+    name: t_wetness_dirty
+    line: 154
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_wetness_dirty
+    line: 159
+    state_count: 4
+  - kind: Uniform
+    name: snow_color
+    line: 167
+    type: float3
+    has_annotation: true
+    default: {0.75f, 0.78f, 0.82f}
+  - kind: Uniform
+    name: u_mask_min
+    line: 178
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_mask_max
+    line: 188
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_mask_1_min
+    line: 198
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_mask_1_max
+    line: 208
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_mask_tiling_offset
+    line: 218
+    type: float4
+    has_annotation: true
+    default: {0.1f,0.1f,0.3f,0.0f}
+  - kind: Uniform
+    name: u_mask_1_tiling_offset
+    line: 226
+    type: float4
+    has_annotation: true
+    default: {0.13f,0.13f,0.1f,0.0f}
+  - kind: Uniform
+    name: u_alpha_1_intensity
+    line: 234
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_mask_2_min
+    line: 244
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_mask_2_max
+    line: 254
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_mask_2_tiling_offset
+    line: 264
+    type: float4
+    has_annotation: true
+    default: {0.13f,0.13f,0.1f,0.0f}
+  - kind: Uniform
+    name: u_track_2_tiling_offset
+    line: 272
+    type: float4
+    has_annotation: true
+    default: {1.0f,1.0f,0.1f,0.0f}
+  - kind: Uniform
+    name: u_track_1_add_track_2
+    line: 280
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_track_2_a_blend_track_0
+    line: 290
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_alpha_2_intensity
+    line: 300
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Function
+    name: RoadComputeVertexDataInstance
+    line: 387
+    return_type: void
+    param_count: 2
+  - kind: Function
+    name: VertexDataNodesBasedGraph
+    line: 411
+    return_type: void
+    param_count: 2
+  - kind: Function
+    name: CustomizedVertexDataOutput
+    line: 419
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: PixelNodesBasedGraph
+    line: 432
+    return_type: void
+    param_count: 3
+  - kind: Technique
+    name: TShader
+    line: 592
+    pass_count: 1
+    has_annotation: true

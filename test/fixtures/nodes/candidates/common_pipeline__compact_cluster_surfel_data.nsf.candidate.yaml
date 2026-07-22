@@ -1,0 +1,51 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: common_pipeline/compact_cluster_surfel_data.nsf
+# 节点总数: 10
+input: common_pipeline/compact_cluster_surfel_data.nsf
+
+expected_nodes:
+  - kind: Struct
+    name: RecycleBlockInfo
+    line: 14
+    field_count: 3
+  - kind: Struct
+    name: Info0
+    line: 21
+    field_count: 1
+  - kind: Struct
+    name: Info1
+    line: 26
+    field_count: 1
+  - kind: Struct
+    name: Info2
+    line: 31
+    field_count: 1
+  - kind: Struct
+    name: Info3
+    line: 36
+    field_count: 1
+  - kind: Struct
+    name: Info4
+    line: 41
+    field_count: 1
+  - kind: Struct
+    name: Info5
+    line: 46
+    field_count: 1
+  - kind: Function
+    name: GetSurfelCellIndexRW
+    line: 71
+    return_type: bool
+    param_count: 2
+  - kind: Function
+    name: cs_main
+    line: 83
+    return_type: void
+    stage: compute
+    param_count: 4
+    attributes: ['[numthreads(BLOCK_SIZE, BLOCK_SIZE, 1)]']
+  - kind: Technique
+    name: TShader
+    line: 217
+    pass_count: 1
+    has_annotation: true

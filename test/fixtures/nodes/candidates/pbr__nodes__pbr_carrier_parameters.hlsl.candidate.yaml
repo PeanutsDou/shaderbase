@@ -1,0 +1,344 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: pbr/nodes/pbr_carrier_parameters.hlsl
+# 节点总数: 63
+input: pbr/nodes/pbr_carrier_parameters.hlsl
+
+expected_nodes:
+  - kind: Texture
+    name: Tex0
+    line: 89
+    texture_type: texture
+    semantic: DiffuseMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_diffuse
+    line: 94
+    state_count: 4
+  - kind: Texture
+    name: NormalMap
+    line: 102
+    texture_type: texture
+    semantic: NormalMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_normalmap
+    line: 108
+    state_count: 3
+  - kind: Texture
+    name: ParamMap
+    line: 115
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_parammap
+    line: 120
+    state_count: 1
+  - kind: Texture
+    name: CarrierCoatMask
+    line: 125
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_carriercoatmask
+    line: 130
+    state_count: 2
+  - kind: Texture
+    name: CarrierFlakeMap
+    line: 136
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_carrierflakemap
+    line: 141
+    state_count: 4
+  - kind: Texture
+    name: CarrierDirtMap
+    line: 149
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_carrierdirtmap
+    line: 154
+    state_count: 2
+  - kind: Texture
+    name: CarrierRustMap
+    line: 160
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_carrierrustmap
+    line: 165
+    state_count: 2
+  - kind: Texture
+    name: CarrierDamageNorMap
+    line: 171
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_carrierdamagenormalmap
+    line: 177
+    state_count: 3
+  - kind: Texture
+    name: CarrierDamageColMask
+    line: 184
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_carrierdamagecolormask
+    line: 190
+    state_count: 3
+  - kind: Texture
+    name: CarrierSplashColorMap
+    line: 197
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_carriersplashcolormap
+    line: 203
+    state_count: 3
+  - kind: Texture
+    name: CarrierSplashNormalMap
+    line: 210
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_carriersplashnormalmap
+    line: 216
+    state_count: 2
+  - kind: Texture
+    name: CarrierDecalMap
+    line: 222
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_carrierdecalmap
+    line: 227
+    state_count: 3
+  - kind: Texture
+    name: CarrierDecalMask
+    line: 234
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_carrierdecalmask
+    line: 239
+    state_count: 2
+  - kind: Texture
+    name: CarrierSplashEdgeTile
+    line: 246
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_carriersplashedgetile
+    line: 252
+    state_count: 3
+  - kind: Uniform
+    name: u_clear_coat
+    line: 260
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_clear_coat_roughness
+    line: 270
+    type: float
+    has_annotation: true
+    default: 0.15
+  - kind: Uniform
+    name: u_matte_factor
+    line: 280
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_metal_flake_intensity
+    line: 290
+    type: float
+    has_annotation: true
+    default: 0.35
+  - kind: Uniform
+    name: u_flake_tiling
+    line: 300
+    type: float
+    has_annotation: true
+    default: 8.0
+  - kind: Uniform
+    name: u_dirt_intensity
+    line: 310
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_rust_intensity
+    line: 320
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_dirt_tint
+    line: 330
+    type: float4
+    has_annotation: true
+    default: {0.22f, 0.20f, 0.18f, 1.0f}
+  - kind: Uniform
+    name: u_rust_tint
+    line: 337
+    type: float4
+    has_annotation: true
+    default: {0.42f, 0.16f, 0.05f, 1.0f}
+  - kind: Uniform
+    name: u_overlay_roughness_add
+    line: 344
+    type: float
+    has_annotation: true
+    default: 0.25
+  - kind: Uniform
+    name: u_damage_normal_intensity
+    line: 354
+    type: float
+    has_annotation: true
+    default: 4.0
+  - kind: Uniform
+    name: u_damage_color_intensity
+    line: 364
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_damage_color_vertex_mask_step
+    line: 374
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_damage_color_vertex_mask_softness
+    line: 384
+    type: float
+    has_annotation: true
+    default: 0.15
+  - kind: Uniform
+    name: u_damage_color_tiling
+    line: 394
+    type: float
+    has_annotation: true
+    default: 1.2
+  - kind: Uniform
+    name: u_damage_normal_tiling
+    line: 404
+    type: float
+    has_annotation: true
+    default: 1.5
+  - kind: Uniform
+    name: u_damage_color_offset_x
+    line: 414
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_damage_color_offset_y
+    line: 424
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_damage_color
+    line: 434
+    type: float4
+    has_annotation: true
+    default: {0.5f, 0.5f, 0.5f, 1.0f}
+  - kind: Uniform
+    name: u_damage_roughness
+    line: 441
+    type: float
+    has_annotation: true
+    default: 0.3
+  - kind: Uniform
+    name: u_damage_metallic
+    line: 451
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_splash_intensity
+    line: 461
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_splash_color
+    line: 471
+    type: float4
+    has_annotation: true
+    default: {1.0f, 1.0f, 1.0f, 1.0f}
+  - kind: Uniform
+    name: u_splash_tiling
+    line: 478
+    type: float
+    has_annotation: true
+    default: 1.2
+  - kind: Uniform
+    name: u_splash_uv_offset_x
+    line: 488
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_splash_uv_offset_y
+    line: 498
+    type: float
+    has_annotation: true
+    default: -0.45
+  - kind: Uniform
+    name: u_splash_roughness
+    line: 508
+    type: float
+    has_annotation: true
+    default: 0.05
+  - kind: Uniform
+    name: u_splash_normal_intensity
+    line: 518
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_decal_blend
+    line: 528
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_decal_metallic
+    line: 538
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_decal_roughness
+    line: 548
+    type: float
+    has_annotation: true
+    default: 0.4
+  - kind: Uniform
+    name: u_splash_edge_tiling
+    line: 562
+    type: float
+    has_annotation: true
+    default: 5.0
+  - kind: Uniform
+    name: u_splash_edge_offset_x
+    line: 569
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_splash_edge_offset_y
+    line: 576
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_splash_edge_width
+    line: 583
+    type: float
+    has_annotation: true
+    default: 0.0

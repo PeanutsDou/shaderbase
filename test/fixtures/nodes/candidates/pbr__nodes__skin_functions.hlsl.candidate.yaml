@@ -1,0 +1,575 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: pbr/nodes/skin_functions.hlsl
+# 节点总数: 103
+input: pbr/nodes/skin_functions.hlsl
+
+expected_nodes:
+  - kind: Texture
+    name: t_TattooColor
+    line: 2
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_TattooColor
+    line: 8
+    state_count: 3
+  - kind: Texture
+    name: t_rebirth_noise_a
+    line: 15
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_rebirth_noise_a
+    line: 21
+    state_count: 3
+  - kind: Texture
+    name: t_rebirth_tex
+    line: 29
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_rebirth_tex
+    line: 35
+    state_count: 3
+  - kind: Uniform
+    name: u_skin_gray_intensity
+    line: 55
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_skin_rebirth_intensity
+    line: 82
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_rebirth_tattoo_emissive_intensity
+    line: 92
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_rebirth_tattoo_emissive_color
+    line: 100
+    type: float4
+    has_annotation: true
+    default: { 0.4706f, 0.7451f, 1.0f, 1.0f }
+  - kind: Uniform
+    name: u_rebirth_noise_bias
+    line: 113
+    type: float4
+    has_annotation: true
+    default: { 1.68f, -1.0f, 5.0f, 1.62f }
+  - kind: Function
+    name: CalcRebirthSkinGray
+    line: 204
+    return_type: void
+    param_count: 2
+  - kind: Function
+    name: CalcRebirthTexutreAndSkinGray
+    line: 217
+    return_type: void
+    param_count: 4
+  - kind: Function
+    name: CalcRebirthSkin
+    line: 289
+    return_type: void
+    param_count: 3
+  - kind: Uniform
+    name: u_monster_rebirth_color
+    line: 305
+    type: float4
+    has_annotation: true
+    default: { 0.5f, 0.816f, 1.0f, 0.224f }
+  - kind: Function
+    name: CalcRebirthMonster
+    line: 312
+    return_type: void
+    param_count: 1
+  - kind: Uniform
+    name: u_skin_roughness
+    line: 332
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_skin_specular
+    line: 342
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_skin_color
+    line: 352
+    type: float4
+    has_annotation: true
+    default: { 1.0f, 1.0f, 1.0f, 1.0f }
+  - kind: Uniform
+    name: u_skin_bright
+    line: 359
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Function
+    name: CalcSkinColorTintAndParam
+    line: 369
+    return_type: void
+    param_count: 2
+  - kind: Texture
+    name: tex_s
+    line: 390
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_tex_s
+    line: 396
+    state_count: 3
+  - kind: Texture
+    name: t_glitter_noise_array
+    line: 403
+    texture_type: Texture2DArray
+    has_annotation: true
+  - kind: SamplerState
+    name: s_glitter_noise_array
+    line: 409
+    state_count: 3
+  - kind: Uniform
+    name: u_makeup_emissive_color
+    line: 445
+    type: float4
+    has_annotation: true
+    default: { 0.449f, 0.634f, 1.0f, 1.0f }
+  - kind: Function
+    name: CalcAtlasUV
+    line: 453
+    return_type: float3
+    param_count: 3
+  - kind: Function
+    name: CalcMakeupTextureAndColor
+    line: 466
+    return_type: void
+    param_count: 5
+  - kind: Texture
+    name: t_sparkle_mask
+    line: 545
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_sparkle_mask
+    line: 552
+    state_count: 3
+  - kind: Texture
+    name: t_makeup_sparkle_noise
+    line: 559
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_makeup_sparkle_noise
+    line: 566
+    state_count: 3
+  - kind: Texture
+    name: t_sparkle_noise_array
+    line: 573
+    texture_type: Texture2DArray
+    has_annotation: true
+  - kind: SamplerState
+    name: s_sparkle_noise_array
+    line: 579
+    state_count: 3
+  - kind: Uniform
+    name: u_makeup_emissive_factor
+    line: 611
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Function
+    name: CalcSkinEmissive
+    line: 621
+    return_type: void
+    param_count: 5
+  - kind: Function
+    name: CalcMakeup
+    line: 642
+    return_type: void
+    param_count: 5
+  - kind: Function
+    name: CalcTattooParam
+    line: 711
+    return_type: void
+    param_count: 2
+  - kind: Texture
+    name: t_nielian_gird_mask
+    line: 721
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_nielian_gird_mask
+    line: 725
+    state_count: 2
+  - kind: Function
+    name: CalcMeshGridHighlight
+    line: 736
+    return_type: void
+    param_count: 2
+  - kind: Uniform
+    name: u_fresnel_roughness
+    line: 748
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_fresnel_roughness_exponent
+    line: 758
+    type: float
+    has_annotation: true
+    default: 2.2
+  - kind: Function
+    name: CalcFresnelRoughness
+    line: 768
+    return_type: void
+    param_count: 2
+  - kind: Function
+    name: CalcSubsurfaceColorSkin
+    line: 778
+    return_type: void
+    param_count: 4
+  - kind: Function
+    name: CalcSaturatedAmbientOcclusion
+    line: 799
+    return_type: void
+    param_count: 1
+  - kind: Function
+    name: CalcSubsurfaceColorSkinOld
+    line: 810
+    return_type: void
+    param_count: 2
+  - kind: Uniform
+    name: u_soc_hurt_style_00
+    line: 830
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_soc_new_indensity_00
+    line: 839
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_soc_old_indensity_00
+    line: 848
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_soc_hurt_style_01
+    line: 858
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_soc_new_indensity_01
+    line: 867
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_soc_old_indensity_01
+    line: 876
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_soc_hurt_style_02
+    line: 886
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_soc_new_indensity_02
+    line: 895
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_soc_old_indensity_02
+    line: 904
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_soc_hurt_style_03
+    line: 914
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_soc_new_indensity_03
+    line: 923
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_soc_old_indensity_03
+    line: 932
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_soc_hurt_style_04
+    line: 942
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_soc_new_indensity_04
+    line: 951
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_soc_old_indensity_04
+    line: 960
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Texture
+    name: t_soc_skin_area_gray
+    line: 970
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_soc_skin_area_gray
+    line: 975
+    state_count: 3
+  - kind: Texture
+    name: t_soc_wound_2mask_array
+    line: 983
+    texture_type: Texture2DArray
+    has_annotation: true
+  - kind: SamplerState
+    name: s_soc_wound_2mask_array
+    line: 988
+    state_count: 3
+  - kind: Uniform
+    name: u_soc_00_new_color_main
+    line: 997
+    type: float4
+    has_annotation: true
+    default: {0.39f, 0.01f, 0.01f, 1.0f }
+  - kind: Uniform
+    name: u_soc_00_new_color_vary
+    line: 1004
+    type: float4
+    has_annotation: true
+    default: {0.03f, 0.0f, 0.0f, 1.0f }
+  - kind: Uniform
+    name: u_soc_00_old_color_main
+    line: 1011
+    type: float4
+    has_annotation: true
+    default: {0.45f, 0.11f, 0.11f, 1.0f }
+  - kind: Uniform
+    name: u_soc_00_old_color_vary
+    line: 1018
+    type: float4
+    has_annotation: true
+    default: {0.61f, 0.21f, 0.21f, 1.0f }
+  - kind: Uniform
+    name: u_soc_00_new_roughness
+    line: 1025
+    type: float
+    has_annotation: true
+    default: 0.08
+  - kind: Uniform
+    name: u_soc_00_old_roughness
+    line: 1035
+    type: float
+    has_annotation: true
+    default: 0.6
+  - kind: Uniform
+    name: u_soc_01_new_color_main
+    line: 1046
+    type: float4
+    has_annotation: true
+    default: {0.39f, 0.01f, 0.01f, 1.0f}
+  - kind: Uniform
+    name: u_soc_01_new_color_vary
+    line: 1053
+    type: float4
+    has_annotation: true
+    default: {0.03f, 0.0f, 0.0f, 1.0f}
+  - kind: Uniform
+    name: u_soc_01_old_color_main
+    line: 1060
+    type: float4
+    has_annotation: true
+    default: {0.45f, 0.11f, 0.11f, 1.0f}
+  - kind: Uniform
+    name: u_soc_01_old_color_vary
+    line: 1067
+    type: float4
+    has_annotation: true
+    default: {0.61f, 0.21f, 0.21f, 1.0f}
+  - kind: Uniform
+    name: u_soc_01_new_roughness
+    line: 1074
+    type: float
+    has_annotation: true
+    default: 0.08
+  - kind: Uniform
+    name: u_soc_01_old_roughness
+    line: 1084
+    type: float
+    has_annotation: true
+    default: 0.6
+  - kind: Uniform
+    name: u_soc_02_new_color_main
+    line: 1095
+    type: float4
+    has_annotation: true
+    default: {0.38f, 0.02f, 0.02f, 1.0f }
+  - kind: Uniform
+    name: u_soc_02_new_color_vary
+    line: 1102
+    type: float4
+    has_annotation: true
+    default: {0.15f, 0.0f, 0.02f, 1.0f }
+  - kind: Uniform
+    name: u_soc_02_old_color_main
+    line: 1109
+    type: float4
+    has_annotation: true
+    default: {0.0f, 0.0f, 0.0f, 1.0f }
+  - kind: Uniform
+    name: u_soc_02_old_color_vary
+    line: 1116
+    type: float4
+    has_annotation: true
+    default: {0.34f, 0.02f, 0.03f, 1.0f }
+  - kind: Uniform
+    name: u_soc_02_new_roughness
+    line: 1123
+    type: float
+    has_annotation: true
+    default: 0.08
+  - kind: Uniform
+    name: u_soc_02_old_roughness
+    line: 1133
+    type: float
+    has_annotation: true
+    default: 0.6
+  - kind: Uniform
+    name: u_soc_03_new_color_main
+    line: 1144
+    type: float4
+    has_annotation: true
+    default: {0.0f, 0.0f, 0.0f, 1.0f }
+  - kind: Uniform
+    name: u_soc_03_new_color_vary
+    line: 1151
+    type: float4
+    has_annotation: true
+    default: {0.0f, 0.0f, 0.0f, 1.0f }
+  - kind: Uniform
+    name: u_soc_03_old_color_main
+    line: 1158
+    type: float4
+    has_annotation: true
+    default: {0.0f, 0.0f, 0.0f, 1.0f }
+  - kind: Uniform
+    name: u_soc_03_old_color_vary
+    line: 1165
+    type: float4
+    has_annotation: true
+    default: {0.0f, 0.0f, 0.0f, 1.0f }
+  - kind: Uniform
+    name: u_soc_03_new_roughness
+    line: 1172
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_soc_03_old_roughness
+    line: 1182
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_soc_04_new_color_main
+    line: 1193
+    type: float4
+    has_annotation: true
+    default: {0.0f, 0.0f, 0.0f, 1.0f }
+  - kind: Uniform
+    name: u_soc_04_new_color_vary
+    line: 1200
+    type: float4
+    has_annotation: true
+    default: {0.0f, 0.0f, 0.0f, 1.0f }
+  - kind: Uniform
+    name: u_soc_04_old_color_main
+    line: 1207
+    type: float4
+    has_annotation: true
+    default: {0.0f, 0.0f, 0.0f, 1.0f }
+  - kind: Uniform
+    name: u_soc_04_old_color_vary
+    line: 1214
+    type: float4
+    has_annotation: true
+    default: {0.0f, 0.0f, 0.0f, 1.0f }
+  - kind: Uniform
+    name: u_soc_04_new_roughness
+    line: 1221
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_soc_04_old_roughness
+    line: 1231
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_soc_05_new_color_main
+    line: 1242
+    type: float4
+    has_annotation: true
+    default: {0.0f, 0.0f, 0.0f, 1.0f }
+  - kind: Uniform
+    name: u_soc_05_new_color_vary
+    line: 1249
+    type: float4
+    has_annotation: true
+    default: {0.0f, 0.0f, 0.0f, 1.0f }
+  - kind: Uniform
+    name: u_soc_05_old_color_main
+    line: 1256
+    type: float4
+    has_annotation: true
+    default: {0.0f, 0.0f, 0.0f, 1.0f }
+  - kind: Uniform
+    name: u_soc_05_old_color_vary
+    line: 1263
+    type: float4
+    has_annotation: true
+    default: {0.0f, 0.0f, 0.0f, 1.0f }
+  - kind: Uniform
+    name: u_soc_05_new_roughness
+    line: 1270
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_soc_05_old_roughness
+    line: 1280
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Function
+    name: CalcWound
+    line: 1290
+    return_type: void
+    param_count: 2

@@ -1,0 +1,460 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: sfx/uber_shoal_wave.nsf
+# 节点总数: 81
+input: sfx/uber_shoal_wave.nsf
+
+expected_nodes:
+  - kind: Struct
+    name: VS_INPUT
+    line: 1
+    field_count: 0
+  - kind: Struct
+    name: PS_INPUT
+    line: 7
+    field_count: 9
+  - kind: Uniform
+    name: u_specular
+    line: 61
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_roughness
+    line: 71
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_ambient_color
+    line: 87
+    type: float4
+    has_annotation: true
+    default: {1.0, 1.0, 1.0, 1.0}
+  - kind: Uniform
+    name: u_ambient_intensity
+    line: 94
+    type: float
+    has_annotation: true
+    default: 0.9
+  - kind: Uniform
+    name: u_direct_color
+    line: 104
+    type: float4
+    has_annotation: true
+    default: {0.4824, 0.4824, 0.4824, 1.0}
+  - kind: Uniform
+    name: u_camera_light_color
+    line: 111
+    type: float4
+    has_annotation: true
+    default: {1.0, 1.0, 1.0, 1.0}
+  - kind: Uniform
+    name: u_wave_alpha_blend
+    line: 124
+    type: float
+    has_annotation: true
+    default: 5.5
+  - kind: Uniform
+    name: u_depth_scale
+    line: 141
+    type: float
+    has_annotation: true
+    default: 0.09
+  - kind: Uniform
+    name: u_base_intensity
+    line: 152
+    type: float
+    has_annotation: true
+    default: 0.43
+  - kind: Uniform
+    name: u_detail_tiling_x
+    line: 164
+    type: float
+    has_annotation: true
+    default: 0.78
+  - kind: Uniform
+    name: u_detail_tiling_y
+    line: 171
+    type: float
+    has_annotation: true
+    default: 0.78
+  - kind: Uniform
+    name: u_normal_speed
+    line: 180
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_blend_normal_intensity
+    line: 192
+    type: float
+    has_annotation: true
+    default: 0.55
+  - kind: Uniform
+    name: u_refnoisetex_tilingx
+    line: 209
+    type: float
+    has_annotation: true
+    default: 1.5
+  - kind: Uniform
+    name: u_refnoisetex_tilingy
+    line: 222
+    type: float
+    has_annotation: true
+    default: 1.5
+  - kind: Uniform
+    name: u_refspeed_x
+    line: 236
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_refspeed_y
+    line: 249
+    type: float
+    has_annotation: true
+    default: -0.2
+  - kind: Uniform
+    name: u_ref_intensity
+    line: 262
+    type: float
+    has_annotation: true
+    default: 0.01
+  - kind: Uniform
+    name: u_caustic_switch
+    line: 275
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_causticTex_tiling_x
+    line: 289
+    type: float
+    has_annotation: true
+    default: 4.3
+  - kind: Uniform
+    name: u_causticTex_tiling_y
+    line: 300
+    type: float
+    has_annotation: true
+    default: 4.3
+  - kind: Uniform
+    name: u_causticTex_speed_x
+    line: 311
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_causticTex_speed_y
+    line: 322
+    type: float
+    has_annotation: true
+    default: -0.1
+  - kind: Uniform
+    name: u_causticNoise_intensity
+    line: 333
+    type: float
+    has_annotation: true
+    default: 0.31
+  - kind: Uniform
+    name: u_caustic_mask
+    line: 345
+    type: float
+    has_annotation: true
+    default: 5.52
+  - kind: Uniform
+    name: u_caustic_intensity
+    line: 357
+    type: float
+    has_annotation: true
+    default: 36.7
+  - kind: Uniform
+    name: u_wave_switch
+    line: 374
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_sand_switch
+    line: 384
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wave_sin_speed
+    line: 401
+    type: float
+    has_annotation: true
+    default: 0.34
+  - kind: Uniform
+    name: u_wave_sin_scale
+    line: 412
+    type: float
+    has_annotation: true
+    default: 0.3
+  - kind: Uniform
+    name: u_pos_begin
+    line: 424
+    type: float
+    has_annotation: true
+    default: 0.05
+  - kind: Uniform
+    name: u_wave_noise_scale
+    line: 437
+    type: float
+    has_annotation: true
+    default: 0.06
+  - kind: Uniform
+    name: u_wave_born
+    line: 448
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_wave_tilling_mask
+    line: 465
+    type: float
+    has_annotation: true
+    default: 0.95
+  - kind: Uniform
+    name: u_waterlinefoam_brightness
+    line: 476
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_waterline_brightness
+    line: 488
+    type: float
+    has_annotation: true
+    default: 20.0
+  - kind: Uniform
+    name: u_waterline_con
+    line: 499
+    type: float
+    has_annotation: true
+    default: 4.0
+  - kind: Uniform
+    name: u_waterline_dispos
+    line: 510
+    type: float
+    has_annotation: true
+    default: 0.61
+  - kind: Uniform
+    name: u_waterline_color
+    line: 526
+    type: float4
+    has_annotation: true
+    default: {1.0, 1.0, 1.0, 1.0}
+  - kind: Uniform
+    name: u_time_offest
+    line: 584
+    type: float
+    has_annotation: true
+    default: -6.0
+  - kind: Uniform
+    name: u_time_offest2
+    line: 595
+    type: float
+    has_annotation: true
+    default: -12.0
+  - kind: Uniform
+    name: u_foam1_tilingx
+    line: 611
+    type: float
+    has_annotation: true
+    default: 2.61
+  - kind: Uniform
+    name: u_foam1_tilingy
+    line: 622
+    type: float
+    has_annotation: true
+    default: 2.61
+  - kind: Uniform
+    name: u_foam_range
+    line: 636
+    type: float
+    has_annotation: true
+    default: 1.8
+  - kind: Uniform
+    name: u_foam_dispos
+    line: 647
+    type: float
+    has_annotation: true
+    default: 0.7
+  - kind: Uniform
+    name: u_foam_tilling_sacle
+    line: 663
+    type: float
+    has_annotation: true
+    default: 0.95
+  - kind: Uniform
+    name: u_foam_speed_down
+    line: 674
+    type: float
+    has_annotation: true
+    default: 1.5
+  - kind: Uniform
+    name: u_foam_distortion_indensity
+    line: 689
+    type: float
+    has_annotation: true
+    default: 0.02
+  - kind: Uniform
+    name: u_foam1_clip
+    line: 704
+    type: float
+    has_annotation: true
+    default: 0.8
+  - kind: Uniform
+    name: u_foam2_clip
+    line: 715
+    type: float
+    has_annotation: true
+    default: 0.5
+  - kind: Uniform
+    name: u_foam1_intensity
+    line: 728
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_foam2_intensity
+    line: 742
+    type: float
+    has_annotation: true
+    default: 0.68
+  - kind: Uniform
+    name: u_foam_brightness
+    line: 753
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_foam1_color
+    line: 764
+    type: float4
+    has_annotation: true
+    default: {1.0, 1.0, 1.0, 1.0}
+  - kind: Uniform
+    name: u_foam2_color
+    line: 773
+    type: float4
+    has_annotation: true
+    default: {1.0, 1.0, 1.0, 1.0}
+  - kind: Texture
+    name: t_refnoise_tex
+    line: 786
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_refnoise_tex
+    line: 792
+    state_count: 4
+  - kind: Texture
+    name: t_wave1_tex
+    line: 803
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_wave1_tex
+    line: 809
+    state_count: 4
+  - kind: Texture
+    name: t_wave2_tex
+    line: 819
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_wave2_tex
+    line: 825
+    state_count: 4
+  - kind: Texture
+    name: t_wave3_tex
+    line: 835
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_wave3_tex
+    line: 841
+    state_count: 4
+  - kind: Texture
+    name: Tex0
+    line: 854
+    texture_type: texture
+    semantic: DiffuseMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_diffuse
+    line: 860
+    state_count: 4
+  - kind: Texture
+    name: t_caustic_tex
+    line: 873
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_caustic_tex
+    line: 879
+    state_count: 4
+  - kind: Texture
+    name: t_wave_normal
+    line: 888
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_wave_normal
+    line: 894
+    state_count: 4
+  - kind: Texture
+    name: NormalMap
+    line: 903
+    texture_type: texture
+    semantic: NormalMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_normalmap
+    line: 909
+    state_count: 4
+  - kind: Function
+    name: vs_main
+    line: 926
+    return_type: PS_INPUT
+    stage: vertex
+    param_count: 1
+  - kind: Function
+    name: remap
+    line: 972
+    return_type: float
+    param_count: 5
+  - kind: Function
+    name: safe_mod
+    line: 978
+    return_type: float
+    param_count: 2
+  - kind: Function
+    name: TimeMaskSaturate
+    line: 987
+    return_type: float
+    param_count: 2
+  - kind: Function
+    name: GetTimeMaskRange
+    line: 1007
+    return_type: float
+    param_count: 6
+  - kind: Function
+    name: GetWave
+    line: 1021
+    return_type: void
+    param_count: 12
+  - kind: Function
+    name: ps_main
+    line: 1072
+    return_type: half4
+    stage: pixel
+    param_count: 2
+  - kind: Technique
+    name: TShader
+    line: 1298
+    pass_count: 1
+    has_annotation: true

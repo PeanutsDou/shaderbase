@@ -1,0 +1,58 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: common_cocosui/labeloutline.nsf
+# 节点总数: 11
+input: common_cocosui/labeloutline.nsf
+
+expected_nodes:
+  - kind: Texture
+    name: CC_Texture0
+    line: 7
+    texture_type: texture
+    semantic: register(t0)
+  - kind: SamplerState
+    name: s_cc_tex0
+    line: 8
+    state_count: 0
+  - kind: Texture
+    name: CC_Texture1
+    line: 10
+    texture_type: texture
+    semantic: register(t1)
+  - kind: SamplerState
+    name: s_cc_tex1
+    line: 11
+    state_count: 0
+  - kind: Texture
+    name: CC_DepthMap6
+    line: 13
+    texture_type: texture
+    semantic: register(t6)
+  - kind: SamplerState
+    name: s_depth_tex
+    line: 14
+    state_count: 0
+  - kind: Struct
+    name: VS_INPUT
+    line: 35
+    field_count: 3
+  - kind: Struct
+    name: PS_INPUT
+    line: 42
+    field_count: 4
+  - kind: Function
+    name: vs_main
+    line: 50
+    return_type: PS_INPUT
+    stage: vertex
+    param_count: 1
+  - kind: Function
+    name: ps_main
+    line: 72
+    return_type: float4
+    stage: pixel
+    param_count: 1
+  - kind: Technique
+    name: TShader
+    line: 109
+    pass_count: 1
+    has_annotation: true

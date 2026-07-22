@@ -168,6 +168,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "cbuffer_specifier"
+        },
+        {
+          "type": "SYMBOL",
           "name": "preproc_art_directive"
         },
         {
@@ -18883,8 +18887,8 @@
       ]
     },
     "cbuffer_specifier": {
-      "type": "PREC_RIGHT",
-      "value": 0,
+      "type": "PREC",
+      "value": 1,
       "content": {
         "type": "SEQ",
         "members": [
@@ -18893,82 +18897,39 @@
             "value": "cbuffer"
           },
           {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "attribute_declaration"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
+            "type": "FIELD",
+            "name": "name",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_class_name"
+            }
           },
           {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "FIELD",
-                "name": "name",
-                "content": {
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "semantics"
+            }
+          },
+          {
+            "type": "FIELD",
+            "name": "body",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
                   "type": "SYMBOL",
-                  "name": "_class_name"
+                  "name": "field_declaration_list"
+                },
+                {
+                  "type": "BLANK"
                 }
-              },
-              {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "FIELD",
-                        "name": "name",
-                        "content": {
-                          "type": "SYMBOL",
-                          "name": "_class_name"
-                        }
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "SYMBOL",
-                        "name": "virtual_specifier"
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "SYMBOL",
-                        "name": "base_class_clause"
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "FIELD",
-                    "name": "body",
-                    "content": {
-                      "type": "SYMBOL",
-                      "name": "field_declaration_list"
-                    }
-                  }
-                ]
-              }
-            ]
+              ]
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ";"
           }
         ]
       }

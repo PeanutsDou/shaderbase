@@ -1,0 +1,661 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: shaderlib/function.hlsl
+# 节点总数: 131
+input: shaderlib/function.hlsl
+
+expected_nodes:
+  - kind: Function
+    name: Transform
+    line: 1
+    return_type: float4
+    param_count: 2
+  - kind: Function
+    name: Transform
+    line: 6
+    return_type: float3
+    param_count: 2
+  - kind: Function
+    name: Transform
+    line: 11
+    return_type: float2
+    param_count: 2
+  - kind: Function
+    name: TransformTranspose
+    line: 16
+    return_type: float4
+    param_count: 2
+  - kind: Function
+    name: TransformTranspose
+    line: 21
+    return_type: float3
+    param_count: 2
+  - kind: Function
+    name: TransformLocation
+    line: 28
+    return_type: float4
+    param_count: 2
+  - kind: Function
+    name: TransformLocation
+    line: 32
+    return_type: float4
+    param_count: 2
+  - kind: Function
+    name: OutputDirection
+    line: 37
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: OutputDirection
+    line: 42
+    return_type: float4
+    param_count: 1
+  - kind: Function
+    name: OutputDirection
+    line: 47
+    return_type: float4
+    param_count: 2
+  - kind: Function
+    name: LerpOrAdd
+    line: 52
+    return_type: float3
+    param_count: 4
+  - kind: Function
+    name: LerpOrAdd
+    line: 57
+    return_type: float3
+    param_count: 4
+  - kind: Function
+    name: Pow2
+    line: 64
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: Pow2
+    line: 69
+    return_type: float2
+    param_count: 1
+  - kind: Function
+    name: Pow2
+    line: 74
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: Pow2
+    line: 79
+    return_type: float4
+    param_count: 1
+  - kind: Function
+    name: Pow3
+    line: 84
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: Pow3
+    line: 89
+    return_type: float2
+    param_count: 1
+  - kind: Function
+    name: Pow3
+    line: 94
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: Pow3
+    line: 99
+    return_type: float4
+    param_count: 1
+  - kind: Function
+    name: Pow4
+    line: 104
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: Pow4
+    line: 110
+    return_type: float2
+    param_count: 1
+  - kind: Function
+    name: Pow4
+    line: 116
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: Pow4
+    line: 122
+    return_type: float4
+    param_count: 1
+  - kind: Function
+    name: Pow5
+    line: 128
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: DotClamped
+    line: 136
+    return_type: float3
+    param_count: 2
+  - kind: Function
+    name: Square
+    line: 141
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: Square
+    line: 145
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: sqrtFast
+    line: 153
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: rcpFast
+    line: 167
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: SmoothMin
+    line: 174
+    return_type: float
+    param_count: 3
+  - kind: Function
+    name: SmoothMax
+    line: 180
+    return_type: float
+    param_count: 3
+  - kind: Function
+    name: SmoothClamp
+    line: 186
+    return_type: float
+    param_count: 4
+  - kind: Function
+    name: Luminance
+    line: 192
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: srgb2linear_real
+    line: 199
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: linear2srgb_real
+    line: 210
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: srgb2linearf3
+    line: 225
+    return_type: half3
+    param_count: 1
+  - kind: Function
+    name: srgb2linearf3_real
+    line: 246
+    return_type: half3
+    param_count: 1
+  - kind: Function
+    name: srgb2linearf4
+    line: 251
+    return_type: half4
+    param_count: 1
+  - kind: Function
+    name: linear2srgbf3
+    line: 272
+    return_type: half3
+    param_count: 1
+  - kind: Function
+    name: linear2srgbf3_real
+    line: 293
+    return_type: half3
+    param_count: 1
+  - kind: Function
+    name: linear2srgbf4
+    line: 298
+    return_type: half4
+    param_count: 1
+  - kind: Function
+    name: PackFloatToRGBA
+    line: 319
+    return_type: float4
+    param_count: 1
+  - kind: Function
+    name: UnpackRGBAToFloat
+    line: 328
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: PackFloatToRGB
+    line: 334
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: UnpackRGBToFloat
+    line: 343
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: PackHalfFloat
+    line: 349
+    return_type: float2
+    param_count: 1
+  - kind: Function
+    name: UnpackHalfFloat
+    line: 358
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: acosFast
+    line: 369
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: asinFast
+    line: 380
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: atanFastPos
+    line: 389
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: RGBtoHCV
+    line: 401
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: RGBtoHSV
+    line: 413
+    return_type: half3
+    param_count: 1
+  - kind: Function
+    name: HUEtoRGB
+    line: 421
+    return_type: half3
+    param_count: 1
+  - kind: Function
+    name: HSVtoRGB
+    line: 431
+    return_type: half3
+    param_count: 1
+  - kind: Function
+    name: SafeNormalize
+    line: 437
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: IntegerToDebugColor
+    line: 443
+    return_type: half3
+    param_count: 2
+  - kind: Function
+    name: EncodeNormalizedFloatToRG8
+    line: 473
+    return_type: half2
+    param_count: 1
+  - kind: Function
+    name: DecodeRG8ToNormalizedFloat
+    line: 482
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: Encode2To3
+    line: 491
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: Decode3To2
+    line: 508
+    return_type: float2
+    param_count: 1
+  - kind: Function
+    name: EncodeNormal1
+    line: 525
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: DecodeNormal1
+    line: 532
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: EncodeNormal2
+    line: 544
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: DecodeNormal2
+    line: 555
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: EncodeNormal3
+    line: 579
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: DecodeNormal3
+    line: 586
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: EncodeNormal4
+    line: 592
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: DecodeNormal4
+    line: 600
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: EncodeNormal5
+    line: 616
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: DecodeNormal5
+    line: 625
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: EncodeNormal6
+    line: 639
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: UE4ToNeoX
+    line: 650
+    return_type: half3
+    param_count: 1
+  - kind: Function
+    name: UE4ToNeoX_HighPrecision
+    line: 655
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: NeoXToUE4
+    line: 660
+    return_type: half3
+    param_count: 1
+  - kind: Function
+    name: NeoXToUE4_HighPrecision
+    line: 665
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: DecodeNormal6
+    line: 672
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: UnitVectorToOctahedron
+    line: 687
+    return_type: float2
+    param_count: 1
+  - kind: Function
+    name: OctahedronToUnitVector
+    line: 698
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: UnitVectorToHemiOctahedron
+    line: 717
+    return_type: float2
+    param_count: 1
+  - kind: Function
+    name: HemiOctahedronToUnitVector
+    line: 723
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: PackedWaterNormal
+    line: 731
+    return_type: float2
+    param_count: 1
+  - kind: Function
+    name: Dither64
+    line: 746
+    return_type: float
+    param_count: 2
+  - kind: Function
+    name: Dither64int
+    line: 759
+    return_type: float
+    param_count: 2
+  - kind: Function
+    name: Dither32int
+    line: 767
+    return_type: float
+    param_count: 2
+  - kind: Function
+    name: Dither32
+    line: 776
+    return_type: float
+    param_count: 2
+  - kind: Function
+    name: Dither16
+    line: 785
+    return_type: float
+    param_count: 2
+  - kind: Function
+    name: Dither17
+    line: 799
+    return_type: float
+    param_count: 2
+  - kind: Function
+    name: CubeUV2ParaboloidUV
+    line: 808
+    return_type: float2
+    param_count: 1
+  - kind: Function
+    name: CubeUV2OctahedronUV
+    line: 814
+    return_type: float2
+    param_count: 1
+  - kind: Function
+    name: GetColorGray
+    line: 823
+    return_type: half
+    param_count: 1
+  - kind: Function
+    name: RGBtoHSVtoRGB_changecolor
+    line: 828
+    return_type: half3
+    param_count: 2
+  - kind: Function
+    name: RGBToHSVToRGB_new
+    line: 845
+    return_type: half3
+    param_count: 2
+  - kind: Function
+    name: ChangeColorHSV
+    line: 859
+    return_type: half3
+    param_count: 4
+  - kind: Function
+    name: GetHSVGrayColor
+    line: 875
+    return_type: half3
+    param_count: 3
+  - kind: Function
+    name: ChangeGrayColorPicker
+    line: 884
+    return_type: half3
+    param_count: 2
+  - kind: Function
+    name: ChangeGrayColorPickerLinear
+    line: 893
+    return_type: half3
+    param_count: 2
+  - kind: Function
+    name: ChangeColorPicker
+    line: 906
+    return_type: half3
+    param_count: 4
+  - kind: Function
+    name: CalcHeatMapColour
+    line: 915
+    return_type: float3
+    param_count: 1
+  - kind: Function
+    name: Transpose_3x3
+    line: 932
+    return_type: float3x3
+    param_count: 1
+  - kind: Function
+    name: Transpose_4x4
+    line: 941
+    return_type: float4x4
+    param_count: 1
+  - kind: Function
+    name: ScaleUVByCenter
+    line: 951
+    return_type: float2
+    param_count: 2
+  - kind: Function
+    name: MappingUVtoPixelCenter
+    line: 959
+    return_type: float2
+    param_count: 3
+  - kind: Function
+    name: MappingUVtoPixelHeightCenter
+    line: 968
+    return_type: float2
+    param_count: 2
+  - kind: Function
+    name: SphereMask
+    line: 976
+    return_type: float4
+    param_count: 4
+  - kind: Function
+    name: TransformTangentVectorToWorld
+    line: 983
+    return_type: half3
+    param_count: 2
+  - kind: Function
+    name: NormalizedTangentVectorToWorld
+    line: 991
+    return_type: half3
+    param_count: 2
+  - kind: Function
+    name: RotateAboutAxis
+    line: 999
+    return_type: float3
+    param_count: 3
+  - kind: Function
+    name: RotateAboutAxisAndAngle
+    line: 1018
+    return_type: float3x3
+    param_count: 2
+  - kind: Function
+    name: RotateAboutAngle
+    line: 1030
+    return_type: float3x3
+    param_count: 1
+  - kind: Function
+    name: RotateUV
+    line: 1041
+    return_type: float2
+    param_count: 2
+  - kind: Function
+    name: CheapContrast
+    line: 1052
+    return_type: half
+    param_count: 2
+  - kind: Function
+    name: CheapContrastScalar
+    line: 1058
+    return_type: half
+    param_count: 2
+  - kind: Function
+    name: Remap
+    line: 1064
+    return_type: float
+    param_count: 5
+  - kind: Function
+    name: Panner
+    line: 1069
+    return_type: float2
+    param_count: 5
+  - kind: Function
+    name: PannerClamp
+    line: 1074
+    return_type: float2
+    param_count: 6
+  - kind: Function
+    name: BumpOffset
+    line: 1083
+    return_type: float2
+    param_count: 4
+  - kind: Function
+    name: SineRemapped
+    line: 1094
+    return_type: half
+    param_count: 1
+  - kind: Function
+    name: CalcAlphaTestClip
+    line: 1103
+    return_type: void
+    param_count: 1
+  - kind: Function
+    name: RebuldNormalZ
+    line: 1113
+    return_type: half
+    param_count: 1
+  - kind: Function
+    name: InverseLerp
+    line: 1119
+    return_type: half3
+    param_count: 3
+  - kind: Function
+    name: InverseLerp
+    line: 1128
+    return_type: half
+    param_count: 3
+  - kind: Function
+    name: customSmoothStep
+    line: 1136
+    return_type: half
+    param_count: 3
+  - kind: Function
+    name: GetFloatTerrainHeight
+    line: 1145
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: RotateVector2
+    line: 1150
+    return_type: float2
+    param_count: 2
+  - kind: Function
+    name: Polar
+    line: 1161
+    return_type: float2
+    param_count: 1
+  - kind: Function
+    name: Radians
+    line: 1171
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: Rotate2d
+    line: 1176
+    return_type: float3x3
+    param_count: 1
+  - kind: Function
+    name: RotationUV
+    line: 1184
+    return_type: float2
+    param_count: 2
+  - kind: Function
+    name: RotationUV_SC
+    line: 1199
+    return_type: float2
+    param_count: 3
+  - kind: Function
+    name: Pixelate
+    line: 1208
+    return_type: float2
+    param_count: 2

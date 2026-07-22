@@ -1,0 +1,384 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: sfx/uber_water_wave.nsf
+# 节点总数: 67
+input: sfx/uber_water_wave.nsf
+
+expected_nodes:
+  - kind: Struct
+    name: VS_INPUT
+    line: 1
+    field_count: 0
+  - kind: Struct
+    name: PS_INPUT
+    line: 7
+    field_count: 9
+  - kind: Uniform
+    name: u_specular
+    line: 58
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_roughness
+    line: 68
+    type: float
+    has_annotation: true
+    default: 0.1
+  - kind: Uniform
+    name: u_base_intensity
+    line: 79
+    type: float
+    has_annotation: true
+    default: 0.7
+  - kind: Uniform
+    name: u_bloom_intensity
+    line: 89
+    type: float
+    has_annotation: true
+    default: 0.57
+  - kind: Uniform
+    name: u_base_opacity
+    line: 99
+    type: float
+    has_annotation: true
+    default: 3.0
+  - kind: Uniform
+    name: u_base_noise_intensity
+    line: 109
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_sand_tiling
+    line: 120
+    type: float
+    has_annotation: true
+    default: 4.5
+  - kind: Uniform
+    name: u_sand_intensity
+    line: 127
+    type: float
+    has_annotation: true
+    default: 22.6
+  - kind: Uniform
+    name: u_sand_speed
+    line: 137
+    type: float
+    has_annotation: true
+    default: 0.05
+  - kind: Uniform
+    name: u_sand_bloom_density
+    line: 147
+    type: float
+    has_annotation: true
+    default: 0.33
+  - kind: Uniform
+    name: u_sand_fade_distance
+    line: 157
+    type: float
+    has_annotation: true
+    default: 120.0
+  - kind: Uniform
+    name: u_sand_big_intensity_near
+    line: 164
+    type: float
+    has_annotation: true
+    default: 100.0
+  - kind: Uniform
+    name: u_sand_big_intensity_far
+    line: 171
+    type: float
+    has_annotation: true
+    default: 200.0
+  - kind: Uniform
+    name: u_sand_color
+    line: 178
+    type: float4
+    has_annotation: true
+    default: {0.3882, 0.8745, 1.0, 1.0}
+  - kind: Uniform
+    name: u_sand_far_color
+    line: 185
+    type: float4
+    has_annotation: true
+    default: {1.0, 1.0, 1.0, 1.0}
+  - kind: Uniform
+    name: u_wave_speed_x_1
+    line: 193
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_wave_speed_y_1
+    line: 203
+    type: float
+    has_annotation: true
+    default: -0.14
+  - kind: Uniform
+    name: u_wave_tiling_x_1
+    line: 213
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wave_tiling_y_1
+    line: 220
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_wave_basenormal_affect_1
+    line: 227
+    type: float
+    has_annotation: true
+    default: 0.35
+  - kind: Uniform
+    name: u_wave_speed_x_2
+    line: 238
+    type: float
+    has_annotation: true
+    default: 0.0
+  - kind: Uniform
+    name: u_wave_speed_y_2
+    line: 248
+    type: float
+    has_annotation: true
+    default: -0.1
+  - kind: Uniform
+    name: u_wave_tiling_x_2
+    line: 258
+    type: float
+    has_annotation: true
+    default: 1.0
+  - kind: Uniform
+    name: u_wave_tiling_y_2
+    line: 265
+    type: float
+    has_annotation: true
+    default: 2.0
+  - kind: Uniform
+    name: u_wave_basenormal_affect_2
+    line: 272
+    type: float
+    has_annotation: true
+    default: 0.31
+  - kind: Uniform
+    name: u_wave_range
+    line: 283
+    type: float
+    has_annotation: true
+    default: 1.1
+  - kind: Uniform
+    name: u_wave_vertical_attenuation
+    line: 293
+    type: float
+    has_annotation: true
+    default: 0.32
+  - kind: Uniform
+    name: u_wave_normal_intensity
+    line: 303
+    type: float
+    has_annotation: true
+    default: 0.3
+  - kind: Uniform
+    name: u_wave_brightness
+    line: 313
+    type: float
+    has_annotation: true
+    default: 12.0
+  - kind: Uniform
+    name: u_wave_color
+    line: 320
+    type: float4
+    has_annotation: true
+    default: {1.0, 1.0, 1.0, 1.0}
+  - kind: Uniform
+    name: u_detail_normal_intensity
+    line: 328
+    type: float
+    has_annotation: true
+    default: 0.35
+  - kind: Uniform
+    name: u_vertical_detail_speed
+    line: 338
+    type: float
+    has_annotation: true
+    default: -0.25
+  - kind: Uniform
+    name: u_horizontal_detail_speed
+    line: 348
+    type: float
+    has_annotation: true
+    default: -0.11
+  - kind: Uniform
+    name: u_detail_tiling_x
+    line: 358
+    type: float
+    has_annotation: true
+    default: 8.0
+  - kind: Uniform
+    name: u_detail_tiling_y
+    line: 365
+    type: float
+    has_annotation: true
+    default: 4.0
+  - kind: Uniform
+    name: u_foam_mask_brightness
+    line: 373
+    type: float
+    has_annotation: true
+    default: 5.0
+  - kind: Uniform
+    name: u_foam_noise_brightness
+    line: 383
+    type: float
+    has_annotation: true
+    default: 13.0
+  - kind: Uniform
+    name: u_foam_tiling_x
+    line: 393
+    type: float
+    has_annotation: true
+    default: 4.0
+  - kind: Uniform
+    name: u_foam_tiling_y
+    line: 400
+    type: float
+    has_annotation: true
+    default: 3.0
+  - kind: Uniform
+    name: u_foam_speed_x
+    line: 407
+    type: float
+    has_annotation: true
+    default: -0.02
+  - kind: Uniform
+    name: u_foam_speed_y
+    line: 417
+    type: float
+    has_annotation: true
+    default: -0.07
+  - kind: Uniform
+    name: u_bottom_sand_intensity
+    line: 427
+    type: float
+    has_annotation: true
+    default: 200.0
+  - kind: Uniform
+    name: u_bottom_sand_range
+    line: 434
+    type: float
+    has_annotation: true
+    default: 1.94
+  - kind: Uniform
+    name: u_bottom_wave_color
+    line: 444
+    type: float4
+    has_annotation: true
+    default: {0.1961, 0.7451, 1.0, 1.0}
+  - kind: Uniform
+    name: u_ambient_color
+    line: 452
+    type: float4
+    has_annotation: true
+    default: {1.0, 1.0, 1.0, 1.0}
+  - kind: Uniform
+    name: u_ambient_intensity
+    line: 459
+    type: float
+    has_annotation: true
+    default: 0.9
+  - kind: Uniform
+    name: u_direct_color
+    line: 469
+    type: float4
+    has_annotation: true
+    default: {0.4824, 0.4824, 0.4824, 1.0}
+  - kind: Uniform
+    name: u_camera_light_color
+    line: 476
+    type: float4
+    has_annotation: true
+    default: {1.0, 1.0, 1.0, 1.0}
+  - kind: Texture
+    name: t_wave_detail_normal
+    line: 484
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_wave_detail_normal
+    line: 490
+    state_count: 4
+  - kind: Texture
+    name: Tex0
+    line: 497
+    texture_type: texture
+    semantic: DiffuseMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_diffuse
+    line: 503
+    state_count: 4
+  - kind: Texture
+    name: NormalMap
+    line: 511
+    texture_type: texture
+    semantic: NormalMap
+    has_annotation: true
+  - kind: SamplerState
+    name: s_normalmap
+    line: 517
+    state_count: 4
+  - kind: Texture
+    name: t_wave_normal_1
+    line: 524
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_wave_normal_1
+    line: 530
+    state_count: 4
+  - kind: Texture
+    name: t_wave_normal_2
+    line: 538
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_wave_normal_2
+    line: 544
+    state_count: 4
+  - kind: Texture
+    name: t_sand_noise
+    line: 552
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_sand_noise
+    line: 558
+    state_count: 4
+  - kind: Texture
+    name: t_color_noise
+    line: 566
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_color_noise
+    line: 572
+    state_count: 4
+  - kind: Function
+    name: vs_main
+    line: 586
+    return_type: PS_INPUT
+    stage: vertex
+    param_count: 1
+  - kind: Function
+    name: ps_main
+    line: 635
+    return_type: half4
+    stage: pixel
+    param_count: 2
+  - kind: Technique
+    name: TShader
+    line: 826
+    pass_count: 1
+    has_annotation: true

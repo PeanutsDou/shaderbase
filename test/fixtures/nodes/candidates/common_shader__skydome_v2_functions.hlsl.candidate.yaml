@@ -1,0 +1,267 @@
+# 候选 expected.yaml — 待 review 后改名为 .expected.yaml
+# 生成自: common_shader/skydome_v2_functions.hlsl
+# 节点总数: 55
+input: common_shader/skydome_v2_functions.hlsl
+
+expected_nodes:
+  - kind: Texture
+    name: t_cirrus_cloud_map
+    line: 91
+    texture_type: Texture2D
+    has_annotation: true
+  - kind: SamplerState
+    name: s_cirrus_cloud_map
+    line: 95
+    state_count: 3
+  - kind: Texture
+    name: flowbasemap
+    line: 105
+    texture_type: texture
+  - kind: SamplerState
+    name: s_flowbasemap
+    line: 106
+    state_count: 3
+  - kind: Texture
+    name: staticcloud_xy
+    line: 114
+    texture_type: texture
+  - kind: SamplerState
+    name: s_staticcloud_xy
+    line: 115
+    state_count: 3
+  - kind: Texture
+    name: staticcloud_a_up
+    line: 122
+    texture_type: texture
+  - kind: SamplerState
+    name: s_staticcloud_a_up
+    line: 123
+    state_count: 3
+  - kind: Texture
+    name: tex3
+    line: 131
+    texture_type: texture
+  - kind: SamplerState
+    name: s_tex3
+    line: 132
+    state_count: 4
+  - kind: Texture
+    name: tex4
+    line: 139
+    texture_type: texture
+  - kind: SamplerState
+    name: s_tex4
+    line: 140
+    state_count: 4
+  - kind: Texture
+    name: tex5
+    line: 148
+    texture_type: texture
+  - kind: SamplerState
+    name: s_tex5
+    line: 149
+    state_count: 3
+  - kind: Texture
+    name: LightningMap
+    line: 156
+    texture_type: texture
+    has_annotation: true
+  - kind: SamplerState
+    name: s_lightningmap
+    line: 160
+    state_count: 4
+  - kind: Function
+    name: ScaleUVsByCenter
+    line: 168
+    return_type: float2
+    param_count: 2
+  - kind: Function
+    name: Panner
+    line: 174
+    return_type: float2
+    param_count: 3
+  - kind: Function
+    name: Rotator
+    line: 180
+    return_type: float2
+    param_count: 2
+  - kind: Function
+    name: UvTillingOffset
+    line: 192
+    return_type: float2
+    param_count: 3
+  - kind: Function
+    name: Flat_spread_uv
+    line: 198
+    return_type: float2
+    param_count: 1
+  - kind: Function
+    name: Static_Cloud_UV
+    line: 207
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: New_Cloud_UV
+    line: 220
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: Aurora_UV
+    line: 257
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: Lightning_UV
+    line: 284
+    return_type: void
+    param_count: 3
+  - kind: Function
+    name: CustomizedVertexDataOutput
+    line: 300
+    return_type: void
+    param_count: 2
+  - kind: Function
+    name: GetCloudFog
+    line: 336
+    return_type: half4
+    param_count: 3
+  - kind: Function
+    name: CloudSample
+    line: 353
+    return_type: void
+    param_count: 6
+  - kind: Function
+    name: HorizonGradient
+    line: 369
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: CloudDistribution
+    line: 377
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: MapEdgeGradient
+    line: 385
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: ConvertDensityToMiddleThreshold
+    line: 393
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: ScaleRadialGradientAroundWhite
+    line: 402
+    return_type: float
+    param_count: 2
+  - kind: Function
+    name: ShadingGradients
+    line: 411
+    return_type: float
+    param_count: 2
+  - kind: Function
+    name: WideLightingGradients
+    line: 425
+    return_type: float
+    param_count: 2
+  - kind: Function
+    name: CloudShineGradients
+    line: 440
+    return_type: float2
+    param_count: 2
+  - kind: Function
+    name: FilterClouds
+    line: 460
+    return_type: float
+    param_count: 4
+  - kind: Function
+    name: MaskShineIntensityWithDensity
+    line: 468
+    return_type: float
+    param_count: 1
+  - kind: Function
+    name: AddShineVariance
+    line: 475
+    return_type: float
+    param_count: 2
+  - kind: Function
+    name: SunShineEdges
+    line: 483
+    return_type: float3
+    param_count: 5
+  - kind: Function
+    name: inverse_lerp
+    line: 506
+    return_type: float
+    param_count: 3
+  - kind: Function
+    name: DrawSunMask
+    line: 513
+    return_type: float
+    param_count: 4
+  - kind: Function
+    name: CloudLayer
+    line: 525
+    return_type: half4
+    param_count: 7
+  - kind: Function
+    name: BackGroundCloudLayer
+    line: 624
+    return_type: half4
+    param_count: 6
+  - kind: Function
+    name: CalcAurora
+    line: 700
+    return_type: half3
+    param_count: 3
+  - kind: Function
+    name: GetLightning
+    line: 748
+    return_type: half3
+    param_count: 4
+  - kind: Function
+    name: CurrentMoonLightMaterialColor
+    line: 799
+    return_type: half3
+    param_count: 1
+  - kind: Function
+    name: LightAndDarkCloudColors
+    line: 806
+    return_type: half3
+    param_count: 3
+  - kind: Function
+    name: ScaleIntensityAroundSun
+    line: 819
+    return_type: float3
+    param_count: 3
+  - kind: Function
+    name: ContrastControl
+    line: 834
+    return_type: float3
+    param_count: 2
+  - kind: Function
+    name: CloudShineGradients_1
+    line: 845
+    return_type: float2
+    param_count: 2
+  - kind: Function
+    name: DistortionUV
+    line: 864
+    return_type: float2
+    param_count: 1
+  - kind: Function
+    name: StaticClouds
+    line: 882
+    return_type: half4
+    param_count: 8
+  - kind: Function
+    name: StaticCloudsLayer
+    line: 945
+    return_type: void
+    param_count: 8
+  - kind: Function
+    name: CirrusCloudLayer
+    line: 979
+    return_type: half4
+    param_count: 6
