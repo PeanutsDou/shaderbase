@@ -23,8 +23,7 @@ module.exports = grammar(CPP, {
         [$.expression, $.assignment_expression, $.metadata_assignment],
         // semantics 跟 function declarator 歧义（: register(...) vs : SEMANTIC）
         [$.semantics, $.semantics_call],
-        // macro_statement 跟 type_specifier/scope_resolution 歧义
-        // (已回退 macro_statement，保留这些 conflict 声明为无害空项)
+        // (if 不带括号改动已回退，相关 conflict 声明已移除)
     ]),
 
     rules: {
@@ -298,6 +297,20 @@ module.exports = grammar(CPP, {
             field('name', $.identifier),
             token.immediate(/\r?\n/),
         )),
+
+        // G66 override: #elif 后面的 condition 可选（支持裸 #elif）
+        preproc_elif: ($, original) => prec.right(seq(
+            '#elif',
+            optional(field('condition', $._preproc_expression)),
+            '\n',
+            repeat($._block_item),
+            field('alternative', optional(choice($.preproc_elif, $.preproc_else))),
+        )),
+
+        // G66 override: if 不带括号的形态
+        // if season_factors.x > 0.0h { ... }     ← 不带括号
+        // if UP_FACING_MASK ... #endif           ← 宏当条件（在 #if 块里）
+        if_statement: ($, original) => seq(optional($.hlsl_attribute), original),
 
     }
 });

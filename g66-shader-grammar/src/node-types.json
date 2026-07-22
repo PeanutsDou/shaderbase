@@ -5678,7 +5678,7 @@
       },
       "condition": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "binary_expression",
@@ -5760,19 +5760,11 @@
           "named": true
         },
         {
-          "type": "global_module_fragment_declaration",
-          "named": true
-        },
-        {
           "type": "import_declaration",
           "named": true
         },
         {
           "type": "linkage_specification",
-          "named": true
-        },
-        {
-          "type": "module_declaration",
           "named": true
         },
         {
@@ -5813,10 +5805,6 @@
         },
         {
           "type": "preproc_include",
-          "named": true
-        },
-        {
-          "type": "private_module_fragment_declaration",
           "named": true
         },
         {
@@ -9676,11 +9664,11 @@
   },
   {
     "type": "true",
-    "named": true
+    "named": false
   },
   {
     "type": "true",
-    "named": false
+    "named": true
   },
   {
     "type": "try",
