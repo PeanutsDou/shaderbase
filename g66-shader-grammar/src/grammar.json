@@ -18449,6 +18449,10 @@
                 },
                 {
                   "type": "SYMBOL",
+                  "name": "call_expression"
+                },
+                {
+                  "type": "SYMBOL",
                   "name": "declaration"
                 },
                 {
@@ -18736,29 +18740,54 @@
       }
     },
     "g66_macro_statement": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "NEOX_SASEFFECT_SUPPORT_MACRO_BEGIN"
-        },
-        {
-          "type": "STRING",
-          "value": "NEOX_SASEFFECT_SUPPORT_MACRO_END"
-        },
-        {
-          "type": "STRING",
-          "value": "NEOX_SASEFFECT_ATTR_BEGIN"
-        },
-        {
-          "type": "STRING",
-          "value": "NEOX_SASEFFECT_ATTR_END"
-        },
-        {
-          "type": "STRING",
-          "value": "HAIR_SHADING_PARAMS_PREPARE"
-        }
-      ]
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "NEOX_SASEFFECT_SUPPORT_MACRO_BEGIN"
+          },
+          {
+            "type": "STRING",
+            "value": "NEOX_SASEFFECT_SUPPORT_MACRO_END"
+          },
+          {
+            "type": "STRING",
+            "value": "NEOX_SASEFFECT_ATTR_BEGIN"
+          },
+          {
+            "type": "STRING",
+            "value": "NEOX_SASEFFECT_ATTR_END"
+          },
+          {
+            "type": "STRING",
+            "value": "HAIR_SHADING_PARAMS_PREPARE"
+          },
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "KILL_NAN_INF_NEGATIVE"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "argument_list"
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     },
     "discard_statement": {
       "type": "SEQ",

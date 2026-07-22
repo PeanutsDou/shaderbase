@@ -3886,7 +3886,17 @@
   {
     "type": "g66_macro_statement",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "generic_expression",
@@ -4663,6 +4673,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "call_expression",
+          "named": true
+        },
         {
           "type": "comment",
           "named": true
@@ -8885,6 +8899,10 @@
     "named": false
   },
   {
+    "type": "KILL_NAN_INF_NEGATIVE",
+    "named": false
+  },
+  {
     "type": "L\"",
     "named": false
   },
@@ -9278,11 +9296,11 @@
   },
   {
     "type": "false",
-    "named": false
+    "named": true
   },
   {
     "type": "false",
-    "named": true
+    "named": false
   },
   {
     "type": "field_identifier",
@@ -9658,11 +9676,11 @@
   },
   {
     "type": "true",
-    "named": false
+    "named": true
   },
   {
     "type": "true",
-    "named": true
+    "named": false
   },
   {
     "type": "try",

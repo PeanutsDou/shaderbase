@@ -43,12 +43,13 @@ module.exports = grammar(CPP, {
 
         // G66 annotation `<>` 块：跟在变量/texture/technique 声明后
         // 形态： < key = value; key = value; ... >
-        // 内部除了 metadata_assignment 还允许裸宏名（NEOX_SASEFFECT_*）出现
+        // 内部允许：metadata_assignment / 裸宏名 / 带参数宏调用 / 声明 / 注释
         metadata_block: $ => prec.right(seq(
             '<',
             repeat(choice(
                 $.metadata_assignment,
                 $.g66_macro_statement,
+                $.call_expression,
                 $.declaration,
                 $.comment,
             )),
@@ -145,14 +146,14 @@ module.exports = grammar(CPP, {
         if_statement: ($, original) => seq(optional($.hlsl_attribute), original),
 
         // G66 已知裸宏调用 statement（限定已知宏名，避免泛匹配导致回退）
-        // 这些宏独占一行、不带分号、全大写
-        g66_macro_statement: _ => choice(
+        g66_macro_statement: $ => prec.right(choice(
             'NEOX_SASEFFECT_SUPPORT_MACRO_BEGIN',
             'NEOX_SASEFFECT_SUPPORT_MACRO_END',
             'NEOX_SASEFFECT_ATTR_BEGIN',
             'NEOX_SASEFFECT_ATTR_END',
             'HAIR_SHADING_PARAMS_PREPARE',
-        ),
+            seq('KILL_NAN_INF_NEGATIVE', optional($.argument_list)),
+        )),
 
         discard_statement: _ => seq('discard', ';'),
         qualifiers: _ => choice(
@@ -232,6 +233,7 @@ module.exports = grammar(CPP, {
         //   texture NAME : Semantic <annotation>;
         //   texture NAME : register(t6) : DepthBuffer;  ← 双冒号
         //   texture NAME <annotation>;
+        // 注意：Texture2D/Texture3D 等大写形式走原 declaration（当 type_identifier）
         texture_declaration: $ => prec.right(seq(
             'texture',
             field('name', $.identifier),
