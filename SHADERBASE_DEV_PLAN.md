@@ -356,56 +356,90 @@ expected_resolved_calls:
 
 ## 2. PreprocessorView Python 转译方案
 
-### 2.1 转译原则
+### 2.1 转译原则（v2 修订：砍 IDE 专属，加查询时算 active）
 
-- **算法思路完全借鉴** nsp-intellision，但代码用 Python 重写
-- **数据结构对齐** Python 习惯（list/dict/dataclass，不用 arena/指针）
-- **输入契约微调**——不直接吃 nsp 的 `ConditionalAst`，改成吃 tree-sitter AST 的 `preproc_if` 节点树
-- **测试样例对齐**——用同一组 shader 源码做回归，Python 版输出跟 C++ 版语义一致
-- **不依赖 C++ 编译产物**——shaderbase 是纯 Python 项目
+**核心决策变更**（基于对 nsp 调研的修正）：
 
-### 2.2 输入契约微调
+- **不做** nsp 的 IDE 专属部分：
+  - 不做 expanded_source（把 inactive 行挖空给下游解析器）——shaderbase 不是 IDE，不需要实时诊断
+  - 不做 active 视图给诊断用——没有实时诊断需求
+  - 不做 unit_macro_profile_provider / gimlocalvariants.json 解析——shaderbase 不接 shadercompiler profile
+- **照搬** nsp 的全分支索引模式：
+  - 索引时用空 defines 建 PreprocessorView，给所有节点/边算 `branch_signature` + `branch_family`
+  - 所有分支的节点都存，带签名——**信息不少一分**
+- **新增** shaderbase 专属的查询时算 active：
+  - Agent 查询时传宏配置 `macros={"USE_SEASON_ID": 1, "QUALITY_HIGH": 0}`
+  - shaderbase 用 PreprocessorView 算这组配置下每条边 active 与否
+  - 返回结果带 `[active=true/false, conditional_sig="#if USE_SEASON_ID:branch0"]`
 
-nsp 的 `ConditionalAst` 是它自研的 `#if/#ifdef/#ifndef/#elif/#else/#endif` 嵌套树。tree-sitter grammar 会把这些指令也解析成 AST 节点（`preproc_if`/`preproc_ifdef`/`preproc_elif`/`preproc_else`/`preproc_endif`）。
+**转译原则**：
+- 算法思路完全借鉴 nsp，代码用 Python 重写
+- 数据结构对齐 Python 习惯（list/dict/dataclass，不用 arena/指针）
+- 输入契约吃 tree-sitter AST 的 `preproc_if` 节点树（不引 nsp 的 ConditionalAst 中间表示）
+- 不依赖 C++ 编译产物——shaderbase 是纯 Python 项目
 
-shaderbase 的 PreprocessorView Python 版**直接吃 tree-sitter AST**，不需要中间转换层。具体做法：
+### 2.2 双视图架构（照搬 nsp 的双视图模式）
+
+```
+┌─────────────────────────────────────────────────────────┐
+│  索引阶段（offline，跑一次 + 增量更新）                    │
+│                                                          │
+│  对每个文件用空 defines 建全分支视图：                      │
+│    build_preprocessor_view(ast, defines={})              │
+│  输出：                                                   │
+│    - branch_sigs[line]  ← 每行的条件分支签名              │
+│    - branch_family[node] ← 节点的分支家族键               │
+│  写入 SQLite:                                            │
+│    nodes.conditional_signature                          │
+│    edges.conditional_signature                          │
+│  不算 active——所有分支的节点都存，带签名                  │
+└─────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────┐
+│  查询阶段（online，Agent 每次查询时）                      │
+│                                                          │
+│  Agent 传宏配置：                                         │
+│    trace_calls("FuncX", macros={"USE_X":1,"QUALITY":0})  │
+│  shaderbase 用 PreprocessorView 重算 active：             │
+│    build_preprocessor_view(ast, defines=macros)          │
+│    → line_active[]                                       │
+│  按 line_active 过滤边：                                 │
+│    edge 在 active 行 → 返回，标 [active=true]            │
+│    edge 在 inactive 行 → 返回，标 [active=false, sig=...]│
+│  Agent 拿到带 active 标记的结果                           │
+└─────────────────────────────────────────────────────────┘
+```
+
+### 2.3 输入契约
 
 ```python
-# tree-sitter AST 里的 #if 节点
-class TsPreprocIf:
-    condition: str        # #if 后面的表达式文本
-    body: list             # #if 体的子节点
-    elif_branches: list    # 每个 #elif 一项
-    else_body: list        # #else 体的子节点（可能为空）
-    start_line: int
-    endif_line: int
+# tree-sitter AST 里的 #if 节点（grammar 已解析为 preproc_if/preproc_elif/preproc_else/preproc_endif）
 
-# Python 版 PreprocessorView 入口
+# Python 版 PreprocessorView 入口（双视图共用同一函数，靠 defines 区分）
 def build_preprocessor_view(
     root_node: tree_sitter.Node,       # tree-sitter AST 根节点
     source_text: bytes,                # 源码
-    defines: dict[str, int],           # nsf.defines
-    art_macros: list[ArtMacro],        # workspace 抽出的 #art 宏
-    configured_macros: dict[str, str], # nsf.preprocessorMacros
+    defines: dict[str, int],           # 索引阶段传 {}；查询阶段传 Agent 的 macros
+    art_macros: list[ArtMacro],        # workspace 抽出的 #art 宏（默认 0 注入）
+    configured_macros: dict[str, str], # 用户配置的宏替换（可选，索引阶段不用）
 ) -> PreprocessorView:
     ...
 ```
 
 **契约差异**：
-
 - nsp 走两步：先建 `ConditionalAst` 树，再解释
 - shaderbase 走一步：直接遍历 tree-sitter AST，状态机推进
+- nsp 索引用空 defines、查询用活动单元 effectiveDefines
+- shaderbase 索引用空 defines、查询用 Agent 传入的 macros——**架构一致，输入源不同**
 
-算法核心一致，省一步中间表示。简化不影响正确性——`ConditionalAst` 本质上只是把 `#if` 嵌套结构化，tree-sitter 已经做了这件事。
-
-### 2.3 数据结构对照
+### 2.4 数据结构对照
 
 | nsp C++ 版                                                               | shaderbase Python 版                                           |
 | ----------------------------------------------------------------------- | ------------------------------------------------------------- |
-| `PreprocessorView.lineActive: vector<char>`                             | `line_active: list[bool]`                                     |
-| `PreprocessorView.branchSigs: vector<PreprocBranchSig>`                 | `branch_sigs: list[list[tuple[int, int]]]`                    |
-| `PreprocessorView.conditionDiagnostics: vector<...>`                    | `condition_diagnostics: list[ConditionDiagnostic]`（dataclass） |
-| `PreprocessorView.macroEvents: vector<PreprocessorMacroEvent>`          | `macro_events: list[MacroEvent]`（dataclass）                   |
+| `PreprocessorView.lineActive: vector<char>`                             | `line_active: list[bool]`（查询阶段才算，索引阶段不算）            |
+| `PreprocessorView.branchSigs: vector<PreprocBranchSig>`                 | `branch_sigs: list[list[tuple[int, int]]]`（索引+查询都算）     |
+| `PreprocessorView.conditionDiagnostics: vector<...>`                    | `condition_diagnostics: list[ConditionDiagnostic]`（精简，只做未定义宏） |
+| `PreprocessorView.macroEvents: vector<PreprocessorMacroEvent>`          | `macro_events: list[MacroEvent]`（索引阶段存，给宏来源追溯用）     |
 | `PreprocessorView.initialMacroReplacements: unordered_map<string, ...>` | `initial_macros: dict[str, MacroReplacement]`                 |
 | `PreprocessorView.branchMerges`                                         | `branch_merges: list[BranchMergeInfo]`                        |
 | `PreprocessorMacroReplacement` 6 个 source* 布尔                           | Python dataclass + MacroSource enum                           |
@@ -413,9 +447,9 @@ def build_preprocessor_view(
 | `ConditionalAst` arena 模式                                               | 不需要——直接读 tree-sitter AST                                      |
 | `buildCodeMaskForLine`（注释/字符串挖空）                                        | `re` 正则 + `in_block_comment` 状态机                              |
 
-### 2.4 核心算法借鉴点
+### 2.5 核心算法借鉴点
 
-从 nsp `preprocessor_view.cpp`（约 2500 行）借鉴的核心算法：
+从 nsp `preprocessor_view.cpp`（约 2680 行）借鉴的核心算法：
 
 1. **6 级宏优先级链**（`seedInitialPreprocessorMacros:860-929`）——Python 用 `OrderedDict` 按序覆盖
 2. **`#art` 默认 0 注入 + companion constant 按 include 闭包作用域化**（`scopeArtCompanionConstantsToView:502-549`）
@@ -423,12 +457,12 @@ def build_preprocessor_view(
 4. **function-like macro 展开**（`expandFunctionLikeMacro:1030-1136`）——`##` token paste + `#` 字符串化
 5. **inactive 分支隔离 probe**（`interpretInactiveBranchProbe:2072-2121`）——`speculativeInactive` 模式，不污染 active 状态
 6. **6 个 `source*` 标记**让宏来源可追溯
-7. **branchSignatureKey + branchFamilyKey**（`workspace_index_relations.cpp:17-35`）
+7. **branchSignatureKey + branchFamilyKey**（`workspace_index_relations.cpp:17-35`）——索引阶段算，存 SQLite
 8. **`#ifndef` include guard 识别**（`extractDefaultGuardMacroName:1669-1710`）
 9. **`#if` 嵌套递归解释**（`interpretNodeList` + `interpretConditionalNode`）
 10. **数值上下文未定义宏合成 0**（`evaluateMacro:1222-1236`）+ 诊断
 
-### 2.5 模块结构
+### 2.6 模块结构
 
 ```
 shaderbase/
@@ -439,7 +473,7 @@ shaderbase/
         ├── interpreter.py       ← 状态机解释器（核心算法）
         ├── expr_parser.py       ← #if 表达式求值器
         ├── macro_expander.py    ← function-like macro 展开
-        ├── branch_signature.py  ← branchSignatureKey / branchFamilyKey
+        ├── branch_signature.py  ← branchSignatureKey / branchFamilyKey（索引阶段算）
         ├── art_macros.py        ← #art 宏识别和注入
         ├── include_guard.py    ← #ifndef guard 识别
         ├── code_mask.py         ← 注释/字符串挖空
@@ -451,7 +485,7 @@ shaderbase/
             └── regression/       ← 跟 nsp 输出对照的回归用例
 ```
 
-### 2.6 验证策略
+### 2.7 验证策略
 
 **关键验证手段**：用同一组 shader 源码分别跑 nsp 的 C++ 版和 shaderbase 的 Python 版，比对输出。
 
@@ -469,13 +503,39 @@ shaderbase/
    - include guard
    - function-like macro 在 `#if` 里展开
    - 数值上下文未定义宏
+   - **空 defines 全分支视图**（索引阶段的核心场景，nsp 也这么做）
 
-### 2.7 不做的微调
+### 2.8 不做的微调（v2 修订）
 
 - **不引入 nsp 的 ConditionalAst 中间表示**——直接吃 tree-sitter AST，省一层
-- **不做 compiler_macro_snapshot_provider**——shadercompiler 不在范围，shaderbase 只吃用户配置的 `nsf.defines` + `#art` 默认值
-- **不做 unit_macro_profile_provider**——同上，profile variant 数据从用户配置读
+- **不做 expanded_source**——shaderbase 不是 IDE，不需要把 inactive 行挖空给下游解析器
+- **不做 active 视图给诊断用**——没有实时诊断需求，active 只在查询时按 Agent 传入的 macros 算
+- **不做 compiler_macro_snapshot_provider**——shadercompiler 不在范围，shaderbase 只吃 `#art` 默认值 + Agent 传入的 macros
+- **不做 unit_macro_profile_provider**——不接 gimlocalvariants.json，profile 由 Agent 传入
 - **不做完整 diagnostics**——只做"未定义宏"和"#if 表达式语法错"两类，其他诊断交给 grammar 层
+- **不做 IDE 的活动单元选择**——shaderbase 不是 IDE，没有实时选 active unit 的交互
+
+### 2.9 在最终 AI 知识图谱上的呈现
+
+**节点/边新增字段**（SQLite schema 增量）：
+
+| 字段 | 没有 PreprocessorView | 有 PreprocessorView |
+|---|---|---|
+| `nodes.conditional_signature` | NULL | `"#if USE_SEASON_ID:branch0"` |
+| `nodes.branch_family` | NULL | 分支家族键（同家族的节点可一起查） |
+| `edges.conditional_signature` | NULL | CALLS 边所在分支签名 |
+| `edges.is_active`（查询时算） | 无法算 | 按 Agent 传入的 macros 算 true/false |
+
+**新增边类型**：
+- `CONDITIONAL_ON`：连接"函数"和"`#art` 开关"——"这个函数只在 USE_SEASON_ID 开启时编译"
+- `BRANCH_FAMILY`：连接同分支家族的节点——支持"查这个分支家族里所有符号"
+
+**查询能力差异**（以"改了 SampleColorTextureBias 影响哪些 effect"为例）：
+
+| 没有 PreprocessorView | 有 PreprocessorView |
+|---|---|
+| 返回 3 条 CALLS 边，分不清哪条 active | 返回 3 条边，标 active/inactive + 分支签名 |
+| Agent 可能误报"影响 common_snow" | Agent 能回答"当前配置下只影响 pbr_rock；common_snow 的调用在 #if !RAINFALL_ENABLE 里，开启时才影响" |
 
 ---
 
