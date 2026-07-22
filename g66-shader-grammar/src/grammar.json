@@ -6517,6 +6517,10 @@
           "name": "cbuffer_specifier"
         },
         {
+          "type": "SYMBOL",
+          "name": "g66_macro_statement"
+        },
+        {
           "type": "CHOICE",
           "members": [
             {
@@ -18441,6 +18445,14 @@
                 },
                 {
                   "type": "SYMBOL",
+                  "name": "g66_macro_statement"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "declaration"
+                },
+                {
+                  "type": "SYMBOL",
                   "name": "comment"
                 }
               ]
@@ -18722,6 +18734,31 @@
           }
         ]
       }
+    },
+    "g66_macro_statement": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "NEOX_SASEFFECT_SUPPORT_MACRO_BEGIN"
+        },
+        {
+          "type": "STRING",
+          "value": "NEOX_SASEFFECT_SUPPORT_MACRO_END"
+        },
+        {
+          "type": "STRING",
+          "value": "NEOX_SASEFFECT_ATTR_BEGIN"
+        },
+        {
+          "type": "STRING",
+          "value": "NEOX_SASEFFECT_ATTR_END"
+        },
+        {
+          "type": "STRING",
+          "value": "HAIR_SHADING_PARAMS_PREPARE"
+        }
+      ]
     },
     "discard_statement": {
       "type": "SEQ",

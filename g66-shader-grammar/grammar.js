@@ -43,10 +43,13 @@ module.exports = grammar(CPP, {
 
         // G66 annotation `<>` 块：跟在变量/texture/technique 声明后
         // 形态： < key = value; key = value; ... >
+        // 内部除了 metadata_assignment 还允许裸宏名（NEOX_SASEFFECT_*）出现
         metadata_block: $ => prec.right(seq(
             '<',
             repeat(choice(
                 $.metadata_assignment,
+                $.g66_macro_statement,
+                $.declaration,
                 $.comment,
             )),
             '>',
@@ -137,9 +140,19 @@ module.exports = grammar(CPP, {
             optional(seq('.', $.identifier)),
         )),
 
-        _non_case_statement: ($, original) => choice($.discard_statement, $.cbuffer_specifier, original),
+        _non_case_statement: ($, original) => choice($.discard_statement, $.cbuffer_specifier, $.g66_macro_statement, original),
 
         if_statement: ($, original) => seq(optional($.hlsl_attribute), original),
+
+        // G66 已知裸宏调用 statement（限定已知宏名，避免泛匹配导致回退）
+        // 这些宏独占一行、不带分号、全大写
+        g66_macro_statement: _ => choice(
+            'NEOX_SASEFFECT_SUPPORT_MACRO_BEGIN',
+            'NEOX_SASEFFECT_SUPPORT_MACRO_END',
+            'NEOX_SASEFFECT_ATTR_BEGIN',
+            'NEOX_SASEFFECT_ATTR_END',
+            'HAIR_SHADING_PARAMS_PREPARE',
+        ),
 
         discard_statement: _ => seq('discard', ';'),
         qualifiers: _ => choice(

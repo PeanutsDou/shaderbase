@@ -390,6 +390,10 @@
         "named": true
       },
       {
+        "type": "g66_macro_statement",
+        "named": true
+      },
+      {
         "type": "goto_statement",
         "named": true
       },
@@ -1369,6 +1373,10 @@
         },
         {
           "type": "for_statement",
+          "named": true
+        },
+        {
+          "type": "g66_macro_statement",
           "named": true
         },
         {
@@ -3876,6 +3884,11 @@
     }
   },
   {
+    "type": "g66_macro_statement",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "generic_expression",
     "named": true,
     "fields": {},
@@ -4652,6 +4665,14 @@
       "types": [
         {
           "type": "comment",
+          "named": true
+        },
+        {
+          "type": "declaration",
+          "named": true
+        },
+        {
+          "type": "g66_macro_statement",
           "named": true
         },
         {
@@ -8860,6 +8881,10 @@
     "named": false
   },
   {
+    "type": "HAIR_SHADING_PARAMS_PREPARE",
+    "named": false
+  },
+  {
     "type": "L\"",
     "named": false
   },
@@ -8869,6 +8894,22 @@
   },
   {
     "type": "LR\"",
+    "named": false
+  },
+  {
+    "type": "NEOX_SASEFFECT_ATTR_BEGIN",
+    "named": false
+  },
+  {
+    "type": "NEOX_SASEFFECT_ATTR_END",
+    "named": false
+  },
+  {
+    "type": "NEOX_SASEFFECT_SUPPORT_MACRO_BEGIN",
+    "named": false
+  },
+  {
+    "type": "NEOX_SASEFFECT_SUPPORT_MACRO_END",
     "named": false
   },
   {
@@ -9237,11 +9278,11 @@
   },
   {
     "type": "false",
-    "named": true
+    "named": false
   },
   {
     "type": "false",
-    "named": false
+    "named": true
   },
   {
     "type": "field_identifier",
@@ -9617,11 +9658,11 @@
   },
   {
     "type": "true",
-    "named": true
+    "named": false
   },
   {
     "type": "true",
-    "named": false
+    "named": true
   },
   {
     "type": "try",
