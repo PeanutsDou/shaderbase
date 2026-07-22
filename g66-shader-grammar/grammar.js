@@ -97,8 +97,6 @@ module.exports = grammar(CPP, {
         //   float u_x <...> = 0.5f;                 ← expression 初始化
         //   static const int arr[4] = {1,2,3,4};   ← initializer_list 初始化
         //   float3 w[8] = {float3(1,0,0), ...};     ← initializer_list 含类型构造
-        // 把初始化值 declarator 之下（每个 declarator 自己可选初始化），
-        // 避免 `a = 1, b = 2` 的多声明歧义
         declaration: $ => prec(1, seq(
             $._declaration_specifiers,
             commaSep1(field('declarator', seq(
