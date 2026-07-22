@@ -1,0 +1,11 @@
+---defines---
+FEATURE_A=1
+---source---
+#art FEATURE_A "desc" "BOOL"
+#if FEATURE_A
+int a = 1;
+#endif
+---expected_line_active---
+true, true, true, true
+---expected_branch_count---
+1

@@ -1,0 +1,9 @@
+---defines---
+---source---
+#if UNDEFINED_MACRO
+int a = 1;
+#endif
+---expected_line_active---
+true, false, true
+---expected_branch_count---
+1

@@ -1,0 +1,11 @@
+---defines---
+A=3
+B=7
+---source---
+#if (A + B) * 2 > 10
+int a = 1;
+#endif
+---expected_line_active---
+true, true, true
+---expected_branch_count---
+1

@@ -1,0 +1,12 @@
+---defines---
+---source---
+#if 1
+#define X 1
+#endif
+#ifdef X
+int a = 1;
+#endif
+---expected_line_active---
+true, true, true, true, true, true
+---expected_branch_count---
+2

@@ -1,0 +1,12 @@
+---defines---
+---source---
+#if 0
+int a = 1;
+#else
+int b = 2;
+#endif
+int c = 3;
+---expected_line_active---
+true, false, true, true, true, true
+---expected_branch_count---
+1

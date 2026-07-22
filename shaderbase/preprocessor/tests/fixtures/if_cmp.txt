@@ -1,0 +1,10 @@
+---defines---
+VERSION=5
+---source---
+#if VERSION > 0
+int a = 1;
+#endif
+---expected_line_active---
+true, true, true
+---expected_branch_count---
+1

@@ -1,0 +1,10 @@
+---defines---
+FLAG=5
+---source---
+#if (FLAG & 0x1) != 0
+int a = 1;
+#endif
+---expected_line_active---
+true, true, true
+---expected_branch_count---
+1

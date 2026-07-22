@@ -1,0 +1,14 @@
+---defines---
+USE_X=1
+---source---
+#art USE_X "desc" "BOOL"
+#ifndef USE_X
+#define USE_X 0
+#endif
+#if USE_X
+int a = 1;
+#endif
+---expected_line_active---
+true, true, false, true, true, true, true
+---expected_branch_count---
+2

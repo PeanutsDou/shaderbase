@@ -1,0 +1,18 @@
+---defines---
+QUALITY=2
+---source---
+#art FEATURE_A "desc" "BOOL"
+#art FEATURE_B "desc" "INT"
+#if FEATURE_A
+int a = 1;
+#endif
+#if FEATURE_B
+int b = 2;
+#endif
+#if QUALITY > 1
+int c = 3;
+#endif
+---expected_line_active---
+true, true, true, false, true, true, false, true, true, true, true
+---expected_branch_count---
+3

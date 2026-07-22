@@ -1,0 +1,10 @@
+---defines---
+X=1
+---source---
+#if defined(X)
+int a = 1;
+#endif
+---expected_line_active---
+true, true, true
+---expected_branch_count---
+1
