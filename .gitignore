@@ -1,0 +1,18 @@
+# Ignore all directories except g66-shader-grammar
+/*
+!/.gitignore
+!/*.md
+!/g66-shader-grammar/
+# Ignore shader source location file
+/shader源代码位置说明.txt
+# Ignore node_modules inside grammar
+g66-shader-grammar/node_modules/
+g66-shader-grammar/build/
+g66-shader-grammar/prebuilds/
+g66-shader-grammar/.git/
+# Ignore other reference projects
+/codebase-memory-mcp/
+/nsp-intellision/
+/tree-sitter-hlsl/
+/pbr_rock/
+/shader源代码检索相关/
