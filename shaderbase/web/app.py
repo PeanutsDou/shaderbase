@@ -17,6 +17,30 @@ from ..store.connection import connect
 _STATIC_DIR = Path(__file__).parent / "static"
 
 
+def _parse_macros_query(macros_str: Optional[str]) -> Optional[dict]:
+    """解析 ?macros=KEY:1,KEY:0 查询参数成 dict。
+
+    None / 空串 → None（不算 active，向后兼容）。
+    非空 → 解析成 {KEY: int}。
+    """
+    if not macros_str:
+        return None
+    out: dict[str, int] = {}
+    for part in macros_str.split(","):
+        part = part.strip()
+        if not part:
+            continue
+        if ":" in part:
+            k, v = part.split(":", 1)
+            try:
+                out[k.strip()] = int(v.strip())
+            except ValueError:
+                out[k.strip()] = 1
+        else:
+            out[part] = 1
+    return out if out else None
+
+
 def create_app(db_path: str = "shaderbase.db", default_project: str = "g66") -> FastAPI:
     """创建 FastAPI 应用。
 
@@ -87,10 +111,12 @@ def create_app(db_path: str = "shaderbase.db", default_project: str = "g66") -> 
         function: str = Query(...),
         depth: int = Query(3, le=5),
         limit: int = Query(100, le=500),
+        macros: Optional[str] = Query(None, description="条件编译宏，格式 KEY:1,KEY:0"),
         project: Optional[str] = None,
     ):
         proj = project or app.state.default_project
-        return queries.get_subgraph(app.state.conn, proj, function, depth, limit)
+        macros_dict = _parse_macros_query(macros)
+        return queries.get_subgraph(app.state.conn, proj, function, depth, limit, macros_dict)
 
     @app.get("/api/source/{node_id}")
     async def api_source(node_id: int, context: int = Query(0, le=20)):

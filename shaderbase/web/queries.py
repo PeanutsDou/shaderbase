@@ -1,12 +1,15 @@
 """queries — SQLite 查询函数（给 web API 用）。
 
 复用 store 的 SQLite 连接，按 web API 需要的形状查询。
+支持 macros 参数（DEV_PLAN §2 双视图）：传了就给边标 active。
 """
 from __future__ import annotations
 
 import json
 import sqlite3
 from typing import Optional
+
+from ..preprocessor.query_helper import annotate_edges_with_active
 
 
 def get_overview(conn: sqlite3.Connection, project: str) -> dict:
@@ -313,8 +316,12 @@ def get_neighbors(
 def get_subgraph(
     conn: sqlite3.Connection, project: str,
     function_name: str, depth: int = 3, limit: int = 100,
+    macros: Optional[dict] = None,
 ) -> dict:
-    """BFS 沿 CALLS 边遍历调用链子图。"""
+    """BFS 沿 CALLS 边遍历调用链子图。
+
+    macros 非 None 时给边标 active 字段。
+    """
     visited = set()
     nodes = []
     edges = []
@@ -345,7 +352,7 @@ def get_subgraph(
 
         # outbound CALLS
         cur = conn.execute(
-            """SELECT target_name, source_line, conditional_signature
+            """SELECT target_name, source_line, source_file, conditional_signature
                FROM edges WHERE project = ? AND kind = 'CALLS' AND source_name = ?
                LIMIT 20""",
             (project, cur_name),
@@ -354,6 +361,7 @@ def get_subgraph(
             edges.append({
                 "kind": "CALLS", "source": cur_name, "target": r["target_name"],
                 "line": r["source_line"],
+                "file_path": r["source_file"],
                 "conditional_signature": r["conditional_signature"],
             })
             if r["target_name"] not in visited:
@@ -361,7 +369,7 @@ def get_subgraph(
 
         # inbound CALLS
         cur = conn.execute(
-            """SELECT source_name, source_line, conditional_signature
+            """SELECT source_name, source_line, source_file, conditional_signature
                FROM edges WHERE project = ? AND kind = 'CALLS' AND target_name = ?
                LIMIT 20""",
             (project, cur_name),
@@ -370,11 +378,14 @@ def get_subgraph(
             edges.append({
                 "kind": "CALLS", "source": r["source_name"], "target": cur_name,
                 "line": r["source_line"],
+                "file_path": r["source_file"],
                 "conditional_signature": r["conditional_signature"],
             })
             if r["source_name"] not in visited:
                 queue.append((r["source_name"], cur_depth + 1))
 
+    if macros is not None:
+        annotate_edges_with_active(edges, macros)
     return {"nodes": nodes, "edges": edges, "truncated": len(nodes) >= limit}
 
 

@@ -2,6 +2,9 @@
 
 每个工具返回结构化 JSON，Agent 直接消费。
 复用 shaderbase.store 的 SQLite 查询 + shaderbase.web.queries 的查询函数。
+
+DEV_PLAN §2 双视图：5 个查询工具支持 macros 参数，传了就按 macros 算 active，
+给每条边/引用标 active=true/false。不传保持现状（返回全部 + conditional_signature）。
 """
 from __future__ import annotations
 
@@ -19,6 +22,45 @@ from ..web.queries import (
     get_subgraph,
 )
 from ..web.layout import compute_layout, get_repo_info
+from ..preprocessor.query_helper import annotate_edges_with_active
+
+
+# 支持 macros 参数的工具集合（给 execute_tool 统一解析用）
+_MACROS_AWARE_TOOLS = {
+    "trace_calls", "get_references", "find_uniform_usage",
+    "find_entry_points", "trace_stage_flow",
+}
+
+
+def _parse_macros(args: dict) -> Optional[dict]:
+    """从工具参数里取 macros。
+
+    args["macros"] 可以是 dict（直接用）或字符串 "KEY:1,KEY:0"（解析）。
+    返回 None = 不算 active（向后兼容）；{} = 空 macros 算 active。
+    """
+    if "macros" not in args:
+        return None
+    m = args["macros"]
+    if m is None:
+        return None
+    if isinstance(m, dict):
+        return {k: int(v) if isinstance(v, (int, float)) else 1 for k, v in m.items()}
+    if isinstance(m, str):
+        out: dict[str, int] = {}
+        for part in m.split(","):
+            part = part.strip()
+            if not part:
+                continue
+            if ":" in part:
+                k, v = part.split(":", 1)
+                try:
+                    out[k.strip()] = int(v.strip())
+                except ValueError:
+                    out[k.strip()] = 1
+            else:
+                out[part] = 1
+        return out
+    return None
 
 
 # ════════════════════════════════════════════════════════
@@ -41,7 +83,7 @@ TOOL_DEFINITIONS = [
     },
     {
         "name": "trace_calls",
-        "description": "沿 CALLS 边 BFS 遍历调用链。支持指定方向（inbound=谁调用了我/outbound=我调用了谁/both）和深度。返回调用链子图。",
+        "description": "沿 CALLS 边 BFS 遍历调用链。支持指定方向（inbound=谁调用了我/outbound=我调用了谁/both）和深度。返回调用链子图。传 macros 参数时每条边带 active 字段（按 macros 算条件编译是否生效）。",
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -49,6 +91,7 @@ TOOL_DEFINITIONS = [
                 "direction": {"type": "string", "description": "inbound/outbound/both", "default": "both"},
                 "depth": {"type": "integer", "description": "BFS 深度（1-5）", "default": 3},
                 "limit": {"type": "integer", "description": "返回节点上限", "default": 100},
+                "macros": {"type": "object", "description": "条件编译宏配置（如 {\"USE_SEASON_ID\": 1, \"QUALITY_HIGH\": 0}），传了就给边标 active"},
             },
             "required": ["function_name"],
         },
@@ -79,44 +122,48 @@ TOOL_DEFINITIONS = [
     },
     {
         "name": "get_references",
-        "description": "找符号被引用的所有位置（CALLS 边的两端）。返回引用列表。",
+        "description": "找符号被引用的所有位置（CALLS 边的两端）。返回引用列表。传 macros 参数时每个引用带 active 字段。",
         "inputSchema": {
             "type": "object",
             "properties": {
                 "symbol": {"type": "string", "description": "符号名"},
                 "limit": {"type": "integer", "description": "返回上限", "default": 50},
+                "macros": {"type": "object", "description": "条件编译宏配置，传了就给引用标 active"},
             },
             "required": ["symbol"],
         },
     },
     {
         "name": "find_entry_points",
-        "description": "找所有 shader 入口函数（vs_main/ps_main/cs_main）+ 所属 technique。",
+        "description": "找所有 shader 入口函数（vs_main/ps_main/cs_main）+ 所属 technique。传 macros 参数时每个入口带 active 字段。",
         "inputSchema": {
             "type": "object",
             "properties": {
                 "technique": {"type": "string", "description": "限定 technique 名（可选）"},
+                "macros": {"type": "object", "description": "条件编译宏配置，传了就给入口标 active"},
             },
         },
     },
     {
         "name": "find_uniform_usage",
-        "description": "找 uniform 被哪些函数使用。返回使用位置列表。",
+        "description": "找 uniform 被哪些函数使用（查 USES_UNIFORM 边）。返回使用位置列表。传 macros 参数时每个使用带 active 字段。",
         "inputSchema": {
             "type": "object",
             "properties": {
                 "uniform_name": {"type": "string", "description": "uniform 名"},
+                "macros": {"type": "object", "description": "条件编译宏配置，传了就给使用标 active"},
             },
             "required": ["uniform_name"],
         },
     },
     {
         "name": "trace_stage_flow",
-        "description": "找 VS 输出 semantic → PS 输入 semantic 的数据流。搜结构体字段的 semantic 绑定。",
+        "description": "找 VS 输出 semantic → PS 输入 semantic 的数据流（查 FLOWS_TO 边）。传 macros 参数时每个匹配带 active 字段。",
         "inputSchema": {
             "type": "object",
             "properties": {
                 "semantic": {"type": "string", "description": "语义名（如 TEXCOORD2）"},
+                "macros": {"type": "object", "description": "条件编译宏配置，传了就给匹配标 active"},
             },
             "required": ["semantic"],
         },
@@ -248,6 +295,7 @@ def _trace_calls(conn, project, args):
     direction = args.get("direction", "both")
     depth = args.get("depth", 3)
     limit = args.get("limit", 100)
+    macros = _parse_macros(args)
     result = get_subgraph(conn, project, func, depth, limit)
 
     # 按 direction 过滤
@@ -256,6 +304,16 @@ def _trace_calls(conn, project, args):
     elif direction == "outbound":
         result["edges"] = [e for e in result["edges"] if e["source"] == func]
 
+    # 传了 macros 就给边标 active
+    if macros is not None:
+        # get_subgraph 的边存 source_file 在 "file" 字段（看 queries.py）
+        # 需要 file_path + line 给 annotate_edges_with_active
+        for e in result["edges"]:
+            if "file_path" not in e:
+                e["file_path"] = e.get("file") or ""
+            if "line" not in e:
+                e["line"] = e.get("line")
+        annotate_edges_with_active(result["edges"], macros)
     return result
 
 
@@ -297,6 +355,7 @@ def _get_definition(conn, project, args):
 def _get_references(conn, project, args):
     symbol = args["symbol"]
     limit = args.get("limit", 50)
+    macros = _parse_macros(args)
 
     # CALLS 边的两端
     refs = []
@@ -331,11 +390,15 @@ def _get_references(conn, project, args):
             "conditional_signature": row["conditional_signature"],
         })
 
+    # 传了 macros 就标 active
+    if macros is not None:
+        annotate_edges_with_active(refs, macros)
     return {"references": refs, "count": len(refs)}
 
 
 def _find_entry_points(conn, project, args):
     technique = args.get("technique")
+    macros = _parse_macros(args)
     sql = """SELECT e.source_name, e.target_name, e.properties, e.source_file, e.source_line
              FROM edges e WHERE e.project = ? AND e.kind = 'IS_ENTRY_POINT'"""
     params = [project]
@@ -353,11 +416,14 @@ def _find_entry_points(conn, project, args):
             "file_path": row["source_file"],
             "line": row["source_line"],
         })
+    if macros is not None:
+        annotate_edges_with_active(entries, macros)
     return {"entry_points": entries, "count": len(entries)}
 
 
 def _find_uniform_usage(conn, project, args):
     uniform_name = args["uniform_name"]
+    macros = _parse_macros(args)
     # 查 Uniform 节点定义
     cur = conn.execute(
         """SELECT file_path, line FROM nodes
@@ -384,6 +450,8 @@ def _find_uniform_usage(conn, project, args):
             "conditional_signature": row["conditional_signature"],
         })
 
+    if macros is not None:
+        annotate_edges_with_active(usages, macros)
     return {
         "uniform": uniform_name,
         "definitions": uniform_defs,
@@ -394,6 +462,7 @@ def _find_uniform_usage(conn, project, args):
 
 def _trace_stage_flow(conn, project, args):
     semantic = args["semantic"].upper()
+    macros = _parse_macros(args)
     # 查 FLOWS_TO 边：struct → semantic
     cur = conn.execute(
         """SELECT source_name, target_name, source_file, source_line,
@@ -416,6 +485,8 @@ def _trace_stage_flow(conn, project, args):
             "line": row["source_line"],
             "conditional_signature": row["conditional_signature"],
         })
+    if macros is not None:
+        annotate_edges_with_active(results, macros)
     return {"semantic": args["semantic"], "matches": results, "count": len(results)}
 
 
