@@ -52,6 +52,12 @@ def create_app(db_path: str = "shaderbase.db", default_project: str = "g66") -> 
     app.state.conn = conn
     app.state.default_project = default_project
 
+    # 查 root_path（存的是相对项目根的路径，如 'shader-source'）
+    from . import queries  # noqa: already imported but ensure
+    cur = conn.execute("SELECT root_path FROM projects WHERE name = ?", (default_project,))
+    row = cur.fetchone()
+    app.state.root_path = row["root_path"] if row else ""
+
     # ---- 页面 ----
 
     @app.get("/", response_class=HTMLResponse)
@@ -120,7 +126,7 @@ def create_app(db_path: str = "shaderbase.db", default_project: str = "g66") -> 
 
     @app.get("/api/source/{node_id}")
     async def api_source(node_id: int, context: int = Query(0, le=20)):
-        return queries.get_source(app.state.conn, node_id, context)
+        return queries.get_source(app.state.conn, node_id, context, app.state.root_path)
 
     @app.post("/api/index")
     async def api_index(

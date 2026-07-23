@@ -22,7 +22,7 @@ import sys
 
 sys.path.insert(0, '.')
 
-ROOT_DEFAULT = r'D:/douzhongjun/work/shader/shader-source'
+ROOT_DEFAULT = r'shader-source'   # 项目内子目录（相对项目根）
 
 
 def parse_expected_yaml(path: str) -> dict:
@@ -76,14 +76,17 @@ def main():
 
     # 需要 SQLite 连接 + 已建图
     import sqlite3
-    from shaderbase.store.connection import connect
+    from shaderbase.store.connection import connect, resolve_root_path
     from shaderbase.extract.resolve_calls import build_include_closure, build_function_index
 
     conn = connect('shaderbase.db')
     project = 'g66'
 
+    # root_path 用绝对路径（resolve_root_path 把相对路径解析成绝对）
+    abs_root = resolve_root_path(shader_root)
+
     # 构建 include 闭包（全量，只建一次）
-    include_closure = build_include_closure(conn, project, shader_root)
+    include_closure = build_include_closure(conn, project, abs_root)
     func_index = build_function_index(conn, project)
 
     yaml_files = [
@@ -106,7 +109,7 @@ def main():
             print(f'!! {yaml_path}: 缺 input 字段')
             fail_count += 1
             continue
-        full_path = os.path.join(shader_root, input_rel).replace("\\", "/")
+        full_path = os.path.join(abs_root, input_rel).replace("\\", "/")
         if not os.path.exists(full_path):
             print(f'!! {yaml_path}: 文件不存在 {full_path}')
             fail_count += 1
@@ -115,7 +118,9 @@ def main():
         diffs = []
 
         # 1. 验 include 闭包
-        actual_closure = include_closure.get(full_path, set())
+        # closure 的 key 是相对 root_path 的相对路径（跟 SQLite file_path 同口径）
+        rel_input = os.path.relpath(full_path, abs_root).replace("\\", "/")
+        actual_closure = include_closure.get(rel_input, set())
         # 期望的 include 路径是相对路径，转成 basename 集合比对
         actual_basenames = {os.path.basename(p) for p in actual_closure}
         for exp_inc in exp['include_closure']:

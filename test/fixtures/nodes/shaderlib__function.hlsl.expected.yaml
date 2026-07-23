@@ -659,3 +659,15 @@ expected_nodes:
     line: 1208
     return_type: float2
     param_count: 2
+  - kind: Function
+    name: GetCameraForward
+    line: 1213
+    return_type: float3
+  - kind: Function
+    name: GetCameraUp
+    line: 1214
+    return_type: float3
+  - kind: Function
+    name: GetCameraRight
+    line: 1215
+    return_type: float3

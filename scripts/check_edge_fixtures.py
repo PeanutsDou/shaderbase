@@ -31,7 +31,7 @@ sys.path.insert(0, '.')
 from shaderbase.extract.edges import EdgeExtractor
 from shaderbase.extract.nodes import NodeExtractor
 
-ROOT_DEFAULT = r'D:/douzhongjun/work/shader/shader-source'
+ROOT_DEFAULT = r'shader-source'   # 项目内子目录（相对项目根）
 
 ExpectedEdge = namedtuple('ExpectedEdge', ['kind', 'source', 'target', 'line', 'extra'])
 
@@ -169,6 +169,9 @@ def compare(actual_edges: list, expected: list[ExpectedEdge]) -> list[str]:
 
 def main():
     shader_root = sys.argv[1] if len(sys.argv) > 1 else ROOT_DEFAULT
+    # 解析成绝对路径（相对项目根）
+    from shaderbase.store.connection import resolve_root_path
+    shader_root = resolve_root_path(shader_root) if not os.path.isabs(shader_root) else shader_root
     repo_root = os.path.abspath('.')
     fixture_dir = os.path.join('test', 'fixtures', 'edges')
     if not os.path.isdir(fixture_dir):

@@ -26,6 +26,13 @@ g66-shader-grammar/*.exp
 /tree-sitter-hlsl/
 /pbr_rock/
 /shader源代码检索相关/
+# Ignore shader source（项目内一级子目录，clone/junction 进来，不进 git）
+/shader-source/
 # Python
 __pycache__/
 *.pyc
+
+# Ignore SQLite db（含 WAL/SHM，每个环境自己建图）
+/shaderbase.db
+/shaderbase.db-wal
+/shaderbase.db-shm

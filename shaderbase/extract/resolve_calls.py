@@ -75,7 +75,11 @@ def build_include_closure(
     """构建 include 闭包：file → 它能 include 到的所有文件集合（含自身）。
 
     从 INCLUDES 边重建，解析 include 路径。
+    file_path 存相对路径，返回的闭包也是相对路径集合。
     """
+    from ..store.connection import resolve_root_path
+    abs_root = resolve_root_path(root_path)
+
     # 收集所有 INCLUDES 边
     includes: dict[str, list[str]] = defaultdict(list)
     cur = conn.execute(
@@ -86,13 +90,13 @@ def build_include_closure(
     for row in cur:
         includes[row["source_file"]].append(row["target_name"])
 
-    # 解析 include 路径 → 绝对路径
+    # 解析 include 路径 → 相对 root_path 的相对路径
     resolved: dict[str, set[str]] = {}
     for src_file, inc_list in includes.items():
         closure = set()
         closure.add(src_file)
         for inc in inc_list:
-            resolved_inc = _resolve_include_path(src_file, inc, root_path)
+            resolved_inc = _resolve_include_path(src_file, inc, abs_root)
             if resolved_inc:
                 closure.add(resolved_inc)
         # 递归展开（include 的 include）
@@ -101,7 +105,7 @@ def build_include_closure(
             changed = False
             for f in list(closure):
                 for inc in includes.get(f, []):
-                    r = _resolve_include_path(f, inc, root_path)
+                    r = _resolve_include_path(f, inc, abs_root)
                     if r and r not in closure:
                         closure.add(r)
                         changed = True
@@ -116,16 +120,24 @@ def _resolve_include_path(
 
     G66 的 include 路径是相对 source_file 所在目录的。
     也尝试相对 root_path。
+
+    source_file 可能是相对路径（相对 root_path）或绝对路径。
+    返回的路径也是相对 root_path 的相对路径（跟 SQLite 里 file_path 同口径）。
     """
     inc = include_path.replace("\\", "/")
-    # 1. 相对 source_file 目录
+    # source_file 的目录（相对或绝对，取决于调用方）
     src_dir = os.path.dirname(source_file)
+    is_abs = os.path.isabs(source_file)
+
+    # 1. 相对 source_file 目录
     cand = os.path.normpath(os.path.join(src_dir, inc))
-    if os.path.exists(cand):
-        return cand.replace("\\", "/")
+    check = cand if is_abs else os.path.join(root_path, cand)
+    if os.path.exists(check):
+        return cand.replace("\\", "/") if not is_abs else cand.replace("\\", "/")
     # 2. 相对 root_path
-    cand2 = os.path.normpath(os.path.join(root_path, inc))
-    if os.path.exists(cand2):
+    cand2 = os.path.normpath(os.path.join(root_path, inc)) if not is_abs else os.path.normpath(os.path.join(root_path, inc))
+    check2 = cand2 if is_abs else os.path.join(root_path, cand2)
+    if os.path.exists(check2):
         return cand2.replace("\\", "/")
     # 3. 在 root_path 下递归找 basename
     base = os.path.basename(inc)
@@ -134,11 +146,18 @@ def _resolve_include_path(
             cand3 = os.path.join(dp, base)
             # 优先匹配路径后缀跟 include 一致的
             if cand3.replace("\\", "/").endswith(inc):
-                return cand3.replace("\\", "/")
+                # 转成相对 root_path 的路径
+                try:
+                    return os.path.relpath(cand3, root_path).replace("\\", "/")
+                except ValueError:
+                    return cand3.replace("\\", "/")
     # 4. 任意匹配 basename
     for dp, _, fns in os.walk(root_path):
         if base in fns:
-            return os.path.join(dp, base).replace("\\", "/")
+            try:
+                return os.path.relpath(os.path.join(dp, base), root_path).replace("\\", "/")
+            except ValueError:
+                return os.path.join(dp, base).replace("\\", "/")
     return None
 
 

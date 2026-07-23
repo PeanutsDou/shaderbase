@@ -6,6 +6,7 @@
 from __future__ import annotations
 
 import json
+import os
 import sqlite3
 from typing import Optional
 
@@ -389,16 +390,26 @@ def get_subgraph(
     return {"nodes": nodes, "edges": edges, "truncated": len(nodes) >= limit}
 
 
-def get_source(conn: sqlite3.Connection, node_id: int, context_lines: int = 0) -> dict:
-    """读节点对应的源码片段。"""
+def get_source(conn: sqlite3.Connection, node_id: int, context_lines: int = 0,
+               root_path: str = "") -> dict:
+    """读节点对应的源码片段。
+
+    root_path 非空时，file_path 是相对路径，用 os.path.join(root_path, file_path) 读。
+    """
     node = get_node(conn, node_id)
     if not node:
         return {"error": "node not found"}
     file_path = node["file_path"]
     start_line = node["line"]
     end_line = node["end_line"] or start_line
+    # 解析绝对路径
+    if root_path and not os.path.isabs(file_path):
+        from ..store.connection import resolve_root_path
+        abs_path = os.path.join(resolve_root_path(root_path), file_path)
+    else:
+        abs_path = file_path
     try:
-        with open(file_path, "r", encoding="utf-8", errors="replace") as f:
+        with open(abs_path, "r", encoding="utf-8", errors="replace") as f:
             lines = f.readlines()
         ctx_start = max(0, start_line - 1 - context_lines)
         ctx_end = min(len(lines), end_line + context_lines)

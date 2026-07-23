@@ -29,9 +29,13 @@ def index_file(
     project: str,
     extractor: Optional[NodeExtractor] = None,
     edge_extractor: Optional[EdgeExtractor] = None,
+    root_path: str = "",
 ) -> dict:
     """索引单个文件：parse → 抽取节点+边 → 算 PV 签名 → 写入 SQLite。
 
+    file_path: 相对 root_path 的相对路径（如 'base/animated_grass.nsf'），
+               或绝对路径（兼容旧数据）。
+    root_path: shader 源码根目录（绝对路径或相对项目根）。空串时 file_path 当绝对路径用。
     返回 {node_count, edge_count, parsed_ok, error_count}。
     """
     extractor = extractor or NodeExtractor()
@@ -58,7 +62,7 @@ def index_file(
     _delete_file_edges(conn, file_path, project)
     node_ids = _insert_nodes(conn, nodes, file_path, project, view)
     _insert_edges(conn, edges, file_path, project)
-    _insert_file_meta(conn, file_path, project, source, len(nodes), len(edges), parsed_ok, error_count)
+    _insert_file_meta(conn, file_path, project, source, len(nodes), len(edges), parsed_ok, error_count, root_path)
 
     return {
         "node_count": len(nodes),
@@ -103,8 +107,12 @@ def index_project(
     crash_count = 0
     error_files = 0
 
+    # 解析 root_path 成绝对路径（用于 os.walk 和文件读取）
+    from .connection import resolve_root_path
+    abs_root = resolve_root_path(root_path)
+
     files = []
-    for dp, dns, fns in os.walk(root_path):
+    for dp, dns, fns in os.walk(abs_root):
         dns[:] = [d for d in dns if d not in SKIP]
         for f in fns:
             if os.path.splitext(f)[1].lower() in EXTS:
@@ -114,9 +122,11 @@ def index_project(
         try:
             with open(path, "rb") as fh:
                 src = fh.read()
+            # file_path 存相对 root_path 的相对路径（可移植）
+            rel_path = os.path.relpath(path, abs_root).replace("\\", "/")
             result = index_file(
-                conn, path.replace("\\", "/"), src, project,
-                extractor, edge_extractor,
+                conn, rel_path, src, project,
+                extractor, edge_extractor, abs_root,
             )
             total_nodes += result["node_count"]
             total_edges += result["edge_count"]
@@ -283,9 +293,18 @@ def _insert_file_meta(
     edge_count: int,
     parsed_ok: bool,
     error_count: int,
+    root_path: str = "",
 ) -> None:
-    """写入文件元数据（增量索引用）。"""
-    stat = os.stat(file_path) if os.path.exists(file_path) else None
+    """写入文件元数据（增量索引用）。
+
+    root_path 非空时，file_path 是相对路径，stat 用 os.path.join(root_path, file_path)。
+    root_path 空时，file_path 当绝对路径用（兼容旧数据）。
+    """
+    if root_path:
+        abs_path = os.path.join(root_path, file_path)
+    else:
+        abs_path = file_path
+    stat = os.stat(abs_path) if os.path.exists(abs_path) else None
     content_hash = hashlib.md5(source).hexdigest()
 
     conn.execute(

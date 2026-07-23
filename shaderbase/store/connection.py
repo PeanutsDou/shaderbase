@@ -11,6 +11,31 @@ from typing import Optional
 
 _SCHEMA_PATH = Path(__file__).parent / "schema.sql"
 
+# 项目根目录（shaderbase 包的上级，含 pyproject.toml / shader-source/ 等）
+_REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+
+
+def repo_root() -> str:
+    """返回项目根目录绝对路径。
+
+    projects.root_path 存相对路径（如 'shader-source'）时，
+    用 os.path.join(repo_root(), root_path) 解析成绝对路径。
+    """
+    return str(_REPO_ROOT)
+
+
+def resolve_root_path(root_path: str) -> str:
+    """把 root_path 解析成绝对路径。
+
+    - 绝对路径 → 原样返回（兼容旧数据）
+    - 相对路径 → 相对项目根目录解析
+    """
+    if not root_path:
+        return ""
+    if os.path.isabs(root_path):
+        return root_path
+    return os.path.normpath(os.path.join(str(_REPO_ROOT), root_path))
+
 
 def connect(db_path: str = "shaderbase.db") -> sqlite3.Connection:
     """打开/创建 SQLite 数据库，自动建表。"""

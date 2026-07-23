@@ -70,16 +70,24 @@ def _build_view_cached(
 
 def compute_active_for_file(
     file_path: str, macros: Optional[dict[str, int]] = None,
+    root_path: str = "",
 ) -> Optional[PreprocessorView]:
     """读源码 → parse → build_preprocessor_view(macros) → 返回 view。
 
     带 LRU 缓存（同 file + macros → 复用）。文件不存在返回 None。
+    root_path 非空时，file_path 是相对路径，用 os.path.join(root_path, file_path) 读。
     """
-    if not file_path or not os.path.exists(file_path):
+    # 解析绝对路径
+    if root_path and not os.path.isabs(file_path):
+        from ..store.connection import resolve_root_path
+        abs_path = os.path.join(resolve_root_path(root_path), file_path)
+    else:
+        abs_path = file_path
+    if not abs_path or not os.path.exists(abs_path):
         return None
-    file_sig = _file_signature(file_path)
+    file_sig = _file_signature(abs_path)
     macros_key = _macros_key(macros or {})
-    return _build_view_cached(file_path, file_sig, macros_key)
+    return _build_view_cached(abs_path, file_sig, macros_key)
 
 
 def is_line_active(
@@ -100,11 +108,13 @@ def is_line_active(
 
 def annotate_edges_with_active(
     edges: list[dict], macros: Optional[dict[str, int]] = None,
+    root_path: str = "",
 ) -> list[dict]:
     """给边列表加 active 字段。
 
     edges: [{..., "file_path": str, "line": int, ...}, ...]
     macros: None = 不算 active（保持现状）；{} = 空 macros 算；{KEY:1} = 指定 macros
+    root_path: 非空时 file_path 是相对路径，用 root_path 拼接读源码。
     返回同列表，每条边加 "active": bool（macros=None 时不加）。
     """
     if macros is None:
@@ -114,7 +124,7 @@ def annotate_edges_with_active(
     for e in edges:
         fp = e.get("file_path") or e.get("source_file")
         if fp and fp not in file_views:
-            file_views[fp] = compute_active_for_file(fp, macros)
+            file_views[fp] = compute_active_for_file(fp, macros, root_path)
     for e in edges:
         fp = e.get("file_path") or e.get("source_file")
         line = e.get("line") or e.get("source_line")

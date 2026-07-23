@@ -10,7 +10,8 @@ G66 shader 知识图谱——把 shader-source 仓库索引成结构化知识图
 - **PreprocessorView**：条件编译双视图——索引时全分支签名，查询时 Agent 传 macros 算 active，每条边带 active 标记
 - **增量更新**：mtime/size 检测 dirty + INCLUDE 反向闭包，改 1-3 文件 1-2 秒（非全量 19 秒）
 - **Web 可视化**：2D Canvas 力向图，浏览器实时查看图谱 + 拖拽交互
-- **MCP server**：14 个查询工具（5 个支持 macros 参数），AI Agent 通过 MCP 协议调用
+- **MCP server**：15 个查询工具（5 个支持 macros 参数 + sync_repo 自动更新），AI Agent 通过 MCP 协议调用
+- **路径可移植**：file_path 存相对路径，图谱 SQLite 可跨机器使用；shader-source 内化到项目子目录
 
 ## 快速开始
 
@@ -31,16 +32,20 @@ cd ..
 
 # 装 web/MCP 依赖
 pip install fastapi uvicorn
+
+# clone shader 源码到项目内子目录（gitignore 忽略，不进 git）
+git clone ssh://git@git-nebula.nie.netease.com:32200/g66/shader/shader-source.git shader-source
 ```
 
-### 2. 建图（19 秒）
+### 2. 建图（22 秒）
 
 ```bash
 py -3 -c "
 from shaderbase.store.connection import connect
 from shaderbase.store.indexer import index_project
 conn = connect('shaderbase.db')
-result = index_project(conn, r'D:\douzhongjun\work\shader\shader-source', 'g66')
+# root_path 用项目内相对路径 'shader-source'（不依赖机器绝对路径）
+result = index_project(conn, 'shader-source', 'g66')
 print(result)
 "
 ```
@@ -62,20 +67,36 @@ py -3 -m shaderbase.mcp_server --db shaderbase.db --host 0.0.0.0 --port 8001
 ### 5. 增量更新（shader 改了之后）
 
 ```bash
-# MCP 工具触发（推荐）
-# Agent 调 incremental_update 工具
+# 方式 1：MCP 工具（推荐，Agent 调 sync_repo）
+# sync_repo = git pull + 增量更新，一条命令搞定
 
-# 或命令行
+# 方式 2：命令行 git pull + 增量更新
+cd shader-source && git pull --ff-only && cd ..
 py -3 -c "
 from shaderbase.store.connection import connect
 from shaderbase.store.incremental import incremental_update
 conn = connect('shaderbase.db')
-result = incremental_update(conn, 'g66', r'D:\douzhongjun\work\shader\shader-source')
+result = incremental_update(conn, 'g66', 'shader-source')
 print(result)
 "
+
+# 方式 3：定时 sync 脚本（给 cron/task scheduler 用）
+py -3 scripts/cron_sync.py --db shaderbase.db --project g66
 ```
 
-### 6. 配置 ZCode 连接 MCP
+### 6. 定时自动更新（服务器部署用）
+
+```bash
+# Linux cron（每小时跑一次）
+crontab -e
+# 加一行：
+# 0 * * * * cd /path/to/shaderbase && py -3 scripts/cron_sync.py --db shaderbase.db --project g66 >> sync.log 2>&1
+
+# Windows Task Scheduler（每小时）
+schtasks /create /tn "shaderbase sync" /tr "py -3 C:\path\to\scripts\cron_sync.py --db C:\path\to\shaderbase.db --project g66" /sc hourly
+```
+
+### 7. 配置 ZCode 连接 MCP
 
 编辑 `C:\Users\<用户名>\.zcode\v2\config.json`，在 `mcp.servers` 里加：
 
@@ -100,10 +121,24 @@ print(result)
 ### 服务器端
 
 ```bash
-# 1. 启动 MCP server，绑定 0.0.0.0（允许远程）
+# 1. clone 本项目 + shader-source + 建图（一次性）
+git clone <本项目>
+cd "shader code konwledge"
+pip install -e .
+cd g66-shader-grammar && pip install -e . --no-build-isolation && cd ..
+pip install fastapi uvicorn
+git clone ssh://git@git-nebula.nie.netease.com:32200/g66/shader/shader-source.git shader-source
+py -3 -c "from shaderbase.store.connection import connect; from shaderbase.store.indexer import index_project; conn = connect('shaderbase.db'); print(index_project(conn, 'shader-source', 'g66'))"
+
+# 2. 配置定时自动更新（每小时 git pull + 增量更新）
+crontab -e
+# 加一行：
+# 0 * * * * cd /path/to/shaderbase && py -3 scripts/cron_sync.py --db shaderbase.db --project g66 >> sync.log 2>&1
+
+# 3. 启动 MCP server，绑定 0.0.0.0（允许远程）
 py -3 -m shaderbase.mcp_server --db shaderbase.db --host 0.0.0.0 --port 8001
 
-# 2. 放行防火墙端口（管理员权限）
+# 4. 放行防火墙端口（管理员权限）
 netsh advfirewall firewall add rule name="shaderbase MCP" dir=in action=allow protocol=TCP localport=8001
 ```
 
@@ -125,7 +160,7 @@ netsh advfirewall firewall add rule name="shaderbase MCP" dir=in action=allow pr
 }
 ```
 
-**同事不需要装 Python / grammar / clone shader-source / 建图**——全用服务器的。
+**同事不需要装 Python / grammar / clone shader-source / 建图**——全用服务器的。查到的 `file_path` 是相对路径（如 `base/animated_grass.nsf`），`get_code_snippet` 在服务端读源码返回文本，同事不需要本地有源码。
 
 ## MCP 工具清单（14 个）
 
@@ -157,6 +192,7 @@ netsh advfirewall firewall add rule name="shaderbase MCP" dir=in action=allow pr
 | `find_dead_code` | 找没人调用的函数 | "有没有死代码？" |
 | `index_status` | 索引状态/错误列表 | "索引建好了没？" |
 | `incremental_update` | 触发增量更新（mtime/size 检测 + 反向闭包） | "shader 更新了，刷新图谱" |
+| `sync_repo` | git pull + 增量更新（一条命令完成代码同步和图谱刷新） | "拉最新代码并更新图谱" |
 
 ### macros 参数用法（条件编译 active 标注）
 
@@ -188,15 +224,17 @@ shader code konwledge/                ← 仓库根（git: PeanutsDou/shaderbase
 │   ├── parser/                      ← grammar 加载 + AST 遍历
 │   ├── extract/                     ← 节点抽取 + 边抽取（9 类边）+ CALLS resolve
 │   ├── preprocessor/                ← PreprocessorView（条件编译双视图 + macro_expander）
-│   ├── store/                       ← SQLite 图存储 + 全量/增量索引
+│   ├── store/                       ← SQLite 图存储 + 全量/增量索引 + 路径相对化
 │   ├── web/                         ← Web 可视化（FastAPI + Canvas 2D 力向图）
-│   └── mcp_server/                  ← MCP server（14 个工具，5 个支持 macros）
+│   └── mcp_server/                  ← MCP server（15 个工具，5 个支持 macros）
+├── shader-source/                   ← shader 源码（gitignore 忽略，clone 进来）
 ├── test/fixtures/                   ← 防退化 fixture（4 层 112 个）
 │   ├── nodes/                       ← 层 2：节点抽取（53 个 expected.yaml）
 │   ├── edges/                       ← 层 3：边抽取（10 个 expected.yaml）
 │   └── resolve/                     ← 层 4：跨文件 resolve（3 个 expected.yaml）
-├── scripts/                         ← fixture 校验 + 候选生成脚本
+├── scripts/                         ← fixture 校验 + 候选生成 + cron sync 脚本
 ├── pyproject.toml
+├── shaderbase.db                    ← 图谱 SQLite（gitignore 忽略，每个环境自己建）
 └── SHADERBASE_DEV_PLAN.md           ← 开发方案
 ```
 

@@ -224,6 +224,14 @@ TOOL_DEFINITIONS = [
             "properties": {},
         },
     },
+    {
+        "name": "sync_repo",
+        "description": "git pull 拉取 shader 源码最新更新 + 增量重建图谱。一条命令完成代码同步和图谱刷新。",
+        "inputSchema": {
+            "type": "object",
+            "properties": {},
+        },
+    },
 ]
 
 
@@ -239,25 +247,25 @@ def execute_tool(conn: sqlite3.Connection, project: str, root_path: str,
         return _search_shader(conn, project, arguments)
 
     if name == "trace_calls":
-        return _trace_calls(conn, project, arguments)
+        return _trace_calls(conn, project, arguments, root_path)
 
     if name == "get_code_snippet":
-        return _get_code_snippet(conn, project, arguments)
+        return _get_code_snippet(conn, project, arguments, root_path)
 
     if name == "get_definition":
         return _get_definition(conn, project, arguments)
 
     if name == "get_references":
-        return _get_references(conn, project, arguments)
+        return _get_references(conn, project, arguments, root_path)
 
     if name == "find_entry_points":
-        return _find_entry_points(conn, project, arguments)
+        return _find_entry_points(conn, project, arguments, root_path)
 
     if name == "find_uniform_usage":
-        return _find_uniform_usage(conn, project, arguments)
+        return _find_uniform_usage(conn, project, arguments, root_path)
 
     if name == "trace_stage_flow":
-        return _trace_stage_flow(conn, project, arguments)
+        return _trace_stage_flow(conn, project, arguments, root_path)
 
     if name == "get_material_files":
         return _get_material_files(conn, project, arguments)
@@ -277,6 +285,9 @@ def execute_tool(conn: sqlite3.Connection, project: str, root_path: str,
     if name == "incremental_update":
         return _incremental_update(conn, project, root_path)
 
+    if name == "sync_repo":
+        return _sync_repo(conn, project, root_path)
+
     return {"error": f"unknown tool: {name}"}
 
 
@@ -290,7 +301,7 @@ def _search_shader(conn, project, args):
     )
 
 
-def _trace_calls(conn, project, args):
+def _trace_calls(conn, project, args, root_path):
     func = args["function_name"]
     direction = args.get("direction", "both")
     depth = args.get("depth", 3)
@@ -313,11 +324,11 @@ def _trace_calls(conn, project, args):
                 e["file_path"] = e.get("file") or ""
             if "line" not in e:
                 e["line"] = e.get("line")
-        annotate_edges_with_active(result["edges"], macros)
+        annotate_edges_with_active(result["edges"], macros, root_path)
     return result
 
 
-def _get_code_snippet(conn, project, args):
+def _get_code_snippet(conn, project, args, root_path):
     node_id = args.get("node_id")
     func_name = args.get("function_name")
     context = args.get("context_lines", 0)
@@ -333,7 +344,7 @@ def _get_code_snippet(conn, project, args):
     if not node_id:
         return {"error": "node_id or function_name required"}
 
-    return get_source(conn, node_id, context)
+    return get_source(conn, node_id, context, root_path)
 
 
 def _get_definition(conn, project, args):
@@ -352,7 +363,7 @@ def _get_definition(conn, project, args):
     return {"definitions": defs, "count": len(defs)}
 
 
-def _get_references(conn, project, args):
+def _get_references(conn, project, args, root_path):
     symbol = args["symbol"]
     limit = args.get("limit", 50)
     macros = _parse_macros(args)
@@ -392,11 +403,11 @@ def _get_references(conn, project, args):
 
     # 传了 macros 就标 active
     if macros is not None:
-        annotate_edges_with_active(refs, macros)
+        annotate_edges_with_active(refs, macros, root_path)
     return {"references": refs, "count": len(refs)}
 
 
-def _find_entry_points(conn, project, args):
+def _find_entry_points(conn, project, args, root_path):
     technique = args.get("technique")
     macros = _parse_macros(args)
     sql = """SELECT e.source_name, e.target_name, e.properties, e.source_file, e.source_line
@@ -417,11 +428,11 @@ def _find_entry_points(conn, project, args):
             "line": row["source_line"],
         })
     if macros is not None:
-        annotate_edges_with_active(entries, macros)
+        annotate_edges_with_active(entries, macros, root_path)
     return {"entry_points": entries, "count": len(entries)}
 
 
-def _find_uniform_usage(conn, project, args):
+def _find_uniform_usage(conn, project, args, root_path):
     uniform_name = args["uniform_name"]
     macros = _parse_macros(args)
     # 查 Uniform 节点定义
@@ -451,7 +462,7 @@ def _find_uniform_usage(conn, project, args):
         })
 
     if macros is not None:
-        annotate_edges_with_active(usages, macros)
+        annotate_edges_with_active(usages, macros, root_path)
     return {
         "uniform": uniform_name,
         "definitions": uniform_defs,
@@ -460,7 +471,7 @@ def _find_uniform_usage(conn, project, args):
     }
 
 
-def _trace_stage_flow(conn, project, args):
+def _trace_stage_flow(conn, project, args, root_path):
     semantic = args["semantic"].upper()
     macros = _parse_macros(args)
     # 查 FLOWS_TO 边：struct → semantic
@@ -486,7 +497,7 @@ def _trace_stage_flow(conn, project, args):
             "conditional_signature": row["conditional_signature"],
         })
     if macros is not None:
-        annotate_edges_with_active(results, macros)
+        annotate_edges_with_active(results, macros, root_path)
     return {"semantic": args["semantic"], "matches": results, "count": len(results)}
 
 
@@ -618,6 +629,39 @@ def _incremental_update(conn, project, root_path):
     from ..store.incremental import incremental_update
     result = incremental_update(conn, project, root_path)
     return result
+
+
+def _sync_repo(conn, project, root_path):
+    """git pull + 增量更新。一条命令完成代码同步和图谱刷新。"""
+    import subprocess
+    from ..store.connection import resolve_root_path
+    abs_root = resolve_root_path(root_path)
+    if not abs_root or not os.path.isdir(abs_root):
+        return {"error": f"root_path not found: {abs_root}"}
+    # 1. git pull
+    try:
+        result = subprocess.run(
+            ["git", "pull", "--ff-only"],
+            capture_output=True, text=True, cwd=abs_root, timeout=60,
+        )
+    except Exception as e:
+        return {"error": f"git pull failed: {e}"}
+    if result.returncode != 0:
+        return {
+            "error": "git pull failed",
+            "stderr": result.stderr,
+            "stdout": result.stdout,
+        }
+    # 2. 增量更新
+    from ..store.incremental import incremental_update
+    inc_result = incremental_update(conn, project, abs_root)
+    return {
+        "git_pull": {
+            "stdout": result.stdout.strip(),
+            "stderr": result.stderr.strip(),
+        },
+        "incremental": inc_result,
+    }
 
 
 __all__ = ["TOOL_DEFINITIONS", "execute_tool"]

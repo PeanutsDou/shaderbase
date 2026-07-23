@@ -36,7 +36,11 @@ def detect_dirty(
     - mtime/size 没变但 content_hash 变了（极少见，保险）
 
     返回 {dirty: [file_path], new: [file_path], deleted: [file_path], total_scanned}。
+    file_path 都是相对 root_path 的相对路径。
     """
+    from .connection import resolve_root_path
+    abs_root = resolve_root_path(root_path)
+
     # 加载已索引文件的 meta
     cur = conn.execute(
         "SELECT file_path, mtime, size, content_hash FROM file_meta WHERE project = ?",
@@ -48,27 +52,37 @@ def detect_dirty(
 
     dirty: list[str] = []
     new: list[str] = []
-    deleted: list = [fp for fp in indexed if not os.path.exists(fp)]
+    # deleted: file_meta 里有但磁盘上没有（用 root_path 拼接判存在）
+    deleted: list[str] = []
+    for fp in indexed:
+        abs_fp = fp if os.path.isabs(fp) else os.path.join(abs_root, fp)
+        if not os.path.exists(abs_fp):
+            deleted.append(fp)
     total_scanned = 0
 
-    for dp, dns, fns in os.walk(root_path):
+    for dp, dns, fns in os.walk(abs_root):
         dns[:] = [d for d in dns if d not in SKIP_DIRS]
         for f in fns:
             if os.path.splitext(f)[1].lower() not in SHADER_EXTS:
                 continue
             total_scanned += 1
-            fp = os.path.join(dp, f).replace("\\", "/")
+            abs_fp = os.path.join(dp, f)
+            # 存相对路径（跟 SQLite file_path 同口径）
+            rel_fp = os.path.relpath(abs_fp, abs_root).replace("\\", "/")
             try:
-                st = os.stat(fp)
+                st = os.stat(abs_fp)
             except OSError:
                 continue
-            meta = indexed.get(fp)
+            meta = indexed.get(rel_fp)
+            # 兼容旧数据：如果相对路径没匹配到，试绝对路径
+            if meta is None and os.path.isabs(fp := abs_fp.replace("\\", "/")):
+                meta = indexed.get(fp)
             if meta is None:
-                new.append(fp)
+                new.append(rel_fp)
                 continue
             mtime, size, content_hash = meta
             if int(st.st_mtime) != mtime or st.st_size != size:
-                dirty.append(fp)
+                dirty.append(rel_fp)
                 continue
             # mtime/size 没变，跳过 content_hash（IO 代价高，只在前两个条件不满足时才算）
 
@@ -177,23 +191,29 @@ def incremental_update(
     # 4. 逐文件重索引
     from ..extract.nodes import NodeExtractor
     from ..extract.edges import EdgeExtractor
+    from .connection import resolve_root_path
+    abs_root = resolve_root_path(root_path)
     extractor = NodeExtractor()
     edge_extractor = EdgeExtractor()
 
     reindexed = 0
     crash_count = 0
     for fp in sorted(all_dirty):
-        if not os.path.exists(fp):
+        # fp 可能是相对路径或绝对路径（兼容旧数据）
+        abs_fp = fp if os.path.isabs(fp) else os.path.join(abs_root, fp)
+        if not os.path.exists(abs_fp):
             continue
         try:
-            with open(fp, "rb") as f:
+            with open(abs_fp, "rb") as f:
                 src = f.read()
-            index_file(conn, fp, src, project, extractor, edge_extractor)
+            # 统一存相对路径
+            rel_fp = fp if not os.path.isabs(fp) else os.path.relpath(fp, abs_root).replace("\\", "/")
+            index_file(conn, rel_fp, src, project, extractor, edge_extractor, abs_root)
             reindexed += 1
         except Exception as e:
             crash_count += 1
             if crash_count <= 3:
-                print(f"  CRASH {fp}: {e}")
+                print(f"  CRASH {abs_fp}: {e}")
 
     # 5. 重建 reverse_deps（include 关系可能变了）
     from .indexer import _build_reverse_deps
