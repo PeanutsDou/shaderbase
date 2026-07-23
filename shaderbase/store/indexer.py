@@ -50,8 +50,8 @@ def index_file(
     nodes = extractor.extract_file(source, file_path)
     # 抽边
     edges = edge_extractor.extract_file(source, file_path, view)
-    # 给 CALLS 边填 source_name（找所在函数名）
-    _fill_call_sources(conn, edges, file_path, project)
+    # 给 CALLS 边填 source_name（找所在函数名）——用本文件的抽取结果查
+    _fill_call_sources_from_nodes(edges, nodes)
 
     # 写入 SQLite
     _delete_file_nodes(conn, file_path, project)
@@ -196,30 +196,21 @@ def _insert_edges(
         )
 
 
-def _fill_call_sources(
-    conn: sqlite3.Connection,
+def _fill_call_sources_from_nodes(
     edges: list,
-    file_path: str,
-    project: str,
+    nodes: list,
 ) -> None:
     """给 CALLS 边填 source_name（找所在函数名）。
 
-    遍历 edges，按 source_line 查同文件的 Function 节点，
+    用本文件抽取出的 Function 节点列表查（不查 SQLite，因为此时还没插入）。
     找 line 落在哪个 function 的 [line, end_line] 范围内。
     """
-    # 查同文件已存的 Function 节点
-    cur = conn.execute(
-        """SELECT name, line, end_line FROM nodes
-           WHERE project = ? AND file_path = ? AND kind = 'Function'
-           ORDER BY line""",
-        (project, file_path),
-    )
-    funcs = [(r["name"], r["line"], r["end_line"]) for r in cur]
+    funcs = [(n.name, n.line, n.end_line) for n in nodes if n.kind == "Function"]
+    funcs.sort(key=lambda x: x[1] or 0)
 
     for e in edges:
         if e.kind != "CALLS":
             continue
-        # 找包含 e.source_line 的函数
         for fname, fstart, fend in funcs:
             if fstart and fend and fstart <= e.source_line <= fend:
                 e.source_name = fname

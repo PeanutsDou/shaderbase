@@ -17,6 +17,7 @@ dependencies = [
 
 [project.optional-dependencies]
 test = ["pytest>=7"]
+web = ["fastapi", "uvicorn"]
 
 [tool.setuptools]
 packages = ["shaderbase"]
