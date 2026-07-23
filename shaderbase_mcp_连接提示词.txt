@@ -1,0 +1,71 @@
+# shaderbase MCP 连接提示词
+
+> 把下面这段发给同事，让他的 AI 自动完成 MCP 连接配置。
+
+---
+
+## 给 AI 的提示词
+
+你现在有一个同事搭建的 shader 知识图谱 MCP server，地址是：
+
+```
+http://<服务器IP>:8001/sse
+```
+
+（把 `<服务器IP>` 替换成同事提供的实际 IP 地址，例如 `10.222.39.100`）
+
+请你帮我完成以下操作：
+
+### 第 1 步：配置 MCP 连接
+
+找到我的 ZCode 配置文件 `C:\Users\<我的用户名>\.zcode\v2\config.json`（如果文件不存在就创建），在 `mcp.servers` 字段里添加一个名为 `shaderbase` 的 server，配置如下：
+
+```json
+"shaderbase": {
+  "type": "http",
+  "url": "http://<服务器IP>:8001/sse",
+  "enabled": true
+}
+```
+
+注意：
+- 如果 `config.json` 里已有其他 MCP server（如 `ta server`），不要删除它们，只在 `mcp.servers` 里**新增** `shaderbase` 这一条
+- 如果 `config.json` 里没有 `mcp` 或 `mcp.servers` 字段，需要新建
+- 确保 JSON 格式正确（逗号、括号匹配）
+
+### 第 2 步：验证配置
+
+配置写好后，请读取 `config.json` 确认 `shaderbase` 这条配置正确写入了，`enabled` 是 `true`，`url` 是同事给的那个地址。
+
+### 第 3 步：提示重启
+
+配置完成后，告诉我需要重启 ZCode 才能让 MCP 生效。重启后我可以在新会话里直接问你 shader 相关的问题，你会自动调用 shaderbase 的工具来查询。
+
+---
+
+## shaderbase MCP 能做什么
+
+连接成功后，你可以通过自然语言让 AI 查询 shader 知识图谱，AI 会自动调用以下工具：
+
+| 你可以问 | AI 会调的工具 |
+|---|---|
+| "CalcWorldNormal 在哪定义？" | search_shader |
+| "谁调用了 CalcWorldNormal？" | trace_calls |
+| "给我看 vs_main 的源码" | get_code_snippet |
+| "PS_INPUT 在哪定义？" | get_definition |
+| "u_frame_time 被谁用了？" | get_references |
+| "有哪些 technique？" | find_entry_points |
+| "u_roughness 被哪些函数用？" | find_uniform_usage |
+| "TEXCOORD2 流到哪些 PS 输入？" | trace_stage_flow |
+| "pbr_rock 材质的文件有哪些？" | get_material_files |
+| "这个仓库有多少函数？" | get_architecture |
+| "改了 common.hlsl 影响哪些？" | detect_changes |
+| "有没有死代码？" | find_dead_code |
+| "索引状态怎样？" | index_status |
+| "刷新图谱" | incremental_update |
+
+## 注意事项
+
+- MCP server 必须在同事的机器上保持运行，关了就连不上
+- 你不需要装 Python / grammar / clone shader-source，全用同事的
+- 如果连接失败，检查：1）同事的机器开着 2）IP 地址对 3）防火墙放行了 8001 端口
