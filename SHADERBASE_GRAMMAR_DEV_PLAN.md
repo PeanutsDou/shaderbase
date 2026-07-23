@@ -1,7 +1,7 @@
 # G66 Shader Grammar 开发规划
 
 > 本文档规划 shaderbase 自研 tree-sitter grammar 的完整开发流程——基于 **fork tree-sitter-hlsl + baseline 驱动特化** 路线。
->
+> 
 > 核心思路：**先拿现成的 tree-sitter-hlsl 跑全库 baseline，用失败清单驱动 G66 特化补全**——避免从零写基础 HLSL 语法的重复劳动。
 
 ---
@@ -14,13 +14,13 @@
 
 ### 0.1 已敲定的决策
 
-| 决策项 | 选择 | 理由 |
-|---|---|---|
-| grammar 起点 | **fork tree-sitter-hlsl** | 基础 HLSL 语法（函数/struct/表达式/swizzle 等）社区已写好，省 5-7 天 |
-| 开发方法 | **baseline 驱动特化** | 先跑全库看哪些解析失败，按失败清单精准补 G66 特化语法 |
-| tree-sitter 版本 | 0.22+ 最新版 | 跟 Python 包 `tree_sitter` 最新版对齐 |
-| incremental parsing | 阶段 4 后再说 | grammar 阶段先全量 parse，shader 文件不大够快 |
-| `<>` 歧义处理 | 阶段 2 看失败清单再定 | 如果 baseline 跑下来歧义影响大，用 external scanner；影响小就简化处理 |
+| 决策项                 | 选择                        | 理由                                               |
+| ------------------- | ------------------------- | ------------------------------------------------ |
+| grammar 起点          | **fork tree-sitter-hlsl** | 基础 HLSL 语法（函数/struct/表达式/swizzle 等）社区已写好，省 5-7 天 |
+| 开发方法                | **baseline 驱动特化**         | 先跑全库看哪些解析失败，按失败清单精准补 G66 特化语法                    |
+| tree-sitter 版本      | 0.22+ 最新版                 | 跟 Python 包 `tree_sitter` 最新版对齐                   |
+| incremental parsing | 阶段 4 后再说                  | grammar 阶段先全量 parse，shader 文件不大够快                |
+| `<>` 歧义处理           | 阶段 2 看失败清单再定              | 如果 baseline 跑下来歧义影响大，用 external scanner；影响小就简化处理 |
 
 ---
 
@@ -47,11 +47,13 @@
 ### 2.1 做什么
 
 1. **装工具链**
+   
    - Node.js（tree-sitter CLI 是 Node 工具）
    - Python 3.12+ + tree-sitter Python 包
    - tree-sitter CLI：`npm install -g tree-sitter-cli` 或 `npx tree-sitter`
 
 2. **选 tree-sitter-hlsl fork**
+   
    - 调研社区 `tree-sitter-hlsl` 项目（GitHub 搜）
    - 评估标准：**最近 commit 日期、star 数、issue 活跃度、tree-sitter 版本兼容性**
    - 候选可能有多个，选维护最活跃的
@@ -87,7 +89,9 @@ g66-shader-grammar/                ← 自研 grammar 项目（fork 后改造）
 ### 2.3 通过标准
 
 - `npx tree-sitter generate` 不报错
+
 - `npx tree-sitter parse test.nsf` 能解析一段标准 HLSL：
+  
   ```hlsl
   float4 ps_main() {
       return float4(1, 0, 0, 1);
@@ -105,10 +109,12 @@ g66-shader-grammar/                ← 自研 grammar 项目（fork 后改造）
 ### 3.2 步骤
 
 1. **准备 fixtures**：把 shader-source 的代表性文件软链或拷到 `test/fixtures/full/`
+   
    - 全库 1298 个文件（跳过 no_source/no_source_pc/pipeline_output/bin/.git）
    - 也可以先抽样 200 个看趋势，再扩到全库
 
 2. **写 `scripts/coverage.py`**：
+   
    - 遍历 fixtures 目录
    - 对每个文件调 `tree-sitter parse`
    - 统计：
@@ -148,17 +154,18 @@ node distribution:
 
 ### 3.4 预期结果（基于前期调研）
 
-| 维度 | 预期 baseline | 期望最终 |
-|---|---|---|
-| 解析成功率 | 60-80% | > 95% |
-| ERROR 率 | 10-30% | < 2% |
-| 主要 ERROR 来源 | `#art`、technique、annotation `<>`、SamplerState 状态块 | 全覆盖 |
-| function_definition 抽取率 | 90%+（基础语法 fork 支持） | > 95% |
-| call_expression 抽取率 | 60-70%（G66 特化的 method 调用没认） | > 90% |
+| 维度                      | 预期 baseline                                       | 期望最终  |
+| ----------------------- | ------------------------------------------------- | ----- |
+| 解析成功率                   | 60-80%                                            | > 95% |
+| ERROR 率                 | 10-30%                                            | < 2%  |
+| 主要 ERROR 来源             | `#art`、technique、annotation `<>`、SamplerState 状态块 | 全覆盖   |
+| function_definition 抽取率 | 90%+（基础语法 fork 支持）                                | > 95% |
+| call_expression 抽取率     | 60-70%（G66 特化的 method 调用没认）                       | > 90% |
 
 ### 3.5 产出物
 
 三份清单：
+
 1. **OK 文件清单**——这些文件 grammar 已经能解析，不用动
 2. **部分 ERROR 文件清单**——能解析但有 ERROR，要看 ERROR 上下文
 3. **崩/失败文件清单**——完全解析失败的，是 grammar bug 或罕见语法
@@ -177,14 +184,14 @@ node distribution:
 
 这是 fork 不认的语法——tree-sitter-hlsl 是为标准 HLSL 写的，G66 加的私有语法它一无所知。需要补 grammar 规则。预期这部分占 ERROR 大头。
 
-| 语法点 | 频次 | 处理 |
-|---|---|---|
-| `#art NAME "..." "BOOL"/"INT"` | 804 | 加 `preproc_art_directive` 规则 |
-| `technique TShader <...> { pass p0 {...} }` | 867 | 加 `technique_block` + `pass_block` |
-| `texture NAME : Semantic <annotation>` | 2120 | 加 `texture_declaration` |
-| `SamplerState NAME { Filter=...; }` | 2227 | 加 `sampler_state_declaration` |
-| `float u_x < SasUiLabel="..."; > = 0.5f` | ~8000 | 加 `metadata_block` + `metadata_assignment` |
-| `#excludefromtemptech NAME` | 15 | 加 `preproc_exclude_from_temp_tech` |
+| 语法点                                         | 频次    | 处理                                         |
+| ------------------------------------------- | ----- | ------------------------------------------ |
+| `#art NAME "..." "BOOL"/"INT"`              | 804   | 加 `preproc_art_directive` 规则               |
+| `technique TShader <...> { pass p0 {...} }` | 867   | 加 `technique_block` + `pass_block`         |
+| `texture NAME : Semantic <annotation>`      | 2120  | 加 `texture_declaration`                    |
+| `SamplerState NAME { Filter=...; }`         | 2227  | 加 `sampler_state_declaration`              |
+| `float u_x < SasUiLabel="..."; > = 0.5f`    | ~8000 | 加 `metadata_block` + `metadata_assignment` |
+| `#excludefromtemptech NAME`                 | 15    | 加 `preproc_exclude_from_temp_tech`         |
 
 **类别 B：tree-sitter-hlsl 本身的 bug**
 
@@ -273,14 +280,14 @@ agent 只做"机械分类"，不写 grammar。
 
 ### 5.3 预期补的顺序（按预期收益排）
 
-| 顺序 | 补什么 | 预期 ERROR 率改善 |
-|---|---|---|
-| 1 | annotation `<>` 块（含 SamplerState 状态块） | -15% 到 -25% |
-| 2 | technique 块 + pass 状态赋值 | -10% |
-| 3 | `#art` 指令 | -5% |
-| 4 | texture/SamplerState 声明 | -5% |
-| 5 | `#excludefromtemptech` | -0.5%（少但要覆盖） |
-| 6 | tree-sitter-hlsl bug 修复（按类别 B 清单） | -5% 到 -10% |
+| 顺序  | 补什么                                   | 预期 ERROR 率改善 |
+| --- | ------------------------------------- | ------------ |
+| 1   | annotation `<>` 块（含 SamplerState 状态块） | -15% 到 -25%  |
+| 2   | technique 块 + pass 状态赋值               | -10%         |
+| 3   | `#art` 指令                             | -5%          |
+| 4   | texture/SamplerState 声明               | -5%          |
+| 5   | `#excludefromtemptech`                | -0.5%（少但要覆盖） |
+| 6   | tree-sitter-hlsl bug 修复（按类别 B 清单）     | -5% 到 -10%   |
 
 ### 5.4 关键纪律
 
@@ -354,6 +361,7 @@ grammar 阶段完成，进 `SHADERBASE_DEV_PLAN.md` §2 的 PreprocessorView Pyt
 ### 8.1 选哪个 tree-sitter-hlsl fork
 
 GitHub 上可能有多个 tree-sitter-hlsl 项目。评估标准：
+
 - **最近 commit 日期**——半年以上没更新的不用
 - **star 数**——star 多说明社区在用
 - **issue 活跃度**——issue 多但没人修的不用
@@ -363,29 +371,29 @@ GitHub 上可能有多个 tree-sitter-hlsl 项目。评估标准：
 
 ### 8.2 baseline 阶段跑全库还是抽样
 
-| 选项 | 优点 | 缺点 |
-|---|---|---|
+| 选项             | 优点      | 缺点       |
+| -------------- | ------- | -------- |
 | **全库 1298 文件** | 数字准、覆盖全 | 跑得慢（几分钟） |
-| **抽样 200 文件** | 快、看趋势快 | 漏稀有语法 |
+| **抽样 200 文件**  | 快、看趋势快  | 漏稀有语法    |
 
 **推荐**：先抽样 200 看趋势，确认 baseline 跑得通后扩到全库。
 
 ### 8.3 `<>` 歧义怎么处理
 
-| 选项 | 何时用 |
-|---|---|
-| **简化处理**（先当普通标点） | baseline 跑下来 `<>` 歧义影响小 |
-| **lexical precedence**（grammar 内调优先级） | 歧义中等 |
-| **external scanner**（外部扫描器，最复杂但最准） | 歧义严重影响解析 |
+| 选项                                    | 何时用                     |
+| ------------------------------------- | ----------------------- |
+| **简化处理**（先当普通标点）                      | baseline 跑下来 `<>` 歧义影响小 |
+| **lexical precedence**（grammar 内调优先级） | 歧义中等                    |
+| **external scanner**（外部扫描器，最复杂但最准）    | 歧义严重影响解析                |
 
 **推荐**：阶段 2 看失败清单再定——失败清单会告诉你歧义有多大。
 
 ### 8.4 阶段 2 要不要开并行 agent
 
-| 选项 | 何时用 |
-|---|---|
-| **不开 agent**（我自己分析） | 失败清单 < 500 条 ERROR |
-| **开 5-8 个并行 agent**（每个负责一类语法） | 失败清单 > 1000 条，量大 |
+| 选项                            | 何时用                |
+| ----------------------------- | ------------------ |
+| **不开 agent**（我自己分析）           | 失败清单 < 500 条 ERROR |
+| **开 5-8 个并行 agent**（每个负责一类语法） | 失败清单 > 1000 条，量大   |
 
 **推荐**：先不开，我自己分析。如果失败清单超过 1000 条再开 agent 分担。
 
@@ -393,14 +401,14 @@ GitHub 上可能有多个 tree-sitter-hlsl 项目。评估标准：
 
 ## 9. 风险和应对
 
-| 风险 | 概率 | 应对 |
-|---|---|---|
-| 选的 tree-sitter-hlsl fork 维护差、bug 多 | 中 | 选 commit 日期近、star 多的；可以中途换 |
-| fork 的 grammar 结构跟 G66 特化不兼容 | 中 | 阶段 2 发现了，调整 fork 或自己重写冲突部分 |
-| G66 特化语法塞进 fork 产生新歧义 | 中 | 用 lexical precedence 或 external scanner |
-| tree-sitter-hlsl 的 swizzle 实现跟 G66 实际不完全一致 | 低 | 失败清单会暴露，针对性修 |
-| baseline 跑下来发现 fork 不可用 | 低 | 转 tree-sitter-c 改造路线 |
-| 阶段 3 迭代不收敛（数字卡住不改善） | 低 | 跑 5 天还不收敛就停下来 review 流程 |
+| 风险                                         | 概率  | 应对                                      |
+| ------------------------------------------ | --- | --------------------------------------- |
+| 选的 tree-sitter-hlsl fork 维护差、bug 多         | 中   | 选 commit 日期近、star 多的；可以中途换              |
+| fork 的 grammar 结构跟 G66 特化不兼容               | 中   | 阶段 2 发现了，调整 fork 或自己重写冲突部分              |
+| G66 特化语法塞进 fork 产生新歧义                      | 中   | 用 lexical precedence 或 external scanner |
+| tree-sitter-hlsl 的 swizzle 实现跟 G66 实际不完全一致 | 低   | 失败清单会暴露，针对性修                            |
+| baseline 跑下来发现 fork 不可用                    | 低   | 转 tree-sitter-c 改造路线                    |
+| 阶段 3 迭代不收敛（数字卡住不改善）                        | 低   | 跑 5 天还不收敛就停下来 review 流程                 |
 
 ---
 
@@ -417,13 +425,13 @@ GitHub 上可能有多个 tree-sitter-hlsl 项目。评估标准：
 
 ## 11. 里程碑
 
-| 里程碑 | 时间 | 产出 |
-|---|---|---|
-| **M1（2 天）** | 阶段 0+1 完成 | fork 跑通 + baseline 覆盖率报告 |
-| **M2（4-5 天）** | 阶段 2 完成 | 失败分析 + 特化清单（A/B/C 分类） |
-| **M3（8-10 天）** | 阶段 3 完成 | G66 特化补全 + 全库 95% 解析率 |
-| **M4（10-13 天）** | 阶段 4 完成 | Python 绑定 + 抽取器跑通 |
-| **M5（13 天+）** | 阶段 5 启动 | 进 PreprocessorView |
+| 里程碑             | 时间        | 产出                       |
+| --------------- | --------- | ------------------------ |
+| **M1（2 天）**     | 阶段 0+1 完成 | fork 跑通 + baseline 覆盖率报告 |
+| **M2（4-5 天）**   | 阶段 2 完成   | 失败分析 + 特化清单（A/B/C 分类）    |
+| **M3（8-10 天）**  | 阶段 3 完成   | G66 特化补全 + 全库 95% 解析率    |
+| **M4（10-13 天）** | 阶段 4 完成   | Python 绑定 + 抽取器跑通        |
+| **M5（13 天+）**   | 阶段 5 启动   | 进 PreprocessorView       |
 
 ### 11.1 跟用户预期的对比
 
@@ -435,15 +443,15 @@ GitHub 上可能有多个 tree-sitter-hlsl 项目。评估标准：
 
 ## 12. 跟旧方案对比
 
-| 维度 | 旧方案（从零写） | 新方案（fork + baseline 驱动） |
-|---|---|---|
-| 总工程量 | 15-20 天 | 7-11 天 |
-| 基础 HLSL 语法 | 从零写（Day 1-7） | fork 直接拿 |
-| G66 特化语法 | 一边写基础一边加特化 | 失败清单驱动精准加 |
-| corpus 编写 | 50 个 corpus 慢慢写 | 用真实 shader 当 fixture |
-| 失败定位 | 阶段 3 才知道哪坏 | 阶段 1 就知道哪坏 |
-| 风险 | 高（不知道哪天能收敛） | 低（baseline 跑完就知道差多远） |
-| 工程量预估准确度 | 低（不确定） | 高（baseline 数字驱动） |
+| 维度         | 旧方案（从零写）        | 新方案（fork + baseline 驱动） |
+| ---------- | --------------- | ----------------------- |
+| 总工程量       | 15-20 天         | 7-11 天                  |
+| 基础 HLSL 语法 | 从零写（Day 1-7）    | fork 直接拿                |
+| G66 特化语法   | 一边写基础一边加特化      | 失败清单驱动精准加               |
+| corpus 编写  | 50 个 corpus 慢慢写 | 用真实 shader 当 fixture    |
+| 失败定位       | 阶段 3 才知道哪坏      | 阶段 1 就知道哪坏              |
+| 风险         | 高（不知道哪天能收敛）     | 低（baseline 跑完就知道差多远）    |
+| 工程量预估准确度   | 低（不确定）          | 高（baseline 数字驱动）        |
 
 ---
 
@@ -463,6 +471,7 @@ GitHub 上可能有多个 tree-sitter-hlsl 项目。评估标准：
 **文档版本**：v2.0（fork + baseline 驱动方案）
 **生成日期**：2026-07-22
 **配套文档**：
+
 - `SHADERBASE_DESIGN.md`（整体设计拆解）
 - `SHADERBASE_DEV_PLAN.md`（开发方案：grammar 测试流程 + PreprocessorView 转译 + SQLite schema + MCP 工具签名）
 - `SHADERBASE_GRAMMAR_INVENTORY.md`（grammar 必须覆盖的所有语法点 + 真实样例 + 频次）

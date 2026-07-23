@@ -61,8 +61,12 @@ def create_mcp_app(db_path: str = "shaderbase.db", default_project: str = "g66")
         return StreamingResponse(event_stream(), media_type="text/event-stream")
 
     @app.post("/messages")
+    @app.post("/")
     async def messages_endpoint(request: Request):
-        """处理 MCP JSON-RPC 请求。"""
+        """处理 MCP JSON-RPC 请求。
+
+        同时挂载 /messages 和 /（根路径），兼容不同 MCP client 的请求路径。
+        """
         body = await request.json()
         method = body.get("method")
         req_id = body.get("id")

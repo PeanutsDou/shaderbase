@@ -373,6 +373,7 @@ expected_resolved_calls:
   - 返回结果带 `[active=true/false, conditional_sig="#if USE_SEASON_ID:branch0"]`
 
 **转译原则**：
+
 - 算法思路完全借鉴 nsp，代码用 Python 重写
 - 数据结构对齐 Python 习惯（list/dict/dataclass，不用 arena/指针）
 - 输入契约吃 tree-sitter AST 的 `preproc_if` 节点树（不引 nsp 的 ConditionalAst 中间表示）
@@ -427,6 +428,7 @@ def build_preprocessor_view(
 ```
 
 **契约差异**：
+
 - nsp 走两步：先建 `ConditionalAst` 树，再解释
 - shaderbase 走一步：直接遍历 tree-sitter AST，状态机推进
 - nsp 索引用空 defines、查询用活动单元 effectiveDefines
@@ -436,10 +438,10 @@ def build_preprocessor_view(
 
 | nsp C++ 版                                                               | shaderbase Python 版                                           |
 | ----------------------------------------------------------------------- | ------------------------------------------------------------- |
-| `PreprocessorView.lineActive: vector<char>`                             | `line_active: list[bool]`（查询阶段才算，索引阶段不算）            |
-| `PreprocessorView.branchSigs: vector<PreprocBranchSig>`                 | `branch_sigs: list[list[tuple[int, int]]]`（索引+查询都算）     |
+| `PreprocessorView.lineActive: vector<char>`                             | `line_active: list[bool]`（查询阶段才算，索引阶段不算）                      |
+| `PreprocessorView.branchSigs: vector<PreprocBranchSig>`                 | `branch_sigs: list[list[tuple[int, int]]]`（索引+查询都算）           |
 | `PreprocessorView.conditionDiagnostics: vector<...>`                    | `condition_diagnostics: list[ConditionDiagnostic]`（精简，只做未定义宏） |
-| `PreprocessorView.macroEvents: vector<PreprocessorMacroEvent>`          | `macro_events: list[MacroEvent]`（索引阶段存，给宏来源追溯用）     |
+| `PreprocessorView.macroEvents: vector<PreprocessorMacroEvent>`          | `macro_events: list[MacroEvent]`（索引阶段存，给宏来源追溯用）               |
 | `PreprocessorView.initialMacroReplacements: unordered_map<string, ...>` | `initial_macros: dict[str, MacroReplacement]`                 |
 | `PreprocessorView.branchMerges`                                         | `branch_merges: list[BranchMergeInfo]`                        |
 | `PreprocessorMacroReplacement` 6 个 source* 布尔                           | Python dataclass + MacroSource enum                           |
@@ -519,23 +521,24 @@ shaderbase/
 
 **节点/边新增字段**（SQLite schema 增量）：
 
-| 字段 | 没有 PreprocessorView | 有 PreprocessorView |
-|---|---|---|
-| `nodes.conditional_signature` | NULL | `"#if USE_SEASON_ID:branch0"` |
-| `nodes.branch_family` | NULL | 分支家族键（同家族的节点可一起查） |
-| `edges.conditional_signature` | NULL | CALLS 边所在分支签名 |
-| `edges.is_active`（查询时算） | 无法算 | 按 Agent 传入的 macros 算 true/false |
+| 字段                            | 没有 PreprocessorView | 有 PreprocessorView              |
+| ----------------------------- | ------------------- | ------------------------------- |
+| `nodes.conditional_signature` | NULL                | `"#if USE_SEASON_ID:branch0"`   |
+| `nodes.branch_family`         | NULL                | 分支家族键（同家族的节点可一起查）               |
+| `edges.conditional_signature` | NULL                | CALLS 边所在分支签名                   |
+| `edges.is_active`（查询时算）       | 无法算                 | 按 Agent 传入的 macros 算 true/false |
 
 **新增边类型**：
+
 - `CONDITIONAL_ON`：连接"函数"和"`#art` 开关"——"这个函数只在 USE_SEASON_ID 开启时编译"
 - `BRANCH_FAMILY`：连接同分支家族的节点——支持"查这个分支家族里所有符号"
 
 **查询能力差异**（以"改了 SampleColorTextureBias 影响哪些 effect"为例）：
 
-| 没有 PreprocessorView | 有 PreprocessorView |
-|---|---|
-| 返回 3 条 CALLS 边，分不清哪条 active | 返回 3 条边，标 active/inactive + 分支签名 |
-| Agent 可能误报"影响 common_snow" | Agent 能回答"当前配置下只影响 pbr_rock；common_snow 的调用在 #if !RAINFALL_ENABLE 里，开启时才影响" |
+| 没有 PreprocessorView         | 有 PreprocessorView                                                          |
+| --------------------------- | --------------------------------------------------------------------------- |
+| 返回 3 条 CALLS 边，分不清哪条 active | 返回 3 条边，标 active/inactive + 分支签名                                            |
+| Agent 可能误报"影响 common_snow"  | Agent 能回答"当前配置下只影响 pbr_rock；common_snow 的调用在 #if !RAINFALL_ENABLE 里，开启时才影响" |
 
 ---
 
