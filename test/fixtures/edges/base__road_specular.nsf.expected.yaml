@@ -1,0 +1,582 @@
+# base/road_specular.nsf 的边抽取期望候选
+input: base/road_specular.nsf
+
+expected_edges:
+  - kind: HAS_MEMBER
+    source: VS_INPUT
+    target: position
+    line: 3
+  - kind: FLOWS_TO
+    source: VS_INPUT
+    target: POSITION
+    line: 3
+  - kind: HAS_MEMBER
+    source: VS_INPUT
+    target: normal
+    line: 4
+  - kind: FLOWS_TO
+    source: VS_INPUT
+    target: NORMAL
+    line: 4
+  - kind: HAS_MEMBER
+    source: VS_INPUT
+    target: texcoord0
+    line: 5
+  - kind: FLOWS_TO
+    source: VS_INPUT
+    target: TEXCOORD0
+    line: 5
+  - kind: HAS_MEMBER
+    source: VS_INPUT
+    target: diffuse
+    line: 7
+  - kind: FLOWS_TO
+    source: VS_INPUT
+    target: COLOR0
+    line: 7
+  - kind: HAS_MEMBER
+    source: VS_INPUT
+    target: texcoord1
+    line: 9
+  - kind: FLOWS_TO
+    source: VS_INPUT
+    target: TEXCOORD1
+    line: 9
+  - kind: HAS_MEMBER
+    source: VS_INPUT
+    target: texcoord4
+    line: 11
+  - kind: FLOWS_TO
+    source: VS_INPUT
+    target: TEXCOORD4
+    line: 11
+  - kind: HAS_MEMBER
+    source: VS_INPUT
+    target: texcoord5
+    line: 12
+  - kind: FLOWS_TO
+    source: VS_INPUT
+    target: TEXCOORD5
+    line: 12
+  - kind: HAS_MEMBER
+    source: VS_INPUT
+    target: texcoord6
+    line: 13
+  - kind: FLOWS_TO
+    source: VS_INPUT
+    target: TEXCOORD6
+    line: 13
+  - kind: HAS_MEMBER
+    source: VS_INPUT
+    target: texcoord7
+    line: 14
+  - kind: FLOWS_TO
+    source: VS_INPUT
+    target: TEXCOORD7
+    line: 14
+  - kind: HAS_MEMBER
+    source: VS_INPUT
+    target: tangent
+    line: 16
+  - kind: FLOWS_TO
+    source: VS_INPUT
+    target: TANGENT
+    line: 16
+  - kind: HAS_MEMBER
+    source: VS_INPUT
+    target: blendIndices
+    line: 18
+  - kind: FLOWS_TO
+    source: VS_INPUT
+    target: BLENDINDICES
+    line: 18
+  - kind: HAS_MEMBER
+    source: VS_INPUT
+    target: blendWeights
+    line: 19
+  - kind: FLOWS_TO
+    source: VS_INPUT
+    target: BLENDWEIGHT
+    line: 19
+  - kind: HAS_MEMBER
+    source: PS_INPUT
+    target: final_position
+    line: 29
+  - kind: FLOWS_TO
+    source: PS_INPUT
+    target: SV_Position
+    line: 29
+  - kind: HAS_MEMBER
+    source: PS_INPUT
+    target: texcoord0
+    line: 30
+  - kind: FLOWS_TO
+    source: PS_INPUT
+    target: TEXCOORD0
+    line: 30
+  - kind: HAS_MEMBER
+    source: PS_INPUT
+    target: texcoord1
+    line: 31
+  - kind: FLOWS_TO
+    source: PS_INPUT
+    target: TEXCOORD1
+    line: 31
+  - kind: HAS_MEMBER
+    source: PS_INPUT
+    target: world_position
+    line: 32
+  - kind: FLOWS_TO
+    source: PS_INPUT
+    target: TEXCOORD2
+    line: 32
+  - kind: HAS_MEMBER
+    source: PS_INPUT
+    target: world_normal
+    line: 33
+  - kind: FLOWS_TO
+    source: PS_INPUT
+    target: TEXCOORD3
+    line: 33
+  - kind: HAS_MEMBER
+    source: PS_INPUT
+    target: world_tangent
+    line: 34
+  - kind: FLOWS_TO
+    source: PS_INPUT
+    target: TEXCOORD4
+    line: 34
+  - kind: HAS_MEMBER
+    source: PS_INPUT
+    target: vertex_light
+    line: 35
+  - kind: FLOWS_TO
+    source: PS_INPUT
+    target: TEXCOORD6
+    line: 35
+  - kind: HAS_MEMBER
+    source: PS_INPUT
+    target: point_light
+    line: 36
+  - kind: FLOWS_TO
+    source: PS_INPUT
+    target: TEXCOORD7
+    line: 36
+  - kind: HAS_MEMBER
+    source: PS_INPUT
+    target: fog_info
+    line: 37
+  - kind: FLOWS_TO
+    source: PS_INPUT
+    target: TEXCOORD8
+    line: 37
+  - kind: HAS_MEMBER
+    source: PS_INPUT
+    target: pos_light
+    line: 38
+  - kind: FLOWS_TO
+    source: PS_INPUT
+    target: TEXCOORD9
+    line: 38
+  - kind: HAS_MEMBER
+    source: PS_INPUT
+    target: screen_velocity
+    line: 40
+  - kind: FLOWS_TO
+    source: PS_INPUT
+    target: TEXCOORD12
+    line: 40
+  - kind: HAS_MEMBER
+    source: PS_INPUT
+    target: diffuse
+    line: 44
+  - kind: FLOWS_TO
+    source: PS_INPUT
+    target: TEXCOORD15
+    line: 44
+  - kind: INCLUDES
+    source: 
+    target: ../shaderlib/common.hlsl
+    line: 47
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: snow_color
+    line: 167
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_mask_min
+    line: 178
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_mask_max
+    line: 188
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_mask_1_min
+    line: 198
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_mask_1_max
+    line: 208
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_mask_tiling_offset
+    line: 218
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_mask_1_tiling_offset
+    line: 226
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_alpha_1_intensity
+    line: 234
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_mask_2_min
+    line: 244
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_mask_2_max
+    line: 254
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_mask_2_tiling_offset
+    line: 264
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_track_2_tiling_offset
+    line: 272
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_track_1_add_track_2
+    line: 280
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_track_2_a_blend_track_0
+    line: 290
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_alpha_2_intensity
+    line: 300
+  - kind: CONDITIONAL_ON
+    source: 
+    target: FOOTPRINT_ENABLE
+    line: 317
+  - kind: CONDITIONAL_ON
+    source: 
+    target: ONLY_SNOW_ENABLE
+    line: 322
+  - kind: CONDITIONAL_ON
+    source: 
+    target: SECOND_TRACK_ENABLE
+    line: 328
+  - kind: CONDITIONAL_ON
+    source: 
+    target: SECOND_TRACK_USE_A_BLEND_ENABLE
+    line: 333
+  - kind: CONDITIONAL_ON
+    source: 
+    target: THIRD_TRACK_ENABLE
+    line: 338
+  - kind: CONDITIONAL_ON
+    source: 
+    target: VERTEX_COLOR_ENABLE
+    line: 343
+  - kind: INCLUDES
+    source: 
+    target: ../shaderlib/indirect_diffuse_base.hlsl
+    line: 383
+  - kind: INCLUDES
+    source: 
+    target: ../shaderlib/common_pbr.hlsl
+    line: 384
+  - kind: INCLUDES
+    source: 
+    target: ../shaderlib/terrain_func.hlsl
+    line: 385
+  - kind: CALLS
+    source: 
+    target: mul
+    line: 392
+  - kind: CALLS
+    source: 
+    target: mul
+    line: 393
+  - kind: CALLS
+    source: 
+    target: normalize
+    line: 396
+  - kind: CALLS
+    source: 
+    target: mul
+    line: 396
+  - kind: CALLS
+    source: 
+    target: normalize
+    line: 405
+  - kind: CALLS
+    source: 
+    target: mul
+    line: 405
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 406
+  - kind: CALLS
+    source: 
+    target: CalcLocalData
+    line: 414
+  - kind: CALLS
+    source: 
+    target: CalcWorldDataInstance
+    line: 416
+  - kind: USES_UNIFORM
+    source: PixelNodesBasedGraph
+    target: snow_color
+    line: 432
+  - kind: USES_UNIFORM
+    source: PixelNodesBasedGraph
+    target: u_alpha_1_intensity
+    line: 432
+  - kind: USES_UNIFORM
+    source: PixelNodesBasedGraph
+    target: u_alpha_2_intensity
+    line: 432
+  - kind: USES_UNIFORM
+    source: PixelNodesBasedGraph
+    target: u_mask_1_max
+    line: 432
+  - kind: USES_UNIFORM
+    source: PixelNodesBasedGraph
+    target: u_mask_1_min
+    line: 432
+  - kind: USES_UNIFORM
+    source: PixelNodesBasedGraph
+    target: u_mask_1_tiling_offset
+    line: 432
+  - kind: USES_UNIFORM
+    source: PixelNodesBasedGraph
+    target: u_mask_2_max
+    line: 432
+  - kind: USES_UNIFORM
+    source: PixelNodesBasedGraph
+    target: u_mask_2_min
+    line: 432
+  - kind: USES_UNIFORM
+    source: PixelNodesBasedGraph
+    target: u_mask_2_tiling_offset
+    line: 432
+  - kind: USES_UNIFORM
+    source: PixelNodesBasedGraph
+    target: u_mask_max
+    line: 432
+  - kind: USES_UNIFORM
+    source: PixelNodesBasedGraph
+    target: u_mask_min
+    line: 432
+  - kind: USES_UNIFORM
+    source: PixelNodesBasedGraph
+    target: u_mask_tiling_offset
+    line: 432
+  - kind: USES_UNIFORM
+    source: PixelNodesBasedGraph
+    target: u_track_1_add_track_2
+    line: 432
+  - kind: USES_UNIFORM
+    source: PixelNodesBasedGraph
+    target: u_track_2_a_blend_track_0
+    line: 432
+  - kind: USES_UNIFORM
+    source: PixelNodesBasedGraph
+    target: u_track_2_tiling_offset
+    line: 432
+  - kind: CALLS
+    source: 
+    target: t_mask_tex.Sample
+    line: 444
+  - kind: CALLS
+    source: 
+    target: smoothstep
+    line: 445
+  - kind: CALLS
+    source: 
+    target: t_mask_tex.Sample
+    line: 451
+  - kind: CALLS
+    source: 
+    target: smoothstep
+    line: 452
+  - kind: CALLS
+    source: 
+    target: SampleColorTextureBias
+    line: 454
+  - kind: CALLS
+    source: 
+    target: SampleColorTextureBias
+    line: 455
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 456
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 457
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 461
+  - kind: CALLS
+    source: 
+    target: max
+    line: 463
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 465
+  - kind: CALLS
+    source: 
+    target: SampleBaseColorAndOpacityTexture
+    line: 468
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 469
+  - kind: CALLS
+    source: 
+    target: SampleColorTextureBias
+    line: 478
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 479
+  - kind: CALLS
+    source: 
+    target: t_mask_tex.Sample
+    line: 481
+  - kind: CALLS
+    source: 
+    target: smoothstep
+    line: 482
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 485
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 489
+  - kind: CALLS
+    source: 
+    target: max
+    line: 490
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 491
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 500
+  - kind: CALLS
+    source: 
+    target: NormalMap.SampleBias
+    line: 510
+  - kind: CALLS
+    source: 
+    target: t_track_1_normal_tex.SampleBias
+    line: 514
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 516
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 518
+  - kind: CALLS
+    source: 
+    target: t_track_2_normal_tex.SampleBias
+    line: 533
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 535
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 537
+  - kind: CALLS
+    source: 
+    target: CalcWorldNormal
+    line: 544
+  - kind: CALLS
+    source: 
+    target: FootPrint
+    line: 546
+  - kind: CALLS
+    source: 
+    target: t_mask_tex.Sample
+    line: 558
+  - kind: CALLS
+    source: 
+    target: max
+    line: 559
+  - kind: CALLS
+    source: 
+    target: snow_normal.Sample
+    line: 561
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 562
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 564
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 566
+  - kind: CALLS
+    source: 
+    target: CalcWorldNormal
+    line: 568
+  - kind: CALLS
+    source: 
+    target: FootPrint
+    line: 570
+  - kind: CALLS
+    source: 
+    target: CalcWorldNormal
+    line: 575
+  - kind: CALLS
+    source: 
+    target: GetDirtyTexMask
+    line: 577
+  - kind: CALLS
+    source: 
+    target: SurfaceWeatherInfluence_Terrain
+    line: 578
+  - kind: INCLUDES
+    source: 
+    target: ../shaderlib/base_pass_vertex_shader.hlsl
+    line: 587
+  - kind: INCLUDES
+    source: 
+    target: ../shaderlib/base_pass_pixel_shader.hlsl
+    line: 590
+  - kind: EXPOSES_TECHNIQUE
+    source: 
+    target: TShader
+    line: 592
+  - kind: IS_ENTRY_POINT
+    source: TShader
+    target: vs_main
+    line: 609
+    stage: vertex
+  - kind: IS_ENTRY_POINT
+    source: TShader
+    target: ps_main
+    line: 610
+    stage: pixel

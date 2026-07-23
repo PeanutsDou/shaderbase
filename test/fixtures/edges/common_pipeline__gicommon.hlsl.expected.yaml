@@ -1,0 +1,384 @@
+# common_pipeline/gicommon.hlsl 的边抽取期望候选
+input: common_pipeline/gicommon.hlsl
+
+expected_edges:
+  - kind: INCLUDES
+    source: 
+    target: ./random_seq.hlsl
+    line: 1
+  - kind: INCLUDES
+    source: 
+    target: ./packed_formats.hlsl
+    line: 2
+  - kind: INCLUDES
+    source: 
+    target: ../shaderlib/morton.hlsl
+    line: 3
+  - kind: INCLUDES
+    source: 
+    target: ../shaderlib/monte_carlo.hlsl
+    line: 4
+  - kind: CALLS
+    source: 
+    target: t_depth.SampleLevel
+    line: 21
+  - kind: CALLS
+    source: 
+    target: ReconstructPosition
+    line: 23
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 60
+  - kind: CALLS
+    source: 
+    target: sin
+    line: 66
+  - kind: CALLS
+    source: 
+    target: cos
+    line: 66
+  - kind: CALLS
+    source: 
+    target: exp
+    line: 77
+  - kind: CALLS
+    source: 
+    target: all
+    line: 82
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 82
+  - kind: CALLS
+    source: 
+    target: normalize
+    line: 90
+  - kind: CALLS
+    source: 
+    target: mul
+    line: 106
+  - kind: CALLS
+    source: 
+    target: mul
+    line: 109
+  - kind: CALLS
+    source: 
+    target: ScreenPosToUv
+    line: 113
+  - kind: CALLS
+    source: 
+    target: GetShadow
+    line: 122
+  - kind: HAS_MEMBER
+    source: SurfelData
+    target: position_timestamp
+    line: 131
+  - kind: HAS_MEMBER
+    source: SurfelData
+    target: normal_radius
+    line: 134
+  - kind: HAS_MEMBER
+    source: SurfelData
+    target: light_diff
+    line: 137
+  - kind: HAS_MEMBER
+    source: SurfelData
+    target: ref_count
+    line: 139
+  - kind: HAS_MEMBER
+    source: SurfelData
+    target: indirect_diff
+    line: 140
+  - kind: HAS_MEMBER
+    source: SurfelData
+    target: padding
+    line: 141
+  - kind: HAS_MEMBER
+    source: SurfelData
+    target: albedo
+    line: 142
+  - kind: HAS_MEMBER
+    source: SurfelData
+    target: intersect_cells
+    line: 143
+  - kind: HAS_MEMBER
+    source: SurfelData
+    target: timer_status
+    line: 148
+  - kind: HAS_MEMBER
+    source: SurfelData
+    target: ray_index
+    line: 150
+  - kind: HAS_MEMBER
+    source: SurfelRay
+    target: surfel_index
+    line: 188
+  - kind: HAS_MEMBER
+    source: SurfelRay
+    target: surfel_ray
+    line: 189
+  - kind: HAS_MEMBER
+    source: InitSurfel
+    target: uv
+    line: 194
+  - kind: HAS_MEMBER
+    source: InitSurfel
+    target: useless
+    line: 195
+  - kind: HAS_MEMBER
+    source: SurfelVolume
+    target: surfel_count
+    line: 221
+  - kind: CALLS
+    source: 
+    target: all
+    line: 264
+  - kind: CALLS
+    source: 
+    target: all
+    line: 264
+  - kind: CALLS
+    source: 
+    target: frac
+    line: 270
+  - kind: CALLS
+    source: 
+    target: WorldPosToVoxelCenter
+    line: 282
+  - kind: CALLS
+    source: 
+    target: MortonEncode3D
+    line: 297
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 302
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 303
+  - kind: CALLS
+    source: 
+    target: abs
+    line: 303
+  - kind: CALLS
+    source: 
+    target: length
+    line: 331
+  - kind: CALLS
+    source: 
+    target: min
+    line: 337
+  - kind: CALLS
+    source: 
+    target: abs
+    line: 337
+  - kind: CALLS
+    source: 
+    target: sign
+    line: 338
+  - kind: CALLS
+    source: 
+    target: length
+    line: 340
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 348
+  - kind: CALLS
+    source: 
+    target: clamp
+    line: 361
+  - kind: CALLS
+    source: 
+    target: ConstructPosition
+    line: 366
+  - kind: CALLS
+    source: 
+    target: PseudoRandom
+    line: 388
+  - kind: CALLS
+    source: 
+    target: IsSurfelInVoxel
+    line: 390
+  - kind: CALLS
+    source: 
+    target: GetTimeStampDiff
+    line: 406
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 407
+  - kind: CALLS
+    source: 
+    target: UnitVectorToHemiOctahedron
+    line: 422
+  - kind: CALLS
+    source: 
+    target: InverseEquiAreaSphericalMapping
+    line: 436
+  - kind: CALLS
+    source: 
+    target: SurfelIndexToRadiaceCachePixel
+    line: 438
+  - kind: CALLS
+    source: 
+    target: SurfelIndexToRadiaceCachePixel
+    line: 445
+  - kind: CALLS
+    source: 
+    target: GetSurfelOctahedralPixel
+    line: 454
+  - kind: CALLS
+    source: 
+    target: t_surfel_irradiance.Sample
+    line: 455
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 457
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 457
+  - kind: CALLS
+    source: 
+    target: GetSurfelOctahedralPixel
+    line: 464
+  - kind: CALLS
+    source: 
+    target: t_surfel_irradiance.Sample
+    line: 465
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 477
+  - kind: CALLS
+    source: 
+    target: exp2
+    line: 478
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 491
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 491
+  - kind: CALLS
+    source: 
+    target: normalize
+    line: 491
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 493
+  - kind: CALLS
+    source: 
+    target: GetSurfelOctahedralPixel
+    line: 495
+  - kind: CALLS
+    source: 
+    target: NeoXToUE4
+    line: 495
+  - kind: CALLS
+    source: 
+    target: t_surfel_irradiance.Sample
+    line: 496
+  - kind: HAS_MEMBER
+    source: FThreeBandSHVector
+    target: V0
+    line: 502
+  - kind: HAS_MEMBER
+    source: FThreeBandSHVector
+    target: V1
+    line: 503
+  - kind: HAS_MEMBER
+    source: FThreeBandSHVector
+    target: V2
+    line: 504
+  - kind: HAS_MEMBER
+    source: FThreeBandSHVectorRGB
+    target: R
+    line: 509
+  - kind: HAS_MEMBER
+    source: FThreeBandSHVectorRGB
+    target: G
+    line: 510
+  - kind: HAS_MEMBER
+    source: FThreeBandSHVectorRGB
+    target: B
+    line: 511
+  - kind: CALLS
+    source: 
+    target: SHBasisFunction3
+    line: 534
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 554
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 555
+  - kind: CALLS
+    source: 
+    target: DotSH3
+    line: 563
+  - kind: CALLS
+    source: 
+    target: DotSH3
+    line: 564
+  - kind: CALLS
+    source: 
+    target: DotSH3
+    line: 565
+  - kind: CALLS
+    source: 
+    target: f32tof16
+    line: 599
+  - kind: CALLS
+    source: 
+    target: f32tof16
+    line: 599
+  - kind: CALLS
+    source: 
+    target: f16tof32
+    line: 605
+  - kind: CALLS
+    source: 
+    target: f16tof32
+    line: 605
+  - kind: CALLS
+    source: 
+    target: Compress2Floats
+    line: 610
+  - kind: CALLS
+    source: 
+    target: Compress2Floats
+    line: 610
+  - kind: CALLS
+    source: 
+    target: Uncompress2Floats
+    line: 615
+  - kind: CALLS
+    source: 
+    target: Uncompress2Floats
+    line: 615
+  - kind: CALLS
+    source: 
+    target: all
+    line: 626
+  - kind: CALLS
+    source: 
+    target: all
+    line: 626
+  - kind: CALLS
+    source: 
+    target: t_surfel_volume_brick_indirect.Load
+    line: 636
+  - kind: CALLS
+    source: 
+    target: GetIndexInBrickForASFromCoord
+    line: 638

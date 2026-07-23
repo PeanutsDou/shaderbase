@@ -1,0 +1,544 @@
+# matcap/nodes/matcap_sand_nodes.hlsl 的边抽取期望候选
+input: matcap/nodes/matcap_sand_nodes.hlsl
+
+expected_edges:
+  - kind: CALLS
+    source: 
+    target: max
+    line: 10
+  - kind: CALLS
+    source: 
+    target: abs
+    line: 10
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 10
+  - kind: CALLS
+    source: 
+    target: max
+    line: 11
+  - kind: CALLS
+    source: 
+    target: abs
+    line: 11
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 11
+  - kind: CALLS
+    source: 
+    target: max
+    line: 12
+  - kind: CALLS
+    source: 
+    target: abs
+    line: 12
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 12
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 14
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 15
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_flowmap_intensity
+    line: 31
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_flowmap_u_speed
+    line: 38
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_flowmap_v_speed
+    line: 45
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_flowmap_u_tilling
+    line: 52
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_flowmap_v_tilling
+    line: 59
+  - kind: USES_UNIFORM
+    source: CalcFlowmap
+    target: u_flowmap_intensity
+    line: 66
+  - kind: USES_UNIFORM
+    source: CalcFlowmap
+    target: u_flowmap_u_speed
+    line: 66
+  - kind: USES_UNIFORM
+    source: CalcFlowmap
+    target: u_flowmap_u_tilling
+    line: 66
+  - kind: USES_UNIFORM
+    source: CalcFlowmap
+    target: u_flowmap_v_speed
+    line: 66
+  - kind: USES_UNIFORM
+    source: CalcFlowmap
+    target: u_flowmap_v_tilling
+    line: 66
+  - kind: CALLS
+    source: 
+    target: t_flowmap.SampleBias
+    line: 113
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_flownoise_intensity
+    line: 122
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_flownoise_parallax
+    line: 128
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_flownoise_tilling
+    line: 134
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_flownoise_u_speed
+    line: 140
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_flownoise_v_speed
+    line: 146
+  - kind: USES_UNIFORM
+    source: CalcFlowNoise
+    target: u_flownoise_intensity
+    line: 152
+  - kind: USES_UNIFORM
+    source: CalcFlowNoise
+    target: u_flownoise_parallax
+    line: 152
+  - kind: USES_UNIFORM
+    source: CalcFlowNoise
+    target: u_flownoise_tilling
+    line: 152
+  - kind: USES_UNIFORM
+    source: CalcFlowNoise
+    target: u_flownoise_u_speed
+    line: 152
+  - kind: USES_UNIFORM
+    source: CalcFlowNoise
+    target: u_flownoise_v_speed
+    line: 152
+  - kind: CALLS
+    source: 
+    target: t_noisemap.SampleBias
+    line: 191
+  - kind: CALLS
+    source: 
+    target: t_noisemap.SampleBias
+    line: 192
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_sparkle_intensity
+    line: 199
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_sparkle_min
+    line: 205
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_sparkle_max
+    line: 211
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_sparkle_u_tilling
+    line: 217
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_sparkle_v_tilling
+    line: 223
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_sparkle_u_speed
+    line: 229
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_sparkle_v_speed
+    line: 235
+  - kind: USES_UNIFORM
+    source: CalcSparkleNoise
+    target: u_sparkle_intensity
+    line: 241
+  - kind: USES_UNIFORM
+    source: CalcSparkleNoise
+    target: u_sparkle_max
+    line: 241
+  - kind: USES_UNIFORM
+    source: CalcSparkleNoise
+    target: u_sparkle_min
+    line: 241
+  - kind: USES_UNIFORM
+    source: CalcSparkleNoise
+    target: u_sparkle_u_speed
+    line: 241
+  - kind: USES_UNIFORM
+    source: CalcSparkleNoise
+    target: u_sparkle_u_tilling
+    line: 241
+  - kind: USES_UNIFORM
+    source: CalcSparkleNoise
+    target: u_sparkle_v_speed
+    line: 241
+  - kind: USES_UNIFORM
+    source: CalcSparkleNoise
+    target: u_sparkle_v_tilling
+    line: 241
+  - kind: CALLS
+    source: 
+    target: t_noisemap.Sample
+    line: 251
+  - kind: CALLS
+    source: 
+    target: t_noisemap.Sample
+    line: 252
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 254
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_flowcolor_cycle_time
+    line: 271
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_flow_color
+    line: 278
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_flow_color_intensity
+    line: 285
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_flowcolor_parallax
+    line: 292
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_flowcolor_u_tilling
+    line: 299
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_flowcolor_v_tilling
+    line: 306
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_flowcolor_u_bias
+    line: 314
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_flowcolor_v_bias
+    line: 322
+  - kind: CONDITIONAL_ON
+    source: 
+    target: ENABLE_ALPHA_DISSOLVE
+    line: 329
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_flowcolor_dissolve_factor
+    line: 334
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_flowcolor_dissolve_intensity
+    line: 341
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_flowcolor_dissolve_range
+    line: 348
+  - kind: USES_UNIFORM
+    source: CalcFlowColor
+    target: u_flow_color
+    line: 355
+  - kind: USES_UNIFORM
+    source: CalcFlowColor
+    target: u_flow_color_intensity
+    line: 355
+  - kind: USES_UNIFORM
+    source: CalcFlowColor
+    target: u_flowcolor_cycle_time
+    line: 355
+  - kind: USES_UNIFORM
+    source: CalcFlowColor
+    target: u_flowcolor_dissolve_factor
+    line: 355
+  - kind: USES_UNIFORM
+    source: CalcFlowColor
+    target: u_flowcolor_dissolve_intensity
+    line: 355
+  - kind: USES_UNIFORM
+    source: CalcFlowColor
+    target: u_flowcolor_dissolve_range
+    line: 355
+  - kind: USES_UNIFORM
+    source: CalcFlowColor
+    target: u_flowcolor_parallax
+    line: 355
+  - kind: USES_UNIFORM
+    source: CalcFlowColor
+    target: u_flowcolor_u_bias
+    line: 355
+  - kind: USES_UNIFORM
+    source: CalcFlowColor
+    target: u_flowcolor_u_tilling
+    line: 355
+  - kind: USES_UNIFORM
+    source: CalcFlowColor
+    target: u_flowcolor_v_bias
+    line: 355
+  - kind: USES_UNIFORM
+    source: CalcFlowColor
+    target: u_flowcolor_v_tilling
+    line: 355
+  - kind: CALLS
+    source: 
+    target: abs
+    line: 371
+  - kind: CALLS
+    source: 
+    target: frac
+    line: 371
+  - kind: CALLS
+    source: 
+    target: frac
+    line: 374
+  - kind: CALLS
+    source: 
+    target: frac
+    line: 375
+  - kind: CALLS
+    source: 
+    target: frac
+    line: 376
+  - kind: CALLS
+    source: 
+    target: frac
+    line: 377
+  - kind: CALLS
+    source: 
+    target: t_flowcolormap.Sample
+    line: 380
+  - kind: CALLS
+    source: 
+    target: t_flowcolormap.Sample
+    line: 381
+  - kind: CALLS
+    source: 
+    target: srgb2linearf3
+    line: 382
+  - kind: CALLS
+    source: 
+    target: srgb2linearf3
+    line: 382
+  - kind: CALLS
+    source: 
+    target: srgb2linearf3
+    line: 383
+  - kind: CALLS
+    source: 
+    target: srgb2linearf3
+    line: 383
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 386
+  - kind: CALLS
+    source: 
+    target: step
+    line: 389
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 390
+  - kind: CALLS
+    source: 
+    target: smoothstep
+    line: 390
+  - kind: CALLS
+    source: 
+    target: max
+    line: 390
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 394
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_fresnel_power
+    line: 400
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_fresnel_intensity
+    line: 408
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_fresnel_color
+    line: 417
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_fresnel_min_intensity
+    line: 424
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_fresnel_only_emission
+    line: 433
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_fresnel_breath_freq
+    line: 441
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_fresnel_breath_min
+    line: 450
+  - kind: USES_UNIFORM
+    source: CalcFresnel
+    target: u_fresnel_breath_freq
+    line: 459
+  - kind: USES_UNIFORM
+    source: CalcFresnel
+    target: u_fresnel_breath_min
+    line: 459
+  - kind: USES_UNIFORM
+    source: CalcFresnel
+    target: u_fresnel_color
+    line: 459
+  - kind: USES_UNIFORM
+    source: CalcFresnel
+    target: u_fresnel_intensity
+    line: 459
+  - kind: USES_UNIFORM
+    source: CalcFresnel
+    target: u_fresnel_min_intensity
+    line: 459
+  - kind: USES_UNIFORM
+    source: CalcFresnel
+    target: u_fresnel_only_emission
+    line: 459
+  - kind: USES_UNIFORM
+    source: CalcFresnel
+    target: u_fresnel_power
+    line: 459
+  - kind: CALLS
+    source: 
+    target: abs
+    line: 463
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 466
+  - kind: CALLS
+    source: 
+    target: abs
+    line: 466
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 466
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 470
+  - kind: CALLS
+    source: 
+    target: min
+    line: 470
+  - kind: CALLS
+    source: 
+    target: abs
+    line: 470
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 470
+  - kind: CALLS
+    source: 
+    target: max
+    line: 473
+  - kind: CALLS
+    source: 
+    target: abs
+    line: 474
+  - kind: CALLS
+    source: 
+    target: frac
+    line: 474
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 475
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 484
+  - kind: CALLS
+    source: 
+    target: normalize
+    line: 485
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 486
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 487
+  - kind: CALLS
+    source: 
+    target: t_matcap.SampleBias
+    line: 490
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 491
+  - kind: CALLS
+    source: 
+    target: max
+    line: 491
+  - kind: CALLS
+    source: 
+    target: abs
+    line: 491
+  - kind: CALLS
+    source: 
+    target: max
+    line: 491
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 491
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 492
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 493
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 495
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 496
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 496
+  - kind: CALLS
+    source: 
+    target: max
+    line: 496
+  - kind: CALLS
+    source: 
+    target: max
+    line: 498

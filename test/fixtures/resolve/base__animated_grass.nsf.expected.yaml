@@ -1,0 +1,23 @@
+# base/animated_grass.nsf 的跨文件 resolve 期望
+# include 闭包（54 文件，这里验关键的几个）
+input: base/animated_grass.nsf
+
+expected_include_closure:
+  - shaderlib/common.hlsl
+  - shaderlib/foliage_anim_functions.hlsl
+  - shaderlib/va_uniforms.hlsl
+  - shaderlib/season_uniforms.hlsl
+  - shaderlib/surface_functions_shared.hlsl
+  - shaderlib/texture.hlsl
+  - shaderlib/function.hlsl
+
+expected_resolved_calls:
+  - caller: CustomizedVertexDataOutput
+    callee: CalcMeadowAnimWPO
+    resolved_to: shaderlib/foliage_anim_functions.hlsl
+  - caller: CustomizedVertexDataOutput
+    callee: CalcVertexAnimationGrass
+    resolved_to: shaderlib/va_uniforms.hlsl
+  - caller: PixelNodesBasedGraph
+    callee: SampleColorTextureBias
+    resolved_to: shaderlib/texture.hlsl

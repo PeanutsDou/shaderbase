@@ -1,0 +1,18 @@
+# pbr/pbr_default_volcano.nsf 的跨文件 resolve 期望
+input: pbr/pbr_default_volcano.nsf
+
+expected_include_closure:
+  - shaderlib/common.hlsl
+  - shaderlib/surface_functions_shared.hlsl
+  - shaderlib/texture.hlsl
+  - shaderlib/function.hlsl
+  - shaderlib/vertex_functions.hlsl
+  - shaderlib/shading_models.hlsl
+
+expected_resolved_calls:
+  - caller: PixelNodesBasedGraph
+    callee: SampleColorTextureBias
+    resolved_to: shaderlib/texture.hlsl
+  - caller: PixelNodesBasedGraph
+    callee: CalcAlphaTestClip
+    resolved_to: shaderlib/function.hlsl

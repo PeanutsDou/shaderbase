@@ -1,0 +1,1184 @@
+# common_shader/skydome_v2_functions.hlsl 的边抽取期望候选
+input: common_shader/skydome_v2_functions.hlsl
+
+expected_edges:
+  - kind: CALLS
+    source: 
+    target: cos
+    line: 182
+  - kind: CALLS
+    source: 
+    target: sin
+    line: 183
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 187
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 187
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 201
+  - kind: CALLS
+    source: 
+    target: smoothstep
+    line: 201
+  - kind: CALLS
+    source: 
+    target: distance
+    line: 201
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 202
+  - kind: CALLS
+    source: 
+    target: smoothstep
+    line: 202
+  - kind: CALLS
+    source: 
+    target: distance
+    line: 202
+  - kind: CALLS
+    source: 
+    target: acos
+    line: 211
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 211
+  - kind: CALLS
+    source: 
+    target: normalize
+    line: 211
+  - kind: CALLS
+    source: 
+    target: RotateUV
+    line: 228
+  - kind: CALLS
+    source: 
+    target: RotateUV
+    line: 229
+  - kind: CALLS
+    source: 
+    target: Panner
+    line: 233
+  - kind: CALLS
+    source: 
+    target: Panner
+    line: 234
+  - kind: CALLS
+    source: 
+    target: RotateUV
+    line: 246
+  - kind: CALLS
+    source: 
+    target: Panner
+    line: 250
+  - kind: CALLS
+    source: 
+    target: ScaleUVsByCenter
+    line: 265
+  - kind: CALLS
+    source: 
+    target: Panner
+    line: 266
+  - kind: CALLS
+    source: 
+    target: ScaleUVsByCenter
+    line: 268
+  - kind: CALLS
+    source: 
+    target: Panner
+    line: 269
+  - kind: CALLS
+    source: 
+    target: ScaleUVsByCenter
+    line: 273
+  - kind: CALLS
+    source: 
+    target: Panner
+    line: 274
+  - kind: CALLS
+    source: 
+    target: ScaleUVsByCenter
+    line: 277
+  - kind: CALLS
+    source: 
+    target: Panner
+    line: 278
+  - kind: CALLS
+    source: 
+    target: Rotator
+    line: 280
+  - kind: CALLS
+    source: 
+    target: Panner
+    line: 281
+  - kind: CALLS
+    source: 
+    target: Flat_spread_uv
+    line: 304
+  - kind: CALLS
+    source: 
+    target: Static_Cloud_UV
+    line: 311
+  - kind: CALLS
+    source: 
+    target: New_Cloud_UV
+    line: 316
+  - kind: CALLS
+    source: 
+    target: Aurora_UV
+    line: 321
+  - kind: CALLS
+    source: 
+    target: Lightning_UV
+    line: 329
+  - kind: CALLS
+    source: 
+    target: CalculateHeightFog
+    line: 344
+  - kind: CALLS
+    source: 
+    target: VertexFog
+    line: 346
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 355
+  - kind: CALLS
+    source: 
+    target: distance
+    line: 355
+  - kind: CALLS
+    source: 
+    target: normalize
+    line: 355
+  - kind: CALLS
+    source: 
+    target: flowbasemap.Sample
+    line: 359
+  - kind: CALLS
+    source: 
+    target: flowbasemap.Sample
+    line: 360
+  - kind: CALLS
+    source: 
+    target: flowbasemap.SampleBias
+    line: 361
+  - kind: CALLS
+    source: 
+    target: flowbasemap.SampleBias
+    line: 362
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 371
+  - kind: CALLS
+    source: 
+    target: abs
+    line: 371
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 372
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 380
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 380
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 381
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 387
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 388
+  - kind: CALLS
+    source: 
+    target: clamp
+    line: 404
+  - kind: CALLS
+    source: 
+    target: clamp
+    line: 406
+  - kind: CALLS
+    source: 
+    target: normalize
+    line: 414
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 415
+  - kind: CALLS
+    source: 
+    target: ScaleRadialGradientAroundWhite
+    line: 417
+  - kind: CALLS
+    source: 
+    target: ScaleRadialGradientAroundWhite
+    line: 419
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 421
+  - kind: CALLS
+    source: 
+    target: clamp
+    line: 421
+  - kind: CALLS
+    source: 
+    target: normalize
+    line: 428
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 429
+  - kind: CALLS
+    source: 
+    target: ScaleRadialGradientAroundWhite
+    line: 431
+  - kind: CALLS
+    source: 
+    target: ScaleRadialGradientAroundWhite
+    line: 433
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 435
+  - kind: CALLS
+    source: 
+    target: clamp
+    line: 435
+  - kind: CALLS
+    source: 
+    target: normalize
+    line: 443
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 444
+  - kind: CALLS
+    source: 
+    target: ScaleRadialGradientAroundWhite
+    line: 446
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 447
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 448
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 448
+  - kind: CALLS
+    source: 
+    target: clamp
+    line: 450
+  - kind: CALLS
+    source: 
+    target: ScaleRadialGradientAroundWhite
+    line: 452
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 453
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 453
+  - kind: CALLS
+    source: 
+    target: clamp
+    line: 454
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 464
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 470
+  - kind: CALLS
+    source: 
+    target: clamp
+    line: 471
+  - kind: CALLS
+    source: 
+    target: MaskShineIntensityWithDensity
+    line: 477
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 478
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 487
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 488
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 489
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 489
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 493
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 500
+  - kind: CALLS
+    source: 
+    target: clamp
+    line: 500
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 501
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 516
+  - kind: CALLS
+    source: 
+    target: normalize
+    line: 516
+  - kind: CALLS
+    source: 
+    target: normalize
+    line: 516
+  - kind: CALLS
+    source: 
+    target: acos
+    line: 517
+  - kind: CALLS
+    source: 
+    target: smoothstep
+    line: 520
+  - kind: CALLS
+    source: 
+    target: DrawSunMask
+    line: 533
+  - kind: CALLS
+    source: 
+    target: normalize
+    line: 533
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 536
+  - kind: CALLS
+    source: 
+    target: inverse_lerp
+    line: 537
+  - kind: CALLS
+    source: 
+    target: CloudDistribution
+    line: 538
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 538
+  - kind: CALLS
+    source: 
+    target: CloudDistribution
+    line: 541
+  - kind: CALLS
+    source: 
+    target: max
+    line: 543
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 545
+  - kind: CALLS
+    source: 
+    target: distance
+    line: 545
+  - kind: CALLS
+    source: 
+    target: normalize
+    line: 545
+  - kind: CALLS
+    source: 
+    target: flowbasemap.Sample
+    line: 554
+  - kind: CALLS
+    source: 
+    target: flowbasemap.Sample
+    line: 555
+  - kind: CALLS
+    source: 
+    target: flowbasemap.SampleBias
+    line: 556
+  - kind: CALLS
+    source: 
+    target: flowbasemap.SampleBias
+    line: 557
+  - kind: CALLS
+    source: 
+    target: flowbasemap.Sample
+    line: 559
+  - kind: CALLS
+    source: 
+    target: flowbasemap.Sample
+    line: 560
+  - kind: CALLS
+    source: 
+    target: flowbasemap.SampleBias
+    line: 561
+  - kind: CALLS
+    source: 
+    target: flowbasemap.SampleBias
+    line: 562
+  - kind: CALLS
+    source: 
+    target: ConvertDensityToMiddleThreshold
+    line: 574
+  - kind: CALLS
+    source: 
+    target: FilterClouds
+    line: 575
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 576
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 576
+  - kind: CALLS
+    source: 
+    target: FilterClouds
+    line: 579
+  - kind: CALLS
+    source: 
+    target: MapEdgeGradient
+    line: 580
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 583
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 584
+  - kind: CALLS
+    source: 
+    target: FilterClouds
+    line: 589
+  - kind: CALLS
+    source: 
+    target: smoothstep
+    line: 590
+  - kind: CALLS
+    source: 
+    target: abs
+    line: 590
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 590
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 591
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 592
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 593
+  - kind: CALLS
+    source: 
+    target: ShadingGradients
+    line: 594
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 596
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 596
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 596
+  - kind: CALLS
+    source: 
+    target: WideLightingGradients
+    line: 599
+  - kind: CALLS
+    source: 
+    target: AddShineVariance
+    line: 601
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 605
+  - kind: CALLS
+    source: 
+    target: smoothstep
+    line: 605
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 609
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 610
+  - kind: CALLS
+    source: 
+    target: CloudShineGradients
+    line: 613
+  - kind: CALLS
+    source: 
+    target: SunShineEdges
+    line: 614
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 615
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 620
+  - kind: CALLS
+    source: 
+    target: CloudDistribution
+    line: 630
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 634
+  - kind: CALLS
+    source: 
+    target: distance
+    line: 634
+  - kind: CALLS
+    source: 
+    target: normalize
+    line: 634
+  - kind: CALLS
+    source: 
+    target: flowbasemap.Sample
+    line: 638
+  - kind: CALLS
+    source: 
+    target: flowbasemap.Sample
+    line: 639
+  - kind: CALLS
+    source: 
+    target: flowbasemap.SampleBias
+    line: 640
+  - kind: CALLS
+    source: 
+    target: flowbasemap.SampleBias
+    line: 641
+  - kind: CALLS
+    source: 
+    target: ConvertDensityToMiddleThreshold
+    line: 651
+  - kind: CALLS
+    source: 
+    target: FilterClouds
+    line: 652
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 653
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 653
+  - kind: CALLS
+    source: 
+    target: FilterClouds
+    line: 656
+  - kind: CALLS
+    source: 
+    target: MapEdgeGradient
+    line: 657
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 660
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 661
+  - kind: CALLS
+    source: 
+    target: FilterClouds
+    line: 666
+  - kind: CALLS
+    source: 
+    target: smoothstep
+    line: 667
+  - kind: CALLS
+    source: 
+    target: abs
+    line: 667
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 667
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 668
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 669
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 670
+  - kind: CALLS
+    source: 
+    target: ShadingGradients
+    line: 671
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 673
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 673
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 673
+  - kind: CALLS
+    source: 
+    target: WideLightingGradients
+    line: 676
+  - kind: CALLS
+    source: 
+    target: AddShineVariance
+    line: 678
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 682
+  - kind: CALLS
+    source: 
+    target: smoothstep
+    line: 682
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 684
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 686
+  - kind: CALLS
+    source: 
+    target: CloudShineGradients
+    line: 688
+  - kind: CALLS
+    source: 
+    target: SunShineEdges
+    line: 689
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 690
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 694
+  - kind: CALLS
+    source: 
+    target: SampleColorTexture
+    line: 711
+  - kind: CALLS
+    source: 
+    target: SampleColorTexture
+    line: 712
+  - kind: CALLS
+    source: 
+    target: SampleColorTexture
+    line: 717
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 718
+  - kind: CALLS
+    source: 
+    target: SampleColorTexture
+    line: 719
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 720
+  - kind: CALLS
+    source: 
+    target: SampleColorTextureLevel
+    line: 723
+  - kind: CALLS
+    source: 
+    target: sin
+    line: 725
+  - kind: CALLS
+    source: 
+    target: sin
+    line: 726
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 727
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 728
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 729
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 729
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 731
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 732
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 732
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 734
+  - kind: CALLS
+    source: 
+    target: SampleColorTexture
+    line: 736
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 737
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 739
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 739
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 740
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 741
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 742
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 743
+  - kind: CALLS
+    source: 
+    target: SampleColorTextureBias
+    line: 750
+  - kind: CALLS
+    source: 
+    target: SampleColorTextureBias
+    line: 751
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 753
+  - kind: CALLS
+    source: 
+    target: cos
+    line: 753
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 753
+  - kind: CALLS
+    source: 
+    target: sin
+    line: 753
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 754
+  - kind: CALLS
+    source: 
+    target: sin
+    line: 754
+  - kind: CALLS
+    source: 
+    target: step
+    line: 755
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 756
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 758
+  - kind: CALLS
+    source: 
+    target: cos
+    line: 758
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 758
+  - kind: CALLS
+    source: 
+    target: sin
+    line: 758
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 759
+  - kind: CALLS
+    source: 
+    target: sin
+    line: 759
+  - kind: CALLS
+    source: 
+    target: step
+    line: 760
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 761
+  - kind: CALLS
+    source: 
+    target: SampleColorTextureBias
+    line: 773
+  - kind: CALLS
+    source: 
+    target: SampleColorTextureBias
+    line: 775
+  - kind: CALLS
+    source: 
+    target: clamp
+    line: 802
+  - kind: CALLS
+    source: 
+    target: CurrentMoonLightMaterialColor
+    line: 808
+  - kind: CALLS
+    source: 
+    target: clamp
+    line: 808
+  - kind: CALLS
+    source: 
+    target: GetSkyAtmosphereLightIlluminance
+    line: 810
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 811
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 811
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 812
+  - kind: CALLS
+    source: 
+    target: GetSkyAtmosphereViewLuminance
+    line: 813
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 814
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 821
+  - kind: CALLS
+    source: 
+    target: normalize
+    line: 821
+  - kind: CALLS
+    source: 
+    target: clamp
+    line: 826
+  - kind: CALLS
+    source: 
+    target: clamp
+    line: 827
+  - kind: CALLS
+    source: 
+    target: clamp
+    line: 838
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 839
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 839
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 840
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 847
+  - kind: CALLS
+    source: 
+    target: ScaleRadialGradientAroundWhite
+    line: 849
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 851
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 852
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 852
+  - kind: CALLS
+    source: 
+    target: clamp
+    line: 855
+  - kind: CALLS
+    source: 
+    target: ScaleRadialGradientAroundWhite
+    line: 857
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 858
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 858
+  - kind: CALLS
+    source: 
+    target: clamp
+    line: 859
+  - kind: CALLS
+    source: 
+    target: flowbasemap.Sample
+    line: 867
+  - kind: CALLS
+    source: 
+    target: flowbasemap.Sample
+    line: 869
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 895
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 898
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 898
+  - kind: CALLS
+    source: 
+    target: CloudShineGradients_1
+    line: 901
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 902
+  - kind: CALLS
+    source: 
+    target: LightAndDarkCloudColors
+    line: 908
+  - kind: CALLS
+    source: 
+    target: max
+    line: 909
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 909
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 909
+  - kind: CALLS
+    source: 
+    target: max
+    line: 911
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 911
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 911
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 915
+  - kind: CALLS
+    source: 
+    target: GetSkyAtmosphereViewLuminance
+    line: 917
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 918
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 918
+  - kind: CALLS
+    source: 
+    target: NeoXToUE4
+    line: 922
+  - kind: CALLS
+    source: 
+    target: GetSkySHDiffuse
+    line: 923
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 924
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 924
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 928
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 928
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 929
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 932
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 932
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 933
+  - kind: CALLS
+    source: 
+    target: ScaleIntensityAroundSun
+    line: 938
+  - kind: CALLS
+    source: 
+    target: normalize
+    line: 959
+  - kind: CALLS
+    source: 
+    target: RotateAboutAxis
+    line: 959
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 963
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 964
+  - kind: CALLS
+    source: 
+    target: staticcloud_a_up.Sample
+    line: 966
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 969
+  - kind: CALLS
+    source: 
+    target: staticcloud_xy.Sample
+    line: 974
+  - kind: CALLS
+    source: 
+    target: StaticClouds
+    line: 975
+  - kind: CALLS
+    source: 
+    target: normalize
+    line: 991
+  - kind: CALLS
+    source: 
+    target: RotateAboutAxis
+    line: 991
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 995
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 996
+  - kind: CALLS
+    source: 
+    target: staticcloud_a_up.Sample
+    line: 999
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 1000
+  - kind: CALLS
+    source: 
+    target: StaticClouds
+    line: 1007

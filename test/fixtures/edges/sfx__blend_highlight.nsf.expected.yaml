@@ -1,0 +1,208 @@
+# sfx/blend_highlight.nsf 的边抽取期望候选
+input: sfx/blend_highlight.nsf
+
+expected_edges:
+  - kind: INCLUDES
+    source: 
+    target: ../shaderlib/common.hlsl
+    line: 1
+  - kind: INCLUDES
+    source: 
+    target: ../shaderlib/sfx_light.hlsl
+    line: 2
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: scale_x
+    line: 13
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: scale_y
+    line: 20
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: offset_x
+    line: 27
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: offset_y
+    line: 34
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: intensity
+    line: 41
+  - kind: HAS_MEMBER
+    source: VS_INPUT
+    target: position
+    line: 51
+  - kind: FLOWS_TO
+    source: VS_INPUT
+    target: POSITION
+    line: 51
+  - kind: HAS_MEMBER
+    source: VS_INPUT
+    target: diffuse
+    line: 52
+  - kind: FLOWS_TO
+    source: VS_INPUT
+    target: COLOR0
+    line: 52
+  - kind: HAS_MEMBER
+    source: VS_INPUT
+    target: texcoord0
+    line: 53
+  - kind: FLOWS_TO
+    source: VS_INPUT
+    target: TEXCOORD0
+    line: 53
+  - kind: HAS_MEMBER
+    source: VS_INPUT
+    target: texcoord4
+    line: 54
+  - kind: FLOWS_TO
+    source: VS_INPUT
+    target: TEXCOORD4
+    line: 54
+  - kind: HAS_MEMBER
+    source: VS_INPUT
+    target: texcoord5
+    line: 55
+  - kind: FLOWS_TO
+    source: VS_INPUT
+    target: TEXCOORD5
+    line: 55
+  - kind: HAS_MEMBER
+    source: VS_INPUT
+    target: texcoord6
+    line: 56
+  - kind: FLOWS_TO
+    source: VS_INPUT
+    target: TEXCOORD6
+    line: 56
+  - kind: HAS_MEMBER
+    source: VS_INPUT
+    target: texcoord7
+    line: 57
+  - kind: FLOWS_TO
+    source: VS_INPUT
+    target: TEXCOORD7
+    line: 57
+  - kind: HAS_MEMBER
+    source: PS_INPUT
+    target: final_position
+    line: 62
+  - kind: FLOWS_TO
+    source: PS_INPUT
+    target: SV_Position
+    line: 62
+  - kind: HAS_MEMBER
+    source: PS_INPUT
+    target: texcoord0
+    line: 63
+  - kind: FLOWS_TO
+    source: PS_INPUT
+    target: TEXCOORD0
+    line: 63
+  - kind: HAS_MEMBER
+    source: PS_INPUT
+    target: diffuse
+    line: 64
+  - kind: FLOWS_TO
+    source: PS_INPUT
+    target: TEXCOORD1
+    line: 64
+  - kind: INCLUDES
+    source: 
+    target: ../shaderlib/vertex_functions.hlsl
+    line: 72
+  - kind: USES_UNIFORM
+    source: vs_main
+    target: offset_x
+    line: 73
+  - kind: USES_UNIFORM
+    source: vs_main
+    target: offset_y
+    line: 73
+  - kind: USES_UNIFORM
+    source: vs_main
+    target: scale_x
+    line: 73
+  - kind: USES_UNIFORM
+    source: vs_main
+    target: scale_y
+    line: 73
+  - kind: CALLS
+    source: 
+    target: SFXInstance
+    line: 76
+  - kind: CALLS
+    source: 
+    target: mul
+    line: 89
+  - kind: USES_UNIFORM
+    source: ps_main
+    target: intensity
+    line: 100
+  - kind: CALLS
+    source: 
+    target: SampleColorTextureSW
+    line: 103
+  - kind: CALLS
+    source: 
+    target: GetSfxNoLight
+    line: 109
+  - kind: EXPOSES_TECHNIQUE
+    source: 
+    target: THighlightBlend
+    line: 112
+  - kind: IS_ENTRY_POINT
+    source: THighlightBlend
+    target: vs_main
+    line: 128
+    stage: vertex
+  - kind: IS_ENTRY_POINT
+    source: THighlightBlend
+    target: ps_main
+    line: 129
+    stage: pixel
+  - kind: EXPOSES_TECHNIQUE
+    source: 
+    target: TNoHdrBlend
+    line: 133
+  - kind: IS_ENTRY_POINT
+    source: TNoHdrBlend
+    target: vs_main
+    line: 149
+    stage: vertex
+  - kind: IS_ENTRY_POINT
+    source: TNoHdrBlend
+    target: ps_main
+    line: 150
+    stage: pixel
+  - kind: EXPOSES_TECHNIQUE
+    source: 
+    target: THighlightAdd
+    line: 154
+  - kind: IS_ENTRY_POINT
+    source: THighlightAdd
+    target: vs_main
+    line: 170
+    stage: vertex
+  - kind: IS_ENTRY_POINT
+    source: THighlightAdd
+    target: ps_main
+    line: 171
+    stage: pixel
+  - kind: EXPOSES_TECHNIQUE
+    source: 
+    target: TNoHdrAdd
+    line: 175
+  - kind: IS_ENTRY_POINT
+    source: TNoHdrAdd
+    target: vs_main
+    line: 191
+    stage: vertex
+  - kind: IS_ENTRY_POINT
+    source: TNoHdrAdd
+    target: ps_main
+    line: 192
+    stage: pixel

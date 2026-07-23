@@ -1,0 +1,278 @@
+# hlod/hierarchicallod.nsf 的边抽取期望候选
+input: hlod/hierarchicallod.nsf
+
+expected_edges:
+  - kind: HAS_MEMBER
+    source: VS_INPUT
+    target: texcoord2
+    line: 4
+  - kind: FLOWS_TO
+    source: VS_INPUT
+    target: TEXCOORD2
+    line: 4
+  - kind: HAS_MEMBER
+    source: VS_INPUT
+    target: texcoord3
+    line: 5
+  - kind: FLOWS_TO
+    source: VS_INPUT
+    target: TEXCOORD3
+    line: 5
+  - kind: HAS_MEMBER
+    source: PS_INPUT
+    target: atlas_offset
+    line: 13
+  - kind: FLOWS_TO
+    source: PS_INPUT
+    target: TEXCOORD10
+    line: 13
+  - kind: HAS_MEMBER
+    source: PS_INPUT
+    target: season_params
+    line: 14
+  - kind: FLOWS_TO
+    source: PS_INPUT
+    target: TEXCOORD11
+    line: 14
+  - kind: HAS_MEMBER
+    source: PS_INPUT
+    target: pbr_atlas_offset
+    line: 15
+  - kind: FLOWS_TO
+    source: PS_INPUT
+    target: TEXCOORD13
+    line: 15
+  - kind: HAS_MEMBER
+    source: PS_INPUT
+    target: fracture_offset
+    line: 16
+  - kind: FLOWS_TO
+    source: PS_INPUT
+    target: TEXCOORD15
+    line: 16
+  - kind: INCLUDES
+    source: 
+    target: ../shaderlib/common.hlsl
+    line: 19
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_th
+    line: 56
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_tlc
+    line: 63
+  - kind: CONDITIONAL_ON
+    source: 
+    target: SEASON_SUPPORT
+    line: 86
+  - kind: INCLUDES
+    source: 
+    target: ../shaderlib/indirect_diffuse_base.hlsl
+    line: 185
+  - kind: INCLUDES
+    source: 
+    target: ../shaderlib/vertex_functions.hlsl
+    line: 187
+  - kind: INCLUDES
+    source: 
+    target: ../shaderlib/season_uniforms.hlsl
+    line: 189
+  - kind: CALLS
+    source: 
+    target: Tex1.Sample
+    line: 197
+  - kind: CALLS
+    source: 
+    target: Tex2.Sample
+    line: 202
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 204
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 204
+  - kind: INCLUDES
+    source: 
+    target: ../shaderlib/common_pbr.hlsl
+    line: 226
+  - kind: CALLS
+    source: 
+    target: TransformLocation
+    line: 232
+  - kind: CALLS
+    source: 
+    target: TransformLocation
+    line: 233
+  - kind: CALLS
+    source: 
+    target: ddx
+    line: 288
+  - kind: CALLS
+    source: 
+    target: ddy
+    line: 289
+  - kind: CALLS
+    source: 
+    target: max
+    line: 290
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 290
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 290
+  - kind: CALLS
+    source: 
+    target: max
+    line: 292
+  - kind: CALLS
+    source: 
+    target: log2
+    line: 292
+  - kind: CALLS
+    source: 
+    target: max
+    line: 300
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 302
+  - kind: CALLS
+    source: 
+    target: TexFractureId.Load
+    line: 310
+  - kind: CALLS
+    source: 
+    target: TexFractureState.Load
+    line: 316
+  - kind: CALLS
+    source: 
+    target: TexFractureState.Load
+    line: 321
+  - kind: CALLS
+    source: 
+    target: all
+    line: 333
+  - kind: CALLS
+    source: 
+    target: IsPixelFactured
+    line: 337
+  - kind: CALLS
+    source: 
+    target: IsPixelFactured
+    line: 338
+  - kind: CALLS
+    source: 
+    target: IsPixelFactured
+    line: 339
+  - kind: CALLS
+    source: 
+    target: IsPixelFactured
+    line: 340
+  - kind: CALLS
+    source: 
+    target: max
+    line: 341
+  - kind: CALLS
+    source: 
+    target: max
+    line: 341
+  - kind: CALLS
+    source: 
+    target: max
+    line: 341
+  - kind: CALLS
+    source: 
+    target: IsPixelFactured
+    line: 343
+  - kind: CALLS
+    source: 
+    target: CalculateMipMapLevel
+    line: 358
+  - kind: CALLS
+    source: 
+    target: min
+    line: 359
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 359
+  - kind: CALLS
+    source: 
+    target: frac
+    line: 360
+  - kind: CALLS
+    source: 
+    target: SampleColorTextureBias
+    line: 365
+  - kind: CALLS
+    source: 
+    target: CalculateMipMapLevel
+    line: 373
+  - kind: CALLS
+    source: 
+    target: min
+    line: 374
+  - kind: CALLS
+    source: 
+    target: pow
+    line: 374
+  - kind: CALLS
+    source: 
+    target: frac
+    line: 375
+  - kind: CALLS
+    source: 
+    target: TexParam.Sample
+    line: 378
+  - kind: CALLS
+    source: 
+    target: SampleNormalTexture
+    line: 389
+  - kind: CALLS
+    source: 
+    target: CalcTangentToWorld
+    line: 393
+  - kind: CALLS
+    source: 
+    target: CalcWorldNormal
+    line: 394
+  - kind: CALLS
+    source: 
+    target: GetSeasonColorHLodV2
+    line: 399
+  - kind: CALLS
+    source: 
+    target: GetSeasonColorHLod
+    line: 402
+  - kind: CALLS
+    source: 
+    target: CalcGlobalParameters
+    line: 406
+  - kind: INCLUDES
+    source: 
+    target: ../shaderlib/base_pass_vertex_shader.hlsl
+    line: 417
+  - kind: INCLUDES
+    source: 
+    target: ../shaderlib/base_pass_pixel_shader.hlsl
+    line: 420
+  - kind: EXPOSES_TECHNIQUE
+    source: 
+    target: TShader
+    line: 422
+  - kind: IS_ENTRY_POINT
+    source: TShader
+    target: vs_main
+    line: 430
+    stage: vertex
+  - kind: IS_ENTRY_POINT
+    source: TShader
+    target: ps_main
+    line: 431
+    stage: pixel

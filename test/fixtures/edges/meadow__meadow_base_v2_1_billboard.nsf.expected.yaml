@@ -1,0 +1,298 @@
+# meadow/meadow_base_v2_1_billboard.nsf 的边抽取期望候选
+input: meadow/meadow_base_v2_1_billboard.nsf
+
+expected_edges:
+  - kind: INCLUDES
+    source: 
+    target: ../shaderlib/common.hlsl
+    line: 17
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_spring_color
+    line: 22
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_autumn_color
+    line: 29
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_winter_color
+    line: 35
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_emissive_color
+    line: 41
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_emissive_intentisy
+    line: 47
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: color_const
+    line: 56
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_terrain_blendscale
+    line: 62
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_specular
+    line: 70
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_width_broaden
+    line: 80
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_b_min_scale_val
+    line: 88
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_b_dist_scale_strength
+    line: 96
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_b_start_distance
+    line: 104
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_b_distance_length
+    line: 112
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_b_max_width_ratios
+    line: 120
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_b_max_random_distance
+    line: 128
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_b_random_offset_start_dist
+    line: 136
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_subsurface_color
+    line: 144
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_subsurface_int
+    line: 151
+  - kind: INCLUDES
+    source: 
+    target: meadow_common_v2_1.hlsl
+    line: 214
+  - kind: INCLUDES
+    source: 
+    target: ../shaderlib/lightmap_meadow_uniforms.hlsl
+    line: 216
+  - kind: INCLUDES
+    source: 
+    target: ../shaderlib/common_pbr.hlsl
+    line: 219
+  - kind: INCLUDES
+    source: 
+    target: ../shaderlib/season_uniforms.hlsl
+    line: 222
+  - kind: INCLUDES
+    source: 
+    target: ../shaderlib/lanchao_influence_RT.hlsl
+    line: 223
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_roughness_bluetide
+    line: 245
+  - kind: DECLARES_UNIFORM
+    source: 
+    target: u_roughness
+    line: 255
+  - kind: USES_UNIFORM
+    source: VertexDataNodesBasedGraph
+    target: u_b_dist_scale_strength
+    line: 266
+  - kind: USES_UNIFORM
+    source: VertexDataNodesBasedGraph
+    target: u_b_distance_length
+    line: 266
+  - kind: USES_UNIFORM
+    source: VertexDataNodesBasedGraph
+    target: u_b_max_random_distance
+    line: 266
+  - kind: USES_UNIFORM
+    source: VertexDataNodesBasedGraph
+    target: u_b_max_width_ratios
+    line: 266
+  - kind: USES_UNIFORM
+    source: VertexDataNodesBasedGraph
+    target: u_b_min_scale_val
+    line: 266
+  - kind: USES_UNIFORM
+    source: VertexDataNodesBasedGraph
+    target: u_b_random_offset_start_dist
+    line: 266
+  - kind: USES_UNIFORM
+    source: VertexDataNodesBasedGraph
+    target: u_b_start_distance
+    line: 266
+  - kind: CALLS
+    source: 
+    target: length
+    line: 309
+  - kind: CALLS
+    source: 
+    target: length
+    line: 310
+  - kind: CALLS
+    source: 
+    target: length
+    line: 311
+  - kind: CALLS
+    source: 
+    target: normalize
+    line: 315
+  - kind: CALLS
+    source: 
+    target: dot
+    line: 322
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 325
+  - kind: CALLS
+    source: 
+    target: max
+    line: 325
+  - kind: CALLS
+    source: 
+    target: frac
+    line: 328
+  - kind: CALLS
+    source: 
+    target: frac
+    line: 329
+  - kind: CALLS
+    source: 
+    target: normalize
+    line: 332
+  - kind: CALLS
+    source: 
+    target: normalize
+    line: 335
+  - kind: CALLS
+    source: 
+    target: normalize
+    line: 336
+  - kind: CALLS
+    source: 
+    target: cross
+    line: 336
+  - kind: CALLS
+    source: 
+    target: length
+    line: 348
+  - kind: CALLS
+    source: 
+    target: saturate
+    line: 350
+  - kind: CALLS
+    source: 
+    target: min
+    line: 356
+  - kind: CALLS
+    source: 
+    target: mul
+    line: 365
+  - kind: CALLS
+    source: 
+    target: mul
+    line: 374
+  - kind: CALLS
+    source: 
+    target: normalize
+    line: 377
+  - kind: CALLS
+    source: 
+    target: mul
+    line: 377
+  - kind: CALLS
+    source: 
+    target: max
+    line: 380
+  - kind: USES_UNIFORM
+    source: PixelNodesBasedGraph
+    target: color_const
+    line: 392
+  - kind: USES_UNIFORM
+    source: PixelNodesBasedGraph
+    target: u_roughness
+    line: 392
+  - kind: USES_UNIFORM
+    source: PixelNodesBasedGraph
+    target: u_subsurface_color
+    line: 392
+  - kind: USES_UNIFORM
+    source: PixelNodesBasedGraph
+    target: u_subsurface_int
+    line: 392
+  - kind: CALLS
+    source: 
+    target: SampleColorTextureBias
+    line: 397
+  - kind: CALLS
+    source: 
+    target: customSmoothStep
+    line: 402
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 403
+  - kind: CALLS
+    source: 
+    target: CalcAlphaTestClip
+    line: 407
+  - kind: CALLS
+    source: 
+    target: clamp
+    line: 415
+  - kind: CALLS
+    source: 
+    target: clamp
+    line: 416
+  - kind: CALLS
+    source: 
+    target: lerp
+    line: 417
+  - kind: CALLS
+    source: 
+    target: GetSeasonColorMeadow
+    line: 424
+  - kind: CALLS
+    source: 
+    target: linear2srgbf3
+    line: 428
+  - kind: CALLS
+    source: 
+    target: SurfaceWeatherInfluence
+    line: 430
+  - kind: INCLUDES
+    source: 
+    target: ../shaderlib/base_pass_vertex_shader.hlsl
+    line: 435
+  - kind: INCLUDES
+    source: 
+    target: ../shaderlib/base_pass_pixel_shader.hlsl
+    line: 439
+  - kind: EXPOSES_TECHNIQUE
+    source: 
+    target: TShader
+    line: 441
+  - kind: IS_ENTRY_POINT
+    source: TShader
+    target: vs_main
+    line: 461
+    stage: vertex
+  - kind: IS_ENTRY_POINT
+    source: TShader
+    target: ps_main
+    line: 462
+    stage: pixel

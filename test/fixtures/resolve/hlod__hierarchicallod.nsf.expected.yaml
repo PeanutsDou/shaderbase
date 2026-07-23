@@ -1,0 +1,15 @@
+# hlod/hierarchicallod.nsf 的跨文件 resolve 期望
+input: hlod/hierarchicallod.nsf
+
+expected_include_closure:
+  - shaderlib/common.hlsl
+  - shaderlib/function.hlsl
+  - shaderlib/texture.hlsl
+
+expected_resolved_calls:
+  - caller: VertexDataNodesBasedGraph
+    callee: TransformLocation
+    resolved_to: shaderlib/function.hlsl
+  - caller: PixelNodesBasedGraph
+    callee: IsPixelFactured
+    resolved_to: hlod/hierarchicallod.nsf
