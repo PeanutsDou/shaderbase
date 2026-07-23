@@ -1,0 +1,18 @@
+---defines---
+FLAGS=5
+---source---
+#if FLAGS & 1
+int bit0_set;
+#else
+int bit0_clear;
+#endif
+#if FLAGS & 2
+int bit1_set;
+#else
+int bit1_clear;
+#endif
+int after;
+---expected_line_active---
+true, true, true, false, true, true, false, true, true, true, true
+---expected_branch_count---
+2

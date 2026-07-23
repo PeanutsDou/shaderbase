@@ -1,0 +1,11 @@
+---defines---
+---source---
+#ifndef COMMON_HLSL
+#define COMMON_HLSL
+int guarded;
+#endif
+int after_guard;
+---expected_line_active---
+true, true, true, true, true
+---expected_branch_count---
+1

@@ -1,0 +1,15 @@
+---defines---
+---source---
+#art NORMAL_MAP_ENABLE "法线贴图开关" "BOOL"
+#ifndef NORMAL_MAP_ENABLE
+#define NORMAL_MAP_ENABLE 0
+#endif
+#if NORMAL_MAP_ENABLE
+int has_normal;
+#else
+int no_normal;
+#endif
+---expected_line_active---
+true, true, false, true, true, false, true, true, true
+---expected_branch_count---
+2

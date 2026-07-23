@@ -1,0 +1,14 @@
+---defines---
+---source---
+#ifndef SEASON_SUPPORT
+#define SEASON_SUPPORT 0
+#endif
+#if SEASON_SUPPORT
+int season_on;
+#else
+int season_off;
+#endif
+---expected_line_active---
+true, true, true, true, false, true, true, true
+---expected_branch_count---
+2

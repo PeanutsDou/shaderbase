@@ -1,0 +1,18 @@
+---defines---
+USE_FEATURE_A=1
+USE_FEATURE_B=1
+---source---
+#if USE_FEATURE_A
+#if USE_FEATURE_B
+int ab;
+#else
+int a_only;
+#endif
+#else
+int no_a;
+#endif
+int after;
+---expected_line_active---
+true, true, true, true, false, true, true, false, true, true
+---expected_branch_count---
+2

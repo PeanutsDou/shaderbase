@@ -1,0 +1,16 @@
+---defines---
+USE_A=1
+USE_B=0
+---source---
+#if USE_A && USE_B
+int both;
+#elif USE_A && !USE_B
+int a_not_b;
+#else
+int other;
+#endif
+int after;
+---expected_line_active---
+true, false, true, true, true, true, true, true
+---expected_branch_count---
+1

@@ -1,0 +1,15 @@
+---defines---
+QUALITY_MED=1
+---source---
+#if QUALITY_HIGH
+int high;
+#elif QUALITY_MED
+int med;
+#else
+int low;
+#endif
+int after;
+---expected_line_active---
+true, false, true, true, true, true, true, true
+---expected_branch_count---
+1
