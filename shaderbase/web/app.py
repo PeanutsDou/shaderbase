@@ -11,6 +11,7 @@ from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 
 from . import queries
+from .layout import compute_layout, get_repo_info
 from ..store.connection import connect
 
 _STATIC_DIR = Path(__file__).parent / "static"
@@ -104,7 +105,6 @@ def create_app(db_path: str = "shaderbase.db", default_project: str = "g66") -> 
         from ..store.indexer import index_project
         proj = project or app.state.default_project
         if not root_path:
-            # 从 projects 表查
             cur = app.state.conn.execute(
                 "SELECT root_path FROM projects WHERE name = ?", (proj,)
             )
@@ -114,5 +114,20 @@ def create_app(db_path: str = "shaderbase.db", default_project: str = "g66") -> 
             root_path = row["root_path"]
         result = index_project(app.state.conn, root_path, proj)
         return result
+
+    @app.get("/api/layout")
+    async def api_layout(
+        max_nodes: int = Query(5000, le=100000),
+        project: Optional[str] = None,
+    ):
+        """图布局数据（对齐 codebase-memory GraphData 格式）。"""
+        proj = project or app.state.default_project
+        return compute_layout(app.state.conn, proj, max_nodes)
+
+    @app.get("/api/repo-info")
+    async def api_repo_info(project: Optional[str] = None):
+        """git remote 元数据（GitHub/内部 Git 深链用）。"""
+        proj = project or app.state.default_project
+        return get_repo_info(app.state.conn, proj)
 
     return app

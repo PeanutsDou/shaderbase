@@ -5,91 +5,204 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>shaderbase 知识图谱</title>
 <style>
+:root {
+  --bg: #06090f;
+  --bg-panel: #0d1117;
+  --bg-panel2: #161b22;
+  --border: #21262d;
+  --fg: #e6edf3;
+  --fg-dim: #8b949e;
+  --primary: #1DA27E;
+  --accent: #1C8585;
+  --danger: #e05252;
+}
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, "Segoe UI", Roboto, sans-serif; background: #1a1a2e; color: #e0e0e0; display: flex; height: 100vh; overflow: hidden; }
+html, body { height: 100%; overflow: hidden; }
+body {
+  font-family: -apple-system, "Segoe UI", Roboto, "Noto Sans SC", sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  display: flex;
+  flex-direction: column;
+}
 
-/* 左侧面板 */
-#sidebar { width: 280px; background: #16213e; border-right: 1px solid #0f3460; display: flex; flex-direction: column; overflow-y: auto; flex-shrink: 0; }
-#sidebar h1 { padding: 16px; font-size: 18px; color: #e94560; border-bottom: 1px solid #0f3460; }
-#sidebar .section { padding: 12px 16px; border-bottom: 1px solid #0f3460; }
-#sidebar .section h3 { font-size: 13px; color: #a0a0c0; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
-#search-box { width: 100%; padding: 8px 12px; background: #1a1a2e; border: 1px solid #0f3460; border-radius: 4px; color: #e0e0e0; font-size: 14px; }
-#search-box:focus { outline: none; border-color: #e94560; }
-#kind-filter { display: flex; flex-wrap: wrap; gap: 4px; }
-#kind-filter label { display: flex; align-items: center; gap: 4px; font-size: 12px; cursor: pointer; padding: 2px 6px; border-radius: 3px; background: #1a1a2e; }
-#kind-filter input { margin: 0; }
-.stat-row { display: flex; justify-content: space-between; font-size: 13px; padding: 2px 0; }
-.stat-row .num { color: #e94560; font-weight: bold; }
+/* ── Header ── */
+#header {
+  height: 44px; background: var(--bg-panel); border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; padding: 0 16px; gap: 12px; flex-shrink: 0;
+}
+#header .title { font-size: 15px; font-weight: 600; color: var(--primary); }
+#header .project-name { font-size: 13px; color: var(--fg-dim); }
+#header .spacer { flex: 1; }
+#header button {
+  padding: 4px 12px; background: var(--bg-panel2); border: 1px solid var(--border);
+  border-radius: 4px; color: var(--fg); cursor: pointer; font-size: 12px;
+}
+#header button:hover { border-color: var(--primary); }
 
-/* 中间画布 */
-#main { flex: 1; display: flex; flex-direction: column; position: relative; }
-#cy { flex: 1; background: #0f0f23; }
-#toolbar { position: absolute; top: 8px; left: 8px; z-index: 10; display: flex; gap: 8px; }
-#toolbar button { padding: 6px 12px; background: #16213e; border: 1px solid #0f3460; border-radius: 4px; color: #e0e0e0; cursor: pointer; font-size: 13px; }
-#toolbar button:hover { background: #0f3460; }
-#toolbar input { padding: 6px 10px; background: #16213e; border: 1px solid #0f3460; border-radius: 4px; color: #e0e0e0; font-size: 13px; width: 200px; }
-#status-bar { position: absolute; bottom: 8px; left: 8px; z-index: 10; font-size: 12px; color: #606080; background: rgba(22,33,62,0.8); padding: 4px 8px; border-radius: 3px; }
+/* ── Main 3-column ── */
+#main { flex: 1; display: flex; overflow: hidden; }
 
-/* 右侧详情面板 */
-#detail-panel { width: 360px; background: #16213e; border-left: 1px solid #0f3460; overflow-y: auto; flex-shrink: 0; display: none; }
-#detail-panel.active { display: block; }
-#detail-panel .header { padding: 16px; border-bottom: 1px solid #0f3460; position: sticky; top: 0; background: #16213e; z-index: 1; }
-#detail-panel .header .kind-badge { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 12px; font-weight: bold; margin-bottom: 4px; }
-#detail-panel .header h2 { font-size: 18px; color: #e94560; }
-#detail-panel .header .file-line { font-size: 12px; color: #808090; margin-top: 4px; }
-#detail-panel .header .cond-sig { font-size: 11px; color: #e94560; margin-top: 4px; font-family: monospace; }
-#detail-panel .body { padding: 16px; }
-#detail-panel .section { margin-bottom: 16px; }
-#detail-panel .section h4 { font-size: 13px; color: #a0a0c0; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
-#detail-panel .section .conn-item { padding: 4px 0; font-size: 13px; cursor: pointer; border-bottom: 1px solid rgba(15,52,96,0.3); }
-#detail-panel .section .conn-item:hover { color: #e94560; }
-#detail-panel .section .conn-item .arrow { color: #606080; margin: 0 4px; }
-#detail-panel .section .conn-item .sig { font-size: 10px; color: #e94560; font-family: monospace; }
-#detail-panel .props { font-family: "Consolas", monospace; font-size: 12px; white-space: pre-wrap; word-break: break-all; background: #1a1a2e; padding: 8px; border-radius: 4px; max-height: 300px; overflow-y: auto; }
-#detail-panel .source { font-family: "Consolas", monospace; font-size: 12px; white-space: pre; background: #1a1a2e; padding: 8px; border-radius: 4px; max-height: 400px; overflow: auto; color: #c0c0d0; }
-#detail-panel .source .highlight { background: #e9456030; }
-#detail-panel button { padding: 4px 10px; background: #0f3460; border: 1px solid #1a1a2e; border-radius: 3px; color: #e0e0e0; cursor: pointer; font-size: 12px; margin-top: 4px; }
-#detail-panel button:hover { background: #e94560; }
+/* Left panel */
+#left-panel {
+  width: 240px; background: var(--bg-panel); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; overflow: hidden; flex-shrink: 0;
+}
+#left-panel .section { border-bottom: 1px solid var(--border); padding: 10px 12px; }
+#left-panel .section h3 {
+  font-size: 11px; color: var(--fg-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;
+}
+#left-panel .filter-item {
+  display: flex; align-items: center; gap: 4px; font-size: 12px; padding: 2px 0; cursor: pointer;
+}
+#left-panel .filter-item input { margin: 0; }
+#left-panel .filter-item .count { color: var(--fg-dim); margin-left: auto; font-size: 11px; }
+#left-panel .filter-item .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+#left-panel .filter-actions { display: flex; gap: 8px; margin-bottom: 6px; }
+#left-panel .filter-actions a { font-size: 11px; color: var(--primary); cursor: pointer; text-decoration: none; }
+
+/* File tree */
+#file-tree { flex: 1; overflow-y: auto; padding: 4px 0; }
+#file-tree .tree-item {
+  font-size: 12px; padding: 2px 12px; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+#file-tree .tree-item:hover { background: var(--bg-panel2); }
+#file-tree .tree-item.selected { background: rgba(29,162,126,0.15); }
+#file-tree .tree-item .indent { color: var(--fg-dim); }
+#file-tree .tree-item .count { color: var(--fg-dim); font-size: 10px; margin-left: 4px; }
+
+/* Center canvas */
+#center { flex: 1; position: relative; display: flex; flex-direction: column; }
+#canvas-container { flex: 1; position: relative; }
+#canvas-container canvas { display: block; }
+#hud {
+  position: absolute; bottom: 8px; left: 8px; z-index: 10;
+  font-size: 11px; color: var(--fg-dim); background: rgba(13,17,23,0.8);
+  padding: 4px 8px; border-radius: 3px; border: 1px solid var(--border);
+}
+#toolbar-top {
+  position: absolute; top: 8px; right: 8px; z-index: 10; display: flex; gap: 6px; align-items: center;
+}
+#toolbar-top input, #toolbar-top button, #toolbar-top select {
+  padding: 4px 8px; background: var(--bg-panel); border: 1px solid var(--border);
+  border-radius: 4px; color: var(--fg); font-size: 12px;
+}
+#toolbar-top button { cursor: pointer; }
+#toolbar-top button:hover { border-color: var(--primary); }
+#toolbar-top label { font-size: 11px; color: var(--fg-dim); }
+
+/* Loading */
+#loading {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 20;
+  text-align: center; color: var(--fg-dim);
+}
+#loading .spinner {
+  width: 32px; height: 32px; border: 3px solid var(--border); border-top-color: var(--primary);
+  border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 8px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Tooltip */
+#tooltip {
+  position: absolute; z-index: 15; pointer-events: none; display: none;
+  background: rgba(13,17,23,0.95); border: 1px solid var(--border); border-radius: 4px;
+  padding: 6px 10px; font-size: 12px; max-width: 280px;
+}
+#tooltip .tt-name { font-weight: 600; }
+#tooltip .tt-meta { color: var(--fg-dim); font-size: 11px; margin-top: 2px; }
+
+/* Right detail panel */
+#right-panel {
+  width: 340px; background: var(--bg-panel); border-left: 1px solid var(--border);
+  overflow-y: auto; flex-shrink: 0; display: none;
+}
+#right-panel.active { display: block; }
+#right-panel .detail-header { padding: 12px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg-panel); z-index: 1; }
+#right-panel .detail-header .badge { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 11px; font-weight: 600; margin-bottom: 4px; }
+#right-panel .detail-header h2 { font-size: 16px; color: var(--fg); }
+#right-panel .detail-header .meta { font-size: 11px; color: var(--fg-dim); margin-top: 4px; }
+#right-panel .detail-header .cond { font-size: 11px; color: var(--danger); margin-top: 2px; font-family: monospace; }
+#right-panel .detail-header .github-link { font-size: 11px; color: var(--primary); margin-top: 4px; display: inline-block; }
+#right-panel .detail-body { padding: 12px; }
+#right-panel .detail-section { margin-bottom: 14px; }
+#right-panel .detail-section h4 { font-size: 11px; color: var(--fg-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+#right-panel .detail-section .conn-group-title { font-size: 11px; margin-top: 6px; margin-bottom: 2px; }
+#right-panel .detail-section .conn-item { padding: 3px 0; font-size: 12px; cursor: pointer; border-bottom: 1px solid rgba(33,38,45,0.5); }
+#right-panel .detail-section .conn-item:hover { color: var(--primary); }
+#right-panel .detail-section .conn-item .arrow { color: var(--fg-dim); margin: 0 4px; }
+#right-panel .detail-section .conn-item .sig { font-size: 10px; color: var(--danger); font-family: monospace; }
+#right-panel .props { font-family: "JetBrains Mono", Consolas, monospace; font-size: 11px; white-space: pre-wrap; word-break: break-all; background: var(--bg-panel2); padding: 6px; border-radius: 3px; max-height: 200px; overflow-y: auto; }
+#right-panel .source { font-family: "JetBrains Mono", Consolas, monospace; font-size: 11px; white-space: pre; background: var(--bg-panel2); padding: 6px; border-radius: 3px; max-height: 300px; overflow: auto; }
+#right-panel .source .hl { background: rgba(29,162,126,0.2); }
+#right-panel button { padding: 3px 10px; background: var(--bg-panel2); border: 1px solid var(--border); border-radius: 3px; color: var(--fg); cursor: pointer; font-size: 11px; margin-top: 4px; }
+#right-panel button:hover { border-color: var(--primary); }
+
+/* Display settings menu */
+#display-menu {
+  position: absolute; top: 38px; right: 8px; z-index: 20; display: none;
+  background: var(--bg-panel); border: 1px solid var(--border); border-radius: 4px;
+  padding: 10px 12px; width: 200px;
+}
+#display-menu.active { display: block; }
+#display-menu .slider-row { margin-bottom: 8px; }
+#display-menu .slider-row label { font-size: 11px; color: var(--fg-dim); display: block; }
+#display-menu .slider-row input[type=range] { width: 100%; }
+#display-menu .slider-row .val { font-size: 10px; color: var(--fg-dim); float: right; }
 </style>
 </head>
 <body>
 
-<div id="sidebar">
-  <h1>shaderbase 图谱</h1>
-  <div class="section">
-    <h3>搜索</h3>
-    <input type="text" id="search-box" placeholder="函数名/结构名...">
-  </div>
-  <div class="section">
-    <h3>调用链</h3>
-    <input type="text" id="trace-box" placeholder="函数名 + 回车">
-  </div>
-  <div class="section">
-    <h3>类型过滤</h3>
-    <div id="kind-filter"></div>
-  </div>
-  <div class="section">
-    <h3>概览</h3>
-    <div id="stats"></div>
-  </div>
+<div id="header">
+  <span class="title">shaderbase 图谱</span>
+  <span class="project-name" id="header-project">g66</span>
+  <div class="spacer"></div>
+  <label style="font-size:11px;color:var(--fg-dim);">Nodes:</label>
+  <input type="number" id="budget-input" value="5000" step="5000" min="5000" style="width:70px;padding:2px 4px;background:var(--bg-panel2);border:1px solid var(--border);border-radius:3px;color:var(--fg);font-size:12px;">
+  <button onclick="fetchGraph()">刷新</button>
+  <button onclick="toggleDisplayMenu()">显示设置</button>
 </div>
 
 <div id="main">
-  <div id="toolbar">
-    <input type="text" id="file-filter" placeholder="文件路径过滤...">
-    <button onclick="resetGraph()">清空</button>
-    <button onclick="fitGraph()">适应</button>
+  <div id="left-panel">
+    <div class="section">
+      <h3>节点类型</h3>
+      <div class="filter-actions"><a onclick="selectAllKinds(true)">全选</a><a onclick="selectAllKinds(false)">全无</a></div>
+      <div id="kind-filters"></div>
+    </div>
+    <div class="section">
+      <h3>边类型</h3>
+      <div id="edge-filters"></div>
+    </div>
+    <div class="section" style="flex-shrink:0;">
+      <h3>文件目录</h3>
+    </div>
+    <div id="file-tree"></div>
   </div>
-  <div id="cy"></div>
-  <div id="status-bar"></div>
+
+  <div id="center">
+    <div id="canvas-container"></div>
+    <div id="toolbar-top">
+      <input type="text" id="search-input" placeholder="搜索节点名..." style="width:160px;">
+    </div>
+    <div id="loading"><div class="spinner"></div>加载图数据...</div>
+    <div id="hud"></div>
+    <div id="tooltip"></div>
+    <div id="display-menu">
+      <div class="slider-row"><label>边亮度 <span class="val" id="val-edge">1.00</span></label><input type="range" id="slider-edge" min="0.1" max="3" step="0.05" value="1.0"></div>
+      <div class="slider-row"><label>节点辉光 <span class="val" id="val-glow">1.00</span></label><input type="range" id="slider-glow" min="0" max="2" step="0.05" value="1.0"></div>
+      <div class="slider-row"><label>Bloom <span class="val" id="val-bloom">1.00</span></label><input type="range" id="slider-bloom" min="0" max="2" step="0.05" value="1.0"></div>
+    </div>
+  </div>
+
+  <div id="right-panel">
+    <div class="detail-header" id="detail-header"></div>
+    <div class="detail-body" id="detail-body"></div>
+  </div>
 </div>
 
-<div id="detail-panel">
-  <div class="header" id="detail-header"></div>
-  <div class="body" id="detail-body"></div>
-</div>
-
-<script src="/static/cytoscape.min.js"></script>
-<script src="/static/app.js"></script>
+<script type="importmap">
+{ "imports": { "three": "/static/three.module.js", "three/addons/": "/static/" } }
+</script>
+<script type="module" src="/static/app.js"></script>
 </body>
 </html>
