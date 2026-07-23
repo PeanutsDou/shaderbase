@@ -45,11 +45,10 @@ void main(uint2 px: SV_DispatchThreadID, uint2 px_within_group: SV_GroupThreadID
       (for_statement
         (declaration
           (primitive_type)
-          (init_declarator
+          (identifier)
+          (field_expression
             (identifier)
-            (field_expression
-              (identifier)
-              (field_identifier))))
+            (field_identifier)))
         (binary_expression
           (identifier)
           (identifier))
@@ -94,10 +93,8 @@ SamplerState smp : register(s0);
 --------------------------------------------------------------------------------
 
 (translation_unit
-  (declaration
-    (type_identifier)
+  (sampler_state_declaration
     (identifier)
-    (semantics)
     (semantics
       (call_expression
         (identifier)
@@ -147,43 +144,39 @@ cbuffer MyBuffer
     float4 Element1 : packoffset(c0);
     float1 Element2 : packoffset(c0);
     float1 Element3 : packoffset(c0.y);
-}
+};
 --------------------------------------------------------------------------------
 
 (translation_unit
-  (function_definition
-    (type_identifier)
-    (identifier)
-    (compound_statement
-      (declaration
-        (type_identifier)
-        (identifier)
-        (semantics)
-        (semantics
+  (cbuffer_specifier
+    name: (type_identifier)
+    body: (field_declaration_list
+      (field_declaration
+        type: (type_identifier)
+        declarator: (field_identifier)
+        (bitfield_clause
           (call_expression
-            (identifier)
-            (argument_list
+            function: (identifier)
+            arguments: (argument_list
               (identifier)))))
-      (declaration
-        (type_identifier)
-        (identifier)
-        (semantics)
-        (semantics
+      (field_declaration
+        type: (type_identifier)
+        declarator: (field_identifier)
+        (bitfield_clause
           (call_expression
-            (identifier)
-            (argument_list
+            function: (identifier)
+            arguments: (argument_list
               (identifier)))))
-      (declaration
-        (type_identifier)
-        (identifier)
-        (semantics)
-        (semantics
+      (field_declaration
+        type: (type_identifier)
+        declarator: (field_identifier)
+        (bitfield_clause
           (call_expression
-            (identifier)
-            (argument_list
+            function: (identifier)
+            arguments: (argument_list
               (field_expression
-                (identifier)
-                (field_identifier)))))))))
+                argument: (identifier)
+                field: (field_identifier)))))))))
 
 ================================================================================
 Attributed fields
@@ -317,9 +310,8 @@ Unroll
       (identifier))
     (declaration
       (type_identifier)
-      (init_declarator
-        (identifier)
-        (number_literal)))
+      (identifier)
+      (number_literal))
     (binary_expression
       (identifier)
       (identifier))
@@ -477,26 +469,25 @@ void vblur_into_shmem(int2 dst_px, uint xfetch, uint2 group_id) {
     (compound_statement
       (declaration
         (type_identifier)
-        (init_declarator
-          (identifier)
+        (identifier)
+        (binary_expression
           (binary_expression
-            (binary_expression
-              (identifier)
-              (call_expression
-                (identifier)
-                (argument_list
-                  (binary_expression
-                    (identifier)
-                    (number_literal))
-                  (number_literal))))
+            (identifier)
             (call_expression
               (identifier)
               (argument_list
                 (binary_expression
                   (identifier)
-                  (identifier))
-                (unary_expression
-                  (identifier)))))))
+                  (number_literal))
+                (number_literal))))
+          (call_expression
+            (identifier)
+            (argument_list
+              (binary_expression
+                (identifier)
+                (identifier))
+              (unary_expression
+                (identifier))))))
       (expression_statement
         (assignment_expression
           (subscript_expression

@@ -1,0 +1,80 @@
+================================================================================
+uniform with annotation
+================================================================================
+float u_roughness < string SasUiLabel = "粗糙度"; float SasUiMin = 0; float SasUiMax = 1; > = 0.5;
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (declaration
+    (primitive_type)
+    (identifier)
+    (metadata_block
+      (metadata_assignment
+        (metadata_type)
+        (identifier)
+        (string_literal
+          (string_content)))
+      (declaration
+        (primitive_type)
+        (identifier)
+        (number_literal))
+      (declaration
+        (primitive_type)
+        (identifier)
+        (number_literal)))
+    (number_literal)))
+
+================================================================================
+texture with annotation
+================================================================================
+texture Tex0 : DiffuseMap < string SasUiLabel = "diffuse"; >;
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (texture_declaration
+    (identifier)
+    (semantics
+      (identifier))
+    (metadata_block
+      (metadata_assignment
+        (metadata_type)
+        (identifier)
+        (string_literal
+          (string_content))))))
+
+================================================================================
+technique with annotation
+================================================================================
+technique TShader < string SasUiLabel = "test"; > { pass p0 { } }
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (technique_block
+    name: (identifier)
+    metadata: (metadata_block
+      (metadata_assignment
+        (metadata_type)
+        name: (identifier)
+        value: (string_literal
+          (string_content))))
+    (pass_block
+      name: (identifier))))
+
+================================================================================
+annotation with int3 initializer
+================================================================================
+float u_x < int3 SasVersion = {1, 0, 0}; >;
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (declaration
+    (primitive_type)
+    (identifier)
+    (metadata_block
+      (metadata_assignment
+        (metadata_type)
+        (identifier)
+        (initializer_list
+          (number_literal)
+          (number_literal)
+          (number_literal))))))

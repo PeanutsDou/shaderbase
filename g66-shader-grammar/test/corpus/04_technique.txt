@@ -1,0 +1,74 @@
+================================================================================
+basic technique
+================================================================================
+technique TShader {
+    pass p0 {
+        VertexShader = vs_main;
+        PixelShader = ps_main;
+    }
+}
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (technique_block
+    name: (identifier)
+    (pass_block
+      name: (identifier)
+      (state_assignment
+        name: (identifier)
+        value: (identifier))
+      (state_assignment
+        name: (identifier)
+        value: (identifier)))))
+
+================================================================================
+technique with metadata
+================================================================================
+technique TShader < string SasUiLabel = "test"; > {
+    pass p0 { }
+}
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (technique_block
+    name: (identifier)
+    metadata: (metadata_block
+      (metadata_assignment
+        (metadata_type)
+        name: (identifier)
+        value: (string_literal
+          (string_content))))
+    (pass_block
+      name: (identifier))))
+
+================================================================================
+sampler state block
+================================================================================
+SamplerState smp { Filter = MIN_MAG_LINEAR_MIP_POINT; AddressU = CLAMP; };
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (sampler_state_declaration
+    name: (identifier)
+    (sampler_state_block
+      (state_assignment
+        name: (identifier)
+        value: (identifier))
+      (state_assignment
+        name: (identifier)
+        value: (identifier)))))
+
+================================================================================
+state with bool value
+================================================================================
+technique T { pass p0 { AlphaBlendEnable = true; } }
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (technique_block
+    name: (identifier)
+    (pass_block
+      name: (identifier)
+      (state_assignment
+        name: (identifier)
+        value: (true_keyword)))))

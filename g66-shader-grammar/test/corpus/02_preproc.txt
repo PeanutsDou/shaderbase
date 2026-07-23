@@ -1,0 +1,118 @@
+================================================================================
+art directive
+================================================================================
+#art NORMAL_MAP_ENABLE "法线贴图开关" "BOOL"
+int a;
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (preproc_art_directive
+    (identifier)
+    (string_literal
+      (string_content))
+    (string_literal
+      (string_content)))
+  (declaration
+    (primitive_type)
+    (identifier)))
+
+================================================================================
+excludefromtemptech
+================================================================================
+#excludefromtemptech MyShader
+int a;
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (preproc_exclude_from_temp_tech
+    (identifier))
+  (declaration
+    (primitive_type)
+    (identifier)))
+
+================================================================================
+include
+================================================================================
+#include "common.hlsl"
+int a;
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (preproc_include
+    (string_literal
+      (string_content)))
+  (declaration
+    (primitive_type)
+    (identifier)))
+
+================================================================================
+define object-like
+================================================================================
+#define MAX_LIGHTS 8
+int a;
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (preproc_def
+    (identifier)
+    (preproc_arg))
+  (declaration
+    (primitive_type)
+    (identifier)))
+
+================================================================================
+define function-like
+================================================================================
+#define CLAMP(x, lo, hi) min(max(x, lo), hi)
+int a;
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (preproc_function_def
+    (identifier)
+    (preproc_params
+      (identifier)
+      (identifier)
+      (identifier))
+    (preproc_arg))
+  (declaration
+    (primitive_type)
+    (identifier)))
+
+================================================================================
+ifdef
+================================================================================
+#ifdef USE_FOG
+int a;
+#else
+int b;
+#endif
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (preproc_ifdef
+    (identifier)
+    (declaration
+      (primitive_type)
+      (identifier))
+    (preproc_else
+      (declaration
+        (primitive_type)
+        (identifier)))))
+
+================================================================================
+if expression
+================================================================================
+#if QUALITY > 0
+int a;
+#endif
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (preproc_if
+    (binary_expression
+      (identifier)
+      (number_literal))
+    (declaration
+      (primitive_type)
+      (identifier))))

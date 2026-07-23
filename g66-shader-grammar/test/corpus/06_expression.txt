@@ -1,0 +1,70 @@
+================================================================================
+call expression
+================================================================================
+void main() {
+    float4 c = CalcWorldNormal(input);
+}
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (function_definition
+    type: (primitive_type)
+    declarator: (function_declarator
+      declarator: (identifier)
+      parameters: (parameter_list))
+    body: (compound_statement
+      (declaration
+        type: (type_identifier)
+        declarator: (identifier)
+        declarator: (call_expression
+          function: (identifier)
+          arguments: (argument_list
+            (identifier)))))))
+
+================================================================================
+member access
+================================================================================
+void main() {
+    float x = input.position.x;
+}
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (function_definition
+    type: (primitive_type)
+    declarator: (function_declarator
+      declarator: (identifier)
+      parameters: (parameter_list))
+    body: (compound_statement
+      (declaration
+        type: (primitive_type)
+        declarator: (identifier)
+        declarator: (field_expression
+          argument: (field_expression
+            argument: (identifier)
+            field: (field_identifier))
+          field: (field_identifier))))))
+
+================================================================================
+binary expression
+================================================================================
+void main() {
+    float x = a + b * c;
+}
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (function_definition
+    (primitive_type)
+    (function_declarator
+      (identifier)
+      (parameter_list))
+    (compound_statement
+      (declaration
+        (primitive_type)
+        (identifier)
+        (binary_expression
+          (identifier)
+          (binary_expression
+            (identifier)
+            (identifier)))))))

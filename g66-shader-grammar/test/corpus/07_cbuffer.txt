@@ -1,0 +1,73 @@
+================================================================================
+basic cbuffer
+================================================================================
+cbuffer PerFrame {
+    float4x4 view_matrix;
+    float4x4 proj_matrix;
+};
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (cbuffer_specifier
+    name: (type_identifier)
+    body: (field_declaration_list
+      (field_declaration
+        type: (type_identifier)
+        declarator: (field_identifier))
+      (field_declaration
+        type: (type_identifier)
+        declarator: (field_identifier)))))
+
+================================================================================
+cbuffer with register
+================================================================================
+cbuffer PerFrame : register(b0) {
+    float4x4 view_matrix;
+};
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (cbuffer_specifier
+    name: (type_identifier)
+    (semantics
+      (call_expression
+        (identifier)
+        (argument_list
+          (identifier))))
+    body: (field_declaration_list
+      (field_declaration
+        type: (type_identifier)
+        declarator: (field_identifier)))))
+
+================================================================================
+cbuffer forward declaration
+================================================================================
+cbuffer PerFrame : register(b1);
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (cbuffer_specifier
+    name: (type_identifier)
+    (semantics
+      (call_expression
+        (identifier)
+        (argument_list
+          (identifier))))))
+
+================================================================================
+texture declaration
+================================================================================
+texture Tex0 : DiffuseMap < string SasUiLabel = "diffuse"; >;
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (texture_declaration
+    (identifier)
+    (semantics
+      (identifier))
+    (metadata_block
+      (metadata_assignment
+        (metadata_type)
+        (identifier)
+        (string_literal
+          (string_content))))))

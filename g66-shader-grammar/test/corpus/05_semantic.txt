@@ -1,0 +1,88 @@
+================================================================================
+field semantic texcoord
+================================================================================
+struct VS_INPUT {
+    float4 position : POSITION;
+    float2 texcoord : TEXCOORD0;
+};
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (struct_specifier
+    name: (type_identifier)
+    body: (field_declaration_list
+      (field_declaration
+        type: (type_identifier)
+        declarator: (field_identifier)
+        (bitfield_clause
+          (identifier)))
+      (field_declaration
+        type: (type_identifier)
+        declarator: (field_identifier)
+        (bitfield_clause
+          (identifier))))))
+
+================================================================================
+register semantic
+================================================================================
+SamplerState smp : register(s0);
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (sampler_state_declaration
+    name: (identifier)
+    (semantics
+      (call_expression
+        (identifier)
+        (argument_list
+          (identifier))))))
+
+================================================================================
+function semantic
+================================================================================
+float4 ps_main(PS_INPUT input) : COLOR {
+    return float4(1, 0, 0, 1);
+}
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (function_definition
+    (type_identifier)
+    (function_declarator
+      (identifier)
+      (parameter_list
+        (parameter_declaration
+          (type_identifier)
+          (identifier)))
+      (semantics
+        (identifier)))
+    (compound_statement
+      (return_statement
+        (call_expression
+          (identifier)
+          (argument_list
+            (number_literal)
+            (number_literal)
+            (number_literal)
+            (number_literal)))))))
+
+================================================================================
+cbuffer with register
+================================================================================
+cbuffer PerFrame : register(b1) {
+    float4x4 view_matrix;
+};
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (cbuffer_specifier
+    name: (type_identifier)
+    (semantics
+      (call_expression
+        (identifier)
+        (argument_list
+          (identifier))))
+    body: (field_declaration_list
+      (field_declaration
+        type: (type_identifier)
+        declarator: (field_identifier)))))
