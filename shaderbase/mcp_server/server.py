@@ -1,10 +1,10 @@
 """server — MCP server（HTTP/SSE 模式）。
 
 用 FastAPI 实现 MCP 协议的 SSE 端点，Agent 通过 HTTP 连接。
-跟 Web UI 同机部署，共用 shaderbase.db。
+跟 Web UI 同机部署，共用 data/shaderbase.db。
 
 启动：
-  python -m shaderbase.mcp_server --db shaderbase.db --host 0.0.0.0 --port 8001
+  python -m shaderbase.mcp_server --db data/shaderbase.db --host 0.0.0.0 --port 8001
 """
 from __future__ import annotations
 
@@ -22,7 +22,7 @@ from ..store.connection import connect
 from .tools import TOOL_DEFINITIONS, execute_tool
 
 
-def create_mcp_app(db_path: str = "shaderbase.db", default_project: str = "g66") -> FastAPI:
+def create_mcp_app(db_path: str = "", default_project: str = "g66") -> FastAPI:
     """创建 MCP server FastAPI 应用。"""
     app = FastAPI(title="shaderbase MCP", version="0.1.0")
     conn = connect(db_path)
@@ -148,7 +148,7 @@ def create_mcp_app(db_path: str = "shaderbase.db", default_project: str = "g66")
 
 def main():
     parser = argparse.ArgumentParser(description="shaderbase MCP server")
-    parser.add_argument("--db", default="shaderbase.db", help="SQLite 数据库路径")
+    parser.add_argument("--db", default="", help="SQLite 数据库路径（默认 data/shaderbase.db）")
     parser.add_argument("--host", default="0.0.0.0", help="绑定地址（0.0.0.0 = 允许远程）")
     parser.add_argument("--port", type=int, default=8001, help="端口")
     parser.add_argument("--project", default="g66", help="默认项目名")

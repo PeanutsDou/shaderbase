@@ -37,7 +37,16 @@ def resolve_root_path(root_path: str) -> str:
     return os.path.normpath(os.path.join(str(_REPO_ROOT), root_path))
 
 
-def connect(db_path: str = "shaderbase.db") -> sqlite3.Connection:
+def connect(db_path: str = "") -> sqlite3.Connection:
+    """打开/创建 SQLite 数据库，自动建表。
+
+    db_path 为空时默认用项目内 data/shaderbase.db。
+    """
+    if not db_path:
+        # 默认放项目内 data/ 子目录
+        _data_dir = _REPO_ROOT / "data"
+        _data_dir.mkdir(exist_ok=True)
+        db_path = str(_data_dir / "shaderbase.db")
     """打开/创建 SQLite 数据库，自动建表。"""
     conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row

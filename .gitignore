@@ -32,7 +32,8 @@ g66-shader-grammar/*.exp
 __pycache__/
 *.pyc
 
-# Ignore SQLite db（含 WAL/SHM，每个环境自己建图）
-/shaderbase.db
-/shaderbase.db-wal
-/shaderbase.db-shm
+# Ignore SQLite db（含 WAL/SHM，每个环境自己建图，统一放 data/）
+/data/shaderbase.db
+/data/shaderbase.db-wal
+/data/shaderbase.db-shm
+/data/*.log

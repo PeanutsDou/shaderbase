@@ -14,3 +14,15 @@
 3. 配置写好后，读取配置文件确认 shaderbase 这条已正确写入。
 
 4. 提示我需要重启客户端才能让 MCP 生效。
+
+重启后，你可以通过 MCP 调用 shaderbase 的 15 个工具查询 shader 代码知识图谱。
+常用工具：
+- search_shader：按名字/类型/文件搜节点
+- trace_calls：遍历调用链（支持 macros 算条件编译 active）
+- get_code_snippet：读函数源码
+- get_references：找符号被引用的位置
+- find_uniform_usage：找 uniform 被哪些函数用
+- trace_stage_flow：VS→PS semantic 数据流
+- sync_repo：git pull + 增量更新图谱
+
+完整工具清单见项目根目录 README.md。

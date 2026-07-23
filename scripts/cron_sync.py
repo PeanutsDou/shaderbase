@@ -5,14 +5,14 @@
 git pull shader-source + 增量更新图谱 + 打时间戳日志。
 
 用法：
-  py -3 scripts/cron_sync.py --db shaderbase.db --project g66
-  py -3 scripts/cron_sync.py --db shaderbase.db --project g66 --log sync.log
+  py -3 scripts/cron_sync.py --project g66
+  py -3 scripts/cron_sync.py --project g66 --log data/sync.log
 
 Linux cron 配置（每小时跑一次）：
-  0 * * * * cd /path/to/shaderbase && py -3 scripts/cron_sync.py >> sync.log 2>&1
+  0 * * * * cd /path/to/shaderbase && py -3 scripts/cron_sync.py --project g66 >> data/sync.log 2>&1
 
 Windows Task Scheduler：
-  schtasks /create /tn "shaderbase sync" /tr "py -3 C:\\path\\to\\cron_sync.py --db C:\\path\\to\\shaderbase.db" /sc hourly
+  schtasks /create /tn "shaderbase sync" /tr "py -3 C:\\path\\to\\scripts\\cron_sync.py --project g66" /sc hourly
 """
 import argparse
 import os
@@ -26,7 +26,7 @@ sys.path.insert(0, '.')
 
 def main():
     parser = argparse.ArgumentParser(description="shaderbase 定时 sync 脚本")
-    parser.add_argument("--db", default="shaderbase.db", help="SQLite 数据库路径")
+    parser.add_argument("--db", default="", help="SQLite 数据库路径（默认 data/shaderbase.db）")
     parser.add_argument("--project", default="g66", help="项目名")
     parser.add_argument("--log", default="", help="日志文件路径（默认 stdout）")
     args = parser.parse_args()
