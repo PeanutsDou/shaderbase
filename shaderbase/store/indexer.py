@@ -48,8 +48,8 @@ def index_file(
 
     # 抽节点
     nodes = extractor.extract_file(source, file_path)
-    # 抽边
-    edges = edge_extractor.extract_file(source, file_path, view)
+    # 抽边（传 nodes 给 USES_UNIFORM 匹配本文件 Uniform 名用）
+    edges = edge_extractor.extract_file(source, file_path, view, nodes)
     # 给 CALLS 边填 source_name（找所在函数名）——用本文件的抽取结果查
     _fill_call_sources_from_nodes(edges, nodes)
 

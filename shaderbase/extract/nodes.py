@@ -485,8 +485,14 @@ class NodeExtractor:
     # ---- 公共 helper ----
 
     def _semantics_of(self, node: Node) -> Optional[str]:
-        """取节点直接子 semantics 的文本（去掉 ':'）。"""
+        """取节点直接子 semantics 的文本（去掉 ':'）。
+
+        struct field 的 `: TEXCOORD0` 在 CPP 上游 grammar 里走 bitfield_clause
+        （不是 semantics），这里两种都认。
+        """
         sem = first_child(node, "semantics")
+        if sem is None:
+            sem = first_child(node, "bitfield_clause")
         if not sem:
             return None
         txt = text_of(sem).strip()

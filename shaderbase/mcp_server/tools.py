@@ -358,10 +358,7 @@ def _find_entry_points(conn, project, args):
 
 def _find_uniform_usage(conn, project, args):
     uniform_name = args["uniform_name"]
-    # 找所有 CALLS 边里 source_name 或 target_name 是这个 uniform 的
-    # uniform 本身不被"调用"，但函数体里引用了它——找函数体里出现 uniform 名的
-    # 简化：搜 CALLS 边 source_name 包含 uniform 的（不太准）
-    # 更好：搜 nodes 里 Uniform 类型 + 同文件的 Function
+    # 查 Uniform 节点定义
     cur = conn.execute(
         """SELECT file_path, line FROM nodes
            WHERE project = ? AND kind = 'Uniform' AND name = ?""",
@@ -371,48 +368,55 @@ def _find_uniform_usage(conn, project, args):
     if not uniform_defs:
         return {"error": f"uniform not found: {uniform_name}"}
 
-    # 找同文件的 Function
+    # 查 USES_UNIFORM 边：function → uniform（精确，不再用同文件兜底）
+    cur = conn.execute(
+        """SELECT source_name, source_file, source_line, conditional_signature
+           FROM edges WHERE project = ? AND kind = 'USES_UNIFORM'
+           AND target_name = ?""",
+        (project, uniform_name),
+    )
     usages = []
-    for ud in uniform_defs:
-        cur = conn.execute(
-            """SELECT name, file_path, line FROM nodes
-               WHERE project = ? AND kind = 'Function' AND file_path = ?""",
-            (project, ud["file_path"]),
-        )
-        for row in cur:
-            usages.append({
-                "function": row["name"],
-                "file_path": row["file_path"],
-                "line": row["line"],
-                "uniform_file": ud["file_path"],
-            })
+    for row in cur:
+        usages.append({
+            "function": row["source_name"],
+            "file_path": row["source_file"],
+            "line": row["source_line"],
+            "conditional_signature": row["conditional_signature"],
+        })
 
-    return {"uniform": uniform_name, "definitions": uniform_defs, "usages": usages, "count": len(usages)}
+    return {
+        "uniform": uniform_name,
+        "definitions": uniform_defs,
+        "usages": usages,
+        "count": len(usages),
+    }
 
 
 def _trace_stage_flow(conn, project, args):
-    semantic = args["semantic"]
-    # 搜结构体字段里带这个 semantic 的
+    semantic = args["semantic"].upper()
+    # 查 FLOWS_TO 边：struct → semantic
     cur = conn.execute(
-        """SELECT name, file_path, line, properties FROM nodes
-           WHERE project = ? AND kind = 'Struct'""",
+        """SELECT source_name, target_name, source_file, source_line,
+                  conditional_signature, properties
+           FROM edges WHERE project = ? AND kind = 'FLOWS_TO'""",
         (project,),
     )
     results = []
     for row in cur:
+        sem = (row["target_name"] or "").upper()
+        if semantic not in sem:
+            continue
         props = json.loads(row["properties"]) if row["properties"] else {}
-        fields = props.get("fields", [])
-        for f in fields:
-            if f.get("semantic") and semantic.upper() in f["semantic"].upper():
-                results.append({
-                    "struct": row["name"],
-                    "field": f.get("name"),
-                    "field_type": f.get("type"),
-                    "semantic": f.get("semantic"),
-                    "file_path": row["file_path"],
-                    "line": row["line"],
-                })
-    return {"semantic": semantic, "matches": results, "count": len(results)}
+        results.append({
+            "struct": row["source_name"],
+            "field": props.get("field"),
+            "field_type": props.get("field_type"),
+            "semantic": row["target_name"],
+            "file_path": row["source_file"],
+            "line": row["source_line"],
+            "conditional_signature": row["conditional_signature"],
+        })
+    return {"semantic": args["semantic"], "matches": results, "count": len(results)}
 
 
 def _get_material_files(conn, project, args):
