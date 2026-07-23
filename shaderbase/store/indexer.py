@@ -42,9 +42,16 @@ def index_file(
     edge_extractor = edge_extractor or EdgeExtractor()
     parser = get_parser()
 
-    # parse
+    # parse（容错：末尾无换行符的文件 tree-sitter 会误标 has_error，
+    # 补一个换行再 parse 判定 parsed_ok，但抽节点/边用原始 source 保持行号一致）
+    if source and not source.endswith(b"\n"):
+        tree_for_check = parser.parse(source + b"\n")
+        parsed_ok = not tree_for_check.root_node.has_error
+    else:
+        tree_for_check = parser.parse(source)
+        parsed_ok = not tree_for_check.root_node.has_error
+    # 实际抽取用原始 source（行号不能因为补换行而错位）
     tree = parser.parse(source)
-    parsed_ok = not tree.root_node.has_error
     error_count = _count_errors(tree.root_node)
 
     # 算 PV（空 defines，索引阶段全分支视图）

@@ -23,6 +23,8 @@ module.exports = grammar(CPP, {
         [$.expression, $.assignment_expression, $.metadata_assignment],
         // semantics 跟 function declarator 歧义（: register(...) vs : SEMANTIC）
         [$.semantics, $.semantics_call],
+        // PLSLayout(...) 当 attribute vs 当 type_identifier + parenthesized_declarator
+        [$.pls_layout_attribute, $.field_declaration],
         // (if 不带括号改动已回退，相关 conflict 声明已移除)
     ]),
 
@@ -34,6 +36,13 @@ module.exports = grammar(CPP, {
                 $.hlsl_attribute,
             )
             , original
+        ),
+
+        // G66 field_declaration 加可选 PLSLayout 前缀
+        // PLSLayout(rgba8) float4 color0 : SV_Target0;
+        field_declaration: ($, original) => seq(
+            optional($.pls_layout_attribute),
+            original,
         ),
         function_declarator: ($, original) => seq(
             original,
@@ -176,21 +185,31 @@ module.exports = grammar(CPP, {
         ),
 
         // G66 cbuffer 声明：
-        //   cbuffer NAME { fields };              ← 简单形态
+        //   cbuffer NAME { fields };              ← 简单形态（带 ;）
+        //   cbuffer NAME { fields }               ← 简单形态（不带 ;，G66 实际写法）
         //   cbuffer NAME : register(b1) { fields };  ← 带 register 绑定
         //   cbuffer NAME : register(b1);         ← 仅前向声明（无 body）
         // 用 prec(1) 优先于普通 declaration，避免 'cbuffer' 被当类型
-        cbuffer_specifier: $ => prec(1, seq(
+        cbuffer_specifier: $ => prec.right(1, seq(
             'cbuffer',
             field('name', $._class_name),
             repeat($.semantics),           // : register(b1)
             field('body', optional($.field_declaration_list)),
-            ';',
+            optional(';'),                // ; 可选（G66 很多 cbuffer 块不带 ;）
         )),
 
         hlsl_attribute: $ => seq('[',
             $.expression,
             ']'),
+
+        // G66 PLSLayout attribute：PLSLayout(rgba8) / PLSLayout(rgb10_a2)
+        // 出现在 field_declaration 前，类似 hlsl_attribute 的前缀作用
+        // 形态：PLSLayout(format) float4 color0 : SV_Target0;
+        // 用 prec.dynamic 让 PLSLayout(...) 优先匹配成 attribute 而非 type+declarator
+        pls_layout_attribute: $ => prec.dynamic(10, seq(
+            'PLSLayout',
+            $.argument_list,
+        )),
 
         for_statement: ($, original) => seq(optional($.hlsl_attribute), original),
 
