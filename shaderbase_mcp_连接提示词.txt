@@ -2,7 +2,7 @@
 
 操作步骤：
 
-1. 找到你的 MCP 配置文件（ZCode 在 ~/.zcode/v2/config.json，Claude Code 在 ~/.claude/claude_desktop_config.json 或对应配置位置，Cursor 在 Settings > MCP，其他工具找各自的 MCP 配置入口）
+1. 找到你的 MCP 配置文件。
 
 2. 在 MCP servers 配置里新增一条，名称为 "shaderbase"：
    - type: http
