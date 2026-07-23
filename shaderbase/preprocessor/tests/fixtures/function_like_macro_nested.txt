@@ -1,0 +1,14 @@
+---defines---
+QUALITY=1
+---source---
+#define MAX(a,b) ((a) > (b) ? (a) : (b))
+#if MAX(QUALITY, 0)
+int a;
+#else
+int b;
+#endif
+int c;
+---expected_line_active---
+true, true, true, true, false, true, true
+---expected_branch_count---
+1

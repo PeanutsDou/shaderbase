@@ -51,6 +51,8 @@ class _InterpState:
     macro_active: bool = True       # 宏处理是否 active（父分支 active 时才处理）
     # branch_sig 当前活跃的分支签名（branch_id, branch_index）列表
     cur_sig: list[tuple[int, int]] = field(default_factory=list)
+    # function-like macro 定义（迭代 3：给 expr_parser 展开用）
+    function_macros: dict = field(default_factory=dict)
 
 
 def build_preprocessor_view(
@@ -63,6 +65,7 @@ def build_preprocessor_view(
     """主入口（对齐 nsp buildPreprocessorView）。
 
     迭代 6：用 macro_seeder 按优先级链注入初始宏表。
+    迭代 3：收集 function-like macro 定义给 expr_parser 展开用。
     """
     defines = dict(defines or {})
     # 收集 #art 宏（没传就从 AST 自己收集）
@@ -75,11 +78,16 @@ def build_preprocessor_view(
     defines = seed_defines(defines, art_macros, configured_macros)
     initial_macros = seed_initial_macros(defines, art_macros, configured_macros)
 
+    # 迭代 3：收集 function-like macro 定义（给 #if 表达式里的宏调用展开用）
+    from .macro_expander import collect_defines as _collect_func_macros
+    function_macros = _collect_func_macros(root_node)
+
     line_count = source_text.count(b"\n") + 1
     state = _InterpState(
         source=source_text,
         defines=defines,
         line_count=line_count,
+        function_macros=function_macros,
     )
     state.result.initial_macros = initial_macros
     state.result.extend_to_lines(line_count)
@@ -346,12 +354,13 @@ def _eval_elif_condition(state: _InterpState, branch: _Branch) -> bool:
 
 
 def _eval_condition(state: _InterpState, node: Node) -> bool:
-    """求值条件表达式（迭代 2：接入 expr_parser）。"""
+    """求值条件表达式（迭代 2：接入 expr_parser；迭代 3：传 function_macros）。"""
     from .expr_parser import eval_condition
     return eval_condition(
         node, state.defines,
         state.result.condition_diagnostics,
         node.start_point[0] + 1,
+        state.function_macros,
     )
 
 
