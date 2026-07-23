@@ -615,8 +615,8 @@ def _index_status(conn, project):
 
 
 def _incremental_update(conn, project, root_path):
-    from ..store.indexer import index_project
-    result = index_project(conn, root_path, project)
+    from ..store.incremental import incremental_update
+    result = incremental_update(conn, project, root_path)
     return result
 
 

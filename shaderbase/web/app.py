@@ -125,10 +125,10 @@ def create_app(db_path: str = "shaderbase.db", default_project: str = "g66") -> 
     @app.post("/api/index")
     async def api_index(
         root_path: str = "",
+        mode: str = "full",
         project: Optional[str] = None,
     ):
-        """触发全量建图。"""
-        from ..store.indexer import index_project
+        """触发建图。mode=full（默认）全量重建，mode=incremental 增量更新。"""
         proj = project or app.state.default_project
         if not root_path:
             cur = app.state.conn.execute(
@@ -138,7 +138,12 @@ def create_app(db_path: str = "shaderbase.db", default_project: str = "g66") -> 
             if not row or not row["root_path"]:
                 raise HTTPException(400, "root_path required")
             root_path = row["root_path"]
-        result = index_project(app.state.conn, root_path, proj)
+        if mode == "incremental":
+            from ..store.incremental import incremental_update
+            result = incremental_update(app.state.conn, proj, root_path)
+        else:
+            from ..store.indexer import index_project
+            result = index_project(app.state.conn, root_path, proj)
         return result
 
     @app.get("/api/layout")
