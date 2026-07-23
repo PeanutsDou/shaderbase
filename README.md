@@ -6,10 +6,11 @@ G66 shader 知识图谱——把 shader-source 仓库索引成结构化知识图
 
 - **grammar 解析**：自研 tree-sitter grammar（fork tree-sitter-hlsl），覆盖 G66 特化语法（#art / technique / annotation / cbuffer / SamplerState），99.67% 文件解析率
 - **节点抽取**：7 类节点（Function / Struct / Uniform / Texture / SamplerState / Technique / CBuffer），1.6 万节点
-- **边抽取**：CALLS（跨文件 resolve，85% 召回率）/ INCLUDES / HAS_MEMBER / IS_ENTRY_POINT / EXPOSES_TECHNIQUE，3.7 万边
-- **PreprocessorView**：条件编译双视图——索引时全分支签名，查询时按 Agent 传入的 macros 算 active
-- **Web 可视化**：3D 星系图（three.js + Bloom 辉光），浏览器实时查看图谱
-- **MCP server**：14 个查询工具，AI Agent 通过 MCP 协议调用
+- **边抽取**：9 类边（CALLS / INCLUDES / HAS_MEMBER / DECLARES_UNIFORM / USES_UNIFORM / FLOWS_TO / IS_ENTRY_POINT / EXPOSES_TECHNIQUE / CONDITIONAL_ON），4.9 万边
+- **PreprocessorView**：条件编译双视图——索引时全分支签名，查询时 Agent 传 macros 算 active，每条边带 active 标记
+- **增量更新**：mtime/size 检测 dirty + INCLUDE 反向闭包，改 1-3 文件 1-2 秒（非全量 19 秒）
+- **Web 可视化**：2D Canvas 力向图，浏览器实时查看图谱 + 拖拽交互
+- **MCP server**：14 个查询工具（5 个支持 macros 参数），AI Agent 通过 MCP 协议调用
 
 ## 快速开始
 
@@ -58,7 +59,23 @@ py -3 -m shaderbase.mcp_server --db shaderbase.db --host 0.0.0.0 --port 8001
 # MCP 端点：http://你的IP:8001/sse
 ```
 
-### 5. 配置 ZCode 连接 MCP
+### 5. 增量更新（shader 改了之后）
+
+```bash
+# MCP 工具触发（推荐）
+# Agent 调 incremental_update 工具
+
+# 或命令行
+py -3 -c "
+from shaderbase.store.connection import connect
+from shaderbase.store.incremental import incremental_update
+conn = connect('shaderbase.db')
+result = incremental_update(conn, 'g66', r'D:\douzhongjun\work\shader\shader-source')
+print(result)
+"
+```
+
+### 6. 配置 ZCode 连接 MCP
 
 编辑 `C:\Users\<用户名>\.zcode\v2\config.json`，在 `mcp.servers` 里加：
 
@@ -112,23 +129,23 @@ netsh advfirewall firewall add rule name="shaderbase MCP" dir=in action=allow pr
 
 ## MCP 工具清单（14 个）
 
-### 查询类（最常用）
+### 查询类（最常用，带 ✨ 的支持 macros 参数算条件编译 active）
 
 | 工具 | 用途 | 示例问题 |
 |---|---|---|
 | `search_shader` | 按名字/类型/文件搜节点 | "CalcWorldNormal 在哪定义？" |
-| `trace_calls` | BFS 遍历调用链（inbound/outbound/both） | "谁调用了 CalcWorldNormal？" "改了 X 影响哪些 effect？" |
+| `trace_calls` ✨ | BFS 遍历调用链（inbound/outbound/both） | "谁调用了 CalcWorldNormal？" "改了 X 影响哪些 effect？" |
 | `get_code_snippet` | 读函数源码 | "给我看 vs_main 的实现" |
 | `get_definition` | 找符号定义位置 | "PS_INPUT 在哪定义？" |
-| `get_references` | 找符号被引用的位置 | "u_frame_time 被谁用了？" |
+| `get_references` ✨ | 找符号被引用的位置 | "u_frame_time 被谁用了？" |
 
 ### shader 语义类
 
 | 工具 | 用途 | 示例问题 |
 |---|---|---|
-| `find_entry_points` | 找 vs_main/ps_main + technique | "这个 effect 的入口函数？" |
-| `find_uniform_usage` | 找 uniform 被哪些函数用 | "u_roughness 被谁用了？" |
-| `trace_stage_flow` | VS→PS semantic 数据流 | "TEXCOORD2 流到哪些 PS 输入？" |
+| `find_entry_points` ✨ | 找 vs_main/ps_main + technique | "这个 effect 的入口函数？" |
+| `find_uniform_usage` ✨ | 找 uniform 被哪些函数用（查 USES_UNIFORM 边） | "u_roughness 被谁用了？" |
+| `trace_stage_flow` ✨ | VS→PS semantic 数据流（查 FLOWS_TO 边） | "TEXCOORD2 流到哪些 PS 输入？" |
 | `get_material_files` | 材质三件套 | "pbr_rock 的三个文件？" |
 
 ### 管理/架构类
@@ -139,7 +156,24 @@ netsh advfirewall firewall add rule name="shaderbase MCP" dir=in action=allow pr
 | `detect_changes` | git diff → 影响范围 | "改了 common.hlsl 影响哪些？" |
 | `find_dead_code` | 找没人调用的函数 | "有没有死代码？" |
 | `index_status` | 索引状态/错误列表 | "索引建好了没？" |
-| `incremental_update` | 触发增量更新 | "shader 更新了，刷新图谱" |
+| `incremental_update` | 触发增量更新（mtime/size 检测 + 反向闭包） | "shader 更新了，刷新图谱" |
+
+### macros 参数用法（条件编译 active 标注）
+
+5 个带 ✨ 的工具支持 `macros` 参数，传入条件编译宏配置后，每条返回的边/引用带 `active` 字段：
+
+```python
+# MCP 调用示例
+trace_calls(
+    function_name="GetSeasonColorMeadow",
+    macros={"SEASON_SUPPORT": 1, "ENGINE_SEASON_SUPPORT": 1}
+)
+# 返回的每条边带 active=true/false：
+#   #if SEASON_SUPPORT 分支内的边 → active=true
+#   #else 分支内的边 → active=false
+```
+
+不传 macros 时返回全部边（带 conditional_signature 但不算 active）。
 
 ## 项目结构
 
@@ -148,15 +182,20 @@ shader code konwledge/                ← 仓库根（git: PeanutsDou/shaderbase
 ├── g66-shader-grammar/              ← grammar 子项目（fork tree-sitter-hlsl）
 │   ├── grammar.js                   ← G66 特化规则
 │   ├── bindings/python/             ← Python 绑定（tree_sitter_g66_shader）
-│   └── src/parser.c                 ← tree-sitter generate 产物
+│   ├── src/parser.c                 ← tree-sitter generate 产物
+│   └── test/corpus/                 ← 回归测试 corpus（7 类 40 个样例）
 ├── shaderbase/                      ← 主包
 │   ├── parser/                      ← grammar 加载 + AST 遍历
-│   ├── extract/                     ← 节点抽取 + 边抽取 + CALLS resolve
-│   ├── preprocessor/                ← PreprocessorView（条件编译双视图）
+│   ├── extract/                     ← 节点抽取 + 边抽取（9 类边）+ CALLS resolve
+│   ├── preprocessor/                ← PreprocessorView（条件编译双视图 + macro_expander）
 │   ├── store/                       ← SQLite 图存储 + 全量/增量索引
-│   ├── web/                         ← Web 可视化（FastAPI + three.js）
-│   └── mcp_server/                  ← MCP server（14 个工具）
-├── test/fixtures/nodes/             ← 节点抽取 fixture（53 个 expected.yaml）
+│   ├── web/                         ← Web 可视化（FastAPI + Canvas 2D 力向图）
+│   └── mcp_server/                  ← MCP server（14 个工具，5 个支持 macros）
+├── test/fixtures/                   ← 防退化 fixture（4 层 112 个）
+│   ├── nodes/                       ← 层 2：节点抽取（53 个 expected.yaml）
+│   ├── edges/                       ← 层 3：边抽取（10 个 expected.yaml）
+│   └── resolve/                     ← 层 4：跨文件 resolve（3 个 expected.yaml）
+├── scripts/                         ← fixture 校验 + 候选生成脚本
 ├── pyproject.toml
 └── SHADERBASE_DEV_PLAN.md           ← 开发方案
 ```
@@ -175,10 +214,28 @@ shader code konwledge/                ← 仓库根（git: PeanutsDou/shaderbase
 
 | 场景 | 耗时 |
 |---|---|
-| 全量建图（1227 文件） | 19 秒 |
-| 全量 parse + PV | 3.5 秒 |
-| 增量更新（改 1-3 文件） | 1-2 秒 |
+| 全量建图（1227 文件） | 22 秒 |
+| 全量 parse + PV | 3.8 秒 |
+| 增量更新（改 1 文件） | 4.5 秒（含 resolve_calls） |
+| dirty 检测（1227 文件） | 0.12 秒 |
 | 单次 MCP 查询 | <50ms |
+| MCP 查询 + macros 算 active | <200ms |
+
+## 测试
+
+```bash
+# 4 层 fixture 防退化（112 个全 PASS）
+py -3 scripts/check_fixtures.py              # 53 节点 fixture
+py -3 scripts/check_edge_fixtures.py         # 10 边 fixture
+py -3 scripts/check_resolve_fixtures.py      # 3 跨文件 fixture
+py -3 -m shaderbase.preprocessor.tests.check_pv_fixtures  # 46 PV fixture
+
+# grammar corpus 回归（40 个全 PASS）
+cd g66-shader-grammar && npx tree-sitter test
+
+# PV 全量冒烟（1227 文件，0 crash）
+py -3 -m shaderbase.preprocessor.bench_pv_full
+```
 
 ## License
 
