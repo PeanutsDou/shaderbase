@@ -34,40 +34,27 @@ def create_mcp_app(db_path: str = "", default_project: str = "g66") -> FastAPI:
     row = cur.fetchone()
     app.state.root_path = row["root_path"] if row else ""
 
-    # ---- MCP 协议端点 ----
+    # ---- MCP 协议端点（Streamable HTTP + SSE 双兼容）----
+    # ZCode 新版用 Streamable HTTP：直接 POST JSON-RPC 到 url。
+    # 旧版用 SSE：GET /sse 建流，POST /messages 调用。
+    # 这里让 /sse、/messages、/ 三个路径都接受 GET 和 POST，
+    # GET 走 SSE 初始化流，POST 走 JSON-RPC 处理。
 
-    @app.get("/sse")
-    async def sse_endpoint(request: Request):
-        """SSE 端点 — 建立连接，发送 initialize 响应。
+    async def _sse_init_stream():
+        """SSE 初始化流（旧版客户端用 GET 建流）。"""
+        init_msg = {
+            "jsonrpc": "2.0",
+            "method": "initialize",
+            "params": {
+                "protocolVersion": "2024-11-05",
+                "serverInfo": {"name": "shaderbase", "version": "0.1.0"},
+                "capabilities": {"tools": {}},
+            },
+        }
+        yield f"event: message\ndata: {json.dumps(init_msg)}\n\n"
 
-        简化实现：用 SSE 发一个初始化消息，然后保持连接。
-        实际 MCP SSE 协议更复杂，这里用 POST /messages 处理工具调用。
-        """
-        session_id = str(uuid.uuid4())
-
-        async def event_stream():
-            # 发初始化事件
-            init_msg = {
-                "jsonrpc": "2.0",
-                "method": "initialize",
-                "params": {
-                    "protocolVersion": "2024-11-05",
-                    "serverInfo": {"name": "shaderbase", "version": "0.1.0"},
-                    "capabilities": {"tools": {}},
-                },
-            }
-            yield f"event: message\ndata: {json.dumps(init_msg)}\n\n"
-
-        return StreamingResponse(event_stream(), media_type="text/event-stream")
-
-    @app.post("/messages")
-    @app.post("/")
-    async def messages_endpoint(request: Request):
-        """处理 MCP JSON-RPC 请求。
-
-        同时挂载 /messages 和 /（根路径），兼容不同 MCP client 的请求路径。
-        """
-        body = await request.json()
+    async def _handle_jsonrpc(body: dict) -> JSONResponse:
+        """处理 MCP JSON-RPC 请求，返回 JSON 响应。"""
         method = body.get("method")
         req_id = body.get("id")
         params = body.get("params", {})
@@ -137,6 +124,42 @@ def create_mcp_app(db_path: str = "", default_project: str = "g66") -> FastAPI:
             "id": req_id,
             "error": {"code": -32601, "message": f"method not found: {method}"},
         })
+
+    # /sse：GET 走 SSE 流，POST 走 JSON-RPC（旧版 SSE 客户端兼容）
+    @app.get("/sse")
+    async def sse_get(request: Request):
+        return StreamingResponse(_sse_init_stream(), media_type="text/event-stream")
+
+    @app.post("/sse")
+    async def sse_post(request: Request):
+        body = await request.json()
+        return await _handle_jsonrpc(body)
+
+    # /mcp：Streamable HTTP 端点（POST JSON-RPC）
+    @app.post("/mcp")
+    async def mcp_post(request: Request):
+        body = await request.json()
+        return await _handle_jsonrpc(body)
+
+    @app.get("/mcp")
+    async def mcp_get(request: Request):
+        return {"status": "ok", "server": "shaderbase", "tools": len(TOOL_DEFINITIONS)}
+
+    # /messages：旧版 SSE 客户端的 POST 路径
+    @app.post("/messages")
+    async def messages_post(request: Request):
+        body = await request.json()
+        return await _handle_jsonrpc(body)
+
+    # /：根路径，Streamable HTTP 主端点（POST JSON-RPC）
+    @app.post("/")
+    async def root_post(request: Request):
+        body = await request.json()
+        return await _handle_jsonrpc(body)
+
+    @app.get("/")
+    async def root_get(request: Request):
+        return {"status": "ok", "server": "shaderbase", "tools": len(TOOL_DEFINITIONS)}
 
     # ---- 健康检查 ----
     @app.get("/health")
