@@ -1,19 +1,19 @@
-请帮我连接一个 MCP server，地址是本机局域网 IP 的 8001 端口 SSE 端点。
+请帮我连接一个 MCP server，地址是本机局域网 IP 的 8001 端口。
 
 操作步骤：
 
-1. 找到你的 MCP 配置文件。
+1. 找到你的 ZCode MCP 配置文件：C:\Users\<你的用户名>\.zcode\cli\config.json
 
-2. 在 MCP servers 配置里新增一条，名称为 "shaderbase"：
+2. 在 mcp.servers 里新增一条，名称为 "shaderbase"：
    - type: http
-   - url: http://<本机局域网IP>:8001/sse
+   - url: http://<本机局域网IP>:8001/mcp
    - enabled: true
 
    如果已有其他 MCP server 配置，不要删除或修改它们，只新增这一条。
 
 3. 配置写好后，读取配置文件确认 shaderbase 这条已正确写入。
 
-4. 提示我需要重启客户端才能让 MCP 生效。
+4. 提示我需要重启 ZCode 客户端才能让 MCP 生效。
 
 重启后，你可以通过 MCP 调用 shaderbase 的 15 个工具查询 shader 代码知识图谱。
 常用工具：

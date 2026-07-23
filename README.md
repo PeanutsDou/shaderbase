@@ -57,16 +57,20 @@ py -3 -m shaderbase.web --port 8000
 
 # MCP server（核心，端口 8001）
 py -3 -m shaderbase.mcp_server --host 127.0.0.1 --port 8001
-# MCP 端点：http://127.0.0.1:8001/sse
+# MCP 端点：http://127.0.0.1:8001/mcp
 
 # 给同事远程用（绑定 0.0.0.0）
 py -3 -m shaderbase.mcp_server --host 0.0.0.0 --port 8001
 # 放行防火墙：netsh advfirewall firewall add rule name="shaderbase MCP" dir=in action=allow protocol=TCP localport=8001
 ```
 
+MCP server 支持两种协议端点：
+- `/mcp`：Streamable HTTP（POST JSON-RPC，ZCode 新版用这个）
+- `/sse`：SSE 流 + POST /messages（旧版客户端兼容）
+
 ### 4. 配置 ZCode 连接 MCP
 
-编辑 `C:\Users\<用户名>\.zcode\v2\config.json`：
+编辑 `C:\Users\<用户名>\.zcode\cli\config.json`，在 `mcp.servers` 里加 `shaderbase`：
 
 ```json
 {
@@ -74,7 +78,7 @@ py -3 -m shaderbase.mcp_server --host 0.0.0.0 --port 8001
     "servers": {
       "shaderbase": {
         "type": "http",
-        "url": "http://127.0.0.1:8001/sse",
+        "url": "http://127.0.0.1:8001/mcp",
         "enabled": true
       }
     }
@@ -118,7 +122,7 @@ schtasks /create /tn "shaderbase sync" /tr "py -3 C:\path\to\scripts\cron_sync.p
 
 同事不需要装 Python / grammar / clone shader-source / 建图——全用服务器的。查到的 `file_path` 是相对路径（如 `base/animated_grass.nsf`），`get_code_snippet` 在服务端读源码返回文本，同事不需要本地有源码。
 
-同事只需在 ZCode 的 `config.json` 里加：
+同事只需在 ZCode 的 `C:\Users\<用户名>\.zcode\cli\config.json` 里加：
 
 ```json
 {
@@ -126,7 +130,7 @@ schtasks /create /tn "shaderbase sync" /tr "py -3 C:\path\to\scripts\cron_sync.p
     "servers": {
       "shaderbase": {
         "type": "http",
-        "url": "http://服务器IP:8001/sse",
+        "url": "http://服务器IP:8001/mcp",
         "enabled": true
       }
     }
